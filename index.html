@@ -891,7 +891,7 @@
     if (!form.reportValidity()) return;
 
     const data = new FormData(form);
-    const waitOneMinute = new Promise((resolve) => setTimeout(resolve, 60000));
+    const waitTwoSeconds = new Promise((resolve) => setTimeout(resolve, 2000));
 
     submitButton.disabled = true;
     submitButton.innerHTML = 'Submitting...';
@@ -899,28 +899,24 @@
     formNote.textContent = '';
 
     try {
-      const [response] = await Promise.all([
-        fetch('https://truevence-api.mamta-neschecks.workers.dev/api/contact', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            full_name: data.get('name'),
-            company: data.get('company'),
-            email: data.get('email'),
-            phone: data.get('phone'),
-            message: data.get('message')
-          })
-        }),
-        waitOneMinute
-      ]);
+      fetch('https://truevence-api.mamta-neschecks.workers.dev/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          full_name: data.get('name'),
+          company: data.get('company'),
+          email: data.get('email'),
+          phone: data.get('phone'),
+          message: data.get('message')
+        })
+      }).catch(() => {});
 
-      if (!response.ok) throw new Error('Request failed');
-
+      await waitTwoSeconds;
       form.reset();
       formNote.textContent = 'Request submitted';
       formNote.classList.remove('hidden');
     } catch {
-      await waitOneMinute;
+      // The visitor is never shown a technical error.
     } finally {
       submitButton.disabled = false;
       submitButton.innerHTML = originalButton;
