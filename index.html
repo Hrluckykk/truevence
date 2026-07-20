@@ -952,7 +952,17 @@ form.addEventListener('submit', async (e) => {
         Request Submitted
       </div>
     `;
+  } catch (err) {
+
+    formNote.style.color = '#dc2626';
+    formNote.textContent =
+      err.message || 'Something went wrong. Please try again later.';
+
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = originalText;
+
   }
+
 });
   /* ---------- Custom cursor: glass circle with rotating gradient edge ---------- */
   (function initCursor(){
