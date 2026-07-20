@@ -298,13 +298,6 @@
       </nav>
 
       <div class="hidden lg:flex items-center gap-3">
-        <div class="call-btn header-call-btn relative font-mono-ui text-[13px] font-semibold text-navy border border-ink/12 rounded-full h-[38px] w-[132px]">
-          <button type="button" class="call-label w-full h-full flex items-center justify-center gap-1.5 hover:text-violet transition-colors" aria-label="Show phone number">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            Call
-          </button>
-          <a href="tel:+918383091474" class="call-number hover:text-violet transition-colors">83830 91474</a>
-        </div>
         <a href="#contact" class="btn-primary font-display text-[13.5px] font-bold px-5 py-2.5 rounded-full">Request a Verification</a>
       </div>
 
@@ -324,13 +317,6 @@
       <a href="#faq" class="mobile-link">FAQ</a>
       <a href="#contact" class="mobile-link">Contact</a>
       <div class="grad-line"></div>
-      <div class="call-btn mobile-call-btn relative font-mono-ui text-sm w-[150px] h-9">
-        <button type="button" class="call-label w-full h-full flex items-center gap-1.5" aria-label="Show phone number">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          Call
-        </button>
-        <a href="tel:+918383091474" class="call-number !justify-start">83830 91474</a>
-      </div>
       <a href="mailto:Contact@truevence.in" class="font-mono-ui text-sm">Contact@truevence.in</a>
       <a href="#contact" class="btn-primary text-center font-display text-sm font-bold px-5 py-3 rounded-full">Request a Verification</a>
     </div>
@@ -783,13 +769,13 @@
           </div>
           <div>
             <label for="message" class="block font-mono-ui text-[11px] text-slate mb-2">WHAT DO YOU NEED VERIFIED?</label>
-            <textarea id="message" name="message" rows="4" placeholder="Tell us about the role and checks required..." class="w-full border border-ink/12 rounded-xl px-4 py-3 text-sm outline-none focus:border-violet transition-colors bg-paper/40 resize-none"></textarea>
+            <textarea required id="message" name="message" rows="4" placeholder="Tell us about the role and checks required..." class="w-full border border-ink/12 rounded-xl px-4 py-3 text-sm outline-none focus:border-violet transition-colors bg-paper/40 resize-none"></textarea>
           </div>
           <button type="submit" class="btn-primary w-full sm:w-auto font-display text-[15px] font-bold px-8 py-3.5 rounded-full inline-flex items-center justify-center gap-2">
             Send Request
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </button>
-          <p id="formNote" class="text-xs text-slate">This opens your email app with the details pre-filled, addressed to Contact@truevence.in.</p>
+          <p id="formNote" class="hidden text-xs text-slate" aria-live="polite"></p>
         </form>
       </div>
 
@@ -807,10 +793,10 @@
         </div>
         <p class="text-white/55 text-sm leading-relaxed max-w-xs">Trust. Verify. Empower. Background verification services built for HR teams who can't afford surprises.</p>
         <div class="flex items-center gap-3 mt-6">
-          <a href="#" aria-label="LinkedIn" class="w-9 h-9 rounded-full bg-white/8 hover:bg-violet flex items-center justify-center transition-colors">
+          <a href="https://www.linkedin.com/company/truevence/" aria-label="LinkedIn" class="w-9 h-9 rounded-full bg-white/8 hover:bg-violet flex items-center justify-center transition-colors">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="text-white"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.24 8.25h4.5V23H.24V8.25zM8.5 8.25h4.3v2.02h.06c.6-1.13 2.06-2.32 4.24-2.32 4.53 0 5.37 2.98 5.37 6.85V23h-4.5v-6.6c0-1.58-.03-3.6-2.2-3.6-2.2 0-2.54 1.72-2.54 3.5V23H8.5V8.25z"/></svg>
           </a>
-          <a href="#" aria-label="Instagram" class="w-9 h-9 rounded-full bg-white/8 hover:bg-violet flex items-center justify-center transition-colors">
+          <a href="https://www.instagram.com/truevence.in" aria-label="Instagram" class="w-9 h-9 rounded-full bg-white/8 hover:bg-violet flex items-center justify-center transition-colors">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="text-white"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>
           </a>
           <a href="#" aria-label="Facebook" class="w-9 h-9 rounded-full bg-white/8 hover:bg-violet flex items-center justify-center transition-colors">
@@ -893,24 +879,52 @@
     });
   });
 
-  /* Contact form -> mailto */
+  /* Contact form -> API */
   const form = document.getElementById('contactForm');
   const formNote = document.getElementById('formNote');
-  form.addEventListener('submit', (e) => {
+  const submitButton = form.querySelector('button[type="submit"]');
+  const originalButton = submitButton.innerHTML;
+
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
+
+    if (!form.reportValidity()) return;
+
     const data = new FormData(form);
-    const name = data.get('name') || '';
-    const company = data.get('company') || '';
-    const email = data.get('email') || '';
-    const phone = data.get('phone') || '';
-    const message = data.get('message') || '';
+    const waitOneMinute = new Promise((resolve) => setTimeout(resolve, 60000));
 
-    const subject = `Verification Request from ${name}${company ? ' (' + company + ')' : ''}`;
-    const body =
-      `Name: ${name}\nCompany: ${company}\nEmail: ${email}\nPhone: ${phone}\n\nDetails:\n${message}`;
+    submitButton.disabled = true;
+    submitButton.innerHTML = 'Submitting...';
+    formNote.classList.add('hidden');
+    formNote.textContent = '';
 
-    window.location.href = `mailto:Contact@truevence.in?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    formNote.textContent = "Opening your email app... if nothing happens, email us directly at Contact@truevence.in.";
+    try {
+      const [response] = await Promise.all([
+        fetch('https://truevence-api.mamta-neschecks.workers.dev/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            full_name: data.get('name'),
+            company: data.get('company'),
+            email: data.get('email'),
+            phone: data.get('phone'),
+            message: data.get('message')
+          })
+        }),
+        waitOneMinute
+      ]);
+
+      if (!response.ok) throw new Error('Request failed');
+
+      form.reset();
+      formNote.textContent = 'Request submitted';
+      formNote.classList.remove('hidden');
+    } catch {
+      await waitOneMinute;
+    } finally {
+      submitButton.disabled = false;
+      submitButton.innerHTML = originalButton;
+    }
   });
 
   /* ---------- Custom cursor: glass circle with rotating gradient edge ---------- */
