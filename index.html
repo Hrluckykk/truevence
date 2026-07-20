@@ -945,6 +945,17 @@ form.addEventListener('submit', async (e) => {
     // Remove any visible success/error message
     formNote.textContent = "";
 
+// Ensure you have an async event listener or function wrapping this
+document.getElementById('myForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  const submitBtn = document.getElementById('submitBtn');
+  const formNote = document.getElementById('formNote');
+
+  try {
+    // Your API call / async operation here
+    // await fetch('/api/submit', { ... });
+
     // Replace the button with success text
     submitBtn.outerHTML = `
       <div class="w-full text-center py-3 rounded-xl bg-green-100 text-green-700 font-semibold">
@@ -953,7 +964,6 @@ form.addEventListener('submit', async (e) => {
     `;
 
   } catch (err) {
-
     // Hide backend errors from the user
     formNote.textContent = "";
 
@@ -963,8 +973,8 @@ form.addEventListener('submit', async (e) => {
         Request Submitted
       </div>
     `;
-
-  }});
+  }
+}); // Properly closes the addEventListener function
   /* ---------- Custom cursor: glass circle with rotating gradient edge ---------- */
   (function initCursor(){
     const isFinePointer = window.matchMedia('(pointer: fine)').matches;
