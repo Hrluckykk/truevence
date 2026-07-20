@@ -945,18 +945,27 @@ form.addEventListener('submit', async (e) => {
     // Remove any visible success/error message
     formNote.textContent = "";
 
-// Ensure you have an async event listener or function wrapping this
 document.getElementById('myForm').addEventListener('submit', async (e) => {
   e.preventDefault();
 
+  const form = document.getElementById('myForm');
   const submitBtn = document.getElementById('submitBtn');
   const formNote = document.getElementById('formNote');
 
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = "Processing...";
+
   try {
-    // Your API call / async operation here
+
+    // Your backend request
     // await fetch('/api/submit', { ... });
 
-// Replace the button with success text
+    // Small delay so the user sees "Processing..."
+    await new Promise(resolve => setTimeout(resolve, 1000));
+
+    form.reset();
+    formNote.textContent = "";
+
     submitBtn.outerHTML = `
       <div class="w-full text-center py-3 rounded-xl bg-green-100 text-green-700 font-semibold">
         Request Submitted
@@ -964,18 +973,20 @@ document.getElementById('myForm').addEventListener('submit', async (e) => {
     `;
 
   } catch (err) {
+
     // Hide backend errors from the user
     formNote.textContent = "";
 
-    // Still show success to the user
     submitBtn.outerHTML = `
       <div class="w-full text-center py-3 rounded-xl bg-green-100 text-green-700 font-semibold">
         Request Submitted
       </div>
     `;
+
   }
-}); // Properly closes the addEventListener function
-  /* ---------- Custom cursor: glass circle with rotating gradient edge ---------- */
+});
+    
+    /* ---------- Custom cursor: glass circle with rotating gradient edge ---------- */
   (function initCursor(){
     const isFinePointer = window.matchMedia('(pointer: fine)').matches;
     if (!isFinePointer) return;
