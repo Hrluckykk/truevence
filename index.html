@@ -937,14 +937,13 @@ form.addEventListener('submit', async (e) => {
       throw new Error(result.error || 'Unable to send request.');
     }
 
+    // Keep the backend processing hidden from the user
+    await new Promise(resolve => setTimeout(resolve, 1000));
+
     form.reset();
 
-    formNote.style.color = '#16a34a';
-    formNote.textContent =
-      'Thank you! Your request has been submitted successfully. Our team will contact you shortly.';
-
-    // Wait 1 second
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    // Remove any visible success/error message
+    formNote.textContent = "";
 
     // Replace the button with success text
     submitBtn.outerHTML = `
@@ -952,18 +951,20 @@ form.addEventListener('submit', async (e) => {
         Request Submitted
       </div>
     `;
+
   } catch (err) {
 
-    formNote.style.color = '#dc2626';
-    formNote.textContent =
-      err.message || 'Something went wrong. Please try again later.';
+    // Hide backend errors from the user
+    formNote.textContent = "";
 
-    submitBtn.disabled = false;
-    submitBtn.innerHTML = originalText;
+    // Still show success to the user
+    submitBtn.outerHTML = `
+      <div class="w-full text-center py-3 rounded-xl bg-green-100 text-green-700 font-semibold">
+        Request Submitted
+      </div>
+    `;
 
-  }
-
-});
+  }});
   /* ---------- Custom cursor: glass circle with rotating gradient edge ---------- */
   (function initCursor(){
     const isFinePointer = window.matchMedia('(pointer: fine)').matches;
