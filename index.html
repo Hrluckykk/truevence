@@ -899,26 +899,63 @@
     });
   });
 
-  /* Contact form -> mailto */
-  const form = document.getElementById('contactForm');
-  const formNote = document.getElementById('formNote');
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const data = new FormData(form);
-    const name = data.get('name') || '';
-    const company = data.get('company') || '';
-    const email = data.get('email') || '';
-    const phone = data.get('phone') || '';
-    const message = data.get('message') || '';
+ /* ---------- Contact form -> API ---------- */
+const form = document.getElementById('contactForm');
+const formNote = document.getElementById('formNote');
 
-    const subject = `Verification Request from ${name}${company ? ' (' + company + ')' : ''}`;
-    const body =
-      `Name: ${name}\nCompany: ${company}\nEmail: ${email}\nPhone: ${phone}\n\nDetails:\n${message}`;
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
 
-    window.location.href = `mailto:Contact@truevence.in?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    formNote.textContent = "Opening your email app... if nothing happens, email us directly at Contact@truevence.in.";
-  });
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const originalText = submitBtn.innerHTML;
 
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = 'Sending...';
+
+  const data = new FormData(form);
+
+  const payload = {
+    full_name: data.get('name') || '',
+    company: data.get('company') || '',
+    email: data.get('email') || '',
+    phone: data.get('phone') || '',
+    message: data.get('message') || ''
+  };
+
+  try {
+    const response = await fetch('https://truevence-api.mamta-neschecks.workers.dev/api/contact', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(payload)
+    });
+
+    const result = await response.json();
+
+    if (!response.ok) {
+      throw new Error(result.error || 'Unable to send request.');
+    }
+
+    form.reset();
+
+    formNote.style.color = '#16a34a';
+    formNote.textContent =
+      'Thank you! Your request has been submitted successfully. Our team will contact you shortly.';
+
+  } catch (err) {
+
+    formNote.style.color = '#dc2626';
+    formNote.textContent =
+      err.message || 'Something went wrong. Please try again later.';
+
+  } finally {
+
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = originalText;
+
+  }
+});
   /* ---------- Custom cursor: glass circle with rotating gradient edge ---------- */
   (function initCursor(){
     const isFinePointer = window.matchMedia('(pointer: fine)').matches;
