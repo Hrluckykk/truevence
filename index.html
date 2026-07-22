@@ -245,15 +245,6 @@
   }
   @keyframes marquee{ from{ transform: translateX(0);} to{ transform: translateX(-50%);} }
 
-  .faq-icon{ transition: transform .25s ease; }
-  .faq-item.open .faq-icon{ transform: rotate(45deg); }
-  .faq-a{
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height .3s ease, padding .3s ease;
-  }
-  .faq-item.open .faq-a{ max-height: 300px; padding-bottom: 1.5rem; }
-
   .call-btn{ position: relative; overflow: hidden; }
   .call-btn .call-label,
   .call-btn .call-number{
@@ -267,41 +258,6 @@
   }
   .call-btn.revealed .call-label{ opacity: 0; transform: translateY(-6px); }
   .call-btn.revealed .call-number{ opacity: 1; transform: translateY(0); pointer-events: auto; }
-
-  .founder-photo-ring{
-    width: 88px; height: 88px;
-    border-radius: 9999px;
-    padding: 3px;
-    background: linear-gradient(135deg, var(--navy), var(--violet), var(--lavender));
-    display: flex; align-items: center; justify-content: center;
-  }
-  .founder-photo-inner{
-    width: 100%; height: 100%;
-    border-radius: 9999px;
-    background: #fff;
-    display: flex; align-items: center; justify-content: center;
-    overflow: hidden;
-  }
-
-  .founder-card{ position:relative; }
-  .founder-card .ring-sweep{
-    position:absolute; inset:-1px; border-radius: 20px;
-    background: conic-gradient(from 0deg, var(--violet), var(--lavender), var(--navy), var(--violet));
-    opacity:0; transition: opacity .4s ease;
-    animation: spin-ring 4s linear infinite;
-    z-index:0;
-  }
-  .founder-card:hover .ring-sweep{ opacity: 1; }
-  .founder-card .card-inner{ position:relative; z-index:1; }
-
-  .svc-card{ transition: transform .35s cubic-bezier(.2,.9,.3,1), box-shadow .35s ease, border-color .35s ease; }
-  .svc-card:hover{ transform: translateY(-6px); box-shadow: 0 24px 50px -20px rgba(19,27,69,0.22); border-color: rgba(124,58,237,.35); }
-
-  .process-num{
-    font-family:'IBM Plex Mono', monospace;
-    -webkit-text-stroke: 1.4px var(--violet);
-    color: transparent;
-  }
 
   @media (prefers-reduced-motion: reduce){
     *{ animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
@@ -323,26 +279,25 @@
 <div class="cursor-ring" aria-hidden="true"></div>
 <div class="cursor-core" aria-hidden="true"></div>
 
-<!-- ============ NAVBAR ============ -->
+<!-- ============ NAVBAR (updated links to separate pages) ============ -->
 <header class="fixed top-0 left-0 right-0 z-50 nav-glass">
   <div class="max-w-7xl mx-auto px-5 md:px-8">
     <div class="flex items-center justify-between h-[76px]">
-      <a href="#top" class="flex items-center gap-2 shrink-0">
-        <!-- REPLACED base64 with hosted image -->
+      <a href="index.html" class="flex items-center gap-2 shrink-0">
         <img src="https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/ChatGPT%20Image%20Jul%2018%2C%202026%2C%2009_59_12%20PM.png" alt="Truevence" class="h-11 md:h-12 w-auto">
       </a>
 
       <nav class="hidden lg:flex items-center gap-9 font-display text-[14px] font-semibold tracking-wide text-navy">
-        <a href="#services" class="hover:text-violet transition-colors">Services</a>
-        <a href="#process" class="hover:text-violet transition-colors">Process</a>
-        <a href="#about" class="hover:text-violet transition-colors">Why Us</a>
-        <a href="#founders" class="hover:text-violet transition-colors">Founders</a>
-        <a href="#faq" class="hover:text-violet transition-colors">FAQ</a>
-        <a href="#contact" class="hover:text-violet transition-colors">Contact</a>
+        <a href="index.html" class="hover:text-violet transition-colors font-bold text-violet">Home</a>
+        <a href="services.html" class="hover:text-violet transition-colors">Services</a>
+        <a href="process.html" class="hover:text-violet transition-colors">Process</a>
+        <a href="about.html" class="hover:text-violet transition-colors">Why Us</a>
+        <a href="faq.html" class="hover:text-violet transition-colors">FAQ</a>
+        <a href="contact.html" class="hover:text-violet transition-colors">Contact</a>
       </nav>
 
       <div class="hidden lg:flex items-center gap-3">
-        <a href="#contact" class="btn-primary font-display text-[13.5px] font-bold px-5 py-2.5 rounded-full">Request a Verification</a>
+        <a href="contact.html" class="btn-primary font-display text-[13.5px] font-bold px-5 py-2.5 rounded-full">Request a Verification</a>
       </div>
 
       <button id="menuBtn" class="lg:hidden text-navy" aria-label="Open menu" aria-expanded="false">
@@ -354,15 +309,15 @@
   <!-- Mobile menu -->
   <div id="mobileMenu" class="lg:hidden hidden border-t border-ink/10 bg-paper">
     <div class="px-6 py-6 flex flex-col gap-5 font-display font-semibold text-navy">
-      <a href="#services" class="mobile-link">Services</a>
-      <a href="#process" class="mobile-link">Process</a>
-      <a href="#about" class="mobile-link">Why Us</a>
-      <a href="#founders" class="mobile-link">Founders</a>
-      <a href="#faq" class="mobile-link">FAQ</a>
-      <a href="#contact" class="mobile-link">Contact</a>
+      <a href="index.html" class="mobile-link">Home</a>
+      <a href="services.html" class="mobile-link">Services</a>
+      <a href="process.html" class="mobile-link">Process</a>
+      <a href="about.html" class="mobile-link">Why Us</a>
+      <a href="faq.html" class="mobile-link">FAQ</a>
+      <a href="contact.html" class="mobile-link">Contact</a>
       <div class="grad-line"></div>
       <a href="mailto:Contact@truevence.in" class="font-mono-ui text-sm">Contact@truevence.in</a>
-      <a href="#contact" class="btn-primary text-center font-display text-sm font-bold px-5 py-3 rounded-full">Request a Verification</a>
+      <a href="contact.html" class="btn-primary text-center font-display text-sm font-bold px-5 py-3 rounded-full">Request a Verification</a>
     </div>
   </div>
 </header>
@@ -392,7 +347,7 @@
         </p>
 
         <div class="mt-9 flex flex-wrap items-center gap-4">
-          <a href="#contact" class="btn-primary font-display text-[15px] font-bold px-7 py-3.5 rounded-full inline-flex items-center gap-2">
+          <a href="contact.html" class="btn-primary font-display text-[15px] font-bold px-7 py-3.5 rounded-full inline-flex items-center gap-2">
             Request a Verification
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
@@ -425,7 +380,6 @@
         <div class="id-card dark-scan-grid p-7 md:p-9 max-w-md mx-auto">
           <div class="flex items-center justify-between mb-8">
             <div class="flex items-center gap-2">
-              <!-- REPLACED base64 with hosted image -->
               <img src="https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/ChatGPT%20Image%20Jul%2018%2C%202026%2C%2009_59_12%20PM.png" alt="Truevence mark" class="h-6 w-auto opacity-95">
             </div>
             <span class="font-mono-ui text-[10px] tracking-widest text-violetlt/80 border border-violetlt/30 rounded-full px-2.5 py-1">CASE #TV-2026</span>
@@ -497,9 +451,7 @@
   </div>
 </section>
 
-
-
-<!-- ============ CTA BANNER ============ -->
+<!-- ============ CTA BANNER (updated link to contact.html) ============ -->
 <section class="py-20 bg-ink relative overflow-hidden dark-scan-grid">
   <div class="pointer-events-none absolute -bottom-24 left-1/2 -translate-x-1/2 w-[600px] h-[300px] rounded-full bg-violet/20 blur-3xl"></div>
   <div class="max-w-4xl mx-auto px-5 md:px-8 text-center relative" data-aos="zoom-in">
@@ -508,13 +460,13 @@
     </h2>
     <p class="mt-4 text-white/60 max-w-xl mx-auto">Share who is joining the team, and we'll take it from consent to completed report.</p>
     <div class="mt-9 flex flex-wrap items-center justify-center gap-4">
-      <a href="#contact" class="bg-white text-ink font-display text-[15px] font-bold px-7 py-3.5 rounded-full hover:bg-lavender transition-colors">Request a Verification</a>
+      <a href="contact.html" class="bg-white text-ink font-display text-[15px] font-bold px-7 py-3.5 rounded-full hover:bg-lavender transition-colors">Request a Verification</a>
       <a href="mailto:Contact@truevence.in" class="font-display text-[15px] font-bold px-7 py-3.5 rounded-full border-2 border-white/25 text-white hover:border-violetlt hover:text-violetlt transition-colors">Contact@truevence.in</a>
     </div>
   </div>
 </section>
 
-<!-- ============ FOOTER ============ -->
+<!-- ============ FOOTER (updated links) ============ -->
 <footer class="bg-ink text-white pt-16 pb-8 dark-scan-grid">
   <div class="max-w-7xl mx-auto px-5 md:px-8">
     <div class="grid md:grid-cols-4 gap-10 pb-12 border-b border-white/10">
@@ -541,12 +493,13 @@
       <div>
         <h4 class="font-mono-ui text-[11px] tracking-widest text-white/40 mb-4">NAVIGATE</h4>
         <ul class="space-y-2.5 text-sm text-white/70">
-          <li><a href="#services" class="hover:text-violetlt transition-colors">Services</a></li>
-          <li><a href="#process" class="hover:text-violetlt transition-colors">Process</a></li>
-          <li><a href="#about" class="hover:text-violetlt transition-colors">Why Us</a></li>
-          <li><a href="#founders" class="hover:text-violetlt transition-colors">Founders</a></li>
-          <li><a href="#faq" class="hover:text-violetlt transition-colors">FAQ</a></li>
-          <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="index.html" class="hover:text-violetlt transition-colors">Home</a></li>
+          <li><a href="services.html" class="hover:text-violetlt transition-colors">Services</a></li>
+          <li><a href="process.html" class="hover:text-violetlt transition-colors">Process</a></li>
+          <li><a href="about.html" class="hover:text-violetlt transition-colors">Why Us</a></li>
+          <li><a href="faq.html" class="hover:text-violetlt transition-colors">FAQ</a></li>
+          <li><a href="contact.html" class="hover:text-violetlt transition-colors">Contact</a></li>
+          <li><a href="privacy-policy.html" class="hover:text-violetlt transition-colors">Privacy Policy</a></li>
         </ul>
       </div>
       <div>
@@ -570,13 +523,6 @@
 <script>
   AOS.init({ duration: 700, once: true, easing: 'ease-out-cubic', offset: 40 });
   document.getElementById('year').textContent = new Date().getFullYear();
-
-  /* FAQ accordion */
-  document.querySelectorAll('.faq-item').forEach((item) => {
-    item.querySelector('.faq-q').addEventListener('click', () => {
-      item.classList.toggle('open');
-    });
-  });
 
   /* Call buttons */
   document.querySelectorAll('.call-btn').forEach((wrap) => {
@@ -611,45 +557,14 @@
     });
   });
 
-  /* Contact form */
-  const form = document.getElementById('contactForm');
-  const formNote = document.getElementById('formNote');
-  const submitButton = form.querySelector('button[type="submit"]');
-  const originalButton = submitButton.innerHTML;
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    if (!form.reportValidity()) return;
-    const data = new FormData(form);
-    const waitTwoSeconds = new Promise((resolve) => setTimeout(resolve, 2000));
-    submitButton.disabled = true;
-    submitButton.innerHTML = 'Submitting...';
-    formNote.classList.add('hidden');
-    formNote.textContent = '';
-
-    try {
-      fetch('https://truevence-api.mamta-neschecks.workers.dev/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          full_name: data.get('name'),
-          company: data.get('company'),
-          email: data.get('email'),
-          phone: data.get('phone'),
-          message: data.get('message')
-        })
-      }).catch(() => {});
-      await waitTwoSeconds;
-      form.reset();
-      formNote.textContent = 'Request submitted';
-      formNote.classList.remove('hidden');
-    } catch {
-      // silent
-    } finally {
-      submitButton.disabled = false;
-      submitButton.innerHTML = originalButton;
-    }
-  });
+  /* Cookie consent */
+  function acceptCookies() {
+    document.getElementById('cookieConsent').style.display = 'none';
+    localStorage.setItem('cookieConsent', 'true');
+  }
+  if (localStorage.getItem('cookieConsent') === 'true') {
+    document.getElementById('cookieConsent')?.remove();
+  }
 
   /* Custom cursor */
   (function initCursor(){
@@ -686,15 +601,6 @@
     window.addEventListener('mouseleave', () => document.body.classList.remove('cursor-ready'));
     window.addEventListener('mouseenter', () => document.body.classList.add('cursor-ready'));
   })();
-  function acceptCookies() {
-  document.getElementById('cookieConsent').style.display = 'none';
-  localStorage.setItem('cookieConsent', 'true');
-}
-
-// Check if previously accepted
-if (localStorage.getItem('cookieConsent') === 'true') {
-  document.getElementById('cookieConsent')?.remove();
-}
 </script>
 </body>
 </html>
