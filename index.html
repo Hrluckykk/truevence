@@ -310,6 +310,15 @@
 </head>
 <body class="bg-paper text-ink antialiased">
 
+  <!-- Cookie Consent Banner -->
+<div id="cookieConsent" style="position:fixed; bottom:0; left:0; right:0; background: var(--ink); color: white; padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; z-index: 9999; font-family: 'Inter', sans-serif; box-shadow: 0 -4px 20px rgba(0,0,0,0.3);">
+  <p style="margin:0; font-size: 14px; flex:1; padding-right: 20px;">
+    We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.
+    <a href="/privacy-policy.html" style="color: var(--violetlt); text-decoration: underline;">Learn more</a>
+  </p>
+  <button onclick="acceptCookies()" style="background: var(--violet); color: white; border: none; padding: 10px 22px; border-radius: 999px; font-weight: 700; cursor: pointer; font-size: 14px;">Accept</button>
+</div>
+
 <!-- Custom cursor -->
 <div class="cursor-ring" aria-hidden="true"></div>
 <div class="cursor-core" aria-hidden="true"></div>
@@ -987,6 +996,15 @@
     window.addEventListener('mouseleave', () => document.body.classList.remove('cursor-ready'));
     window.addEventListener('mouseenter', () => document.body.classList.add('cursor-ready'));
   })();
+  function acceptCookies() {
+  document.getElementById('cookieConsent').style.display = 'none';
+  localStorage.setItem('cookieConsent', 'true');
+}
+
+// Check if previously accepted
+if (localStorage.getItem('cookieConsent') === 'true') {
+  document.getElementById('cookieConsent')?.remove();
+}
 </script>
 </body>
 </html>
