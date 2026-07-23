@@ -1,3 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cookie Policy – Truevence</title>
+<meta name="description" content="Learn how Truevence uses cookies, what types we use, and how you can control them. Essential, performance, and functionality cookies explained.">
+<meta name="keywords" content="cookie policy, Truevence cookies, website cookies, manage cookies, essential cookies, analytics cookies">
+
+<!-- Open Graph / Social -->
+<meta property="og:title" content="Cookie Policy – Truevence">
+<meta property="og:description" content="Learn how we use cookies and manage your preferences.">
+<meta property="og:url" content="https://www.truevence.in/cookie-policy">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/ChatGPT%20Image%20Jul%2018%2C%202026%2C%2009_59_12%20PM.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cookie Policy – Truevence">
+<meta name="twitter:description" content="Learn how we use cookies and manage your preferences.">
+<meta name="twitter:image" content="https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/ChatGPT%20Image%20Jul%2018%2C%202026%2C%2009_59_12%20PM.png">
+
+<!-- Canonical -->
+<link rel="canonical" href="https://www.truevence.in/cookie-policy">
+
+<!-- BreadcrumbList Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.truevence.in/" },
+    { "@type": "ListItem", "position": 2, "name": "Cookie Policy", "item": "https://www.truevence.in/cookie-policy" }
+  ]
+}
+</script>
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192.png">
+<link rel="apple-touch-icon" href="/assets/favicon-192.png">
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          ink:      '#0B1230',
+          navy:     '#131B45',
+          navylite: '#1E2A5E',
+          violet:   '#7C3AED',
+          violetlt: '#A78BFA',
+          lavender: '#C9BEFB',
+          paper:    '#F7F7FB',
+          paperdim: '#EFEEF9',
+          slate:    '#545A78',
+        },
+        fontFamily: {
+          display: ['"Plus Jakarta Sans"', 'sans-serif'],
+          body: ['"Inter"', 'sans-serif'],
+          mono: ['"IBM Plex Mono"', 'monospace'],
+        },
+      }
+    }
+  }
+</script>
+
+<!-- AOS -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+<style>
+  /* ========== ALL YOUR EXISTING CSS – UNCHANGED ========== */
+  :root{
+    --ink:#0B1230; --navy:#131B45; --navylite:#1E2A5E;
+    --violet:#7C3AED; --violetlt:#A78BFA; --lavender:#C9BEFB;
+    --paper:#F7F7FB;
+    --angle: 0deg;
+  }
+  @property --angle{
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+  }
+  *{ scroll-behavior: smooth; }
+  html, body{ background: var(--paper); }
+  body{ font-family: 'Inter', sans-serif; color: var(--ink); overflow-x:hidden; }
+  h1,h2,h3,h4,.font-display{ font-family: 'Plus Jakarta Sans', sans-serif; }
+  .font-mono-ui{ font-family: 'IBM Plex Mono', monospace; }
+
+  ::selection{ background: var(--violet); color:#fff; }
+
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{
+    outline: 2px solid var(--violet);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  @media (pointer: fine){
+    body.custom-cursor, body.custom-cursor a, body.custom-cursor button,
+    body.custom-cursor input, body.custom-cursor textarea, body.custom-cursor label{
+      cursor: none;
+    }
+  }
+  .cursor-ring{
+    position: fixed; top:0; left:0; width:42px; height:42px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-100px,-100px);
+    background: conic-gradient(from var(--angle), var(--navy), var(--violet), var(--lavender), var(--violetlt), var(--navy));
+    -webkit-mask-image: radial-gradient(circle, transparent 62%, black 64%, black 100%);
+            mask-image: radial-gradient(circle, transparent 62%, black 64%, black 100%);
+    animation: spin-ring 1.1s linear infinite;
+    transition: width .18s cubic-bezier(.2,.9,.3,1.3), height .18s cubic-bezier(.2,.9,.3,1.3), opacity .2s ease;
+    opacity: 0;
+    will-change: transform;
+  }
+  .cursor-core{
+    position: fixed; top:0; left:0; width:16px; height:16px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-100px,-100px);
+    background: rgba(255,255,255,0.14);
+    backdrop-filter: blur(3px);
+    border: 1px solid rgba(255,255,255,.55);
+    box-shadow: 0 0 12px rgba(124,58,237,.35);
+    transition: width .16s cubic-bezier(.2,.9,.3,1.3), height .16s cubic-bezier(.2,.9,.3,1.3), opacity .2s ease, background .2s ease;
+    opacity: 0;
+  }
+  body.cursor-ready .cursor-ring, body.cursor-ready .cursor-core{ opacity: 1; }
+  body.cursor-active .cursor-ring{ width: 64px; height: 64px; }
+  body.cursor-active .cursor-core{ width: 10px; height: 10px; background: var(--violet); box-shadow: 0 0 18px rgba(124,58,237,.55); }
+  @keyframes spin-ring{ to{ --angle: 360deg; } }
+
+  .nav-glass{
+    background: rgba(247,247,251,0.72);
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    border-bottom: 1px solid rgba(19,27,69,0.06);
+  }
+
+  .grad-text{
+    background: linear-gradient(100deg, var(--navy) 10%, var(--violet) 55%, var(--violetlt) 90%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .grad-line{
+    background: linear-gradient(90deg, transparent, var(--violet), transparent);
+    height: 1px;
+  }
+  .btn-primary{
+    background: var(--ink);
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .btn-primary::before{
+    content:'';
+    position:absolute; inset:0;
+    background: linear-gradient(100deg, var(--navy), var(--violet));
+    transform: translateX(-101%);
+    transition: transform .45s cubic-bezier(.2,.9,.3,1);
+    z-index:-1;
+  }
+  .btn-primary:hover::before{ transform: translateX(0); }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+  }
+</style>
+</head>
+<body class="bg-paper text-ink antialiased">
+
+<!-- Cookie Consent Banner -->
+<div id="cookieConsent" style="position:fixed; bottom:0; left:0; right:0; background: var(--ink); color: white; padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; z-index: 9999; font-family: 'Inter', sans-serif; box-shadow: 0 -4px 20px rgba(0,0,0,0.3);">
+  <p style="margin:0; font-size: 14px; flex:1; padding-right: 20px;">
+    We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.
+    <a href="/cookie-policy" style="color: var(--violetlt); text-decoration: underline;">Learn more</a>
+  </p>
+  <button onclick="acceptCookies()" style="background: var(--violet); color: white; border: none; padding: 10px 22px; border-radius: 999px; font-weight: 700; cursor: pointer; font-size: 14px;">Accept</button>
+</div>
+
+<!-- Custom cursor -->
+<div class="cursor-ring" aria-hidden="true"></div>
+<div class="cursor-core" aria-hidden="true"></div>
+
+<!-- ============ NAVBAR (same as other pages) ============ -->
+<header class="fixed top-0 left-0 right-0 z-50 nav-glass">
+  <div class="max-w-7xl mx-auto px-5 md:px-8">
+    <div class="flex items-center justify-between h-[76px]">
+      <a href="/" class="flex items-center gap-2 shrink-0">
+        <img src="https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/ChatGPT%20Image%20Jul%2018%2C%202026%2C%2009_59_12%20PM.png" alt="Truevence background verification company logo" class="h-11 md:h-12 w-auto">
+      </a>
+
+      <nav class="hidden lg:flex items-center gap-9 font-display text-[14px] font-semibold tracking-wide text-navy">
+        <a href="/services" class="hover:text-violet transition-colors">Services</a>
+        <a href="/process" class="hover:text-violet transition-colors">Process</a>
+        <a href="/about" class="hover:text-violet transition-colors">Why Us</a>
+        <a href="/faq" class="hover:text-violet transition-colors">FAQ</a>
+        <a href="/contact" class="hover:text-violet transition-colors">Contact</a>
+      </nav>
+
+      <div class="hidden lg:flex items-center gap-3">
+        <a href="/contact" class="btn-primary font-display text-[13.5px] font-bold px-5 py-2.5 rounded-full">Request a Verification</a>
+      </div>
+
+      <button id="menuBtn" class="lg:hidden text-navy" aria-label="Open menu" aria-expanded="false">
+        <svg id="iconMenu" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobileMenu" class="lg:hidden hidden border-t border-ink/10 bg-paper">
+    <div class="px-6 py-6 flex flex-col gap-5 font-display font-semibold text-navy">
+      <a href="/services" class="mobile-link">Services</a>
+      <a href="/process" class="mobile-link">Process</a>
+      <a href="/about" class="mobile-link">Why Us</a>
+      <a href="/faq" class="mobile-link">FAQ</a>
+      <a href="/contact" class="mobile-link">Contact</a>
+      <div class="grad-line"></div>
+      <a href="mailto:Contact@truevence.in" class="font-mono-ui text-sm">Contact@truevence.in</a>
+      <a href="/contact" class="btn-primary text-center font-display text-sm font-bold px-5 py-3 rounded-full">Request a Verification</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ MAIN CONTENT (Cookie Policy) ============ -->
 <main class="pt-[130px] pb-20 max-w-4xl mx-auto px-5 md:px-8">
   <h1 class="font-display font-extrabold text-3xl sm:text-4xl mt-3 mb-8">Cookie Policy</h1>
   <p class="text-slate leading-relaxed mb-6"><strong>Last updated:</strong> 22 July 2026</p>
@@ -21,3 +255,142 @@
   <h2 class="font-display font-bold text-xl mt-8 mb-4">5. Contact</h2>
   <p class="text-slate leading-relaxed">For questions about this policy, email <a href="mailto:Contact@truevence.in" class="text-violet underline">Contact@truevence.in</a>.</p>
 </main>
+
+<!-- ============ FOOTER (consistent with other pages) ============ -->
+<footer class="bg-ink text-white pt-16 pb-8 dark-scan-grid">
+  <div class="max-w-7xl mx-auto px-5 md:px-8">
+    <div class="grid md:grid-cols-4 gap-10 pb-12 border-b border-white/10">
+      <div class="md:col-span-2">
+        <div class="flex items-center gap-2 mb-4">
+          <span class="font-display font-extrabold text-xl tracking-tight">TRUEV<span class="text-violetlt">E</span>NCE</span>
+        </div>
+        <p class="text-white/55 text-sm leading-relaxed max-w-xs">Trust. Verify. Empower. Background verification services built for HR teams who can't afford surprises.</p>
+        <div class="flex items-center gap-3 mt-6">
+          <a href="https://www.linkedin.com/company/truevence/" aria-label="LinkedIn" class="w-9 h-9 rounded-full bg-white/8 hover:bg-violet flex items-center justify-center transition-colors">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="text-white"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.24 8.25h4.5V23H.24V8.25zM8.5 8.25h4.3v2.02h.06c.6-1.13 2.06-2.32 4.24-2.32 4.53 0 5.37 2.98 5.37 6.85V23h-4.5v-6.6c0-1.58-.03-3.6-2.2-3.6-2.2 0-2.54 1.72-2.54 3.5V23H8.5V8.25z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/truevence.in" aria-label="Instagram" class="w-9 h-9 rounded-full bg-white/8 hover:bg-violet flex items-center justify-center transition-colors">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="text-white"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="#" aria-label="Facebook" class="w-9 h-9 rounded-full bg-white/8 hover:bg-violet flex items-center justify-center transition-colors">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="text-white"><path d="M13.5 22v-8.5H16l.4-3.4h-2.9V7.9c0-1 .27-1.6 1.7-1.6H16.5V3.3c-.28-.04-1.25-.13-2.37-.13-2.35 0-3.96 1.43-3.96 4.06v2.87H7.7v3.4h2.47V22h3.33z"/></svg>
+          </a>
+          <a href="#" aria-label="X (Twitter)" class="w-9 h-9 rounded-full bg-white/8 hover:bg-violet flex items-center justify-center transition-colors">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" class="text-white"><path d="M18.9 2H22l-7.6 8.7L23.3 22h-7.2l-5.6-6.9L4 22H1l8.1-9.3L.8 2h7.4l5.1 6.3L18.9 2zm-1.3 18h1.7L7.5 4H5.6l12 16z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <h4 class="font-mono-ui text-[11px] tracking-widest text-white/40 mb-4">NAVIGATE</h4>
+        <ul class="space-y-2.5 text-sm text-white/70">
+          <li><a href="/" class="hover:text-violetlt transition-colors">Home</a></li>
+          <li><a href="/services" class="hover:text-violetlt transition-colors">Services</a></li>
+          <li><a href="/process" class="hover:text-violetlt transition-colors">Process</a></li>
+          <li><a href="/about" class="hover:text-violetlt transition-colors">Why Us</a></li>
+          <li><a href="/faq" class="hover:text-violetlt transition-colors">FAQ</a></li>
+          <li><a href="/contact" class="hover:text-violetlt transition-colors">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-mono-ui text-[11px] tracking-widest text-white/40 mb-4">LEGAL</h4>
+        <ul class="space-y-2.5 text-sm text-white/70">
+          <li><a href="/terms-of-service" class="hover:text-violetlt">Terms of Service</a></li>
+          <li><a href="/privacy-policy" class="hover:text-violetlt">Privacy Policy</a></li>
+          <li><a href="/cookie-policy" class="hover:text-violetlt">Cookie Policy</a></li>
+          <li><a href="/data-retention-policy" class="hover:text-violetlt">Data Retention</a></li>
+          <li><a href="/candidate-consent-policy" class="hover:text-violetlt">Candidate Consent</a></li>
+          <li><a href="/refund-policy" class="hover:text-violetlt">Refund Policy</a></li>
+          <li><a href="/security" class="hover:text-violetlt">Security</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-mono-ui text-[11px] tracking-widest text-white/40 mb-4">CONTACT</h4>
+        <ul class="space-y-2.5 text-sm text-white/70">
+          <li><a href="mailto:Contact@truevence.in" class="hover:text-violetlt transition-colors">Contact@truevence.in</a></li>
+          <li><a href="tel:+918383091474" class="hover:text-violetlt transition-colors">83830 91474</a></li>
+          <li><a href="https://www.truevence.in" target="_blank" rel="noopener" class="hover:text-violetlt transition-colors">www.truevence.in</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p class="text-white/40 text-xs">&copy; <span id="year"></span> Truevence. All rights reserved.</p>
+      <p class="font-mono-ui text-[11px] text-white/30">Trust. Verify. Empower.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ SCRIPTS ============ -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({ duration: 700, once: true, easing: 'ease-out-cubic', offset: 40 });
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* Mobile menu */
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const iconMenu = document.getElementById('iconMenu');
+  let menuOpen = false;
+  menuBtn.addEventListener('click', () => {
+    menuOpen = !menuOpen;
+    mobileMenu.classList.toggle('hidden', !menuOpen);
+    menuBtn.setAttribute('aria-expanded', menuOpen);
+    iconMenu.innerHTML = menuOpen
+      ? '<path d="M6 6l12 12M18 6L6 18"/>'
+      : '<path d="M4 7h16M4 12h16M4 17h16"/>';
+  });
+  document.querySelectorAll('.mobile-link').forEach(link => {
+    link.addEventListener('click', () => {
+      menuOpen = false;
+      mobileMenu.classList.add('hidden');
+      menuBtn.setAttribute('aria-expanded', false);
+      iconMenu.innerHTML = '<path d="M4 7h16M4 12h16M4 17h16"/>';
+    });
+  });
+
+  /* Cookie consent */
+  function acceptCookies() {
+    document.getElementById('cookieConsent').style.display = 'none';
+    localStorage.setItem('cookieConsent', 'true');
+  }
+  if (localStorage.getItem('cookieConsent') === 'true') {
+    document.getElementById('cookieConsent')?.remove();
+  }
+
+  /* Custom cursor */
+  (function initCursor(){
+    const isFinePointer = window.matchMedia('(pointer: fine)').matches;
+    if (!isFinePointer) return;
+    document.body.classList.add('custom-cursor');
+    const ring = document.querySelector('.cursor-ring');
+    const core = document.querySelector('.cursor-core');
+    let mx = window.innerWidth / 2, my = window.innerHeight / 2;
+    let rx = mx, ry = my;
+    let ready = false;
+
+    window.addEventListener('mousemove', (e) => {
+      mx = e.clientX; my = e.clientY;
+      core.style.transform = `translate(${mx}px, ${my}px) translate(-50%, -50%)`;
+      if (!ready) { ready = true; document.body.classList.add('cursor-ready'); }
+    });
+
+    function raf(){
+      rx += (mx - rx) * 0.45;
+      ry += (my - ry) * 0.45;
+      ring.style.transform = `translate(${rx}px, ${ry}px) translate(-50%, -50%)`;
+      requestAnimationFrame(raf);
+    }
+    raf();
+
+    const hoverables = 'a, button, input, textarea, label, [data-cursor-hover]';
+    document.addEventListener('mouseover', (e) => {
+      if (e.target.closest(hoverables)) document.body.classList.add('cursor-active');
+    });
+    document.addEventListener('mouseout', (e) => {
+      if (e.target.closest(hoverables)) document.body.classList.remove('cursor-active');
+    });
+    window.addEventListener('mouseleave', () => document.body.classList.remove('cursor-ready'));
+    window.addEventListener('mouseenter', () => document.body.classList.add('cursor-ready'));
+  })();
+</script>
+</body>
+</html>
