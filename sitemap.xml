@@ -46,6 +46,26 @@
     <priority>0.7</priority>
   </url>
 
+  <!-- Location landing pages -->
+  <url>
+    <loc>https://www.truevence.in/background-verification-company-delhi-ncr</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.truevence.in/background-verification-company-gurgaon</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.truevence.in/background-verification-company-noida</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Legal & trust pages -->
   <url>
     <loc>https://www.truevence.in/privacy-policy</loc>
@@ -90,11 +110,49 @@
     <priority>0.3</priority>
   </url>
 
-  <!-- Blog -->
+  <!-- Blog (index) -->
   <url>
     <loc>https://www.truevence.in/blog</loc>
     <lastmod>2026-07-23</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Blog posts -->
+  <url>
+    <loc>https://www.truevence.in/blog/how-to-choose-best-bgv-company-delhi-ncr</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.truevence.in/blog/bgv-cost-in-india-2026</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.truevence.in/blog/employment-verification-process-documents-timeline</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.truevence.in/blog/education-verification-why-degrees-matter</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.truevence.in/blog/why-background-verification-is-important</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.truevence.in/blog/startups-affordable-fast-bgv-pan-india</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>
