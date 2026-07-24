@@ -33,12 +33,20 @@
 }
 </script>
 
-<!-- FAQPage Schema -->
+<!-- FAQPage Schema (expanded) -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is background verification and why is it essential for hiring?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Background verification is the process of validating a candidate's identity, qualifications, employment history, criminal records, and other credentials. It helps employers reduce hiring risks, protect workplace safety, ensure regulatory compliance, and make informed decisions based on verified information."
+      }
+    },
     {
       "@type": "Question",
       "name": "What checks do we run?",
@@ -85,6 +93,78 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Email Contact@truevence.in or use the Request a Verification form on our Contact page, and we typically respond the same business day."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does Truevence ensure compliance with Indian data protection laws?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We follow strict data protection practices aligned with the Digital Personal Data Protection Act, 2023. Data is collected with consent, processed lawfully, stored securely, and shared only with authorised parties. Our internal policies and access controls are regularly reviewed to maintain compliance."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I customise the verification checks based on job roles?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely. We offer flexible, modular packages so you can select only the checks relevant to a specific role, seniority level, or department. This helps you balance risk management with budget and turnaround time."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens if a discrepancy or red flag is found during the check?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We flag the discrepancy in a detailed, evidence-based report without making hiring decisions. The employer reviews the findings and, where appropriate, allows the candidate to explain. Our reports are factual, objective, and designed to support fair decision-making."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you offer background checks for international candidates or cross-border verifications?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Our global court record screening and international employment/education verification capabilities cover multiple jurisdictions. We work with a trusted network of partners to handle cross-border checks while respecting local privacy regulations."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What documents does a candidate need to submit for verification?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Typically, government-issued ID proof (Aadhaar, PAN, passport), address proof, educational certificates, employment letters, and a signed consent form. The exact list depends on the checks selected and will be clearly communicated before initiation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a bulk pricing option for high-volume hiring?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, we offer volume-based pricing tailored to your annual hiring projections. Contact us to discuss your requirements, and we'll design a cost-effective plan without compromising on quality or turnaround time."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I start a background verification with Truevence?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Simply reach out via the contact form on our website or email us at Contact@truevence.in. We'll schedule a quick call to understand your needs, then guide you through candidate consent collection and the verification setup process."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I verify existing employees, or only new hires?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Both. While pre-employment screening is most common, many organisations use our services for periodic re-verification, promotion checks, or when employees move into roles with higher trust and responsibility."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long do you retain the background verification reports and data?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We retain data only as long as necessary to fulfil the purpose and comply with applicable legal obligations. After that period, information is securely disposed of. Our data retention policy is aligned with Indian data protection norms."
       }
     }
   ]
@@ -300,7 +380,7 @@
   </div>
 </header>
 
-<!-- ============ FAQ SECTION (only this section, as a standalone page) ============ -->
+<!-- ============ FAQ SECTION (with new questions added – everything else unchanged) ============ -->
 <section id="faq" class="pt-[160px] pb-24 md:pt-[180px] md:pb-32 bg-paperdim">
   <div class="max-w-3xl mx-auto px-5 md:px-8">
     <div class="mb-14" data-aos="fade-up">
@@ -311,6 +391,7 @@
     </div>
 
     <div class="space-y-0" data-aos="fade-up" data-aos-delay="80">
+      <!-- original question 1 -->
       <div class="faq-item border-b border-ink/10">
         <button type="button" class="faq-q w-full flex items-center justify-between gap-4 text-left py-6">
           <span class="font-display font-bold text-[15px]">What checks do we run?</span>
@@ -321,6 +402,7 @@
         </div>
       </div>
 
+      <!-- original question 2 -->
       <div class="faq-item border-b border-ink/10">
         <button type="button" class="faq-q w-full flex items-center justify-between gap-4 text-left py-6">
           <span class="font-display font-bold text-[15px]">How long does a verification take?</span>
@@ -331,6 +413,7 @@
         </div>
       </div>
 
+      <!-- original question 3 -->
       <div class="faq-item border-b border-ink/10">
         <button type="button" class="faq-q w-full flex items-center justify-between gap-4 text-left py-6">
           <span class="font-display font-bold text-[15px]">Is candidate consent required before starting?</span>
@@ -341,6 +424,7 @@
         </div>
       </div>
 
+      <!-- original question 4 -->
       <div class="faq-item border-b border-ink/10">
         <button type="button" class="faq-q w-full flex items-center justify-between gap-4 text-left py-6">
           <span class="font-display font-bold text-[15px]">Is candidate data kept confidential?</span>
@@ -351,6 +435,7 @@
         </div>
       </div>
 
+      <!-- original question 5 -->
       <div class="faq-item border-b border-ink/10">
         <button type="button" class="faq-q w-full flex items-center justify-between gap-4 text-left py-6">
           <span class="font-display font-bold text-[15px]">Which industries do we work with?</span>
@@ -361,13 +446,124 @@
         </div>
       </div>
 
-      <div class="faq-item">
+      <!-- original question 6 (now gets a border because it's no longer the last) -->
+      <div class="faq-item border-b border-ink/10">
         <button type="button" class="faq-q w-full flex items-center justify-between gap-4 text-left py-6">
           <span class="font-display font-bold text-[15px]">How do I get in touch?</span>
           <svg class="faq-icon shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
         </button>
         <div class="faq-a text-sm text-slate leading-relaxed">
           Email Contact@truevence.in or use the "Request a Verification" form on our Contact page, and we typically respond the same business day.
+        </div>
+      </div>
+
+      <!-- NEW QUESTION 1 -->
+      <div class="faq-item border-b border-ink/10">
+        <button type="button" class="faq-q w-full flex items-center justify-between gap-4 text-left py-6">
+          <span class="font-display font-bold text-[15px]">What is background verification and why is it essential for hiring?</span>
+          <svg class="faq-icon shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+        </button>
+        <div class="faq-a text-sm text-slate leading-relaxed">
+          Background verification is the process of validating a candidate's identity, qualifications, employment history, criminal records, and other credentials. It helps employers reduce hiring risks, protect workplace safety, ensure regulatory compliance, and make informed decisions based on verified information.
+        </div>
+      </div>
+
+      <!-- NEW QUESTION 2 -->
+      <div class="faq-item border-b border-ink/10">
+        <button type="button" class="faq-q w-full flex items-center justify-between gap-4 text-left py-6">
+          <span class="font-display font-bold text-[15px]">How does Truevence ensure compliance with Indian data protection laws?</span>
+          <svg class="faq-icon shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+        </button>
+        <div class="faq-a text-sm text-slate leading-relaxed">
+          We follow strict data protection practices aligned with the Digital Personal Data Protection Act, 2023. Data is collected with consent, processed lawfully, stored securely, and shared only with authorised parties. Our internal policies and access controls are regularly reviewed to maintain compliance.
+        </div>
+      </div>
+
+      <!-- NEW QUESTION 3 -->
+      <div class="faq-item border-b border-ink/10">
+        <button type="button" class="faq-q w-full flex items-center justify-between gap-4 text-left py-6">
+          <span class="font-display font-bold text-[15px]">Can I customise the verification checks based on job roles?</span>
+          <svg class="faq-icon shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+        </button>
+        <div class="faq-a text-sm text-slate leading-relaxed">
+          Absolutely. We offer flexible, modular packages so you can select only the checks relevant to a specific role, seniority level, or department. This helps you balance risk management with budget and turnaround time.
+        </div>
+      </div>
+
+      <!-- NEW QUESTION 4 -->
+      <div class="faq-item border-b border-ink/10">
+        <button type="button" class="faq-q w-full flex items-center justify-between gap-4 text-left py-6">
+          <span class="font-display font-bold text-[15px]">What happens if a discrepancy or red flag is found during the check?</span>
+          <svg class="faq-icon shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+        </button>
+        <div class="faq-a text-sm text-slate leading-relaxed">
+          We flag the discrepancy in a detailed, evidence-based report without making hiring decisions. The employer reviews the findings and, where appropriate, allows the candidate to explain. Our reports are factual, objective, and designed to support fair decision-making.
+        </div>
+      </div>
+
+      <!-- NEW QUESTION 5 -->
+      <div class="faq-item border-b border-ink/10">
+        <button type="button" class="faq-q w-full flex items-center justify-between gap-4 text-left py-6">
+          <span class="font-display font-bold text-[15px]">Do you offer background checks for international candidates or cross-border verifications?</span>
+          <svg class="faq-icon shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+        </button>
+        <div class="faq-a text-sm text-slate leading-relaxed">
+          Yes. Our global court record screening and international employment/education verification capabilities cover multiple jurisdictions. We work with a trusted network of partners to handle cross-border checks while respecting local privacy regulations.
+        </div>
+      </div>
+
+      <!-- NEW QUESTION 6 -->
+      <div class="faq-item border-b border-ink/10">
+        <button type="button" class="faq-q w-full flex items-center justify-between gap-4 text-left py-6">
+          <span class="font-display font-bold text-[15px]">What documents does a candidate need to submit for verification?</span>
+          <svg class="faq-icon shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+        </button>
+        <div class="faq-a text-sm text-slate leading-relaxed">
+          Typically, government-issued ID proof (Aadhaar, PAN, passport), address proof, educational certificates, employment letters, and a signed consent form. The exact list depends on the checks selected and will be clearly communicated before initiation.
+        </div>
+      </div>
+
+      <!-- NEW QUESTION 7 -->
+      <div class="faq-item border-b border-ink/10">
+        <button type="button" class="faq-q w-full flex items-center justify-between gap-4 text-left py-6">
+          <span class="font-display font-bold text-[15px]">Is there a bulk pricing option for high-volume hiring?</span>
+          <svg class="faq-icon shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+        </button>
+        <div class="faq-a text-sm text-slate leading-relaxed">
+          Yes, we offer volume-based pricing tailored to your annual hiring projections. Contact us to discuss your requirements, and we'll design a cost-effective plan without compromising on quality or turnaround time.
+        </div>
+      </div>
+
+      <!-- NEW QUESTION 8 -->
+      <div class="faq-item border-b border-ink/10">
+        <button type="button" class="faq-q w-full flex items-center justify-between gap-4 text-left py-6">
+          <span class="font-display font-bold text-[15px]">How do I start a background verification with Truevence?</span>
+          <svg class="faq-icon shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+        </button>
+        <div class="faq-a text-sm text-slate leading-relaxed">
+          Simply reach out via the contact form on our website or email us at Contact@truevence.in. We'll schedule a quick call to understand your needs, then guide you through candidate consent collection and the verification setup process.
+        </div>
+      </div>
+
+      <!-- NEW QUESTION 9 -->
+      <div class="faq-item border-b border-ink/10">
+        <button type="button" class="faq-q w-full flex items-center justify-between gap-4 text-left py-6">
+          <span class="font-display font-bold text-[15px]">Can I verify existing employees, or only new hires?</span>
+          <svg class="faq-icon shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+        </button>
+        <div class="faq-a text-sm text-slate leading-relaxed">
+          Both. While pre-employment screening is most common, many organisations use our services for periodic re-verification, promotion checks, or when employees move into roles with higher trust and responsibility.
+        </div>
+      </div>
+
+      <!-- NEW QUESTION 10 (last one, no border) -->
+      <div class="faq-item">
+        <button type="button" class="faq-q w-full flex items-center justify-between gap-4 text-left py-6">
+          <span class="font-display font-bold text-[15px]">How long do you retain the background verification reports and data?</span>
+          <svg class="faq-icon shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+        </button>
+        <div class="faq-a text-sm text-slate leading-relaxed">
+          We retain data only as long as necessary to fulfil the purpose and comply with applicable legal obligations. After that period, information is securely disposed of. Our data retention policy is aligned with Indian data protection norms.
         </div>
       </div>
     </div>
