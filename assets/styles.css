@@ -1,0 +1,154 @@
+:root {
+  --ink: #0B1230;
+  --navy: #131B45;
+  --navylite: #1E2A5E;
+  --violet: #7C3AED;
+  --violetlt: #A78BFA;
+  --lavender: #C9BEFB;
+  --paper: #F7F7FB;
+  --angle: 0deg;
+}
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+* {
+  scroll-behavior: smooth;
+}
+html, body {
+  background: var(--paper);
+}
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--ink);
+  overflow-x: hidden;
+}
+h1, h2, h3, h4, .font-display {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+.font-mono-ui {
+  font-family: 'IBM Plex Mono', monospace;
+}
+::selection {
+  background: var(--violet);
+  color: #fff;
+}
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--violet);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+@media (pointer: fine) {
+  body.custom-cursor, body.custom-cursor a, body.custom-cursor button,
+  body.custom-cursor input, body.custom-cursor textarea, body.custom-cursor label {
+    cursor: none;
+  }
+}
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-100px, -100px);
+  background: conic-gradient(from var(--angle), var(--navy), var(--violet), var(--lavender), var(--violetlt), var(--navy));
+  -webkit-mask-image: radial-gradient(circle, transparent 62%, black 64%, black 100%);
+          mask-image: radial-gradient(circle, transparent 62%, black 64%, black 100%);
+  animation: spin-ring 1.1s linear infinite;
+  transition: width .18s cubic-bezier(.2, .9, .3, 1.3), height .18s cubic-bezier(.2, .9, .3, 1.3), opacity .2s ease;
+  opacity: 0;
+  will-change: transform;
+}
+.cursor-core {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-100px, -100px);
+  background: rgba(255,255,255,0.14);
+  backdrop-filter: blur(3px);
+  border: 1px solid rgba(255,255,255,.55);
+  box-shadow: 0 0 12px rgba(124,58,237,.35);
+  transition: width .16s cubic-bezier(.2, .9, .3, 1.3), height .16s cubic-bezier(.2, .9, .3, 1.3), opacity .2s ease, background .2s ease;
+  opacity: 0;
+}
+body.cursor-ready .cursor-ring,
+body.cursor-ready .cursor-core {
+  opacity: 1;
+}
+body.cursor-active .cursor-ring {
+  width: 64px;
+  height: 64px;
+}
+body.cursor-active .cursor-core {
+  width: 10px;
+  height: 10px;
+  background: var(--violet);
+  box-shadow: 0 0 18px rgba(124,58,237,.55);
+}
+@keyframes spin-ring {
+  to { --angle: 360deg; }
+}
+.nav-glass {
+  background: rgba(247,247,251,0.72);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border-bottom: 1px solid rgba(19,27,69,0.06);
+}
+.grad-text {
+  background: linear-gradient(100deg, var(--navy) 10%, var(--violet) 55%, var(--violetlt) 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.grad-line {
+  background: linear-gradient(90deg, transparent, var(--violet), transparent);
+  height: 1px;
+}
+.btn-primary {
+  background: var(--ink);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, var(--navy), var(--violet));
+  transform: translateX(-101%);
+  transition: transform .45s cubic-bezier(.2, .9, .3, 1);
+  z-index: -1;
+}
+.btn-primary:hover::before {
+  transform: translateX(0);
+}
+.svc-card {
+  transition: transform .35s cubic-bezier(.2, .9, .3, 1), box-shadow .35s ease, border-color .35s ease;
+}
+.svc-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 50px -20px rgba(19,27,69,0.22);
+  border-color: rgba(124,58,237,.35);
+}
+.process-num {
+  font-family: 'IBM Plex Mono', monospace;
+  -webkit-text-stroke: 1.4px var(--violet);
+  color: transparent;
+}
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
