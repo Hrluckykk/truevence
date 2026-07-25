@@ -4,12 +4,18 @@ const path = require('path');
 const partialsDir = path.join(__dirname, 'partials');
 const srcDir = path.join(__dirname, 'src');
 const publicDir = path.join(__dirname, 'public');
-const outDir = path.join(__dirname, 'dist');
 
-// Load partials
-const header = fs.readFileSync(path.join(partialsDir, 'header.html'), 'utf8');
-const footer = fs.readFileSync(path.join(partialsDir, 'footer.html'), 'utf8');
-const whatsapp = fs.readFileSync(path.join(partialsDir, 'whatsapp.html'), 'utf8');
+// Load partials only if they exist; fall back to empty strings
+let header = '';
+let footer = '';
+let whatsapp = '';
+try {
+  header = fs.readFileSync(path.join(partialsDir, 'header.html'), 'utf8');
+  footer = fs.readFileSync(path.join(partialsDir, 'footer.html'), 'utf8');
+  whatsapp = fs.readFileSync(path.join(partialsDir, 'whatsapp.html'), 'utf8');
+} catch (err) {
+  console.log('Partial files not found – building without header/footer/whatsapp injection.');
+}
 
 // Recursively collect all .html files from src/
 function getHtmlFiles(dir, fileList = []) {
@@ -36,28 +42,10 @@ for (const filePath of htmlFiles) {
     .replace('<!-- INCLUDE_WHATSAPP -->', whatsapp);
 
   const relativePath = path.relative(srcDir, filePath);
-  const outPath = path.join(outDir, relativePath);
+  const outPath = path.join(publicDir, relativePath);
   fs.mkdirSync(path.dirname(outPath), { recursive: true });
   fs.writeFileSync(outPath, content);
   console.log(`Built: ${relativePath}`);
 }
 
-// Copy public/ to dist/ (static assets like CSS, JS, images)
-function copyDir(src, dest) {
-  if (!fs.existsSync(src)) return;
-  fs.mkdirSync(dest, { recursive: true });
-  const entries = fs.readdirSync(src, { withFileTypes: true });
-  for (const entry of entries) {
-    const srcPath = path.join(src, entry.name);
-    const destPath = path.join(dest, entry.name);
-    if (entry.isDirectory()) {
-      copyDir(srcPath, destPath);
-    } else {
-      fs.copyFileSync(srcPath, destPath);
-    }
-  }
-}
-
-copyDir(publicDir, outDir);
-console.log('Static assets copied.');
 console.log('All pages built successfully.');
