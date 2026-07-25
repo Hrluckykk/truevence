@@ -160,9 +160,9 @@
     
     <!-- Breadcrumb -->
     <nav class="flex items-center gap-2 text-sm text-slate mb-8" aria-label="Breadcrumb">
-      <a href="index.html" class="hover:text-violet transition-colors">Home</a>
+      <a href="../index.html" class="hover:text-violet transition-colors">Home</a>
       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
-      <a href="blog.html" class="hover:text-violet transition-colors">Blog</a>
+      <a href="../blog.html" class="hover:text-violet transition-colors">Blog</a>
       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
       <span class="text-slate-lt">What is Background Verification?</span>
     </nav>
@@ -494,7 +494,7 @@
     <div class="mt-16 bg-violet/5 border border-violet/20 rounded-2xl p-8 md:p-10 text-center" data-aos="fade-up">
       <h2 class="font-display font-extrabold text-2xl mb-2">Ready to verify your next hire?</h2>
       <p class="text-slate mb-6 max-w-md mx-auto">We'll help you run accurate, consent‑driven background checks — fast, confidential, and pan‑India.</p>
-      <a href="contact.html" class="btn-primary font-display text-[15px] font-bold px-8 py-3.5 rounded-full inline-flex items-center gap-2">
+      <a href="../contact.html" class="btn-primary font-display text-[15px] font-bold px-8 py-3.5 rounded-full inline-flex items-center gap-2">
         Request a Free Quote
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
@@ -509,5 +509,13 @@
 <!-- External Scripts -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="/scripts.js"></script>
+<script>
+  // FAQ toggle for blog post (already in /scripts.js, but ensure it runs)
+  document.querySelectorAll('.faq-item').forEach((item) => {
+    item.querySelector('.faq-q').addEventListener('click', () => {
+      item.classList.toggle('open');
+    });
+  });
+</script>
 </body>
 </html>
