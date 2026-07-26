@@ -5,7 +5,7 @@ const partialsDir = path.join(__dirname, 'partials');
 const srcDir = path.join(__dirname, 'src');
 const publicDir = path.join(__dirname, 'public');
 
-// ===== NEW: Copy assets folder =====
+// ===== FIX: Copy src/assets to public/assets =====
 const srcAssetsDir = path.join(srcDir, 'assets');
 const publicAssetsDir = path.join(publicDir, 'assets');
 
@@ -14,13 +14,13 @@ if (fs.existsSync(srcAssetsDir)) {
   if (fs.existsSync(publicAssetsDir)) {
     fs.rmSync(publicAssetsDir, { recursive: true, force: true });
   }
-  // Copy entire assets folder
+  // Copy the entire assets folder
   fs.cpSync(srcAssetsDir, publicAssetsDir, { recursive: true });
-  console.log('Copied assets to public/');
+  console.log('✅ Copied assets to public/');
 }
-// ===================================
+// ================================================
 
-// Load partials...
+// Load partials
 let header = '';
 let footer = '';
 let whatsapp = '';
@@ -32,14 +32,13 @@ try {
   console.log('Partial files not found – building without header/footer/whatsapp injection.');
 }
 
-// Recursively collect all .html files from src/
+// Recursively collect all .html files from src/ (skip assets folder)
 function getHtmlFiles(dir, fileList = []) {
   const files = fs.readdirSync(dir, { withFileTypes: true });
   for (const file of files) {
     const fullPath = path.join(dir, file.name);
     if (file.isDirectory()) {
-      // Skip the assets folder when collecting HTML files
-      if (file.name === 'assets') continue;
+      if (file.name === 'assets') continue; // Skip assets folder
       getHtmlFiles(fullPath, fileList);
     } else if (file.name.endsWith('.html')) {
       fileList.push(fullPath);
