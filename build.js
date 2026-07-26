@@ -5,7 +5,22 @@ const partialsDir = path.join(__dirname, 'partials');
 const srcDir = path.join(__dirname, 'src');
 const publicDir = path.join(__dirname, 'public');
 
-// Load partials only if they exist; fall back to empty strings
+// ===== NEW: Copy assets folder =====
+const srcAssetsDir = path.join(srcDir, 'assets');
+const publicAssetsDir = path.join(publicDir, 'assets');
+
+if (fs.existsSync(srcAssetsDir)) {
+  // Delete existing public/assets if it exists
+  if (fs.existsSync(publicAssetsDir)) {
+    fs.rmSync(publicAssetsDir, { recursive: true, force: true });
+  }
+  // Copy entire assets folder
+  fs.cpSync(srcAssetsDir, publicAssetsDir, { recursive: true });
+  console.log('Copied assets to public/');
+}
+// ===================================
+
+// Load partials...
 let header = '';
 let footer = '';
 let whatsapp = '';
@@ -23,6 +38,8 @@ function getHtmlFiles(dir, fileList = []) {
   for (const file of files) {
     const fullPath = path.join(dir, file.name);
     if (file.isDirectory()) {
+      // Skip the assets folder when collecting HTML files
+      if (file.name === 'assets') continue;
       getHtmlFiles(fullPath, fileList);
     } else if (file.name.endsWith('.html')) {
       fileList.push(fullPath);
