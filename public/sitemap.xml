@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <!-- Homepage -->
-  <url>
-    <loc>https://www.truevence.in/</loc>
-    <lastmod>2026-07-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-
-  <!-- Main service / info pages -->
+  <url><loc>https://www.truevence.in/</loc><lastmod>2026-07-26</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
   <url><loc>https://www.truevence.in/services.html</loc><lastmod>2026-07-26</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://www.truevence.in/process.html</loc><lastmod>2026-07-26</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://www.truevence.in/about.html</loc><lastmod>2026-07-26</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
@@ -26,8 +17,7 @@
   <url><loc>https://www.truevence.in/candidate-consent-policy.html</loc><lastmod>2026-07-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.truevence.in/refund-policy.html</loc><lastmod>2026-07-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.truevence.in/security.html</loc><lastmod>2026-07-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-
-  <!-- Blog posts – all existing files -->
+  <!-- Blog posts – complete list from your src/blog/ folder -->
   <url><loc>https://www.truevence.in/blog/How-to-do-cheapest-aadhar-verification-in-delhi.html</loc><lastmod>2026-07-26</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.truevence.in/blog/background-verification-company-bangalore.html</loc><lastmod>2026-07-26</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.truevence.in/blog/background-verification-company-delhi-ncr.html</loc><lastmod>2026-07-26</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -85,7 +75,5 @@
   <url><loc>https://www.truevence.in/blog/warning-signs-better-bgv-partner.html</loc><lastmod>2026-07-26</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.truevence.in/blog/what-is-background-verification.html</loc><lastmod>2026-07-26</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.truevence.in/blog/why-background-verification-is-important.html</loc><lastmod>2026-07-26</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-
-  <!-- Newly added cheapest BGV page -->
   <url><loc>https://www.truevence.in/blog/cheapest-background-verification-india.html</loc><lastmod>2026-07-26</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 </urlset>
