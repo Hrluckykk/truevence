@@ -8,7 +8,6 @@
   <url><loc>https://www.truevence.in/faq.html</loc><lastmod>2026-07-26</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://www.truevence.in/contact.html</loc><lastmod>2026-07-26</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://www.truevence.in/blog.html</loc><lastmod>2026-07-26</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-
   <!-- Legal / policy pages -->
   <url><loc>https://www.truevence.in/terms-of-service.html</loc><lastmod>2026-07-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.truevence.in/privacy-policy.html</loc><lastmod>2026-07-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -17,7 +16,7 @@
   <url><loc>https://www.truevence.in/candidate-consent-policy.html</loc><lastmod>2026-07-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.truevence.in/refund-policy.html</loc><lastmod>2026-07-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.truevence.in/security.html</loc><lastmod>2026-07-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <!-- Blog posts – complete list from your src/blog/ folder -->
+  <!-- Blog posts -->
   <url><loc>https://www.truevence.in/blog/How-to-do-cheapest-aadhar-verification-in-delhi.html</loc><lastmod>2026-07-26</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.truevence.in/blog/background-verification-company-bangalore.html</loc><lastmod>2026-07-26</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.truevence.in/blog/background-verification-company-delhi-ncr.html</loc><lastmod>2026-07-26</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
