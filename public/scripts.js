@@ -134,4 +134,3 @@ function acceptCookies() {
 if (localStorage.getItem('cookieConsent') === 'true') {
   document.getElementById('cookieConsent')?.remove();
 }
-
