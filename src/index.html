@@ -112,8 +112,59 @@
 
 <!-- Custom CSS (external) -->
 <link rel="stylesheet" href="/styles.css">
+
+<!-- Inline fallback cursor styles (from styles.css) -->
+<style>
+  body.custom-cursor, body.custom-cursor * {
+    cursor: none !important;
+  }
+  .cursor-ring, .cursor-core {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999;
+    will-change: transform;
+  }
+  .cursor-ring {
+    width: 24px;
+    height: 24px;
+    border: 2px solid var(--violet);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .cursor-core {
+    width: 6px;
+    height: 6px;
+    background: var(--violet);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.15s;
+  }
+  body.cursor-ready .cursor-ring,
+  body.cursor-ready .cursor-core {
+    opacity: 1;
+  }
+  body.cursor-active .cursor-ring {
+    width: 40px;
+    height: 40px;
+    border-color: var(--violetlt);
+    background: rgba(124,58,237,0.08);
+    transition: width 0.2s, height 0.2s, border-color 0.2s, background 0.2s;
+  }
+  body.cursor-active .cursor-core {
+    transform: scale(0.6);
+    opacity: 0.7;
+    transition: transform 0.15s, opacity 0.15s;
+  }
+</style>
 </head>
 <body class="bg-paper text-ink antialiased">
+
+<!-- Cursor elements (fallback) -->
+<div class="cursor-ring"></div>
+<div class="cursor-core"></div>
 
 <!-- INCLUDE_HEADER -->
 
