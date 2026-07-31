@@ -206,3 +206,4 @@ body.cursor-active .cursor-core{ width: 10px; height: 10px; background: var(--vi
 @media (prefers-reduced-motion: reduce){
   *{ animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
 }
+
