@@ -113,7 +113,7 @@
 <!-- Custom CSS (external) -->
 <link rel="stylesheet" href="/styles.css">
 
-<!-- Inline fallback cursor styles (from styles.css) -->
+<!-- Inline fallback cursor styles (fixed colours) -->
 <style>
   body.custom-cursor, body.custom-cursor * {
     cursor: none !important;
@@ -129,7 +129,7 @@
   .cursor-ring {
     width: 24px;
     height: 24px;
-    border: 2px solid var(--violet);
+    border: 2px solid #7C3AED;
     border-radius: 50%;
     opacity: 0;
     transition: opacity 0.2s;
@@ -137,7 +137,7 @@
   .cursor-core {
     width: 6px;
     height: 6px;
-    background: var(--violet);
+    background: #7C3AED;
     border-radius: 50%;
     opacity: 0;
     transition: opacity 0.15s;
@@ -149,7 +149,7 @@
   body.cursor-active .cursor-ring {
     width: 40px;
     height: 40px;
-    border-color: var(--violetlt);
+    border-color: #A78BFA;
     background: rgba(124,58,237,0.08);
     transition: width 0.2s, height 0.2s, border-color 0.2s, background 0.2s;
   }
@@ -162,7 +162,7 @@
 </head>
 <body class="bg-paper text-ink antialiased">
 
-<!-- Cursor elements (fallback) -->
+<!-- Cursor elements -->
 <div class="cursor-ring"></div>
 <div class="cursor-core"></div>
 
