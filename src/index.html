@@ -110,12 +110,54 @@
 <!-- AOS -->
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
+<!-- Fallback cursor styles (only if external CSS fails to load) -->
+<style>
+  body.custom-cursor, body.custom-cursor * {
+    cursor: none;
+  }
+  .cursor-ring, .cursor-core {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999;
+    will-change: transform;
+    opacity: 0;
+  }
+  .cursor-ring {
+    width: 24px;
+    height: 24px;
+    border: 2px solid var(--violet, #7C3AED);
+    border-radius: 50%;
+  }
+  .cursor-core {
+    width: 6px;
+    height: 6px;
+    background: var(--violet, #7C3AED);
+    border-radius: 50%;
+  }
+  body.cursor-ready .cursor-ring,
+  body.cursor-ready .cursor-core {
+    opacity: 1;
+  }
+  body.cursor-active .cursor-ring {
+    width: 40px;
+    height: 40px;
+    border-color: var(--violetlt, #A78BFA);
+    background: rgba(124,58,237,0.08);
+  }
+  body.cursor-active .cursor-core {
+    transform: scale(0.6);
+    opacity: 0.7;
+  }
+</style>
+
 <!-- Custom CSS (external) -->
-<link rel="stylesheet" href="../public/styles.css">
+<link rel="stylesheet" href="/styles.css">
 </head>
 <body class="bg-paper text-ink antialiased">
 
-<!-- Cursor elements -->
+<!-- Cursor elements (needed by /scripts.js) -->
 <div class="cursor-ring"></div>
 <div class="cursor-core"></div>
 
@@ -839,6 +881,6 @@
 
 <!-- External Scripts -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script src="../public/scripts.js"></script>
+<script src="/scripts.js"></script>
 </body>
 </html>
