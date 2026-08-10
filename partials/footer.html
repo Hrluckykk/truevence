@@ -87,3 +87,50 @@
     </div>
   </div>
 </footer>
+
+<!-- ======= UNIVERSAL CURSOR FIX – WORKS ON EVERY PAGE ======= -->
+<script>
+  (function() {
+    // 1. Create cursor divs if missing
+    var ring = document.querySelector('.cursor-ring');
+    var core = document.querySelector('.cursor-core');
+    if (!ring) {
+      ring = document.createElement('div');
+      ring.className = 'cursor-ring';
+      document.body.appendChild(ring);
+    }
+    if (!core) {
+      core = document.createElement('div');
+      core.className = 'cursor-core';
+      document.body.appendChild(core);
+    }
+
+    // 2. Force the class to hide the default cursor
+    document.body.classList.add('custom-cursor');
+
+    // 3. Track mouse movement
+    var mx = window.innerWidth / 2, my = window.innerHeight / 2;
+    var rx = mx, ry = mx;
+    window.addEventListener('mousemove', function(e) {
+      mx = e.clientX;
+      my = e.clientY;
+      core.style.transform = 'translate(' + mx + 'px, ' + my + 'px) translate(-50%, -50%)';
+      document.body.classList.add('cursor-ready');
+    });
+
+    // 4. Animate the ring with smooth lag
+    function animate() {
+      rx += (mx - rx) * 0.45;
+      ry += (my - ry) * 0.45;
+      ring.style.transform = 'translate(' + rx + 'px, ' + ry + 'px) translate(-50%, -50%)';
+      requestAnimationFrame(animate);
+    }
+    animate();
+
+    // 5. Enlarge cursor on hoverable elements
+    var targets = 'a, button, input, textarea, label, [data-cursor-hover]';
+    document.addEventListener('mouseover', function(e) {
+      document.body.classList.toggle('cursor-active', !!e.target.closest(targets));
+    });
+  })();
+</script>
