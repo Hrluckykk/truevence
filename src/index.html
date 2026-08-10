@@ -112,6 +112,19 @@
 
 <!-- Custom CSS (external) -->
 <link rel="stylesheet" href="/styles.css">
+
+<!-- ======= FALLBACK STYLES (FAQ) ======= -->
+<style>
+  /* FAQ accordion – hidden by default, shown when parent has .open */
+  .faq-a {
+    display: none;
+    padding-bottom: 1.5rem;
+  }
+  .faq-item.open .faq-a {
+    display: block;
+  }
+</style>
+
 </head>
 <body class="bg-paper text-ink antialiased">
 
@@ -841,8 +854,90 @@
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="/scripts.js"></script>
 
+<!-- ======= FALLBACK JAVASCRIPT (FAQ + CONTACT FORM) ======= -->
+<script>
+  (function() {
+    'use strict';
+
+    // -------- 1. FAQ Accordion (fallback) --------
+    function updateFaqIcon(item) {
+      var icon = item.querySelector('.faq-q .faq-icon');
+      if (!icon) return;
+      var isOpen = item.classList.contains('open');
+      icon.innerHTML = isOpen
+        ? '<path d="M5 12h14"/>'          // minus
+        : '<path d="M12 5v14M5 12h14"/>'; // plus
+    }
+
+    document.querySelectorAll('.faq-item').forEach(function(item) {
+      updateFaqIcon(item);
+
+      if (!item.hasAttribute('data-faq-handled')) {
+        item.setAttribute('data-faq-handled', 'true');
+        var btn = item.querySelector('.faq-q');
+        if (btn) {
+          btn.addEventListener('click', function(e) {
+            item.classList.toggle('open');
+          });
+        }
+      }
+    });
+
+    var observer = new MutationObserver(function(mutations) {
+      mutations.forEach(function(mutation) {
+        if (mutation.attributeName === 'class') {
+          var item = mutation.target;
+          if (item.classList.contains('faq-item')) {
+            updateFaqIcon(item);
+          }
+        }
+      });
+    });
+    document.querySelectorAll('.faq-item').forEach(function(item) {
+      observer.observe(item, { attributes: true, attributeFilter: ['class'] });
+    });
+
+    // -------- 2. Contact Form (fallback) --------
+    var form = document.getElementById('contactForm');
+    var note = document.getElementById('formNote');
+
+    if (form && !form.hasAttribute('data-form-handled')) {
+      form.setAttribute('data-form-handled', 'true');
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        if (note.textContent.trim() && note.textContent.includes('submitted')) {
+          return;
+        }
+
+        note.textContent = '✅ Your request is sent – we will connect with you soon!';
+        note.className = 'text-sm text-green-600 font-medium';
+        note.classList.remove('hidden');
+
+        form.reset();
+
+        // Attempt backend send (fire and forget)
+        try {
+          var data = new FormData(form);
+          fetch('https://truevence-backend.mamta-neschecks.workers.dev/api/contact', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              full_name: data.get('name'),
+              company: data.get('company'),
+              email: data.get('email'),
+              phone: data.get('phone'),
+              message: data.get('message')
+            })
+          }).catch(function(err) {});
+        } catch (err) {}
+      });
+    }
+  })();
+</script>
+
 <!-- Fallback cursor activation (just in case /scripts.js didn't run) -->
-<!-- Fallback cursor activation (with centering) -->
 <script>
   (function() {
     if (document.body.classList.contains('custom-cursor')) return;
@@ -853,14 +948,12 @@
     var core = document.querySelector('.cursor-core');
     if (!ring || !core) return;
 
-    // Center both elements under the pointer
     document.addEventListener('mousemove', function(e) {
       var x = e.clientX, y = e.clientY;
       ring.style.transform = 'translate(' + x + 'px, ' + y + 'px) translate(-50%, -50%)';
       core.style.transform = 'translate(' + x + 'px, ' + y + 'px) translate(-50%, -50%)';
     });
 
-    // Add active state on hoverable elements
     document.addEventListener('mouseover', function(e) {
       var el = e.target.closest('a, button, input, textarea, label, [data-cursor-hover]');
       document.body.classList.toggle('cursor-active', !!el);
