@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aadhaar Verification Services | Bulk & API | Truevence</title>
+  <!-- Preserve existing CSS variables and base styles -->
+  <style>
+    /* assume blog base styles: clean, light, modern */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #f5f7fb;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      color: #1e293b;
+      line-height: 1.5;
+      padding: 2rem 1rem;
+    }
+
+    .blog-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 28px;
+      box-shadow: 0 20px 35px -8px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+
+    .blog-hero {
+      background: #ffffff;
+      padding: 0;
+    }
+
+    .blog-hero img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+      max-height: 380px;
+      border-bottom: 1px solid #e9eef2;
+    }
+
+    .blog-content {
+      padding: 2.2rem 2.5rem;
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+      color: #0f172a;
+      margin-bottom: 0.75rem;
+    }
+
+    .blog-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+      font-size: 0.9rem;
+      color: #64748b;
+      border-bottom: 1px solid #e2e8f0;
+      padding-bottom: 1.25rem;
+    }
+
+    .blog-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .category-pill {
+      background: #eef2ff;
+      color: #4338ca;
+      font-weight: 600;
+      padding: 0.2rem 1rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    .price-block {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 1rem;
+      background: #f8fafc;
+      border-radius: 18px;
+      padding: 1.2rem 1.5rem;
+      margin: 1.5rem 0 2rem;
+      border: 1px solid #eef2f6;
+    }
+
+    .actual-price {
+      font-size: 1.3rem;
+      text-decoration: line-through;
+      color: #94a3b8;
+      font-weight: 500;
+    }
+
+    .discounted-price {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #0f172a;
+    }
+
+    .price-unit {
+      color: #475569;
+      font-weight: 500;
+      margin-left: 0.3rem;
+    }
+
+    .description {
+      font-size: 1.08rem;
+      color: #334155;
+      margin-bottom: 2rem;
+    }
+
+    .description p {
+      margin-bottom: 1rem;
+    }
+
+    .solution-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1rem;
+      background: #f9fbfd;
+      border-radius: 20px;
+      padding: 1.8rem 1.5rem;
+      margin: 2rem 0;
+      border: 1px solid #e2e8f0;
+    }
+
+    .solution-item {
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: #1e293b;
+      padding: 0.3rem 0;
+    }
+
+    .solution-item::before {
+      content: "✓";
+      color: #2563eb;
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
+    h2 {
+      font-size: 1.7rem;
+      font-weight: 600;
+      margin: 2rem 0 1rem;
+      color: #0f172a;
+      letter-spacing: -0.01em;
+    }
+
+    .feature-highlight {
+      background: #f1f5f9;
+      border-left: 5px solid #2563eb;
+      padding: 1.5rem 2rem;
+      border-radius: 0 20px 20px 0;
+      margin: 2rem 0;
+    }
+
+    .feature-highlight ul {
+      list-style: none;
+      padding-left: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem 2rem;
+    }
+
+    .feature-highlight li {
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #0f172a;
+    }
+
+    .feature-highlight li::before {
+      content: "⚡";
+      font-size: 1.2rem;
+    }
+
+    .trust-badge {
+      text-align: center;
+      background: #0f172a;
+      color: white;
+      padding: 1.4rem 2rem;
+      border-radius: 18px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      margin: 2rem 0;
+    }
+
+    .cta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin: 2rem 0;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.9rem 2rem;
+      border-radius: 40px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.2s;
+      border: 2px solid transparent;
+    }
+
+    .btn-primary {
+      background: #1e293b;
+      color: white;
+      border-color: #1e293b;
+    }
+
+    .btn-primary:hover {
+      background: #0f172a;
+      border-color: #0f172a;
+    }
+
+    .btn-outline {
+      border-color: #cbd5e1;
+      color: #1e293b;
+      background: white;
+    }
+
+    .btn-outline:hover {
+      background: #f1f5f9;
+    }
+
+    .extra-images {
+      margin: 1.8rem 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .extra-images img {
+      max-width: 100%;
+      border-radius: 16px;
+      border: 1px solid #e2e8f0;
+      max-height: 200px;
+      object-fit: contain;
+      background: white;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #e9eef2;
+      margin: 2rem 0;
+    }
+
+    .footer-note {
+      font-size: 0.9rem;
+      color: #64748b;
+      text-align: center;
+      margin-top: 2rem;
+      font-style: italic;
+    }
+
+    @media (max-width: 600px) {
+      .blog-content {
+        padding: 1.5rem;
+      }
+      h1 {
+        font-size: 1.9rem;
+      }
+      .price-block {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="blog-container">
+    <!-- Primary banner image from provided link -->
+    <div class="blog-hero">
+      <img src="https://pub23829b735d524cbaa428c0e9534df703.r2.dev/SMBanners/Aadhar_Verification_Banner.png" alt="Aadhaar Verification Services - Bulk & API by Truevence">
+    </div>
+
+    <div class="blog-content">
+      <div class="blog-meta">
+        <span class="category-pill">Identity Verification</span>
+        <span>📋 Employee & Identity Verification</span>
+        <span>⏱️ Updated: 2025</span>
+      </div>
+
+      <h1>Aadhaar Verification Services | Bulk Aadhaar Verification | Employee KYC</h1>
+
+      <!-- Price block - preserves actual and discounted pricing -->
+      <div class="price-block">
+        <span class="actual-price">₹100</span>
+        <span class="discounted-price">₹95 <span class="price-unit">per verification</span></span>
+      </div>
+
+      <div class="description">
+        <p><strong>Aadhaar Verification Services | Bulk Aadhaar Verification | Aadhaar Verification API | Employee KYC</strong></p>
+        <p>Truevence provides fast and scalable <strong>Aadhaar Verification Services</strong> for businesses, HR teams, recruitment agencies, staffing companies and enterprises across India. We support bulk Aadhaar verification through API-based integrations and other fast digital verification modes, making it easier for organizations to verify large volumes of candidates, employees and workforce identities.</p>
+        <p>Whether you need to verify 10 candidates or thousands of employees, Truevence helps businesses streamline their identity verification and KYC workflows with technology-enabled verification solutions designed for speed, accuracy and operational efficiency.</p>
+        <p>Our Bulk Aadhaar Verification solutions are particularly suitable for organizations handling high-volume hiring, employee onboarding, workforce management, recruitment, staffing, vendor onboarding and KYC requirements.</p>
+      </div>
+
+      <!-- Solutions list grid -->
+      <div class="solution-grid">
+        <div class="solution-item">Aadhaar Verification</div>
+        <div class="solution-item">Bulk Aadhaar Verification</div>
+        <div class="solution-item">Aadhaar Verification API</div>
+        <div class="solution-item">Employee Aadhaar Verification</div>
+        <div class="solution-item">Candidate Aadhaar Verification</div>
+        <div class="solution-item">Aadhaar KYC Verification</div>
+        <div class="solution-item">Identity Verification</div>
+        <div class="solution-item">Bulk Employee Identity Verification</div>
+        <div class="solution-item">Digital KYC Verification</div>
+        <div class="solution-item">Pre-Employment Identity Verification</div>
+        <div class="solution-item">High-Volume Candidate Verification</div>
+        <div class="solution-item">API-Based Verification Solutions</div>
+      </div>
+
+      <h2>Built for High-Volume Verification</h2>
+      <p>Instead of processing candidates one by one, businesses can integrate verification into their existing technology workflows where applicable. Our API-enabled approach can help organizations automate verification requests, receive verification responses and manage large-scale screening more efficiently.</p>
+      <p>Truevence is built for HR departments, recruitment companies, staffing agencies, BPOs, IT companies, enterprises, logistics companies, manufacturing organizations and other businesses that require reliable employee and candidate verification at scale.</p>
+
+      <!-- Why choose truevence feature list -->
+      <div class="feature-highlight">
+        <h2 style="margin-top: 0;">Why choose Truevence?</h2>
+        <ul>
+          <li>Bulk Aadhaar verification</li>
+          <li>API-based verification capabilities</li>
+          <li>Fast digital verification workflows</li>
+          <li>High-volume employee & candidate screening</li>
+          <li>Technology-enabled KYC and identity verification</li>
+          <li>Suitable for enterprise & recruitment requirements</li>
+          <li>Scalable verification solutions</li>
+          <li>Transparent verification process</li>
+        </ul>
+      </div>
+
+      <!-- Additional image placeholder (shows the same banner or additional if available) -->
+      <div class="extra-images">
+        <img src="https://pub23829b735d524cbaa428c0e9534df703.r2.dev/SMBanners/Aadhar_Verification_Banner.png" alt="Aadhaar Verification - Bulk and API solutions" style="max-height: 160px;">
+        <!-- additional image link placeholder -->
+        <span style="color: #64748b; font-size: 0.9rem; margin-left: 0.5rem;">📎 Official Truevence banner</span>
+      </div>
+
+      <div class="trust-badge">
+        TRUEVENCE – Background Verification You Can Trust.
+      </div>
+
+      <div class="cta">
+        <a href="#" class="btn btn-primary">Connect for Bulk Aadhaar</a>
+        <a href="#" class="btn btn-outline">Aadhaar API Integration</a>
+      </div>
+
+      <hr>
+      <p><strong>Looking for Bulk Aadhaar Verification, Aadhaar Verification API, Aadhaar KYC, Employee Aadhaar Verification or high-volume identity verification services in India?</strong></p>
+      <p>Connect with Truevence for fast, scalable background verification solutions.</p>
+    </div>
+    <div class="footer-note">
+      TRUEVENCE • Background Verification You Can Trust.
+    </div>
+  </div>
+</body>
+</html>
