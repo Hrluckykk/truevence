@@ -185,16 +185,12 @@ if (form) {
   let currentCategory = 'identity';
 
   function setImage(imageUrl) {
-    const img = new Image();
-    img.onload = function() {
+    const imgElement = verifyImage.querySelector('.verify-image-square');
+    if (imgElement) {
+      imgElement.src = imageUrl;
+    } else {
       verifyImage.innerHTML = '<img src="' + imageUrl + '" class="verify-image-square" alt="Verification image">';
-      verifyImage.classList.remove('image-error');
-    };
-    img.onerror = function() {
-      verifyImage.innerHTML = '<span style="font-size:48px;opacity:0.5;">🔷</span>';
-      verifyImage.classList.add('image-error');
-    };
-    img.src = imageUrl;
+    }
   }
 
   function updateVerification(category) {
