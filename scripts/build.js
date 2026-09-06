@@ -1,26 +1,26 @@
 const fs = require('fs');
 const path = require('path');
 
-const partialsDir = path.join(__dirname, 'partials');
-const srcDir = path.join(__dirname, 'src');
-const publicDir = path.join(__dirname, 'public');
+const rootDir = path.join(__dirname, '..');
+const partialsDir = path.join(rootDir, 'src', 'partials');
+const assetsDir = path.join(rootDir, 'src', 'assets');
+const pagesDir = path.join(rootDir, 'src', 'pages');
+const publicDir = path.join(rootDir, 'public');
 
-// ===== FIX: Copy src/assets to public/assets =====
-const srcAssetsDir = path.join(srcDir, 'assets');
-const publicAssetsDir = path.join(publicDir, 'assets');
-
-if (fs.existsSync(srcAssetsDir)) {
-  // Delete existing public/assets if it exists
-  if (fs.existsSync(publicAssetsDir)) {
-    fs.rmSync(publicAssetsDir, { recursive: true, force: true });
-  }
-  // Copy the entire assets folder
-  fs.cpSync(srcAssetsDir, publicAssetsDir, { recursive: true });
-  console.log('✅ Copied assets to public/');
+// 1. Clean public directory
+if (fs.existsSync(publicDir)) {
+  fs.rmSync(publicDir, { recursive: true, force: true });
 }
-// ================================================
+fs.mkdirSync(publicDir, { recursive: true });
+console.log('✅ Cleaned public directory');
 
-// Load partials
+// 2. Copy assets
+if (fs.existsSync(assetsDir)) {
+  fs.cpSync(assetsDir, path.join(publicDir, 'assets'), { recursive: true });
+  console.log('✅ Copied assets to public/assets');
+}
+
+// 3. Load partials
 let header = '';
 let footer = '';
 let whatsapp = '';
@@ -28,17 +28,17 @@ try {
   header = fs.readFileSync(path.join(partialsDir, 'header.html'), 'utf8');
   footer = fs.readFileSync(path.join(partialsDir, 'footer.html'), 'utf8');
   whatsapp = fs.readFileSync(path.join(partialsDir, 'whatsapp.html'), 'utf8');
+  console.log('✅ Loaded partials');
 } catch (err) {
-  console.log('Partial files not found – building without header/footer/whatsapp injection.');
+  console.log('⚠️  Partial files not found – building without injection');
 }
 
-// Recursively collect all .html files from src/ (skip assets folder)
+// 4. Recursively collect all HTML files from src/pages/
 function getHtmlFiles(dir, fileList = []) {
   const files = fs.readdirSync(dir, { withFileTypes: true });
   for (const file of files) {
     const fullPath = path.join(dir, file.name);
     if (file.isDirectory()) {
-      if (file.name === 'assets') continue; // Skip assets folder
       getHtmlFiles(fullPath, fileList);
     } else if (file.name.endsWith('.html')) {
       fileList.push(fullPath);
@@ -47,9 +47,9 @@ function getHtmlFiles(dir, fileList = []) {
   return fileList;
 }
 
-const htmlFiles = getHtmlFiles(srcDir);
+const htmlFiles = getHtmlFiles(pagesDir);
 
-// Process each HTML file
+// 5. Process each HTML file
 for (const filePath of htmlFiles) {
   let content = fs.readFileSync(filePath, 'utf8');
   content = content
@@ -57,11 +57,18 @@ for (const filePath of htmlFiles) {
     .replace('<!-- INCLUDE_FOOTER -->', footer)
     .replace('<!-- INCLUDE_WHATSAPP -->', whatsapp);
 
-  const relativePath = path.relative(srcDir, filePath);
+  const relativePath = path.relative(pagesDir, filePath);
   const outPath = path.join(publicDir, relativePath);
   fs.mkdirSync(path.dirname(outPath), { recursive: true });
   fs.writeFileSync(outPath, content);
-  console.log(`Built: ${relativePath}`);
+  console.log(`  📄 Built: ${relativePath}`);
 }
 
-console.log('All pages built successfully.');
+// 6. Copy robots.txt to public
+const robotsSrc = path.join(rootDir, 'robots.txt');
+if (fs.existsSync(robotsSrc)) {
+  fs.copyFileSync(robotsSrc, path.join(publicDir, 'robots.txt'));
+  console.log('✅ Copied robots.txt');
+}
+
+console.log(`\n🎉 Build complete! ${htmlFiles.length} pages built.`);
