@@ -184,6 +184,19 @@ if (form) {
 
   let currentCategory = 'identity';
 
+  function setImage(imageUrl) {
+    const img = new Image();
+    img.onload = function() {
+      verifyImage.style.backgroundImage = 'url("' + imageUrl + '")';
+      verifyImage.classList.remove('image-error');
+    };
+    img.onerror = function() {
+      verifyImage.style.backgroundImage = 'linear-gradient(135deg, #2d1b4e, #1a0f2e)';
+      verifyImage.classList.add('image-error');
+    };
+    img.src = imageUrl;
+  }
+
   function updateVerification(category) {
     if (!verifyData[category] || category === currentCategory) return;
     currentCategory = category;
@@ -194,8 +207,7 @@ if (form) {
     });
 
     verifyInfo.classList.add('changing');
-    verifyImage.style.backgroundImage = 'url("' + data.image + '")';
-    verifyImage.classList.remove('image-error');
+    setImage(data.image);
 
     setTimeout(function() {
       verifyIndex.textContent = data.index;
@@ -224,8 +236,7 @@ if (form) {
     });
   });
 
-  const initialData = verifyData.identity;
-  verifyImage.style.backgroundImage = 'url("' + initialData.image + '")';
+  setImage(verifyData.identity.image);
 })();
 
 /* ============ VERIFICATION NAV INTERACTIVE ============ */
