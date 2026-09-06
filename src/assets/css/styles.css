@@ -1,3 +1,7 @@
+/* Fluid container override */
+.max-w-7xl {
+  max-width: 95vw !important;
+}
 :root{
   --ink:#0B1230; --navy:#131B45; --navylite:#1E2A5E;
   --violet:#7C3AED; --violetlt:#A78BFA; --lavender:#C9BEFB;
