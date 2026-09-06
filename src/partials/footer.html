@@ -24,14 +24,14 @@
       <div>
         <h4 class="font-mono-ui text-[11px] tracking-widest text-white/40 mb-4">NAVIGATE</h4>
         <ul class="space-y-2.5 text-sm text-white/70">
-          <li><a href="index.html" class="hover:text-violetlt transition-colors">Home</a></li>
-          <li><a href="services.html" class="hover:text-violetlt transition-colors">Services</a></li>
-          <li><a href="process.html" class="hover:text-violetlt transition-colors">Process</a></li>
-          <li><a href="about.html" class="hover:text-violetlt transition-colors">Why Us</a></li>
-          <li><a href="industries.html" class="hover:text-violetlt transition-colors">Industries</a></li>
-          <li><a href="faq.html" class="hover:text-violetlt transition-colors">FAQ</a></li>
-          <li><a href="contact.html" class="hover:text-violetlt transition-colors">Contact</a></li>
-          <li><a href="blog.html" class="hover:text-violetlt transition-colors">Blog</a></li>
+          <li><a href="/index.html" class="hover:text-violetlt transition-colors">Home</a></li>
+          <li><a href="/services.html" class="hover:text-violetlt transition-colors">Services</a></li>
+          <li><a href="/process.html" class="hover:text-violetlt transition-colors">Process</a></li>
+          <li><a href="/about.html" class="hover:text-violetlt transition-colors">Why Us</a></li>
+          <li><a href="/industries.html" class="hover:text-violetlt transition-colors">Industries</a></li>
+          <li><a href="/faq.html" class="hover:text-violetlt transition-colors">FAQ</a></li>
+          <li><a href="/contact.html" class="hover:text-violetlt transition-colors">Contact</a></li>
+          <li><a href="/blog.html" class="hover:text-violetlt transition-colors">Blog</a></li>
         </ul>
       </div>
       <div>
@@ -63,13 +63,13 @@
       <div>
         <h4 class="font-mono-ui text-[11px] tracking-widest text-white/40 mb-4">LEGAL</h4>
         <ul class="space-y-2.5 text-sm text-white/70">
-          <li><a href="terms-of-service.html" class="hover:text-violetlt transition-colors">Terms of Service</a></li>
-          <li><a href="privacy-policy.html" class="hover:text-violetlt transition-colors">Privacy Policy</a></li>
-          <li><a href="cookie-policy.html" class="hover:text-violetlt transition-colors">Cookie Policy</a></li>
-          <li><a href="data-retention-policy.html" class="hover:text-violetlt transition-colors">Data Retention</a></li>
-          <li><a href="candidate-consent-policy.html" class="hover:text-violetlt transition-colors">Candidate Consent</a></li>
-          <li><a href="refund-policy.html" class="hover:text-violetlt transition-colors">Refund Policy</a></li>
-          <li><a href="security.html" class="hover:text-violetlt transition-colors">Security</a></li>
+          <li><a href="/legal/terms-of-service.html" class="hover:text-violetlt transition-colors">Terms of Service</a></li>
+          <li><a href="/legal/privacy-policy.html" class="hover:text-violetlt transition-colors">Privacy Policy</a></li>
+          <li><a href="/legal/cookie-policy.html" class="hover:text-violetlt transition-colors">Cookie Policy</a></li>
+          <li><a href="/legal/data-retention-policy.html" class="hover:text-violetlt transition-colors">Data Retention</a></li>
+          <li><a href="/legal/candidate-consent-policy.html" class="hover:text-violetlt transition-colors">Candidate Consent</a></li>
+          <li><a href="/legal/refund-policy.html" class="hover:text-violetlt transition-colors">Refund Policy</a></li>
+          <li><a href="/legal/security.html" class="hover:text-violetlt transition-colors">Security</a></li>
         </ul>
       </div>
       <div>
@@ -82,55 +82,8 @@
       </div>
     </div>
     <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-3">
-      <p class="text-white/40 text-xs">&copy; Truevence. All rights reserved.</p>
+      <p class="text-white/40 text-xs">&copy; <span id="year"></span> Truevence. All rights reserved.</p>
       <p class="font-mono-ui text-[11px] text-white/30">SIMPLY.CERTAIN</p>
     </div>
   </div>
 </footer>
-
-<!-- ======= UNIVERSAL CURSOR FIX – WORKS ON EVERY PAGE ======= -->
-<script>
-  (function() {
-    // 1. Create cursor divs if missing
-    var ring = document.querySelector('.cursor-ring');
-    var core = document.querySelector('.cursor-core');
-    if (!ring) {
-      ring = document.createElement('div');
-      ring.className = 'cursor-ring';
-      document.body.appendChild(ring);
-    }
-    if (!core) {
-      core = document.createElement('div');
-      core.className = 'cursor-core';
-      document.body.appendChild(core);
-    }
-
-    // 2. Force the class to hide the default cursor
-    document.body.classList.add('custom-cursor');
-
-    // 3. Track mouse movement
-    var mx = window.innerWidth / 2, my = window.innerHeight / 2;
-    var rx = mx, ry = mx;
-    window.addEventListener('mousemove', function(e) {
-      mx = e.clientX;
-      my = e.clientY;
-      core.style.transform = 'translate(' + mx + 'px, ' + my + 'px) translate(-50%, -50%)';
-      document.body.classList.add('cursor-ready');
-    });
-
-    // 4. Animate the ring with smooth lag
-    function animate() {
-      rx += (mx - rx) * 0.45;
-      ry += (my - ry) * 0.45;
-      ring.style.transform = 'translate(' + rx + 'px, ' + ry + 'px) translate(-50%, -50%)';
-      requestAnimationFrame(animate);
-    }
-    animate();
-
-    // 5. Enlarge cursor on hoverable elements
-    var targets = 'a, button, input, textarea, label, [data-cursor-hover]';
-    document.addEventListener('mouseover', function(e) {
-      document.body.classList.toggle('cursor-active', !!e.target.closest(targets));
-    });
-  })();
-</script>
