@@ -1,8 +1,31 @@
-/* Fluid container override — standard website width */
-.max-w-7xl {
+/* Fluid container — auto adjusts to screen */
+.max-w-7xl,
+.max-w-7xl.mx-auto {
   max-width: 100% !important;
-  padding-left: 1.5rem !important;
-  padding-right: 1.5rem !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.max-w-7xl.px-5,
+.max-w-7xl.md\:px-8 {
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+}
+
+@media (min-width: 768px) {
+  .max-w-7xl.px-5,
+  .max-w-7xl.md\:px-8 {
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+  }
+}
+
+@media (min-width: 1536px) {
+  .max-w-7xl.px-5,
+  .max-w-7xl.md\:px-8 {
+    padding-left: 3rem !important;
+    padding-right: 3rem !important;
+  }
 }
 :root{
   --ink:#0B1230; --navy:#131B45; --navylite:#1E2A5E;
