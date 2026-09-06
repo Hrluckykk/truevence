@@ -3,6 +3,7 @@ const path = require('path');
 
 const rootDir = path.join(__dirname, '..');
 const partialsDir = path.join(rootDir, 'src', 'partials');
+const componentsDir = path.join(rootDir, 'src', 'components');
 const assetsDir = path.join(rootDir, 'src', 'assets');
 const pagesDir = path.join(rootDir, 'src', 'pages');
 const publicDir = path.join(rootDir, 'public');
@@ -21,19 +22,31 @@ if (fs.existsSync(assetsDir)) {
 }
 
 // 3. Load partials
-let header = '';
-let footer = '';
-let whatsapp = '';
-try {
-  header = fs.readFileSync(path.join(partialsDir, 'header.html'), 'utf8');
-  footer = fs.readFileSync(path.join(partialsDir, 'footer.html'), 'utf8');
-  whatsapp = fs.readFileSync(path.join(partialsDir, 'whatsapp.html'), 'utf8');
-  console.log('✅ Loaded partials');
-} catch (err) {
-  console.log('⚠️  Partial files not found – building without injection');
+function loadFile(dir, filename) {
+  const filePath = path.join(dir, filename);
+  if (fs.existsSync(filePath)) {
+    return fs.readFileSync(filePath, 'utf8');
+  }
+  return '';
 }
 
-// 4. Recursively collect all HTML files from src/pages/
+const partials = {
+  header: loadFile(partialsDir, 'header.html'),
+  footer: loadFile(partialsDir, 'footer.html'),
+  whatsapp: loadFile(partialsDir, 'whatsapp.html'),
+  hero: loadFile(componentsDir, 'hero.html'),
+  marquee: loadFile(componentsDir, 'marquee.html'),
+  services: loadFile(componentsDir, 'services.html'),
+  process: loadFile(componentsDir, 'process.html'),
+  why_us: loadFile(componentsDir, 'why-us.html'),
+  industries: loadFile(componentsDir, 'industries.html'),
+  blog_scroll: loadFile(componentsDir, 'blog-scroll.html'),
+  faq: loadFile(componentsDir, 'faq.html'),
+  cta_banner: loadFile(componentsDir, 'cta-banner.html'),
+  contact: loadFile(componentsDir, 'contact.html')
+};
+
+// 4. Collect all HTML files from src/pages/
 function getHtmlFiles(dir, fileList = []) {
   const files = fs.readdirSync(dir, { withFileTypes: true });
   for (const file of files) {
@@ -52,10 +65,26 @@ const htmlFiles = getHtmlFiles(pagesDir);
 // 5. Process each HTML file
 for (const filePath of htmlFiles) {
   let content = fs.readFileSync(filePath, 'utf8');
-  content = content
-    .replace('<!-- INCLUDE_HEADER -->', header)
-    .replace('<!-- INCLUDE_FOOTER -->', footer)
-    .replace('<!-- INCLUDE_WHATSAPP -->', whatsapp);
+
+  const replacements = {
+    '<!-- INCLUDE_HEADER -->': partials.header,
+    '<!-- INCLUDE_FOOTER -->': partials.footer,
+    '<!-- INCLUDE_WHATSAPP -->': partials.whatsapp,
+    '<!-- INCLUDE_HERO -->': partials.hero,
+    '<!-- INCLUDE_MARQUEE -->': partials.marquee,
+    '<!-- INCLUDE_SERVICES -->': partials.services,
+    '<!-- INCLUDE_PROCESS -->': partials.process,
+    '<!-- INCLUDE_WHY_US -->': partials.why_us,
+    '<!-- INCLUDE_INDUSTRIES -->': partials.industries,
+    '<!-- INCLUDE_BLOG_SCROLL -->': partials.blog_scroll,
+    '<!-- INCLUDE_FAQ -->': partials.faq,
+    '<!-- INCLUDE_CTA_BANNER -->': partials.cta_banner,
+    '<!-- INCLUDE_CONTACT -->': partials.contact
+  };
+
+  for (const [placeholder, replacement] of Object.entries(replacements)) {
+    content = content.replace(placeholder, replacement);
+  }
 
   const relativePath = path.relative(pagesDir, filePath);
   const outPath = path.join(publicDir, relativePath);
