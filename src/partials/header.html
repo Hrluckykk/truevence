@@ -2,7 +2,7 @@
 <div id="cookieConsent" style="position:fixed; bottom:0; left:0; right:0; background: var(--ink); color: white; padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; z-index: 9999; font-family: 'Inter', sans-serif; box-shadow: 0 -4px 20px rgba(0,0,0,0.3);">
   <p style="margin:0; font-size: 14px; flex:1; padding-right: 20px;">
     We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.
-    <a href="/privacy-policy.html" style="color: var(--violetlt); text-decoration: underline;">Learn more</a>
+    <a href="/legal/privacy-policy.html" style="color: var(--violetlt); text-decoration: underline;">Learn more</a>
   </p>
   <button onclick="acceptCookies()" style="background: var(--violet); color: white; border: none; padding: 10px 22px; border-radius: 999px; font-weight: 700; cursor: pointer; font-size: 14px;">Accept</button>
 </div>
@@ -11,7 +11,7 @@
 <div class="cursor-ring" aria-hidden="true"></div>
 <div class="cursor-core" aria-hidden="true"></div>
 
-<!-- ============ NAVBAR (Products dropdown removed, links corrected) ============ -->
+<!-- ============ NAVBAR ============ -->
 <header class="fixed top-0 left-0 right-0 z-50 nav-glass">
   <div class="max-w-7xl mx-auto px-5 md:px-8">
     <div class="flex items-center justify-between h-[76px]">
@@ -22,10 +22,7 @@
       <nav class="hidden lg:flex items-center gap-9 font-display text-[14px] font-semibold tracking-wide text-navy">
         <a href="/index.html" class="hover:text-violet transition-colors">Home</a>
         <a href="/services.html" class="hover:text-violet transition-colors">Services</a>
-
-        <!-- Products link (direct to catalog) -->
         <a href="/products/" class="hover:text-violet transition-colors">Products</a>
-
         <a href="/process.html" class="hover:text-violet transition-colors">Process</a>
         <a href="/about.html" class="hover:text-violet transition-colors">Why Us</a>
         <a href="/industries.html" class="hover:text-violet transition-colors">Industries</a>
@@ -44,12 +41,11 @@
     </div>
   </div>
 
-  <!-- Mobile menu (Products collapsible) -->
+  <!-- Mobile menu -->
   <div id="mobileMenu" class="lg:hidden hidden border-t border-ink/10 bg-paper">
     <div class="px-6 py-6 flex flex-col gap-5 font-display font-semibold text-navy">
       <a href="/index.html" class="mobile-link">Home</a>
       <a href="/services.html" class="mobile-link">Services</a>
-      <!-- Mobile Products accordion -->
       <div>
         <button id="mobileProductsBtn" class="w-full flex items-center justify-between text-left">
           <span>Products</span>
@@ -93,15 +89,3 @@
     </div>
   </div>
 </header>
-
-<!-- Mobile menu toggle script (add before closing </body>) -->
-<script>
-  // Toggle mobile products submenu
-  const mobileProductsBtn = document.getElementById('mobileProductsBtn');
-  const mobileProductsMenu = document.getElementById('mobileProductsMenu');
-  const mobileProductsArrow = document.getElementById('mobileProductsArrow');
-  mobileProductsBtn.addEventListener('click', () => {
-    mobileProductsMenu.classList.toggle('hidden');
-    mobileProductsArrow.classList.toggle('rotate-180');
-  });
-</script>
