@@ -24,14 +24,16 @@ const menuBtn = document.getElementById('menuBtn');
 const mobileMenu = document.getElementById('mobileMenu');
 const iconMenu = document.getElementById('iconMenu');
 let menuOpen = false;
-menuBtn.addEventListener('click', () => {
-  menuOpen = !menuOpen;
-  mobileMenu.classList.toggle('hidden', !menuOpen);
-  menuBtn.setAttribute('aria-expanded', menuOpen);
-  iconMenu.innerHTML = menuOpen
-    ? '<path d="M6 6l12 12M18 6L6 18"/>'
-    : '<path d="M4 7h16M4 12h16M4 17h16"/>';
-});
+if (menuBtn) {
+  menuBtn.addEventListener('click', () => {
+    menuOpen = !menuOpen;
+    mobileMenu.classList.toggle('hidden', !menuOpen);
+    menuBtn.setAttribute('aria-expanded', menuOpen);
+    iconMenu.innerHTML = menuOpen
+      ? '<path d="M6 6l12 12M18 6L6 18"/>'
+      : '<path d="M4 7h16M4 12h16M4 17h16"/>';
+  });
+}
 document.querySelectorAll('.mobile-link').forEach(link => {
   link.addEventListener('click', () => {
     menuOpen = false;
@@ -40,6 +42,17 @@ document.querySelectorAll('.mobile-link').forEach(link => {
     iconMenu.innerHTML = '<path d="M4 7h16M4 12h16M4 17h16"/>';
   });
 });
+
+/* Mobile products submenu */
+const mobileProductsBtn = document.getElementById('mobileProductsBtn');
+const mobileProductsMenu = document.getElementById('mobileProductsMenu');
+const mobileProductsArrow = document.getElementById('mobileProductsArrow');
+if (mobileProductsBtn) {
+  mobileProductsBtn.addEventListener('click', () => {
+    mobileProductsMenu.classList.toggle('hidden');
+    mobileProductsArrow.classList.toggle('rotate-180');
+  });
+}
 
 /* Contact form */
 const form = document.getElementById('contactForm');
@@ -115,7 +128,6 @@ if (form) {
     10: { index: '11', label: 'UAN & Other Checks', heading: 'Validate employment<br>credentials', desc: 'Universal Account Number verification and other employment-related checks.', checks: ['UAN validation', 'PF account verification', 'Previous employer check', 'Employment history validation'] }
   };
 
-  // Preload images
   const imageUrls = [
     'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/SMBanners/Aadhar_Verification_Banner.png',
     'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/SMBanners/VoterID_Verification_Banner.png',
@@ -137,9 +149,7 @@ if (form) {
 
   navItems.forEach(item => {
     item.addEventListener('click', function() {
-      // Remove active from all
       navItems.forEach(nav => nav.classList.remove('active'));
-      // Add active to clicked
       this.classList.add('active');
 
       const index = this.getAttribute('data-index');
@@ -148,7 +158,6 @@ if (form) {
 
       if (!data) return;
 
-      // Update banner image with fallback
       bannerImage.src = image;
       bannerImage.alt = data.label;
       bannerImage.onerror = function() {
@@ -156,13 +165,11 @@ if (form) {
         this.src = 'data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22480%22%20height%3D%22400%22%20viewBox%3D%220%200%20480%20400%22%3E%3Crect%20width%3D%22480%22%20height%3D%22400%22%20fill%3D%22%237C3AED%22%2F%3E%3Ctext%20x%3D%22240%22%20y%3D%22200%22%20font-size%3D%2224%22%20fill%3D%22white%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%3E' + encodeURIComponent(data.label) + '%3C%2Ftext%3E%3C%2Fsvg%3E';
       };
 
-      // Update content
       contentIndex.textContent = data.index;
       contentLabel.textContent = data.label;
       contentHeading.innerHTML = data.heading;
       contentDesc.textContent = data.desc;
 
-      // Update check list
       checkList.innerHTML = data.checks.map(check => 
         '<div class="check"><span class="check-mark">✓</span>' + check + '</div>'
       ).join('');
@@ -211,7 +218,6 @@ function acceptCookies() {
   localStorage.setItem('cookieConsent', 'true');
 }
 
-// Check if previously accepted
 if (localStorage.getItem('cookieConsent') === 'true') {
   document.getElementById('cookieConsent')?.remove();
 }
