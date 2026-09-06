@@ -9,15 +9,16 @@
     { "source": "/about.html", "destination": "/about", "permanent": true },
     { "source": "/faq.html", "destination": "/faq", "permanent": true },
     { "source": "/contact.html", "destination": "/contact", "permanent": true },
-    { "source": "/privacy-policy.html", "destination": "/privacy-policy", "permanent": true },
-    { "source": "/terms-of-service.html", "destination": "/terms-of-service", "permanent": true },
-    { "source": "/cookie-policy.html", "destination": "/cookie-policy", "permanent": true },
-    { "source": "/data-retention-policy.html", "destination": "/data-retention-policy", "permanent": true },
-    { "source": "/candidate-consent-policy.html", "destination": "/candidate-consent-policy", "permanent": true },
-    { "source": "/refund-policy.html", "destination": "/refund-policy", "permanent": true },
-    { "source": "/security.html", "destination": "/security", "permanent": true },
     { "source": "/industries.html", "destination": "/industries", "permanent": true },
-    { "source": "/blog/index.html", "destination": "/blog", "permanent": true }
+    { "source": "/blog.html", "destination": "/blog", "permanent": true },
+    { "source": "/pricing.html", "destination": "/pricing", "permanent": true },
+    { "source": "/legal/privacy-policy.html", "destination": "/legal/privacy-policy", "permanent": true },
+    { "source": "/legal/terms-of-service.html", "destination": "/legal/terms-of-service", "permanent": true },
+    { "source": "/legal/cookie-policy.html", "destination": "/legal/cookie-policy", "permanent": true },
+    { "source": "/legal/data-retention-policy.html", "destination": "/legal/data-retention-policy", "permanent": true },
+    { "source": "/legal/candidate-consent-policy.html", "destination": "/legal/candidate-consent-policy", "permanent": true },
+    { "source": "/legal/refund-policy.html", "destination": "/legal/refund-policy", "permanent": true },
+    { "source": "/legal/security.html", "destination": "/legal/security", "permanent": true }
   ],
   "headers": [
     {
