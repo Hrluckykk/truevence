@@ -262,17 +262,17 @@ if (form) {
   };
 
   const imageUrls = [
-    'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/SMBanners/Aadhar_Verification_Banner.png',
-    'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/SMBanners/VoterID_Verification_Banner.png',
-    'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/SMBanners/DL_Verification_Banner.png',
-    'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/SMBanners/Employement_Verification_Banner.png',
-    'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/SMBanners/Education_Verification_Banner.png',
-    'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/SMBanners/Digital_Address_Verification_Banner.png',
-    'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/SMBanners/Physical_Address_Verification.png',
-    'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/SMBanners/Criminal_Court_Check_Banner.png',
-    'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/SMBanners/Police_Verification_Banner.png',
-    'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/SMBanners/Drug_Test_Banner.png',
-    'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/SMBanners/UAN_Verification_Banner.png'
+    'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/Aadhar_Verification_Banner.png',
+    'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/VoterID_Verification_Banner.png',
+    'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/DL_Verification_Banner.png',
+    'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/Employement_Verification_Banner.png',
+    'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/Education_Verification_Banner.png',
+    'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/Digital_Address_Verification_Banner.png',
+    'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/Physical_Address_Verification.png',
+    'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/Criminal_Court_Check_Banner.png',
+    'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/Police_Verification_Banner.png',
+    'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/Drug_Test_Banner.png',
+    'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/UAN_Verification_Banner.png'
   ];
 
   imageUrls.forEach(url => {
