@@ -187,11 +187,11 @@ if (form) {
   function setImage(imageUrl) {
     const img = new Image();
     img.onload = function() {
-      verifyImage.style.backgroundImage = 'url("' + imageUrl + '")';
+      verifyImage.innerHTML = '<img src="' + imageUrl + '" class="verify-image-square" alt="Verification image">';
       verifyImage.classList.remove('image-error');
     };
     img.onerror = function() {
-      verifyImage.style.backgroundImage = 'linear-gradient(135deg, #2d1b4e, #1a0f2e)';
+      verifyImage.innerHTML = '<span style="font-size:48px;opacity:0.5;">🔷</span>';
       verifyImage.classList.add('image-error');
     };
     img.src = imageUrl;
