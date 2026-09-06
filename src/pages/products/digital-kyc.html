@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital KYC – Paperless Identity Verification | Truevence</title>
+<meta name="description" content="Complete digital KYC with Aadhaar, PAN, and live selfie verification. Consent‑based, real‑time, and paperless – ideal for bulk onboarding.">
+<meta name="keywords" content="digital KYC, eKYC, Aadhaar KYC, paperless KYC, video KYC, identity verification, Truevence, Delhi NCR">
+
+<!-- Open Graph / Social -->
+<meta property="og:title" content="Digital KYC – Paperless Identity Verification | Truevence">
+<meta property="og:description" content="Instant, paperless KYC combining Aadhaar, PAN, and selfie checks. Fully digital, consent‑based, and scalable.">
+<meta property="og:url" content="https://www.truevence.in/products/digital-kyc.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/ChatGPT%20Image%20Jul%2018%2C%202026%2C%2009_59_12%20PM.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Digital KYC – Paperless Identity Verification | Truevence">
+<meta name="twitter:description" content="Real‑time digital KYC with Aadhaar, PAN, and video selfie. Secure and paperless.">
+<meta name="twitter:image" content="https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/ChatGPT%20Image%20Jul%2018%2C%202026%2C%2009_59_12%20PM.png">
+
+<!-- Canonical -->
+<link rel="canonical" href="https://www.truevence.in/products/digital-kyc.html">
+
+<!-- BreadcrumbList Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.truevence.in/" },
+    { "@type": "ListItem", "position": 2, "name": "Products", "item": "https://www.truevence.in/products.html" },
+    { "@type": "ListItem", "position": 3, "name": "Digital KYC", "item": "https://www.truevence.in/products/digital-kyc.html" }
+  ]
+}
+</script>
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192.png">
+<link rel="apple-touch-icon" href="/assets/favicon-192.png">
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          ink:      '#0B1230',
+          navy:     '#131B45',
+          navylite: '#1E2A5E',
+          violet:   '#7C3AED',
+          violetlt: '#A78BFA',
+          lavender: '#C9BEFB',
+          paper:    '#F7F7FB',
+          paperdim: '#EFEEF9',
+          slate:    '#545A78',
+        },
+        fontFamily: {
+          display: ['"Plus Jakarta Sans"', 'sans-serif'],
+          body: ['"Inter"', 'sans-serif'],
+          mono: ['"IBM Plex Mono"', 'monospace'],
+        },
+      }
+    }
+  }
+</script>
+
+<!-- AOS -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+<!-- Custom CSS (external) -->
+<link rel="stylesheet" href="/styles.css">
+
+<style>
+  /* ===== DIGITAL KYC DUMMY ===== */
+  .kyc-phone {
+    width: 200px;
+    height: 230px;
+    background: #ffffff;
+    border: 2px solid #e2e8f0;
+    border-radius: 24px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 30px -10px rgba(0,0,0,0.1);
+    font-family: 'IBM Plex Mono', monospace;
+    margin: 0 auto;
+  }
+  .kyc-phone::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 20px;
+    background: #f1f5f9;
+    border-radius: 24px 24px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .kyc-phone .notch {
+    width: 50px;
+    height: 6px;
+    background: #cbd5e1;
+    border-radius: 3px;
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .kyc-phone .screen {
+    padding: 30px 16px 0;
+    text-align: center;
+  }
+  .kyc-phone .screen .kyc-icon {
+    width: 40px;
+    height: 40px;
+    background: #7C3AED;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    margin-bottom: 8px;
+  }
+  .kyc-phone .screen .title {
+    font-weight: 700;
+    font-size: 14px;
+    color: #1e293b;
+  }
+  .kyc-phone .screen .steps {
+    font-size: 10px;
+    color: #64748b;
+    margin-top: 12px;
+    line-height: 1.6;
+    text-align: left;
+  }
+  .kyc-phone .screen .steps div {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 4px;
+  }
+  .kyc-phone .screen .steps div svg {
+    color: #16a34a;
+    flex-shrink: 0;
+  }
+  .kyc-phone .verified-stamp {
+    position: absolute;
+    bottom: 18px;
+    right: 18px;
+    background: #16a34a;
+    color: white;
+    font-weight: 800;
+    font-size: 11px;
+    padding: 4px 12px;
+    border-radius: 8px;
+    transform: rotate(-4deg);
+    box-shadow: 0 6px 10px rgba(22,163,74,0.2);
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    letter-spacing: 0.5px;
+  }
+  .kyc-phone:hover .verified-stamp {
+    opacity: 1;
+    transform: rotate(-4deg) scale(1.05);
+    animation: stamp-pop 0.5s ease-out;
+  }
+  @keyframes stamp-pop {
+    0% { transform: rotate(-15deg) scale(0.3); opacity: 0; }
+    60% { transform: rotate(-2deg) scale(1.1); opacity: 1; }
+    100% { transform: rotate(-4deg) scale(1); opacity: 1; }
+  }
+  .kyc-phone .pulse-ring {
+    position: absolute;
+    inset: -4px;
+    border: 2px solid #16a34a;
+    border-radius: 28px;
+    animation: pulse-ring 2s ease-out infinite;
+    opacity: 0;
+  }
+  @keyframes pulse-ring {
+    0% { transform: scale(0.95); opacity: 0.6; }
+    70% { transform: scale(1.08); opacity: 0; }
+    100% { opacity: 0; }
+  }
+
+  .bg-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.25;
+    z-index: 0;
+  }
+</style>
+</head>
+<body class="bg-paper text-ink antialiased relative">
+
+<!-- Background blobs -->
+<div class="bg-blob w-72 h-72 bg-violetlt/20 top-20 left-10"></div>
+<div class="bg-blob w-96 h-96 bg-lavender/15 bottom-0 right-0"></div>
+
+<!-- Cookie Consent Banner -->
+<div id="cookieConsent" style="position:fixed; bottom:0; left:0; right:0; background: var(--ink); color: white; padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; z-index: 9999; font-family: 'Inter', sans-serif; box-shadow: 0 -4px 20px rgba(0,0,0,0.3);">
+  <p style="margin:0; font-size: 14px; flex:1; padding-right: 20px;">
+    We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.
+    <a href="/privacy-policy.html" style="color: var(--violetlt); text-decoration: underline;">Learn more</a>
+  </p>
+  <button onclick="acceptCookies()" style="background: var(--violet); color: white; border: none; padding: 10px 22px; border-radius: 999px; font-weight: 700; cursor: pointer; font-size: 14px;">Accept</button>
+</div>
+
+<!-- Custom cursor -->
+<div class="cursor-ring" aria-hidden="true"></div>
+<div class="cursor-core" aria-hidden="true"></div>
+
+<!-- INCLUDE_HEADER -->
+
+<!-- ============ PAGE CONTENT ============ -->
+<section class="pt-[160px] pb-24 md:pt-[180px] md:pb-32 relative z-10">
+  <div class="max-w-4xl mx-auto px-5 md:px-8">
+
+    <!-- HERO -->
+    <div class="flex flex-col md:flex-row items-center gap-10 mb-20" data-aos="fade-up">
+      <div class="flex-1 text-center md:text-left">
+        <span class="font-mono-ui text-[12px] tracking-[0.18em] text-violet font-semibold">PRODUCT DETAIL</span>
+        <h1 class="font-display font-extrabold text-3xl sm:text-4xl mt-3 leading-tight">
+          Digital KYC
+        </h1>
+        <p class="text-slate mt-4 max-w-md">
+          A fully paperless, consent‑based identity verification combining Aadhaar, PAN, and a live selfie. Complete KYC in under three minutes — scalable for thousands of onboardings.
+        </p>
+      </div>
+      <div class="flex-shrink-0">
+        <!-- Digital KYC phone dummy -->
+        <div class="kyc-phone relative mx-auto">
+          <div class="pulse-ring"></div>
+          <div class="notch"></div>
+          <div class="screen">
+            <div class="kyc-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <div class="title">KYC Verification</div>
+            <div class="steps">
+              <div><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg> Aadhaar verified</div>
+              <div><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg> PAN matched</div>
+              <div><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg> Selfie captured</div>
+              <div><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg> KYC complete</div>
+            </div>
+          </div>
+          <div class="verified-stamp">
+            VERIFIED
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WHY DIGITAL KYC -->
+    <div class="mb-16" data-aos="fade-up">
+      <h2 class="font-display font-bold text-2xl mb-6 flex items-center gap-3">
+        <svg class="w-8 h-8 text-violet" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+        </svg>
+        Why switch to Digital KYC?
+      </h2>
+      <div class="grid sm:grid-cols-3 gap-6 mt-4">
+        <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-100">
+          <div class="w-10 h-10 rounded-full bg-violet/10 flex items-center justify-center mb-3">
+            <svg class="w-5 h-5 text-violet" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+          </div>
+          <h3 class="font-display font-bold text-sm mb-1">Paperless & instant</h3>
+          <p class="text-slate text-xs">No photocopies, no physical forms. Complete KYC in minutes on any smartphone.</p>
+        </div>
+        <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-100">
+          <div class="w-10 h-10 rounded-full bg-violet/10 flex items-center justify-center mb-3">
+            <svg class="w-5 h-5 text-violet" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          </div>
+          <h3 class="font-display font-bold text-sm mb-1">Regulatory compliant</h3>
+          <p class="text-slate text-xs">Meets UIDAI and RBI guidelines for Aadhaar e‑KYC and video‑based identification.</p>
+        </div>
+        <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-100">
+          <div class="w-10 h-10 rounded-full bg-violet/10 flex items-center justify-center mb-3">
+            <svg class="w-5 h-5 text-violet" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+          </div>
+          <h3 class="font-display font-bold text-sm mb-1">Seamless integration</h3>
+          <p class="text-slate text-xs">Embed KYC directly into your app or onboarding flow via API or SDK.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- HOW IT WORKS -->
+    <div class="mb-16" data-aos="fade-up">
+      <h2 class="font-display font-bold text-2xl mb-6 flex items-center gap-3">
+        <svg class="w-8 h-8 text-violet" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+        </svg>
+        How Digital KYC works
+      </h2>
+      <div class="grid sm:grid-cols-3 gap-8 text-center">
+        <div class="flex flex-col items-center">
+          <div class="w-14 h-14 rounded-full bg-violet/10 flex items-center justify-center mb-3">
+            <svg class="w-7 h-7 text-violet" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          </div>
+          <h3 class="font-display font-bold text-sm mb-1">1. Consent & ID upload</h3>
+          <p class="text-slate text-xs">Candidate grants permission and uploads Aadhaar and PAN via a secure link.</p>
+        </div>
+        <div class="flex flex-col items-center">
+          <div class="w-14 h-14 rounded-full bg-violet/10 flex items-center justify-center mb-3">
+            <svg class="w-7 h-7 text-violet" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+          </div>
+          <h3 class="font-display font-bold text-sm mb-1">2. Real‑time verification</h3>
+          <p class="text-slate text-xs">APIs validate Aadhaar and PAN instantly; a live selfie confirms liveness.</p>
+        </div>
+        <div class="flex flex-col items-center">
+          <div class="w-14 h-14 rounded-full bg-violet/10 flex items-center justify-center mb-3">
+            <svg class="w-7 h-7 text-violet" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+          </div>
+          <h3 class="font-display font-bold text-sm mb-1">3. KYC report</h3>
+          <p class="text-slate text-xs">A consolidated report with match results, liveness score, and audit trail.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- METHODS: API vs VIDEO KYC -->
+    <div class="mb-16 flex flex-col md:flex-row gap-10 items-start" data-aos="fade-up">
+      <div class="flex-1">
+        <h2 class="font-display font-bold text-2xl mb-4 flex items-center gap-3">
+          <svg class="w-8 h-8 text-violet" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          </svg>
+          API‑based KYC
+        </h2>
+        <p class="text-slate leading-relaxed mb-3">
+          Integrate our APIs directly into your platform. Instant, silent, and fully automated.
+        </p>
+        <ul class="space-y-2 text-slate text-sm list-disc pl-5">
+          <li>Real‑time Aadhaar and PAN validation from authorised UIDAI/NSDL gateways</li>
+          <li>OCR extraction of ID documents for autofill</li>
+          <li>Zero manual intervention — ideal for high‑volume, self‑serve flows</li>
+          <li>Response in milliseconds with a simple JSON payload</li>
+        </ul>
+        <p class="text-slate text-sm mt-3">Perfect for fintech apps, digital lending, and instant account opening.</p>
+      </div>
+      <div class="flex-shrink-0 w-full md:w-40 h-40 bg-white rounded-2xl shadow-sm border border-gray-100 flex items-center justify-center">
+        <svg class="w-20 h-20 text-violet/30" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 7v10c0 2 1 3 3 3h10c2 0 3-1 3-3V7M4 7c0-2 1-3 3-3h10c2 0 3 1 3 3M4 7h16M9 11h6" />
+        </svg>
+      </div>
+    </div>
+
+    <div class="mb-16 flex flex-col md:flex-row-reverse gap-10 items-start" data-aos="fade-up">
+      <div class="flex-1">
+        <h2 class="font-display font-bold text-2xl mb-4 flex items-center gap-3">
+          <svg class="w-8 h-8 text-violet" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+          </svg>
+          Video‑based KYC (Assisted)
+        </h2>
+        <p class="text-slate leading-relaxed mb-3">
+          A trained agent verifies the candidate over a live video call, recording the session for compliance.
+        </p>
+        <ul class="space-y-2 text-slate text-sm list-disc pl-5">
+          <li>Government‑approved for full KYC under RBI's video KYC guidelines</li>
+          <li>Agent confirms the candidate's face matches the ID documents in real time</li>
+          <li>Geo‑tagged, encrypted recording stored as audit proof</li>
+          <li>Works even when Aadhaar biometric authentication is not possible</li>
+        </ul>
+        <p class="text-slate text-sm mt-3">Ideal for regulated entities that need full KYC without physical branch visits.</p>
+      </div>
+      <div class="flex-shrink-0 w-full md:w-40 h-40 bg-white rounded-2xl shadow-sm border border-gray-100 flex items-center justify-center">
+        <svg class="w-20 h-20 text-violet/30" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+        </svg>
+      </div>
+    </div>
+
+    <!-- SECURITY & DATA PROTECTION -->
+    <div class="mb-16" data-aos="fade-up">
+      <h2 class="font-display font-bold text-2xl mb-6 flex items-center gap-3">
+        <svg class="w-8 h-8 text-violet" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+        </svg>
+        Security & data protection
+      </h2>
+      <div class="grid sm:grid-cols-2 gap-6">
+        <div class="flex gap-4">
+          <div class="w-10 h-10 rounded-lg bg-violet/10 flex items-center justify-center shrink-0"><svg class="w-5 h-5 text-violet" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z"/></svg></div>
+          <div><h3 class="font-display font-bold text-sm mb-1">Explicit consent</h3><p class="text-slate text-xs">Every check begins after digital consent is captured.</p></div>
+        </div>
+        <div class="flex gap-4">
+          <div class="w-10 h-10 rounded-lg bg-violet/10 flex items-center justify-center shrink-0"><svg class="w-5 h-5 text-violet" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+          <div><h3 class="font-display font-bold text-sm mb-1">Biometric data not stored</h3><p class="text-slate text-xs">We never store Aadhaar biometrics; only demographic match responses.</p></div>
+        </div>
+        <div class="flex gap-4">
+          <div class="w-10 h-10 rounded-lg bg-violet/10 flex items-center justify-center shrink-0"><svg class="w-5 h-5 text-violet" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2 1 3 3 3h10c2 0 3-1 3-3V7M4 7c0-2 1-3 3-3h10c2 0 3 1 3 3M4 7h16M9 11h6"/></svg></div>
+          <div><h3 class="font-display font-bold text-sm mb-1">Encryption at rest & transit</h3><p class="text-slate text-xs">All KYC data is encrypted using AES‑256 and TLS 1.3.</p></div>
+        </div>
+        <div class="flex gap-4">
+          <div class="w-10 h-10 rounded-lg bg-violet/10 flex items-center justify-center shrink-0"><svg class="w-5 h-5 text-violet" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg></div>
+          <div><h3 class="font-display font-bold text-sm mb-1">Audit‑ready</h3><p class="text-slate text-xs">Complete trail with timestamps, consent logs, and video recordings (if applicable).</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WHO NEEDS DIGITAL KYC -->
+    <div class="mb-16" data-aos="fade-up">
+      <h2 class="font-display font-bold text-2xl mb-6 flex items-center gap-3">
+        <svg class="w-8 h-8 text-violet" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+        </svg>
+        Who needs Digital KYC?
+      </h2>
+      <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <div class="bg-white p-4 rounded-xl border border-gray-100 shadow-sm flex items-center gap-3"><svg class="w-6 h-6 text-violet/70" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><span class="text-sm font-medium">Fintech & digital lending</span></div>
+        <div class="bg-white p-4 rounded-xl border border-gray-100 shadow-sm flex items-center gap-3"><svg class="w-6 h-6 text-violet/70" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg><span class="text-sm font-medium">Banking & NBFCs</span></div>
+        <div class="bg-white p-4 rounded-xl border border-gray-100 shadow-sm flex items-center gap-3"><svg class="w-6 h-6 text-violet/70" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg><span class="text-sm font-medium">Telecom & mobile operators</span></div>
+        <div class="bg-white p-4 rounded-xl border border-gray-100 shadow-sm flex items-center gap-3"><svg class="w-6 h-6 text-violet/70" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg><span class="text-sm font-medium">Gig & sharing economy</span></div>
+        <div class="bg-white p-4 rounded-xl border border-gray-100 shadow-sm flex items-center gap-3"><svg class="w-6 h-6 text-violet/70" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg><span class="text-sm font-medium">Staffing & bulk onboarding</span></div>
+        <div class="bg-white p-4 rounded-xl border border-gray-100 shadow-sm flex items-center gap-3"><svg class="w-6 h-6 text-violet/70" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><span class="text-sm font-medium">Insurance & healthtech</span></div>
+      </div>
+    </div>
+
+    <!-- COMPLIANCE -->
+    <div class="mb-16" data-aos="fade-up">
+      <h2 class="font-display font-bold text-2xl mb-4 flex items-center gap-3">
+        <svg class="w-8 h-8 text-violet" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
+        </svg>
+        Compliance & trust
+      </h2>
+      <p class="text-slate leading-relaxed">
+        Truevence's Digital KYC is fully compliant with UIDAI's Aadhaar e‑KYC guidelines, RBI's master direction on KYC, and the Digital Personal Data Protection Act, 2023. All consent is captured digitally, and no core biometric information is stored or shared. Our processes are regularly audited by independent agencies.
+      </p>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center" data-aos="fade-up">
+      <a href="/contact.html" class="btn-primary inline-block font-display font-bold px-8 py-3 rounded-full text-sm">
+        Talk to us about Digital KYC
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- INCLUDE_FOOTER -->
+<!-- INCLUDE_WHATSAPP -->
+
+<!-- External Scripts -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="/scripts.js"></script>
+</body>
+</html>
