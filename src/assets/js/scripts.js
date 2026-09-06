@@ -111,7 +111,7 @@ if (form) {
       title: 'Confirm who<br>they are',
       copy: 'We verify government-issued identity documents and validate key personal details to ensure the candidate\'s identity is genuine.',
       checks: ['PAN verification', 'Aadhaar verification', 'Name & date of birth validation', 'Identity document checks'],
-      image: 'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/SMBanners/Aadhar_Verification_Banner.png'
+      image: 'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/Aadhar_Verification_Banner.png'
     },
     employment: {
       index: '02',
@@ -119,7 +119,7 @@ if (form) {
       title: 'Confirm where<br>they\'ve worked',
       copy: 'We validate employment history with previous employers to establish a candidate\'s professional experience and employment claims.',
       checks: ['Employer verification', 'Designation verification', 'Employment tenure', 'Exit details'],
-      image: 'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/SMBanners/Employement_Verification_Banner.png'
+      image: 'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/Employement_Verification_Banner.png'
     },
     education: {
       index: '03',
@@ -127,7 +127,7 @@ if (form) {
       title: 'Validate what<br>they\'ve studied',
       copy: 'We verify academic qualifications against available institutional records to validate the candidate\'s educational claims.',
       checks: ['Degree verification', 'Institution verification', 'Course verification', 'Graduation details'],
-      image: 'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/SMBanners/Education_Verification_Banner.png'
+      image: 'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/Education_Verification_Banner.png'
     },
     address: {
       index: '04',
@@ -135,7 +135,7 @@ if (form) {
       title: 'Confirm where<br>they live',
       copy: 'We verify current and permanent addresses through digital and physical verification methods.',
       checks: ['Current address verification', 'Permanent address verification', 'Digital address checks', 'Physical verification'],
-      image: 'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/SMBanners/Digital_Address_Verification_Banner.png'
+      image: 'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/Digital_Address_Verification_Banner.png'
     },
     criminal: {
       index: '05',
@@ -143,7 +143,7 @@ if (form) {
       title: 'Check relevant<br>legal records',
       copy: 'We conduct relevant criminal and court record checks to identify information that may require further review.',
       checks: ['Court record checks', 'Criminal record searches', 'Police verification', 'Relevant adverse records'],
-      image: 'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/SMBanners/Criminal_Court_Check_Banner.png'
+      image: 'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/Criminal_Court_Check_Banner.png'
     },
     reference: {
       index: '06',
@@ -151,7 +151,7 @@ if (form) {
       title: 'Validate their<br>professional story',
       copy: 'We connect with professional references to validate a candidate\'s experience, conduct and professional history.',
       checks: ['Professional references', 'Employment references', 'Role validation', 'Reference feedback'],
-      image: 'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/SMBanners/Police_Verification_Banner.png'
+      image: 'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/Police_Verification_Banner.png'
     },
     credit: {
       index: '07',
@@ -159,7 +159,7 @@ if (form) {
       title: 'Understand their<br>financial history',
       copy: 'Where applicable, credit verification helps organisations assess relevant financial history and risk indicators.',
       checks: ['Credit history', 'Financial information', 'Risk indicators', 'Relevant credit checks'],
-      image: 'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/SMBanners/UAN_Verification_Banner.png'
+      image: 'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/UAN_Verification_Banner.png'
     },
     digital: {
       index: '08',
@@ -167,7 +167,7 @@ if (form) {
       title: 'Go beyond the<br>standard checks',
       copy: 'Additional verification services help organisations build a more complete picture of the candidate.',
       checks: ['Drug test verification', 'UAN verification', 'Additional checks', 'Custom verification'],
-      image: 'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/SMBanners/Drug_Test_Banner.png'
+      image: 'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/Drug_Test_Banner.png'
     }
   };
 
