@@ -102,6 +102,132 @@ if (form) {
   });
 }
 
+/* ============ WHAT WE VERIFY INTERACTIVE ============ */
+(function initVerifySection() {
+  const verifyData = {
+    identity: {
+      index: '01',
+      label: 'IDENTITY VERIFICATION',
+      title: 'Confirm who<br>they are',
+      copy: 'We verify government-issued identity documents and validate key personal details to ensure the candidate\'s identity is genuine.',
+      checks: ['PAN verification', 'Aadhaar verification', 'Name & date of birth validation', 'Identity document checks'],
+      image: 'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/SMBanners/Aadhar_Verification_Banner.png'
+    },
+    employment: {
+      index: '02',
+      label: 'EMPLOYMENT VERIFICATION',
+      title: 'Confirm where<br>they\'ve worked',
+      copy: 'We validate employment history with previous employers to establish a candidate\'s professional experience and employment claims.',
+      checks: ['Employer verification', 'Designation verification', 'Employment tenure', 'Exit details'],
+      image: 'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/SMBanners/Employement_Verification_Banner.png'
+    },
+    education: {
+      index: '03',
+      label: 'EDUCATION VERIFICATION',
+      title: 'Validate what<br>they\'ve studied',
+      copy: 'We verify academic qualifications against available institutional records to validate the candidate\'s educational claims.',
+      checks: ['Degree verification', 'Institution verification', 'Course verification', 'Graduation details'],
+      image: 'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/SMBanners/Education_Verification_Banner.png'
+    },
+    address: {
+      index: '04',
+      label: 'ADDRESS VERIFICATION',
+      title: 'Confirm where<br>they live',
+      copy: 'We verify current and permanent addresses through digital and physical verification methods.',
+      checks: ['Current address verification', 'Permanent address verification', 'Digital address checks', 'Physical verification'],
+      image: 'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/SMBanners/Digital_Address_Verification_Banner.png'
+    },
+    criminal: {
+      index: '05',
+      label: 'CRIMINAL VERIFICATION',
+      title: 'Check relevant<br>legal records',
+      copy: 'We conduct relevant criminal and court record checks to identify information that may require further review.',
+      checks: ['Court record checks', 'Criminal record searches', 'Police verification', 'Relevant adverse records'],
+      image: 'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/SMBanners/Criminal_Court_Check_Banner.png'
+    },
+    reference: {
+      index: '06',
+      label: 'REFERENCE VERIFICATION',
+      title: 'Validate their<br>professional story',
+      copy: 'We connect with professional references to validate a candidate\'s experience, conduct and professional history.',
+      checks: ['Professional references', 'Employment references', 'Role validation', 'Reference feedback'],
+      image: 'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/SMBanners/Police_Verification_Banner.png'
+    },
+    credit: {
+      index: '07',
+      label: 'CREDIT VERIFICATION',
+      title: 'Understand their<br>financial history',
+      copy: 'Where applicable, credit verification helps organisations assess relevant financial history and risk indicators.',
+      checks: ['Credit history', 'Financial information', 'Risk indicators', 'Relevant credit checks'],
+      image: 'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/SMBanners/UAN_Verification_Banner.png'
+    },
+    digital: {
+      index: '08',
+      label: 'DIGITAL & OTHERS',
+      title: 'Go beyond the<br>standard checks',
+      copy: 'Additional verification services help organisations build a more complete picture of the candidate.',
+      checks: ['Drug test verification', 'UAN verification', 'Additional checks', 'Custom verification'],
+      image: 'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/SMBanners/Drug_Test_Banner.png'
+    }
+  };
+
+  const menuItems = document.querySelectorAll('.verify-menu-item');
+  const verifyInfo = document.getElementById('verifyInfo');
+  const verifyIndex = document.getElementById('verifyIndex');
+  const verifyLabel = document.getElementById('verifyLabel');
+  const verifyTitle = document.getElementById('verifyTitle');
+  const verifyCopy = document.getElementById('verifyCopy');
+  const verifyChecks = document.getElementById('verifyChecks');
+  const verifyImage = document.getElementById('verifyImage');
+
+  if (!menuItems.length || !verifyInfo) return;
+
+  let currentCategory = 'identity';
+
+  function updateVerification(category) {
+    if (!verifyData[category] || category === currentCategory) return;
+    currentCategory = category;
+    const data = verifyData[category];
+
+    menuItems.forEach(item => {
+      item.classList.toggle('active', item.dataset.category === category);
+    });
+
+    verifyInfo.classList.add('changing');
+    verifyImage.style.backgroundImage = 'url("' + data.image + '")';
+    verifyImage.classList.remove('image-error');
+
+    setTimeout(function() {
+      verifyIndex.textContent = data.index;
+      verifyLabel.textContent = data.label;
+      verifyTitle.innerHTML = data.title;
+      verifyCopy.textContent = data.copy;
+
+      verifyChecks.innerHTML = '';
+      data.checks.forEach(function(check) {
+        const li = document.createElement('li');
+        li.className = 'verify-check';
+        li.innerHTML = '<span class="verify-check-mark">✓</span> ' + check;
+        verifyChecks.appendChild(li);
+      });
+
+      verifyInfo.classList.remove('changing');
+    }, 200);
+  }
+
+  menuItems.forEach(function(item) {
+    item.addEventListener('mouseenter', function() {
+      updateVerification(this.dataset.category);
+    });
+    item.addEventListener('click', function() {
+      updateVerification(this.dataset.category);
+    });
+  });
+
+  const initialData = verifyData.identity;
+  verifyImage.style.backgroundImage = 'url("' + initialData.image + '")';
+})();
+
 /* ============ VERIFICATION NAV INTERACTIVE ============ */
 (function initVerificationNav() {
   const navItems = document.querySelectorAll('.verify-nav-item');
