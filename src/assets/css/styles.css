@@ -8,25 +8,50 @@
 
 .max-w-7xl.px-5,
 .max-w-7xl.md\:px-8 {
-  padding-left: 1rem !important;
-  padding-right: 1rem !important;
+  padding-left: 250px !important;
+  padding-right: 220px !important;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 1536px) {
   .max-w-7xl.px-5,
   .max-w-7xl.md\:px-8 {
-    padding-left: 2rem !important;
-    padding-right: 2rem !important;
+    padding-left: 180px !important;
+    padding-right: 150px !important;
   }
 }
 
-@media (min-width: 1536px) {
+@media (max-width: 1280px) {
   .max-w-7xl.px-5,
   .max-w-7xl.md\:px-8 {
-    padding-left: 3rem !important;
-    padding-right: 3rem !important;
+    padding-left: 120px !important;
+    padding-right: 100px !important;
   }
 }
+
+@media (max-width: 1024px) {
+  .max-w-7xl.px-5,
+  .max-w-7xl.md\:px-8 {
+    padding-left: 60px !important;
+    padding-right: 50px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .max-w-7xl.px-5,
+  .max-w-7xl.md\:px-8 {
+    padding-left: 25px !important;
+    padding-right: 25px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .max-w-7xl.px-5,
+  .max-w-7xl.md\:px-8 {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+}
+
 :root{
   --ink:#0B1230; --navy:#131B45; --navylite:#1E2A5E;
   --violet:#7C3AED; --violetlt:#A78BFA; --lavender:#C9BEFB;
