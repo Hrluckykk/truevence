@@ -4,9 +4,17 @@
 
 <section id="why-truevence" class="tv-why-section">
 
+  <!-- Background Image -->
+  <div class="tv-why-bg" aria-hidden="true">
+    <img
+      src="https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/Why_Truevence.png"
+      alt=""
+    >
+  </div>
+
   <div class="tv-why-container">
 
-    <!-- LEFT CONTENT -->
+    <!-- LEFT CONTENT OVER IMAGE -->
     <div class="tv-why-content">
 
       <div class="tv-why-kicker">
@@ -105,14 +113,186 @@
 
     </div>
 
-    <!-- RIGHT IMAGE -->
-    <div class="tv-why-image" aria-hidden="true">
-      <img
-        src="https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/Why_Truevence.png"
-        alt=""
-      >
-    </div>
-
   </div>
 
 </section>
+
+<style>
+  /* =========================================================
+     WHY TRUEVENCE STYLES
+     ========================================================= */
+
+  .tv-why-section {
+    position: relative;
+    overflow: hidden;
+    background: #f5f5f5; /* Fallback background */
+    min-height: 600px;
+  }
+
+  /* Background Image - Right Side */
+  .tv-why-bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .tv-why-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Container */
+  .tv-why-container {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 40px;
+  }
+
+  /* Left Content */
+  .tv-why-content {
+    width: 50%;
+    position: relative;
+    z-index: 3;
+  }
+
+  /* Kicker */
+  .tv-why-kicker {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #333;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+
+  .tv-why-kicker-dot {
+    width: 8px;
+    height: 8px;
+    background: #0066FF;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  /* Title */
+  .tv-why-title {
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #1a1a1a;
+    margin: 0 0 20px 0;
+  }
+
+  .tv-why-title span {
+    color: #0066FF;
+  }
+
+  /* Description */
+  .tv-why-description {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+    margin: 0 0 40px 0;
+    max-width: 450px;
+  }
+
+  /* Reasons */
+  .tv-why-reasons {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .tv-why-reason {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px 0;
+    border-top: 1px solid #ddd;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .tv-why-reason:last-child {
+    border-bottom: 1px solid #ddd;
+  }
+
+  .tv-why-reason:hover {
+    padding-left: 10px;
+    border-top-color: #0066FF;
+  }
+
+  .tv-why-reason:hover .tv-why-arrow {
+    color: #0066FF;
+    transform: translate(3px, -3px);
+  }
+
+  /* Number */
+  .tv-why-number {
+    font-size: 14px;
+    font-weight: 600;
+    color: #999;
+    min-width: 30px;
+    padding-top: 3px;
+  }
+
+  /* Reason Content */
+  .tv-why-reason-content {
+    flex: 1;
+  }
+
+  .tv-why-reason-content h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 0 0 8px 0;
+  }
+
+  .tv-why-reason-content p {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #666;
+    margin: 0;
+    max-width: 350px;
+  }
+
+  /* Arrow */
+  .tv-why-arrow {
+    font-size: 20px;
+    color: #999;
+    transition: all 0.3s ease;
+    padding-top: 3px;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .tv-why-bg {
+      width: 100%;
+      height: 50%;
+      top: auto;
+      bottom: 0;
+      opacity: 0.1;
+    }
+
+    .tv-why-content {
+      width: 100%;
+    }
+
+    .tv-why-title {
+      font-size: 32px;
+    }
+
+    .tv-why-container {
+      padding: 60px 20px;
+    }
+  }
+</style>
