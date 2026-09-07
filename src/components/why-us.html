@@ -165,13 +165,14 @@
 .tv-why-bg img {
   position: absolute;
 
-  width: 100%;
+  width: 55%; /* Reduced from 100% to make image smaller */
   height: 100%;
 
-  inset: 0;
+  right: 0; /* Position from right */
+  top: 0;
 
   object-fit: cover;
-  object-position: right center; /* Changed to right center */
+  object-position: center center;
 
   display: block;
 }
@@ -212,14 +213,10 @@
   z-index: 2;
 
   width: 100%;
-  max-width: 1440px;
-
+  max-width: 100%; /* Changed from 1440px to match hero style */
   margin: 0 auto;
 
-  padding:
-    105px
-    80px
-    95px;
+  padding: 105px 220px 95px 250px; /* Same margins as hero section */
 }
 
 
@@ -228,9 +225,11 @@
    ========================================================= */
 
 .tv-why-content {
-  width: min(590px, 48%);
+  width: 100%; /* Changed to full width within container */
+  max-width: 590px; /* Maintain max width */
   position: relative;
-  z-index: 3; /* Ensure content is above background */
+  z-index: 3;
+  padding-left: 25px; /* Same as hero section */
 }
 
 
@@ -522,16 +521,12 @@
 @media (max-width: 1200px) {
 
   .tv-why-container {
-    padding-left: 55px;
-    padding-right: 55px;
-  }
-
-  .tv-why-content {
-    width: min(570px, 54%);
+    padding-left: 150px; /* Adjusted for smaller screens */
+    padding-right: 120px;
   }
 
   .tv-why-bg img {
-    object-position: right center; /* Changed to right center */
+    width: 50%; /* Slightly smaller on medium screens */
   }
 }
 
@@ -543,14 +538,15 @@
   }
 
   .tv-why-container {
-    padding:
-      85px
-      45px
-      85px;
+    padding: 85px 80px 85px 100px; /* Adjusted padding */
   }
 
   .tv-why-content {
-    width: min(600px, 65%);
+    max-width: 600px;
+  }
+
+  .tv-why-bg img {
+    width: 45%; /* Further reduced */
   }
 
   .tv-why-bg::after {
@@ -584,9 +580,10 @@
   }
 
   .tv-why-bg img {
+    width: 100%; /* Full width on mobile */
+    height: 100%;
     object-fit: cover;
-
-    object-position: 62% center; /* Keep for mobile */
+    object-position: 62% center;
   }
 
   .tv-why-bg::after {
@@ -603,14 +600,13 @@
   }
 
   .tv-why-container {
-    padding:
-      65px
-      25px
-      65px;
+    padding: 65px 25px 65px;
   }
 
   .tv-why-content {
     width: 100%;
+    max-width: 100%;
+    padding-left: 0;
   }
 
   .tv-why-title {
