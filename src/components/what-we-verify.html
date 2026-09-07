@@ -25,6 +25,10 @@
       background-color: #f7f5f2;
     }
     /* ============ WHAT WE VERIFY ============ */
+    #verify {
+      margin-top: 60px;
+      margin-bottom: 60px;
+    }
     .verify-menu {
       display: flex;
       flex-direction: column;
@@ -218,15 +222,22 @@
     .verify-image-container {
       position: relative;
       z-index: 10;
-      width: 100%;
+      width: min(520px, 80%);
+      aspect-ratio: 1;
       display: flex;
       align-items: center;
       justify-content: center;
       margin-top: 30px;
+      border-radius: 28px;
+      overflow: hidden;
+    }
+    .verify-image-container.image-error {
+      background-color: #f0edf7;
+      border: 2px dashed #7C3AED;
     }
     .verify-image-square {
-      width: min(520px, 80%);
-      aspect-ratio: 1;
+      width: 100%;
+      height: 100%;
       object-fit: contain;
       border-radius: 28px;
       filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.5));
@@ -239,7 +250,7 @@
     }
     .verify-status {
       position: absolute;
-      z-index: 5;
+      z-index: 20;
       right: -25px;
       top: 48%;
       width: 175px;
@@ -249,6 +260,7 @@
       border-radius: 16px;
       box-shadow: 0 25px 60px rgba(16, 35, 50, 0.18);
       transform: translateY(-50%);
+      pointer-events: none;
     }
     .verify-status-title {
       display: flex;
@@ -298,17 +310,6 @@
       gap: 1.8rem;
       align-items: start;
       margin-top: 0;
-    }
-    .py-12 {
-      padding-top: 0;
-      padding-bottom: 0;
-    }
-    .md\:py-16 {
-      padding-top: 0;
-      padding-bottom: 0;
-    }
-    .scroll-mt-24 {
-      scroll-margin-top: 0;
     }
     .max-w-2xl {
       max-width: 42rem;
@@ -377,7 +378,7 @@
         width: min(550px, 75%);
         top: -20px;
       }
-      .verify-image-square {
+      .verify-image-container {
         width: min(420px, 70%);
       }
       .verify-status {
@@ -403,7 +404,7 @@
         width: min(450px, 70%);
         top: -25px;
       }
-      .verify-image-square {
+      .verify-image-container {
         width: min(360px, 65%);
       }
       .verify-status {
@@ -424,7 +425,7 @@
         width: min(360px, 80%);
         top: -35px;
       }
-      .verify-image-square {
+      .verify-image-container {
         width: min(300px, 70%);
       }
       .verify-status {
@@ -442,7 +443,7 @@
         width: 300px;
         top: -25px;
       }
-      .verify-image-square {
+      .verify-image-container {
         width: 230px;
       }
       .verify-status {
@@ -463,7 +464,7 @@
 </head>
 <body>
   <!-- ============ WHAT WE VERIFY ============ -->
-  <section id="verify" class="bg-paper scroll-mt-24">
+  <section id="verify" class="bg-paper">
     <div style="width:100%; max-width:100%; padding-left:250px; padding-right:220px;" class="relative">
       <div class="max-w-2xl mb-10" data-aos="fade-up">
         <span class="font-mono-ui text-[12px] tracking-[0.18em] text-violet font-semibold">WHAT WE VERIFY</span>
