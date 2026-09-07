@@ -1,6 +1,6 @@
 <!-- ============ WHAT WE VERIFY ============ -->
 <section id="verify" class="py-24 md:py-32 bg-paper scroll-mt-24">
-  <div class="max-w-7xl mx-auto px-5 md:px-8">
+  <div style="width:100%; max-width:100%; padding-left:250px; padding-right:220px;" class="relative">
     <div class="max-w-2xl mb-16" data-aos="fade-up">
       <span class="font-mono-ui text-[12px] tracking-[0.18em] text-violet font-semibold">WHAT WE VERIFY</span>
       <h2 class="font-display font-extrabold text-3xl sm:text-4xl mt-3 leading-tight">
@@ -14,100 +14,75 @@
     <div class="grid lg:grid-cols-3 gap-12 items-start">
       <!-- LEFT: Verification List -->
       <div class="lg:col-span-1">
-        <nav class="verify-menu space-y-1">
-          <button class="verify-menu-item active w-full text-left group" type="button" data-category="identity">
-            <span class="verify-number font-mono-ui text-[11px] text-violet font-semibold">01</span>
-            <span class="verify-label font-display font-bold text-[18px] text-ink group-hover:text-violet transition-colors ml-3">Identity</span>
-            <span class="verify-arrow text-violet opacity-0 group-hover:opacity-100 transition-opacity ml-auto">→</span>
+        <nav class="verify-menu">
+          <button class="verify-menu-item active" type="button" data-category="identity">
+            <span class="verify-number">01</span>
+            <span class="verify-label">Identity</span>
+            <span class="verify-arrow">→</span>
           </button>
-          <button class="verify-menu-item w-full text-left group" type="button" data-category="employment">
-            <span class="verify-number font-mono-ui text-[11px] text-slate font-semibold">02</span>
-            <span class="verify-label font-display font-bold text-[18px] text-ink group-hover:text-violet transition-colors ml-3">Employment</span>
-            <span class="verify-arrow text-violet opacity-0 group-hover:opacity-100 transition-opacity ml-auto">→</span>
+          <button class="verify-menu-item" type="button" data-category="employment">
+            <span class="verify-number">02</span>
+            <span class="verify-label">Employment</span>
+            <span class="verify-arrow">→</span>
           </button>
-          <button class="verify-menu-item w-full text-left group" type="button" data-category="education">
-            <span class="verify-number font-mono-ui text-[11px] text-slate font-semibold">03</span>
-            <span class="verify-label font-display font-bold text-[18px] text-ink group-hover:text-violet transition-colors ml-3">Education</span>
-            <span class="verify-arrow text-violet opacity-0 group-hover:opacity-100 transition-opacity ml-auto">→</span>
+          <button class="verify-menu-item" type="button" data-category="education">
+            <span class="verify-number">03</span>
+            <span class="verify-label">Education</span>
+            <span class="verify-arrow">→</span>
           </button>
-          <button class="verify-menu-item w-full text-left group" type="button" data-category="address">
-            <span class="verify-number font-mono-ui text-[11px] text-slate font-semibold">04</span>
-            <span class="verify-label font-display font-bold text-[18px] text-ink group-hover:text-violet transition-colors ml-3">Address</span>
-            <span class="verify-arrow text-violet opacity-0 group-hover:opacity-100 transition-opacity ml-auto">→</span>
+          <button class="verify-menu-item" type="button" data-category="address">
+            <span class="verify-number">04</span>
+            <span class="verify-label">Address</span>
+            <span class="verify-arrow">→</span>
           </button>
-          <button class="verify-menu-item w-full text-left group" type="button" data-category="criminal">
-            <span class="verify-number font-mono-ui text-[11px] text-slate font-semibold">05</span>
-            <span class="verify-label font-display font-bold text-[18px] text-ink group-hover:text-violet transition-colors ml-3">Criminal</span>
-            <span class="verify-arrow text-violet opacity-0 group-hover:opacity-100 transition-opacity ml-auto">→</span>
+          <button class="verify-menu-item" type="button" data-category="criminal">
+            <span class="verify-number">05</span>
+            <span class="verify-label">Criminal</span>
+            <span class="verify-arrow">→</span>
           </button>
-          <button class="verify-menu-item w-full text-left group" type="button" data-category="reference">
-            <span class="verify-number font-mono-ui text-[11px] text-slate font-semibold">06</span>
-            <span class="verify-label font-display font-bold text-[18px] text-ink group-hover:text-violet transition-colors ml-3">Reference</span>
-            <span class="verify-arrow text-violet opacity-0 group-hover:opacity-100 transition-opacity ml-auto">→</span>
+          <button class="verify-menu-item" type="button" data-category="reference">
+            <span class="verify-number">06</span>
+            <span class="verify-label">Reference</span>
+            <span class="verify-arrow">→</span>
           </button>
-          <button class="verify-menu-item w-full text-left group" type="button" data-category="credit">
-            <span class="verify-number font-mono-ui text-[11px] text-slate font-semibold">07</span>
-            <span class="verify-label font-display font-bold text-[18px] text-ink group-hover:text-violet transition-colors ml-3">Credit</span>
-            <span class="verify-arrow text-violet opacity-0 group-hover:opacity-100 transition-opacity ml-auto">→</span>
+          <button class="verify-menu-item" type="button" data-category="credit">
+            <span class="verify-number">07</span>
+            <span class="verify-label">Credit</span>
+            <span class="verify-arrow">→</span>
           </button>
-          <button class="verify-menu-item w-full text-left group" type="button" data-category="digital">
-            <span class="verify-number font-mono-ui text-[11px] text-slate font-semibold">08</span>
-            <span class="verify-label font-display font-bold text-[18px] text-ink group-hover:text-violet transition-colors ml-3">Digital &amp; Others</span>
-            <span class="verify-arrow text-violet opacity-0 group-hover:opacity-100 transition-opacity ml-auto">→</span>
+          <button class="verify-menu-item" type="button" data-category="digital">
+            <span class="verify-number">08</span>
+            <span class="verify-label">Digital &amp; Others</span>
+            <span class="verify-arrow">→</span>
           </button>
         </nav>
       </div>
 
       <!-- CENTER: Verification Details -->
-      <div class="lg:col-span-1 verify-info relative" id="verifyInfo">
-        <div class="space-y-6">
-          <span class="verify-index font-mono-ui text-[48px] font-bold text-violet/20 block leading-none" id="verifyIndex">01</span>
-          <span class="verify-label-text font-mono-ui text-[11px] tracking-[0.18em] text-violet font-semibold block" id="verifyLabel">IDENTITY VERIFICATION</span>
-          <h3 class="verify-title font-display font-extrabold text-4xl leading-tight text-ink" id="verifyTitle">Confirm who<br>they are</h3>
-          <p class="verify-copy text-slate leading-relaxed text-[16px]" id="verifyCopy">We verify government-issued identity documents and validate key personal details to ensure the candidate's identity is genuine.</p>
-          <ul class="verify-checks space-y-3" id="verifyChecks">
-            <li class="verify-check flex items-center gap-3 text-ink">
-              <span class="verify-check-mark w-6 h-6 bg-violet/10 rounded-full flex items-center justify-center text-violet text-sm">✓</span>
-              PAN verification
-            </li>
-            <li class="verify-check flex items-center gap-3 text-ink">
-              <span class="verify-check-mark w-6 h-6 bg-violet/10 rounded-full flex items-center justify-center text-violet text-sm">✓</span>
-              Aadhaar verification
-            </li>
-            <li class="verify-check flex items-center gap-3 text-ink">
-              <span class="verify-check-mark w-6 h-6 bg-violet/10 rounded-full flex items-center justify-center text-violet text-sm">✓</span>
-              Name &amp; date of birth validation
-            </li>
-            <li class="verify-check flex items-center gap-3 text-ink">
-              <span class="verify-check-mark w-6 h-6 bg-violet/10 rounded-full flex items-center justify-center text-violet text-sm">✓</span>
-              Identity document checks
-            </li>
-          </ul>
-        </div>
+      <div class="lg:col-span-1 verify-info" id="verifyInfo">
+        <span class="verify-index" id="verifyIndex">01</span>
+        <span class="verify-label-text" id="verifyLabel">IDENTITY VERIFICATION</span>
+        <h3 class="verify-title" id="verifyTitle">Confirm who<br>they are</h3>
+        <p class="verify-copy" id="verifyCopy">We verify government-issued identity documents and validate key personal details to ensure the candidate's identity is genuine.</p>
+        <ul class="verify-checks" id="verifyChecks">
+          <li class="verify-check"><span class="verify-check-mark">✓</span>PAN verification</li>
+          <li class="verify-check"><span class="verify-check-mark">✓</span>Aadhaar verification</li>
+          <li class="verify-check"><span class="verify-check-mark">✓</span>Name &amp; date of birth validation</li>
+          <li class="verify-check"><span class="verify-check-mark">✓</span>Identity document checks</li>
+        </ul>
       </div>
 
       <!-- RIGHT: Hexagon Image -->
-      <div class="lg:col-span-1 verify-visual relative">
-        <div class="verify-hexagon-shape absolute inset-0 bg-gradient-to-br from-violet/5 to-lavender/10 rounded-3xl"></div>
-        <div class="verify-hexagon relative z-10 mx-auto max-w-sm" id="verifyImage">
-          <img src="https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/Aadhar_Verification_Banner.png" class="verify-image-square w-full h-auto rounded-2xl shadow-2xl" alt="Verification image">
+      <div class="lg:col-span-1 verify-visual">
+        <div class="verify-hexagon-shape"></div>
+        <div class="verify-hexagon" id="verifyImage">
+          <img src="https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/Aadhar_Verification_Banner.png" class="verify-image-square" alt="Verification image">
         </div>
-        <div class="verify-status mt-6 bg-white rounded-2xl p-6 shadow-lg border border-violet/10 relative z-10">
-          <div class="verify-status-title font-mono-ui text-[11px] tracking-[0.18em] text-violet font-semibold flex items-center gap-2 mb-4">
-            <span class="verify-status-dot w-2 h-2 bg-violet rounded-full animate-pulse"></span>
-            VERIFIED
-          </div>
-          <div class="space-y-2">
-            <div class="verify-status-row flex items-center gap-2 text-[14px] text-slate">
-              <span class="verify-status-check text-violet">✓</span>Document authentic
-            </div>
-            <div class="verify-status-row flex items-center gap-2 text-[14px] text-slate">
-              <span class="verify-status-check text-violet">✓</span>Details matched
-            </div>
-            <div class="verify-status-row flex items-center gap-2 text-[14px] text-slate">
-              <span class="verify-status-check text-violet">✓</span>No discrepancies
-            </div>
-          </div>
+        <div class="verify-status">
+          <div class="verify-status-title"><span class="verify-status-dot"></span>VERIFIED</div>
+          <div class="verify-status-row"><span class="verify-status-check">✓</span>Document authentic</div>
+          <div class="verify-status-row"><span class="verify-status-check">✓</span>Details matched</div>
+          <div class="verify-status-row"><span class="verify-status-check">✓</span>No discrepancies</div>
         </div>
       </div>
     </div>
@@ -115,70 +90,133 @@
 </section>
 
 <style>
-/* ============ VERIFY MENU STYLES ============ */
+/* ============ WHAT WE VERIFY ============ */
+.verify-menu { display: flex; flex-direction: column; gap: 2px; }
 .verify-menu-item {
+  position: relative; display: grid; grid-template-columns: 36px 1fr 25px;
+  align-items: center; gap: 12px; padding: 12px 16px; border: none;
+  border-radius: 12px; background: transparent; color: #687780;
+  font-family: 'Plus Jakarta Sans', sans-serif; font-size: 15px; font-weight: 600; text-align: left;
+  cursor: pointer; transition: all 0.25s ease; width: 100%;
+}
+.verify-menu-item::before {
+  content: ""; position: absolute; left: -8px; top: 8px; bottom: 8px;
+  width: 3px; background: #7C3AED; border-radius: 4px; opacity: 0;
+  transform: scaleY(0.4); transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.verify-menu-item:hover, .verify-menu-item.active {
+  background: rgba(124, 58, 237, 0.06); color: #0B1230; padding-left: 20px;
+}
+.verify-menu-item:hover::before, .verify-menu-item.active::before { opacity: 1; transform: scaleY(1); }
+.verify-number { font-size: 12px; font-weight: 700; color: #a3adb2; font-family: 'IBM Plex Mono', monospace; transition: color 0.25s ease; }
+.verify-menu-item:hover .verify-number, .verify-menu-item.active .verify-number { color: #7C3AED; }
+.verify-label { font-weight: 700; font-size: 15px; letter-spacing: -0.01em; font-family: 'Plus Jakarta Sans', sans-serif; }
+.verify-arrow { color: #7C3AED; font-size: 16px; opacity: 0; transform: translateX(-6px); transition: opacity 0.25s ease, transform 0.25s ease; }
+.verify-menu-item:hover .verify-arrow, .verify-menu-item.active .verify-arrow { opacity: 1; transform: translateX(0); }
+.verify-info { transition: opacity 0.2s ease, transform 0.2s ease; }
+.verify-info.changing { opacity: 0; transform: translateY(8px); }
+.verify-index { display: block; margin-bottom: 16px; color: #7C3AED; font-size: 12px; font-weight: 700; font-family: 'IBM Plex Mono', monospace; letter-spacing: 2px; }
+.verify-label-text { display: block; margin-bottom: 16px; font-size: 11px; font-weight: 700; letter-spacing: 2.5px; color: #687780; font-family: 'IBM Plex Mono', monospace; }
+.verify-title { margin: 0 0 16px; font-size: clamp(32px, 3vw, 44px); line-height: 0.98; letter-spacing: -2px; font-weight: 800; color: #0B1230; font-family: 'Plus Jakarta Sans', sans-serif; }
+.verify-copy { max-width: 430px; margin: 0 0 24px; font-size: 15px; line-height: 1.65; color: #687780; font-family: 'Inter', sans-serif; }
+.verify-checks { display: flex; flex-direction: column; gap: 10px; margin: 0; padding: 0; list-style: none; }
+.verify-check { display: flex; align-items: center; gap: 11px; font-size: 14px; font-weight: 500; color: #263845; font-family: 'Inter', sans-serif; }
+.verify-check-mark { width: 20px; height: 20px; flex: 0 0 20px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: #7C3AED; color: white; font-size: 10px; font-weight: 800; }
+.verify-learn-more {
+  display: inline-block;
+  margin-top: 24px;
+  color: #7C3AED;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+.verify-learn-more:hover {
+  color: #0B1230;
+  transform: translateX(4px);
+}
+.verify-visual { position: relative; width: 100%; min-height: 600px; display: flex; align-items: center; justify-content: center; }
+
+/* Hexagon background shape — BIG with visible borders */
+.verify-hexagon-shape {
+  position: absolute;
+  z-index: 1;
+  width: min(900px, 100%);
+  aspect-ratio: 1;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  background-color: #241540;
+  background-image: linear-gradient(135deg, #2d1b4e, #1a0f2e);
+  box-shadow: 0 0 0 3px #7C3AED, 0 0 0 6px rgba(124,58,237,0.3), 0 30px 70px rgba(16, 35, 50, 0.15);
+}
+
+/* Image floats above hexagon — 512x512 */
+.verify-hexagon {
+  position: relative;
+  z-index: 2;
+  width: 100%;
   display: flex;
   align-items: center;
-  padding: 16px 20px;
-  border: 1px solid transparent;
-  border-radius: 12px;
-  transition: all 0.3s ease;
+  justify-content: center;
+}
+.verify-hexagon .verify-image-square {
+  width: 512px;
+  aspect-ratio: 1;
+  object-fit: contain;
+  border-radius: 24px;
+  z-index: 10;
   position: relative;
+  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.5));
+  animation: float-image 3s ease-in-out infinite;
+}
+@keyframes float-image {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+.verify-status { position: absolute; z-index: 5; right: 0; top: 50%; width: 175px; padding: 16px 0; background: #102332; color: white; border-radius: 16px; box-shadow: 0 25px 60px rgba(16, 35, 50, 0.18); transform: translateY(-50%); }
+.verify-status-title { display: flex; align-items: center; gap: 9px; padding: 0 18px 12px; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 10px; font-weight: 700; letter-spacing: 1.5px; font-family: 'IBM Plex Mono', monospace; }
+.verify-status-dot { width: 7px; height: 7px; border-radius: 50%; background: #7C3AED; box-shadow: 0 0 14px rgba(124, 58, 237, 0.7); }
+.verify-status-row { display: flex; align-items: center; gap: 9px; padding: 8px 18px; color: #b8c0c5; font-size: 11px; font-weight: 500; font-family: 'Inter', sans-serif; }
+.verify-status-check { width: 18px; height: 18px; flex: 0 0 18px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: rgba(124, 58, 237, 0.25); color: #d8ccf7; font-size: 9px; }
+
+@media (max-width: 1200px) {
+  .verify-visual { min-height: 500px; }
+  .verify-hexagon-shape { width: 700px; }
+  .verify-hexagon .verify-image-square { width: 400px; }
+  .verify-status { right: 0; transform: translateY(-50%) scale(0.85); transform-origin: right center; }
 }
 
-.verify-menu-item:hover {
-  background: rgba(124, 58, 237, 0.05);
-  border-color: rgba(124, 58, 237, 0.2);
-}
-
-.verify-menu-item.active {
-  background: rgba(124, 58, 237, 0.08);
-  border-color: rgba(124, 58, 237, 0.3);
-}
-
-.verify-menu-item.active .verify-number,
-.verify-menu-item.active .verify-label {
-  color: #7C3AED;
-}
-
-.verify-menu-item.active .verify-arrow {
-  opacity: 1;
-}
-
-/* Smooth transitions */
-.verify-info {
-  transition: all 0.3s ease;
-}
-
-/* Responsive adjustments */
 @media (max-width: 1024px) {
-  .verify-menu-item {
-    padding: 14px 16px;
+  [style*="padding-left:250px"] {
+    padding-left: 100px !important;
+    padding-right: 80px !important;
   }
-  
-  .verify-label {
-    font-size: 16px;
-  }
+  .verify-visual { min-height: 500px; }
+  .verify-hexagon-shape { width: 700px; }
+  .verify-hexagon .verify-image-square { width: 400px; }
+  .verify-status { right: 0; transform: translateY(-50%) scale(0.85); transform-origin: right center; }
 }
 
 @media (max-width: 768px) {
-  .verify-menu-item {
-    padding: 12px 0;
-    border-bottom: 1px solid rgba(19, 27, 69, 0.1);
-    border-radius: 0;
+  [style*="padding-left:250px"] {
+    padding-left: 25px !important;
+    padding-right: 25px !important;
   }
-  
-  .verify-menu-item:hover {
-    background: transparent;
-    border-color: transparent;
-    border-bottom-color: rgba(124, 58, 237, 0.3);
-  }
-  
-  .verify-menu-item.active {
-    background: transparent;
-    border-color: transparent;
-    border-bottom-color: rgba(124, 58, 237, 0.5);
-  }
+  .verify-visual { min-height: 420px; margin-top: 20px; }
+  .verify-hexagon-shape { width: 500px; }
+  .verify-hexagon .verify-image-square { width: 300px; }
+  .verify-status { right: 0; transform: translateY(-50%) scale(0.75); transform-origin: right center; width: 160px; }
+  .verify-title { font-size: 28px; }
+}
+
+@media (max-width: 480px) {
+  .verify-visual { min-height: 340px; }
+  .verify-hexagon-shape { width: 340px; }
+  .verify-hexagon .verify-image-square { width: 220px; }
+  .verify-status { transform: translateY(-50%) scale(0.65); transform-origin: right center; width: 150px; }
+  .verify-status-row { padding: 6px 14px; font-size: 9px; }
+  .verify-status-title { padding: 0 14px 10px; font-size: 9px; }
 }
 </style>
 
@@ -192,6 +230,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const verifyCopy = document.getElementById('verifyCopy');
   const verifyChecks = document.getElementById('verifyChecks');
   const verifyImage = document.getElementById('verifyImage');
+  const verifyInfo = document.getElementById('verifyInfo');
   
   const verificationData = {
     identity: {
@@ -273,8 +312,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const data = verificationData[category];
       
       // Update content with smooth transition
-      verifyInfo.style.opacity = '0';
-      verifyInfo.style.transform = 'translateY(10px)';
+      verifyInfo.classList.add('changing');
       
       setTimeout(() => {
         verifyIndex.textContent = data.index;
@@ -284,10 +322,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Update checks
         verifyChecks.innerHTML = data.checks.map(check => 
-          `<li class="verify-check flex items-center gap-3 text-ink">
-            <span class="verify-check-mark w-6 h-6 bg-violet/10 rounded-full flex items-center justify-center text-violet text-sm">✓</span>
-            ${check}
-          </li>`
+          `<li class="verify-check"><span class="verify-check-mark">✓</span>${check}</li>`
         ).join('');
         
         // Update image with fade effect
@@ -298,9 +333,8 @@ document.addEventListener('DOMContentLoaded', function() {
           img.style.opacity = '1';
         }, 200);
         
-        verifyInfo.style.opacity = '1';
-        verifyInfo.style.transform = 'translateY(0)';
-      }, 300);
+        verifyInfo.classList.remove('changing');
+      }, 200);
     });
   });
 });
