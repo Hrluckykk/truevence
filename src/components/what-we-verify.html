@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Verification Section · Square Frame</title>
+  <title>Verification Section · Subtle Purple Glow</title>
   <!-- Fonts & basic styling -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -182,36 +182,9 @@
       justify-content: center;
       padding-top: 0;
     }
-    /* SQUARE FRAME */
-    .verify-square-frame {
-      position: absolute;
-      z-index: 1;
-      width: min(620px, 85%);
-      aspect-ratio: 1;
-      top: -20px;
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: #241540;
-      background-image: linear-gradient(135deg, #2d1b4e, #1a0f2e);
-      border-radius: 32px;
-      box-shadow: 
-        0 0 0 4px #7C3AED,
-        0 0 0 10px rgba(124, 58, 237, 0.2),
-        0 0 35px 8px rgba(124, 58, 237, 0.45),
-        0 30px 70px rgba(16, 35, 50, 0.2);
-      transition: box-shadow 0.3s ease;
-    }
-    .verify-square-frame::after {
-      content: "";
-      position: absolute;
-      inset: 18px;
-      border-radius: 20px;
-      border: 2px solid rgba(124, 58, 237, 0.35);
-      pointer-events: none;
-    }
     .verify-image-container {
       position: relative;
-      z-index: 10;
+      z-index: 5;
       width: 100%;
       display: flex;
       align-items: center;
@@ -223,9 +196,9 @@
       aspect-ratio: 1;
       object-fit: contain;
       border-radius: 28px;
-      filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.5));
+      filter: drop-shadow(0 0 15px rgba(124, 58, 237, 0.25));
       animation: float-image 3s ease-in-out infinite;
-      transition: opacity 0.2s ease;
+      transition: opacity 0.2s ease, filter 0.3s ease;
     }
     @keyframes float-image {
       0%, 100% { transform: translateY(0); }
@@ -233,7 +206,7 @@
     }
     .verify-status {
       position: absolute;
-      z-index: 5;
+      z-index: 20;
       right: -20px;
       top: 45%;
       width: 175px;
@@ -241,8 +214,9 @@
       background: #102332;
       color: white;
       border-radius: 16px;
-      box-shadow: 0 25px 60px rgba(16, 35, 50, 0.18);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
       transform: translateY(-50%);
+      pointer-events: none;
     }
     .verify-status-title {
       display: flex;
@@ -260,7 +234,7 @@
       height: 7px;
       border-radius: 50%;
       background: #7C3AED;
-      box-shadow: 0 0 14px rgba(124, 58, 237, 0.7);
+      box-shadow: 0 0 10px rgba(124, 58, 237, 0.5);
     }
     .verify-status-row {
       display: flex;
@@ -366,10 +340,6 @@
       .verify-visual {
         min-height: 450px;
       }
-      .verify-square-frame {
-        width: min(550px, 75%);
-        top: -10px;
-      }
       .verify-image-square {
         width: min(420px, 70%);
       }
@@ -388,10 +358,6 @@
         min-height: 420px;
         margin-top: 20px;
       }
-      .verify-square-frame {
-        width: min(450px, 70%);
-        top: -20px;
-      }
       .verify-image-square {
         width: min(360px, 65%);
       }
@@ -403,10 +369,6 @@
     @media (max-width: 768px) {
       .verify-visual {
         min-height: 350px;
-      }
-      .verify-square-frame {
-        width: min(360px, 80%);
-        top: -30px;
       }
       .verify-image-square {
         width: min(300px, 70%);
@@ -420,10 +382,6 @@
     @media (max-width: 480px) {
       .verify-visual {
         min-height: 300px;
-      }
-      .verify-square-frame {
-        width: 300px;
-        top: -20px;
       }
       .verify-image-square {
         width: 230px;
@@ -519,10 +477,8 @@
           </ul>
         </div>
 
-        <!-- RIGHT: Square Frame with Glowing Purple -->
+        <!-- RIGHT: Image with Subtle Purple Glow -->
         <div class="lg:col-span-1 verify-visual">
-          <!-- Square frame with purple glow -->
-          <div class="verify-square-frame"></div>
           <div class="verify-image-container" id="verifyImage">
             <img src="https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/Aadhar_Verification_Banner.png" class="verify-image-square" alt="Aadhaar verification">
           </div>
