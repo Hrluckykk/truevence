@@ -115,6 +115,9 @@
 
   </div>
 
+</section>
+
+<style>
 /* =========================================================
    TRUEVENCE
    WHY TRUEVENCE SECTION
@@ -168,7 +171,7 @@
   inset: 0;
 
   object-fit: cover;
-  object-position: center center;
+  object-position: right center; /* Changed to right center */
 
   display: block;
 }
@@ -226,6 +229,8 @@
 
 .tv-why-content {
   width: min(590px, 48%);
+  position: relative;
+  z-index: 3; /* Ensure content is above background */
 }
 
 
@@ -526,7 +531,7 @@
   }
 
   .tv-why-bg img {
-    object-position: center center;
+    object-position: right center; /* Changed to right center */
   }
 }
 
@@ -581,8 +586,7 @@
   .tv-why-bg img {
     object-fit: cover;
 
-    object-position:
-      62% center;
+    object-position: 62% center; /* Keep for mobile */
   }
 
   .tv-why-bg::after {
@@ -715,5 +719,4 @@
     transition: none;
   }
 }
-     
-</section>
+</style>
