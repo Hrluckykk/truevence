@@ -3,7 +3,7 @@
   <div class="pointer-events-none absolute -top-32 -right-40 w-[560px] h-[560px] rounded-full bg-violet/10 blur-3xl"></div>
   <div class="pointer-events-none absolute top-1/2 -left-40 w-[420px] h-[420px] rounded-full bg-lavender/20 blur-3xl"></div>
 
-  <div style="width:100%; max-width:100%; padding-left:220px; padding-right:220px;" class="relative hero-container">
+  <div style="width:100%; max-width:100%; padding-left:250px; padding-right:220px;" class="relative hero-container">
     <div class="grid lg:grid-cols-2 gap-12 items-center">
 
       <div data-aos="fade-up" style="padding-left:25px;" class="hero-content">
@@ -53,7 +53,89 @@
       </div>
 
       <div data-aos="fade-left" data-aos-delay="100" class="relative flex items-center justify-center">
-        <div class="id-card dark-scan-grid p-8 md:p-10 w-full max-w-lg mx-auto">
+        <!-- Background stacked cards -->
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <div class="id-card dark-scan-grid p-8 md:p-10 w-full max-w-lg mx-auto transform rotate-[-8deg] translate-x-[-20px] translate-y-[15px] opacity-30 scale-95">
+            <div class="flex items-center justify-between mb-8">
+              <div class="flex items-center gap-2">
+                <img src="https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/ChatGPT%20Image%20Jul%2018%2C%202026%2C%2009_59_12%20PM.png" alt="Truevence background verification case card" class="h-7 w-auto opacity-95">
+              </div>
+              <span class="font-mono-ui text-[10px] tracking-widest text-violetlt/80 border border-violetlt/30 rounded-full px-2.5 py-1">CASE #TV-2024</span>
+            </div>
+            <div class="flex items-center gap-4 mb-8">
+              <div class="w-20 h-20 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#C9BEFB" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>
+              </div>
+              <div class="flex-1 space-y-3">
+                <div class="skeleton-line h-3 w-3/4"></div>
+                <div class="skeleton-line h-3 w-1/2"></div>
+              </div>
+            </div>
+            <div class="space-y-4 mb-8">
+              <div class="flex items-center justify-between font-mono-ui text-[11px] text-white/60">
+                <span>Identity check</span><span class="text-violetlt">Verified</span>
+              </div>
+              <div class="skeleton-line h-2 w-full overflow-hidden"><div class="h-full w-full bg-gradient-to-r from-violet to-lavender rounded"></div></div>
+              <div class="flex items-center justify-between font-mono-ui text-[11px] text-white/60 pt-1">
+                <span>Employment history</span><span class="text-violetlt">Verified</span>
+              </div>
+              <div class="skeleton-line h-2 w-full overflow-hidden"><div class="h-full w-5/6 bg-gradient-to-r from-violet to-lavender rounded"></div></div>
+              <div class="flex items-center justify-between font-mono-ui text-[11px] text-white/60 pt-1">
+                <span>Criminal record</span><span class="text-violetlt">Verified</span>
+              </div>
+              <div class="skeleton-line h-2 w-full overflow-hidden"><div class="h-full w-full bg-gradient-to-r from-violet to-lavender rounded"></div></div>
+            </div>
+            <div class="flex items-center justify-center relative h-24">
+              <div class="stamp flex items-center gap-3 border-[3px] border-violetlt/80 rounded-xl px-6 py-3">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C9BEFB" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg>
+                <span class="font-display font-extrabold text-violetlt tracking-wide text-base">VERIFIED</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <div class="id-card dark-scan-grid p-8 md:p-10 w-full max-w-lg mx-auto transform rotate-[5deg] translate-x-[25px] translate-y-[-10px] opacity-40 scale-95">
+            <div class="flex items-center justify-between mb-8">
+              <div class="flex items-center gap-2">
+                <img src="https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/ChatGPT%20Image%20Jul%2018%2C%202026%2C%2009_59_12%20PM.png" alt="Truevence background verification case card" class="h-7 w-auto opacity-95">
+              </div>
+              <span class="font-mono-ui text-[10px] tracking-widest text-violetlt/80 border border-violetlt/30 rounded-full px-2.5 py-1">CASE #TV-2025</span>
+            </div>
+            <div class="flex items-center gap-4 mb-8">
+              <div class="w-20 h-20 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#C9BEFB" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>
+              </div>
+              <div class="flex-1 space-y-3">
+                <div class="skeleton-line h-3 w-3/4"></div>
+                <div class="skeleton-line h-3 w-1/2"></div>
+              </div>
+            </div>
+            <div class="space-y-4 mb-8">
+              <div class="flex items-center justify-between font-mono-ui text-[11px] text-white/60">
+                <span>Identity check</span><span class="text-violetlt">Verified</span>
+              </div>
+              <div class="skeleton-line h-2 w-full overflow-hidden"><div class="h-full w-full bg-gradient-to-r from-violet to-lavender rounded"></div></div>
+              <div class="flex items-center justify-between font-mono-ui text-[11px] text-white/60 pt-1">
+                <span>Employment history</span><span class="text-violetlt">Verified</span>
+              </div>
+              <div class="skeleton-line h-2 w-full overflow-hidden"><div class="h-full w-5/6 bg-gradient-to-r from-violet to-lavender rounded"></div></div>
+              <div class="flex items-center justify-between font-mono-ui text-[11px] text-white/60 pt-1">
+                <span>Criminal record</span><span class="text-violetlt">Verified</span>
+              </div>
+              <div class="skeleton-line h-2 w-full overflow-hidden"><div class="h-full w-full bg-gradient-to-r from-violet to-lavender rounded"></div></div>
+            </div>
+            <div class="flex items-center justify-center relative h-24">
+              <div class="stamp flex items-center gap-3 border-[3px] border-violetlt/80 rounded-xl px-6 py-3">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C9BEFB" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg>
+                <span class="font-display font-extrabold text-violetlt tracking-wide text-base">VERIFIED</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Main card -->
+        <div class="id-card dark-scan-grid p-8 md:p-10 w-full max-w-lg mx-auto relative z-10">
           <div class="flex items-center justify-between mb-8">
             <div class="flex items-center gap-2">
               <img src="https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/ChatGPT%20Image%20Jul%2018%2C%202026%2C%2009_59_12%20PM.png" alt="Truevence background verification case card" class="h-7 w-auto opacity-95">
