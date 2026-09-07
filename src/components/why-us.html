@@ -4,17 +4,17 @@
 
 <section id="why-truevence" class="tv-why-section">
 
-  <!-- Background Image -->
+  <!-- Background graphic -->
   <div class="tv-why-bg" aria-hidden="true">
     <img
-      src="https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/Why_Truevence.png"
+      src="https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/Why_truevence.png"
       alt=""
     >
   </div>
 
   <div class="tv-why-container">
 
-    <!-- LEFT CONTENT OVER IMAGE -->
+    <!-- LEFT CONTENT -->
     <div class="tv-why-content">
 
       <div class="tv-why-kicker">
@@ -115,184 +115,605 @@
 
   </div>
 
-</section>
+/* =========================================================
+   TRUEVENCE
+   WHY TRUEVENCE SECTION
+   ========================================================= */
 
-<style>
-  /* =========================================================
-     WHY TRUEVENCE STYLES
-     ========================================================= */
+.tv-why-section {
+  --tv-ink: #0B1230;
+  --tv-navy: #131B45;
+  --tv-navy-lite: #1E2A5E;
+  --tv-violet: #7C3AED;
+  --tv-violet-light: #A78BFA;
+  --tv-lavender: #C9BEFB;
+  --tv-paper: #F7F7FB;
+  --tv-slate: #687780;
 
-  .tv-why-section {
-    position: relative;
-    overflow: hidden;
-    background: #f5f5f5; /* Fallback background */
-    min-height: 600px;
+  position: relative;
+  width: 100%;
+  min-height: 820px;
+
+  overflow: hidden;
+
+  background: var(--tv-paper);
+  color: var(--tv-ink);
+
+  font-family: 'Inter', sans-serif;
+}
+
+
+/* =========================================================
+   BACKGROUND GRAPHIC
+   ========================================================= */
+
+.tv-why-bg {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  z-index: 0;
+
+  pointer-events: none;
+}
+
+.tv-why-bg img {
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+
+  inset: 0;
+
+  object-fit: cover;
+  object-position: center center;
+
+  display: block;
+}
+
+
+/* Very subtle readability layer on the left */
+
+.tv-why-bg::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 0;
+  bottom: 0;
+
+  width: 64%;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(247,247,251,0.98) 0%,
+      rgba(247,247,251,0.94) 55%,
+      rgba(247,247,251,0.40) 85%,
+      rgba(247,247,251,0) 100%
+    );
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   CONTAINER
+   ========================================================= */
+
+.tv-why-container {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  max-width: 1440px;
+
+  margin: 0 auto;
+
+  padding:
+    105px
+    80px
+    95px;
+}
+
+
+/* =========================================================
+   CONTENT
+   ========================================================= */
+
+.tv-why-content {
+  width: min(590px, 48%);
+}
+
+
+/* =========================================================
+   KICKER
+   ========================================================= */
+
+.tv-why-kicker {
+  display: inline-flex;
+
+  align-items: center;
+  gap: 9px;
+
+  margin-bottom: 24px;
+
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 0.18em;
+
+  color: var(--tv-violet);
+}
+
+
+.tv-why-kicker-dot {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: var(--tv-violet);
+
+  box-shadow:
+    0 0 0 4px rgba(124,58,237,0.09),
+    0 0 14px rgba(124,58,237,0.35);
+}
+
+
+/* =========================================================
+   TITLE
+   ========================================================= */
+
+.tv-why-title {
+  margin: 0;
+
+  max-width: 620px;
+
+  font-family: 'Plus Jakarta Sans', sans-serif;
+
+  font-size: clamp(42px, 4.3vw, 64px);
+
+  line-height: 1.03;
+
+  letter-spacing: -0.045em;
+
+  font-weight: 800;
+
+  color: var(--tv-ink);
+}
+
+
+.tv-why-title span {
+  background:
+    linear-gradient(
+      100deg,
+      var(--tv-navy) 10%,
+      var(--tv-violet) 55%,
+      var(--tv-violet-light) 90%
+    );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  color: transparent;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+   ========================================================= */
+
+.tv-why-description {
+  max-width: 520px;
+
+  margin: 24px 0 0;
+
+  font-family: 'Inter', sans-serif;
+
+  font-size: 16px;
+
+  line-height: 1.7;
+
+  color: var(--tv-slate);
+}
+
+
+/* =========================================================
+   REASONS GRID
+   ========================================================= */
+
+.tv-why-reasons {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 0;
+
+  margin-top: 45px;
+
+  width: 100%;
+}
+
+
+/* =========================================================
+   INDIVIDUAL REASON
+   ========================================================= */
+
+.tv-why-reason {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns: 30px 1fr 18px;
+
+  align-items: start;
+
+  gap: 12px;
+
+  min-height: 112px;
+
+  padding:
+    19px
+    18px
+    19px
+    0;
+
+  border-top: 1px solid rgba(19,27,69,0.10);
+
+  transition:
+    transform .28s ease,
+    border-color .28s ease;
+}
+
+
+.tv-why-reason:nth-child(odd) {
+  padding-right: 28px;
+
+  border-right: 1px solid rgba(19,27,69,0.10);
+}
+
+
+.tv-why-reason:nth-child(even) {
+  padding-left: 28px;
+}
+
+
+.tv-why-reason:hover {
+  transform: translateY(-3px);
+
+  border-color: rgba(124,58,237,0.30);
+}
+
+
+/* =========================================================
+   NUMBER
+   ========================================================= */
+
+.tv-why-number {
+  padding-top: 2px;
+
+  font-family: 'IBM Plex Mono', monospace;
+
+  font-size: 11px;
+
+  line-height: 1;
+
+  font-weight: 700;
+
+  letter-spacing: 0.05em;
+
+  color: var(--tv-violet);
+}
+
+
+/* =========================================================
+   REASON CONTENT
+   ========================================================= */
+
+.tv-why-reason-content h3 {
+  margin: 0;
+
+  font-family: 'Plus Jakarta Sans', sans-serif;
+
+  font-size: 15px;
+
+  line-height: 1.3;
+
+  font-weight: 800;
+
+  letter-spacing: -0.025em;
+
+  color: var(--tv-ink);
+}
+
+
+.tv-why-reason-content p {
+  margin: 8px 0 0;
+
+  font-family: 'Inter', sans-serif;
+
+  font-size: 12px;
+
+  line-height: 1.55;
+
+  color: var(--tv-slate);
+}
+
+
+/* =========================================================
+   ARROW
+   ========================================================= */
+
+.tv-why-arrow {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 18px;
+  height: 18px;
+
+  border-radius: 50%;
+
+  font-family: 'Inter', sans-serif;
+
+  font-size: 13px;
+
+  color: var(--tv-violet);
+
+  opacity: 0.45;
+
+  transform: translateY(1px);
+
+  transition:
+    opacity .25s ease,
+    transform .25s ease,
+    background .25s ease;
+}
+
+
+.tv-why-reason:hover .tv-why-arrow {
+  opacity: 1;
+
+  transform:
+    translate(3px, -3px);
+
+  background: rgba(124,58,237,0.08);
+}
+
+
+/* =========================================================
+   SMALL TECHNICAL DETAIL
+   ========================================================= */
+
+.tv-why-content::after {
+  content: "TRUEVENCE / VERIFIED / TRUST";
+
+  display: block;
+
+  margin-top: 34px;
+
+  font-family: 'IBM Plex Mono', monospace;
+
+  font-size: 9px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.22em;
+
+  color: rgba(19,27,69,0.38);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1200px) {
+
+  .tv-why-container {
+    padding-left: 55px;
+    padding-right: 55px;
   }
 
-  /* Background Image - Right Side */
-  .tv-why-bg {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 50%;
-    height: 100%;
-    z-index: 1;
+  .tv-why-content {
+    width: min(570px, 54%);
   }
 
   .tv-why-bg img {
+    object-position: center center;
+  }
+}
+
+
+@media (max-width: 1024px) {
+
+  .tv-why-section {
+    min-height: auto;
+  }
+
+  .tv-why-container {
+    padding:
+      85px
+      45px
+      85px;
+  }
+
+  .tv-why-content {
+    width: min(600px, 65%);
+  }
+
+  .tv-why-bg::after {
+    width: 75%;
+
+    background:
+      linear-gradient(
+        90deg,
+        rgba(247,247,251,0.99) 0%,
+        rgba(247,247,251,0.95) 60%,
+        rgba(247,247,251,0.65) 85%,
+        rgba(247,247,251,0) 100%
+      );
+  }
+
+  .tv-why-title {
+    font-size: 48px;
+  }
+}
+
+
+@media (max-width: 768px) {
+
+  .tv-why-section {
+    min-height: auto;
+  }
+
+  .tv-why-bg {
+    height: 430px;
+    bottom: auto;
+  }
+
+  .tv-why-bg img {
+    object-fit: cover;
+
+    object-position:
+      62% center;
+  }
+
+  .tv-why-bg::after {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    display: block;
+
+    background:
+      linear-gradient(
+        180deg,
+        rgba(247,247,251,0.90) 0%,
+        rgba(247,247,251,0.96) 70%,
+        rgba(247,247,251,1) 100%
+      );
   }
 
-  /* Container */
   .tv-why-container {
-    position: relative;
-    z-index: 2;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 80px 40px;
+    padding:
+      65px
+      25px
+      65px;
   }
 
-  /* Left Content */
   .tv-why-content {
-    width: 50%;
-    position: relative;
-    z-index: 3;
+    width: 100%;
   }
 
-  /* Kicker */
-  .tv-why-kicker {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    color: #333;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-  }
-
-  .tv-why-kicker-dot {
-    width: 8px;
-    height: 8px;
-    background: #0066FF;
-    border-radius: 50%;
-    display: inline-block;
-  }
-
-  /* Title */
   .tv-why-title {
-    font-size: 42px;
-    font-weight: 700;
-    line-height: 1.2;
-    color: #1a1a1a;
-    margin: 0 0 20px 0;
+    font-size: clamp(40px, 9vw, 54px);
   }
 
-  .tv-why-title span {
-    color: #0066FF;
-  }
-
-  /* Description */
   .tv-why-description {
-    font-size: 16px;
-    line-height: 1.6;
-    color: #555;
-    margin: 0 0 40px 0;
-    max-width: 450px;
+    max-width: 600px;
+
+    font-size: 15px;
   }
 
-  /* Reasons */
   .tv-why-reasons {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
+    grid-template-columns: 1fr;
+
+    margin-top: 35px;
+  }
+
+  .tv-why-reason,
+  .tv-why-reason:nth-child(odd),
+  .tv-why-reason:nth-child(even) {
+    padding:
+      18px
+      0;
+
+    border-right: none;
+  }
+
+  .tv-why-reason:first-child {
+    border-top: 1px solid rgba(19,27,69,0.10);
+  }
+}
+
+
+@media (max-width: 480px) {
+
+  .tv-why-bg {
+    height: 330px;
+  }
+
+  .tv-why-container {
+    padding:
+      50px
+      20px
+      55px;
+  }
+
+  .tv-why-kicker {
+    font-size: 10px;
+
+    letter-spacing: 0.14em;
+  }
+
+  .tv-why-title {
+    font-size: 38px;
+
+    letter-spacing: -0.045em;
+  }
+
+  .tv-why-description {
+    margin-top: 20px;
+
+    font-size: 14px;
+
+    line-height: 1.65;
+  }
+
+  .tv-why-reasons {
+    margin-top: 28px;
   }
 
   .tv-why-reason {
-    display: flex;
-    align-items: flex-start;
-    gap: 20px;
-    padding: 20px 0;
-    border-top: 1px solid #ddd;
-    transition: all 0.3s ease;
-    cursor: pointer;
-  }
+    grid-template-columns: 28px 1fr 18px;
 
-  .tv-why-reason:last-child {
-    border-bottom: 1px solid #ddd;
-  }
+    min-height: 105px;
 
-  .tv-why-reason:hover {
-    padding-left: 10px;
-    border-top-color: #0066FF;
-  }
-
-  .tv-why-reason:hover .tv-why-arrow {
-    color: #0066FF;
-    transform: translate(3px, -3px);
-  }
-
-  /* Number */
-  .tv-why-number {
-    font-size: 14px;
-    font-weight: 600;
-    color: #999;
-    min-width: 30px;
-    padding-top: 3px;
-  }
-
-  /* Reason Content */
-  .tv-why-reason-content {
-    flex: 1;
+    gap: 10px;
   }
 
   .tv-why-reason-content h3 {
-    font-size: 18px;
-    font-weight: 600;
-    color: #1a1a1a;
-    margin: 0 0 8px 0;
+    font-size: 14px;
   }
 
   .tv-why-reason-content p {
-    font-size: 14px;
-    line-height: 1.5;
-    color: #666;
-    margin: 0;
-    max-width: 350px;
+    font-size: 11px;
   }
 
-  /* Arrow */
+  .tv-why-content::after {
+    margin-top: 28px;
+
+    font-size: 8px;
+
+    letter-spacing: 0.15em;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .tv-why-reason,
   .tv-why-arrow {
-    font-size: 20px;
-    color: #999;
-    transition: all 0.3s ease;
-    padding-top: 3px;
+    transition: none;
   }
-
-  /* Responsive */
-  @media (max-width: 768px) {
-    .tv-why-bg {
-      width: 100%;
-      height: 50%;
-      top: auto;
-      bottom: 0;
-      opacity: 0.1;
-    }
-
-    .tv-why-content {
-      width: 100%;
-    }
-
-    .tv-why-title {
-      font-size: 32px;
-    }
-
-    .tv-why-container {
-      padding: 60px 20px;
-    }
-  }
-</style>
+}
+     
+</section>
