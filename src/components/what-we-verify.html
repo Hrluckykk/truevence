@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Verification Section · Subtle Purple Glow</title>
+  <title>Verification Section · Square Frame</title>
   <!-- Fonts & basic styling -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,6 +28,7 @@
       display: flex;
       flex-direction: column;
       gap: 2px;
+      margin-top: 0;
     }
     .verify-menu-item {
       position: relative;
@@ -47,6 +48,7 @@
       cursor: pointer;
       transition: all 0.25s ease;
       width: 100%;
+      margin-bottom: 0;
     }
     .verify-menu-item::before {
       content: "";
@@ -103,6 +105,7 @@
     }
     .verify-info {
       transition: opacity 0.2s ease, transform 0.2s ease;
+      margin-top: 10px;
     }
     .verify-info.changing {
       opacity: 0;
@@ -110,7 +113,7 @@
     }
     .verify-index {
       display: block;
-      margin-bottom: 16px;
+      margin-bottom: 12px;
       color: #7C3AED;
       font-size: 12px;
       font-weight: 700;
@@ -119,7 +122,7 @@
     }
     .verify-label-text {
       display: block;
-      margin-bottom: 16px;
+      margin-bottom: 12px;
       font-size: 11px;
       font-weight: 700;
       letter-spacing: 2.5px;
@@ -127,7 +130,7 @@
       font-family: 'IBM Plex Mono', monospace;
     }
     .verify-title {
-      margin: 0 0 16px;
+      margin: 0 0 14px;
       font-size: clamp(32px, 3vw, 44px);
       line-height: 0.98;
       letter-spacing: -2px;
@@ -137,7 +140,7 @@
     }
     .verify-copy {
       max-width: 430px;
-      margin: 0 0 24px;
+      margin: 0 0 20px;
       font-size: 15px;
       line-height: 1.65;
       color: #687780;
@@ -146,7 +149,7 @@
     .verify-checks {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 8px;
       margin: 0;
       padding: 0;
       list-style: none;
@@ -159,6 +162,7 @@
       font-weight: 500;
       color: #263845;
       font-family: 'Inter', sans-serif;
+      margin-bottom: 2px;
     }
     .verify-check-mark {
       width: 20px;
@@ -180,25 +184,53 @@
       display: flex;
       align-items: flex-start;
       justify-content: center;
-      padding-top: 0;
+      padding-top: 10px;
+      margin-top: 0;
+    }
+    /* SQUARE FRAME */
+    .verify-square-frame {
+      position: absolute;
+      z-index: 1;
+      width: min(620px, 85%);
+      aspect-ratio: 1;
+      top: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #241540;
+      background-image: linear-gradient(135deg, #2d1b4e, #1a0f2e);
+      border-radius: 32px;
+      box-shadow: 
+        0 0 0 4px #7C3AED,
+        0 0 0 10px rgba(124, 58, 237, 0.2),
+        0 0 35px 8px rgba(124, 58, 237, 0.45),
+        0 30px 70px rgba(16, 35, 50, 0.2);
+      transition: box-shadow 0.3s ease;
+    }
+    .verify-square-frame::after {
+      content: "";
+      position: absolute;
+      inset: 18px;
+      border-radius: 20px;
+      border: 2px solid rgba(124, 58, 237, 0.35);
+      pointer-events: none;
     }
     .verify-image-container {
       position: relative;
-      z-index: 5;
+      z-index: 10;
       width: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-top: 20px;
+      margin-top: 30px;
     }
     .verify-image-square {
       width: min(520px, 80%);
       aspect-ratio: 1;
       object-fit: contain;
       border-radius: 28px;
-      filter: drop-shadow(0 0 15px rgba(124, 58, 237, 0.25));
+      filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.5));
       animation: float-image 3s ease-in-out infinite;
-      transition: opacity 0.2s ease, filter 0.3s ease;
+      transition: opacity 0.2s ease;
     }
     @keyframes float-image {
       0%, 100% { transform: translateY(0); }
@@ -206,23 +238,22 @@
     }
     .verify-status {
       position: absolute;
-      z-index: 20;
-      right: -20px;
-      top: 45%;
+      z-index: 5;
+      right: -25px;
+      top: 48%;
       width: 175px;
       padding: 16px 0;
       background: #102332;
       color: white;
       border-radius: 16px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 25px 60px rgba(16, 35, 50, 0.18);
       transform: translateY(-50%);
-      pointer-events: none;
     }
     .verify-status-title {
       display: flex;
       align-items: center;
       gap: 9px;
-      padding: 0 18px 12px;
+      padding: 0 18px 10px;
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
       font-size: 10px;
       font-weight: 700;
@@ -234,13 +265,13 @@
       height: 7px;
       border-radius: 50%;
       background: #7C3AED;
-      box-shadow: 0 0 10px rgba(124, 58, 237, 0.5);
+      box-shadow: 0 0 14px rgba(124, 58, 237, 0.7);
     }
     .verify-status-row {
       display: flex;
       align-items: center;
       gap: 9px;
-      padding: 8px 18px;
+      padding: 7px 18px;
       color: #b8c0c5;
       font-size: 11px;
       font-weight: 500;
@@ -263,25 +294,26 @@
     .grid-lg-3 {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
-      gap: 2rem;
+      gap: 1.8rem;
       align-items: start;
+      margin-top: 0;
     }
     .py-12 {
-      padding-top: 3rem;
-      padding-bottom: 3rem;
+      padding-top: 2.5rem;
+      padding-bottom: 2.5rem;
     }
     .md\:py-16 {
-      padding-top: 4rem;
-      padding-bottom: 4rem;
+      padding-top: 3.5rem;
+      padding-bottom: 3.5rem;
     }
     .scroll-mt-24 {
-      scroll-margin-top: 6rem;
+      scroll-margin-top: 5rem;
     }
     .max-w-2xl {
       max-width: 42rem;
     }
     .mb-10 {
-      margin-bottom: 2.5rem;
+      margin-bottom: 2rem;
     }
     .text-3xl {
       font-size: 1.875rem;
@@ -296,7 +328,7 @@
       font-weight: 800;
     }
     .mt-3 {
-      margin-top: 0.75rem;
+      margin-top: 0.6rem;
     }
     .leading-tight {
       line-height: 1.2;
@@ -308,13 +340,13 @@
       color: #3e4a55;
     }
     .leading-relaxed {
-      line-height: 1.7;
+      line-height: 1.6;
     }
     .max-w-xl {
       max-width: 36rem;
     }
     .mt-6 {
-      margin-top: 1.5rem;
+      margin-top: 1.2rem;
     }
     .font-mono-ui {
       font-family: 'IBM Plex Mono', monospace;
@@ -340,11 +372,15 @@
       .verify-visual {
         min-height: 450px;
       }
+      .verify-square-frame {
+        width: min(550px, 75%);
+        top: -20px;
+      }
       .verify-image-square {
         width: min(420px, 70%);
       }
       .verify-status {
-        right: -10px;
+        right: -15px;
         transform: translateY(-50%) scale(0.9);
         transform-origin: right center;
       }
@@ -352,23 +388,36 @@
     @media (max-width: 1024px) {
       .grid-lg-3 {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 1.5rem;
       }
       .verify-visual {
         min-height: 420px;
-        margin-top: 20px;
+        margin-top: 15px;
+      }
+      .verify-square-frame {
+        width: min(450px, 70%);
+        top: -25px;
       }
       .verify-image-square {
         width: min(360px, 65%);
       }
       .verify-status {
-        right: 10px;
+        right: 5px;
         transform: translateY(-50%) scale(0.8);
       }
     }
     @media (max-width: 768px) {
+      [style*="padding-left:250px"] {
+        padding-left: 25px !important;
+        padding-right: 25px !important;
+      }
       .verify-visual {
         min-height: 350px;
+        margin-top: 10px;
+      }
+      .verify-square-frame {
+        width: min(360px, 80%);
+        top: -35px;
       }
       .verify-image-square {
         width: min(300px, 70%);
@@ -382,6 +431,11 @@
     @media (max-width: 480px) {
       .verify-visual {
         min-height: 300px;
+        margin-top: 5px;
+      }
+      .verify-square-frame {
+        width: 300px;
+        top: -25px;
       }
       .verify-image-square {
         width: 230px;
@@ -389,14 +443,14 @@
       .verify-status {
         transform: translateY(-50%) scale(0.65);
         width: 140px;
-        right: -5px;
+        right: -8px;
       }
       .verify-status-row {
-        padding: 6px 12px;
+        padding: 5px 12px;
         font-size: 9px;
       }
       .verify-status-title {
-        padding: 0 12px 8px;
+        padding: 0 12px 7px;
         font-size: 9px;
       }
     }
@@ -405,7 +459,7 @@
 <body>
   <!-- ============ WHAT WE VERIFY ============ -->
   <section id="verify" class="py-12 md:py-16 bg-paper scroll-mt-24">
-    <div style="width:100%; max-width:100%; padding-left:5%; padding-right:5%;" class="relative">
+    <div style="width:100%; max-width:100%; padding-left:250px; padding-right:220px;" class="relative">
       <div class="max-w-2xl mb-10" data-aos="fade-up">
         <span class="font-mono-ui text-[12px] tracking-[0.18em] text-violet font-semibold">WHAT WE VERIFY</span>
         <h2 class="font-display font-extrabold text-3xl sm:text-4xl mt-3 leading-tight">
@@ -416,7 +470,7 @@
         </p>
       </div>
 
-      <div class="grid-lg-3" style="gap: 2.5rem;">
+      <div class="grid-lg-3" style="gap: 2rem;">
         <!-- LEFT: Verification List -->
         <div class="lg:col-span-1">
           <nav class="verify-menu">
@@ -477,8 +531,10 @@
           </ul>
         </div>
 
-        <!-- RIGHT: Image with Subtle Purple Glow -->
+        <!-- RIGHT: Square Frame with Glowing Purple -->
         <div class="lg:col-span-1 verify-visual">
+          <!-- Square frame with purple glow -->
+          <div class="verify-square-frame"></div>
           <div class="verify-image-container" id="verifyImage">
             <img src="https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/Aadhar_Verification_Banner.png" class="verify-image-square" alt="Aadhaar verification">
           </div>
@@ -527,7 +583,7 @@
           title: 'Check driving<br>license',
           copy: 'We validate driving license details through RTO records to verify authenticity and validity.',
           checks: ['License number check', 'Name & DOB verification', 'Validity status', 'RTO records match'],
-          image: 'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/DL_Verification_Banner.png'
+          image: 'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/Driving_License_Verification_Banner.png'
         },
         voter: {
           index: '04',
@@ -535,7 +591,7 @@
           title: 'Validate voter<br>identity',
           copy: 'We verify voter ID details through Election Commission records to confirm electoral identity.',
           checks: ['Voter ID validation', 'Name & address check', 'Constituency verification', 'EPIC number match'],
-          image: 'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/VoterID_Verification_Banner.png'
+          image: 'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/Voter_ID_Verification_Banner.png'
         },
         passport: {
           index: '05',
@@ -567,7 +623,7 @@
           title: 'Screen for<br>criminal history',
           copy: 'We conduct thorough criminal background checks through authorized government databases.',
           checks: ['Police verification', 'Court records check', 'Criminal database search', 'Legal history review'],
-          image: 'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/Criminal_Court_Check_Banner.png'
+          image: 'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/Criminal_Check_Banner.png'
         }
       };
       
