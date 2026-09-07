@@ -1,345 +1,654 @@
-<!-- ============ WHAT WE VERIFY ============ -->
-<section id="verify" class="py-12 md:py-16 bg-paper scroll-mt-24">
-  <div style="width:100%; max-width:100%; padding-left:250px; padding-right:220px;" class="relative">
-    <div class="max-w-2xl mb-10" data-aos="fade-up">
-      <span class="font-mono-ui text-[12px] tracking-[0.18em] text-violet font-semibold">WHAT WE VERIFY</span>
-      <h2 class="font-display font-extrabold text-3xl sm:text-4xl mt-3 leading-tight">
-        Know what you're hiring.
-      </h2>
-      <p class="mt-6 text-lg text-slate leading-relaxed max-w-xl">
-        From identity to employment history, we verify the claims behind every candidate profile.
-      </p>
-    </div>
-
-    <div class="grid lg:grid-cols-3 gap-12 items-start">
-      <!-- LEFT: Verification List -->
-      <div class="lg:col-span-1">
-        <nav class="verify-menu">
-          <button class="verify-menu-item active" type="button" data-category="identity">
-            <span class="verify-number">01</span>
-            <span class="verify-label">Identity</span>
-            <span class="verify-arrow">→</span>
-          </button>
-          <button class="verify-menu-item" type="button" data-category="employment">
-            <span class="verify-number">02</span>
-            <span class="verify-label">Employment</span>
-            <span class="verify-arrow">→</span>
-          </button>
-          <button class="verify-menu-item" type="button" data-category="education">
-            <span class="verify-number">03</span>
-            <span class="verify-label">Education</span>
-            <span class="verify-arrow">→</span>
-          </button>
-          <button class="verify-menu-item" type="button" data-category="address">
-            <span class="verify-number">04</span>
-            <span class="verify-label">Address</span>
-            <span class="verify-arrow">→</span>
-          </button>
-          <button class="verify-menu-item" type="button" data-category="criminal">
-            <span class="verify-number">05</span>
-            <span class="verify-label">Criminal</span>
-            <span class="verify-arrow">→</span>
-          </button>
-          <button class="verify-menu-item" type="button" data-category="reference">
-            <span class="verify-number">06</span>
-            <span class="verify-label">Reference</span>
-            <span class="verify-arrow">→</span>
-          </button>
-          <button class="verify-menu-item" type="button" data-category="credit">
-            <span class="verify-number">07</span>
-            <span class="verify-label">Credit</span>
-            <span class="verify-arrow">→</span>
-          </button>
-          <button class="verify-menu-item" type="button" data-category="digital">
-            <span class="verify-number">08</span>
-            <span class="verify-label">Digital &amp; Others</span>
-            <span class="verify-arrow">→</span>
-          </button>
-        </nav>
-      </div>
-
-      <!-- CENTER: Verification Details -->
-      <div class="lg:col-span-1 verify-info" id="verifyInfo">
-        <span class="verify-index" id="verifyIndex">01</span>
-        <span class="verify-label-text" id="verifyLabel">IDENTITY VERIFICATION</span>
-        <h3 class="verify-title" id="verifyTitle">Confirm who<br>they are</h3>
-        <p class="verify-copy" id="verifyCopy">We verify government-issued identity documents and validate key personal details to ensure the candidate's identity is genuine.</p>
-        <ul class="verify-checks" id="verifyChecks">
-          <li class="verify-check"><span class="verify-check-mark">✓</span>PAN verification</li>
-          <li class="verify-check"><span class="verify-check-mark">✓</span>Aadhaar verification</li>
-          <li class="verify-check"><span class="verify-check-mark">✓</span>Name &amp; date of birth validation</li>
-          <li class="verify-check"><span class="verify-check-mark">✓</span>Identity document checks</li>
-        </ul>
-      </div>
-
-      <!-- RIGHT: Hexagon Image -->
-      <div class="lg:col-span-1 verify-visual">
-        <div class="verify-hexagon-shape"></div>
-        <div class="verify-hexagon" id="verifyImage">
-          <img src="https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/Aadhar_Verification_Banner.png" class="verify-image-square" alt="Verification image">
-        </div>
-        <div class="verify-status">
-          <div class="verify-status-title"><span class="verify-status-dot"></span>VERIFIED</div>
-          <div class="verify-status-row"><span class="verify-status-check">✓</span>Document authentic</div>
-          <div class="verify-status-row"><span class="verify-status-check">✓</span>Details matched</div>
-          <div class="verify-status-row"><span class="verify-status-check">✓</span>No discrepancies</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<style>
-/* ============ WHAT WE VERIFY ============ */
-.verify-menu { display: flex; flex-direction: column; gap: 2px; }
-.verify-menu-item {
-  position: relative; display: grid; grid-template-columns: 36px 1fr 25px;
-  align-items: center; gap: 12px; padding: 12px 16px; border: none;
-  border-radius: 12px; background: transparent; color: #687780;
-  font-family: 'Plus Jakarta Sans', sans-serif; font-size: 15px; font-weight: 600; text-align: left;
-  cursor: pointer; transition: all 0.25s ease; width: 100%;
-}
-.verify-menu-item::before {
-  content: ""; position: absolute; left: -8px; top: 8px; bottom: 8px;
-  width: 3px; background: #7C3AED; border-radius: 4px; opacity: 0;
-  transform: scaleY(0.4); transition: opacity 0.25s ease, transform 0.25s ease;
-}
-.verify-menu-item:hover, .verify-menu-item.active {
-  background: rgba(124, 58, 237, 0.06); color: #0B1230; padding-left: 20px;
-}
-.verify-menu-item:hover::before, .verify-menu-item.active::before { opacity: 1; transform: scaleY(1); }
-.verify-number { font-size: 12px; font-weight: 700; color: #a3adb2; font-family: 'IBM Plex Mono', monospace; transition: color 0.25s ease; }
-.verify-menu-item:hover .verify-number, .verify-menu-item.active .verify-number { color: #7C3AED; }
-.verify-label { font-weight: 700; font-size: 15px; letter-spacing: -0.01em; font-family: 'Plus Jakarta Sans', sans-serif; }
-.verify-arrow { color: #7C3AED; font-size: 16px; opacity: 0; transform: translateX(-6px); transition: opacity 0.25s ease, transform 0.25s ease; }
-.verify-menu-item:hover .verify-arrow, .verify-menu-item.active .verify-arrow { opacity: 1; transform: translateX(0); }
-.verify-info { transition: opacity 0.2s ease, transform 0.2s ease; }
-.verify-info.changing { opacity: 0; transform: translateY(8px); }
-.verify-index { display: block; margin-bottom: 16px; color: #7C3AED; font-size: 12px; font-weight: 700; font-family: 'IBM Plex Mono', monospace; letter-spacing: 2px; }
-.verify-label-text { display: block; margin-bottom: 16px; font-size: 11px; font-weight: 700; letter-spacing: 2.5px; color: #687780; font-family: 'IBM Plex Mono', monospace; }
-.verify-title { margin: 0 0 16px; font-size: clamp(32px, 3vw, 44px); line-height: 0.98; letter-spacing: -2px; font-weight: 800; color: #0B1230; font-family: 'Plus Jakarta Sans', sans-serif; }
-.verify-copy { max-width: 430px; margin: 0 0 24px; font-size: 15px; line-height: 1.65; color: #687780; font-family: 'Inter', sans-serif; }
-.verify-checks { display: flex; flex-direction: column; gap: 10px; margin: 0; padding: 0; list-style: none; }
-.verify-check { display: flex; align-items: center; gap: 11px; font-size: 14px; font-weight: 500; color: #263845; font-family: 'Inter', sans-serif; }
-.verify-check-mark { width: 20px; height: 20px; flex: 0 0 20px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: #7C3AED; color: white; font-size: 10px; font-weight: 800; }
-.verify-learn-more {
-  display: inline-block;
-  margin-top: 24px;
-  color: #7C3AED;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-weight: 700;
-  font-size: 14px;
-  text-decoration: none;
-  transition: all 0.25s ease;
-}
-.verify-learn-more:hover {
-  color: #0B1230;
-  transform: translateX(4px);
-}
-.verify-visual { position: relative; width: 100%; min-height: 500px; display: flex; align-items: flex-start; justify-content: center; padding-top: 0; }
-
-/* Hexagon background shape — BIG with visible borders */
-.verify-hexagon-shape {
-  position: absolute;
-  z-index: 1;
-  width: min(1000px, 115%);
-  aspect-ratio: 1;
-  top: -80px; /* Shift hexagon up */
-  left: 50%;
-  transform: translateX(-50%);
-  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-  -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-  background-color: #241540;
-  background-image: linear-gradient(135deg, #2d1b4e, #1a0f2e);
-  box-shadow: 0 0 0 3px #7C3AED, 0 0 0 6px rgba(124,58,237,0.3), 0 30px 70px rgba(16, 35, 50, 0.15);
-}
-
-/* Image floats above hexagon — 512x512 */
-.verify-hexagon {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 20px;
-}
-.verify-hexagon .verify-image-square {
-  width: 580px; /* Made bigger from 512px */
-  aspect-ratio: 1;
-  object-fit: contain;
-  border-radius: 24px;
-  z-index: 10;
-  position: relative;
-  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.5));
-  animation: float-image 3s ease-in-out infinite;
-}
-@keyframes float-image {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-15px); }
-}
-.verify-status { position: absolute; z-index: 5; right: -20px; top: 45%; width: 175px; padding: 16px 0; background: #102332; color: white; border-radius: 16px; box-shadow: 0 25px 60px rgba(16, 35, 50, 0.18); transform: translateY(-50%); }
-.verify-status-title { display: flex; align-items: center; gap: 9px; padding: 0 18px 12px; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 10px; font-weight: 700; letter-spacing: 1.5px; font-family: 'IBM Plex Mono', monospace; }
-.verify-status-dot { width: 7px; height: 7px; border-radius: 50%; background: #7C3AED; box-shadow: 0 0 14px rgba(124, 58, 237, 0.7); }
-.verify-status-row { display: flex; align-items: center; gap: 9px; padding: 8px 18px; color: #b8c0c5; font-size: 11px; font-weight: 500; font-family: 'Inter', sans-serif; }
-.verify-status-check { width: 18px; height: 18px; flex: 0 0 18px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: rgba(124, 58, 237, 0.25); color: #d8ccf7; font-size: 9px; }
-
-@media (max-width: 1200px) {
-  .verify-visual { min-height: 450px; }
-  .verify-hexagon-shape { width: 800px; top: -60px; }
-  .verify-hexagon .verify-image-square { width: 450px; }
-  .verify-status { right: -10px; transform: translateY(-50%) scale(0.85); transform-origin: right center; }
-}
-
-@media (max-width: 1024px) {
-  [style*="padding-left:250px"] {
-    padding-left: 100px !important;
-    padding-right: 80px !important;
-  }
-  .verify-visual { min-height: 450px; }
-  .verify-hexagon-shape { width: 750px; top: -50px; }
-  .verify-hexagon .verify-image-square { width: 420px; }
-  .verify-status { right: 0; transform: translateY(-50%) scale(0.85); transform-origin: right center; }
-}
-
-@media (max-width: 768px) {
-  [style*="padding-left:250px"] {
-    padding-left: 25px !important;
-    padding-right: 25px !important;
-  }
-  .verify-visual { min-height: 400px; margin-top: 10px; }
-  .verify-hexagon-shape { width: 550px; top: -40px; }
-  .verify-hexagon .verify-image-square { width: 320px; }
-  .verify-status { right: 0; transform: translateY(-50%) scale(0.75); transform-origin: right center; width: 160px; }
-  .verify-title { font-size: 28px; }
-}
-
-@media (max-width: 480px) {
-  .verify-visual { min-height: 320px; }
-  .verify-hexagon-shape { width: 380px; top: -30px; }
-  .verify-hexagon .verify-image-square { width: 240px; }
-  .verify-status { transform: translateY(-50%) scale(0.65); transform-origin: right center; width: 150px; }
-  .verify-status-row { padding: 6px 14px; font-size: 9px; }
-  .verify-status-title { padding: 0 14px 10px; font-size: 9px; }
-}
-</style>
-
-<script>
-// JavaScript for menu interaction
-document.addEventListener('DOMContentLoaded', function() {
-  const menuItems = document.querySelectorAll('.verify-menu-item');
-  const verifyIndex = document.getElementById('verifyIndex');
-  const verifyLabel = document.getElementById('verifyLabel');
-  const verifyTitle = document.getElementById('verifyTitle');
-  const verifyCopy = document.getElementById('verifyCopy');
-  const verifyChecks = document.getElementById('verifyChecks');
-  const verifyImage = document.getElementById('verifyImage');
-  const verifyInfo = document.getElementById('verifyInfo');
-  
-  const verificationData = {
-    identity: {
-      index: '01',
-      label: 'IDENTITY VERIFICATION',
-      title: 'Confirm who<br>they are',
-      copy: 'We verify government-issued identity documents and validate key personal details to ensure the candidate\'s identity is genuine.',
-      checks: ['PAN verification', 'Aadhaar verification', 'Name & date of birth validation', 'Identity document checks'],
-      image: 'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/Aadhar_Verification_Banner.png'
-    },
-    employment: {
-      index: '02',
-      label: 'EMPLOYMENT VERIFICATION',
-      title: 'Validate work<br>history',
-      copy: 'We verify past employment records, job titles, and durations to ensure the candidate\'s professional background is accurate.',
-      checks: ['Previous employer verification', 'Job title confirmation', 'Employment duration check', 'Salary verification'],
-      image: 'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/Employement_Verification_Banner.png'
-    },
-    education: {
-      index: '03',
-      label: 'EDUCATION VERIFICATION',
-      title: 'Verify academic<br>credentials',
-      copy: 'We validate educational qualifications, degrees, and certifications from recognized institutions.',
-      checks: ['Degree verification', 'University authentication', 'Certification validation', 'Academic records check'],
-      image: 'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/Education_Verification_Banner.png'
-    },
-    address: {
-      index: '04',
-      label: 'ADDRESS VERIFICATION',
-      title: 'Confirm current<br>residence',
-      copy: 'We verify current and permanent addresses through multiple reliable sources.',
-      checks: ['Current address verification', 'Permanent address check', 'Residence duration validation', 'Local reference check'],
-      image: 'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/Digital_Address_Verification_Banner.png'
-    },
-    criminal: {
-      index: '05',
-      label: 'CRIMINAL RECORD CHECK',
-      title: 'Screen for<br>criminal history',
-      copy: 'We conduct thorough criminal background checks through authorized government databases.',
-      checks: ['Police verification', 'Court records check', 'Criminal database search', 'Legal history review'],
-      image: 'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/Criminal_Check_Banner.png'
-    },
-    reference: {
-      index: '06',
-      label: 'REFERENCE VERIFICATION',
-      title: 'Check professional<br>references',
-      copy: 'We contact professional references to validate character, work ethic, and professional conduct.',
-      checks: ['Professional reference check', 'Manager validation', 'Colleague feedback', 'Character assessment'],
-      image: 'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/Reference_Check_Banner.png'
-    },
-    credit: {
-      index: '07',
-      label: 'CREDIT VERIFICATION',
-      title: 'Assess financial<br>responsibility',
-      copy: 'We verify credit history and financial responsibility for roles involving financial handling.',
-      checks: ['Credit score check', 'Financial history review', 'Debt assessment', 'Bankruptcy check'],
-      image: 'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/Credit_Verification_Banner.png'
-    },
-    digital: {
-      index: '08',
-      label: 'DIGITAL & OTHERS',
-      title: 'Comprehensive<br>screening',
-      copy: 'We conduct additional digital and specialized checks based on role requirements.',
-      checks: ['Social media screening', 'Digital footprint analysis', 'Professional license check', 'Drug test coordination'],
-      image: 'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/Digital_Verification_Banner.png'
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verification Section · Square Frame</title>
+  <!-- Fonts & basic styling -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&family=Inter:wght@400;500&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* Reset / base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-  };
-  
-  menuItems.forEach(item => {
-    item.addEventListener('click', function() {
-      // Remove active class from all items
-      menuItems.forEach(menuItem => menuItem.classList.remove('active'));
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f7f5f2;
+      padding: 2rem 1rem;
+    }
+    .bg-paper {
+      background-color: #f7f5f2;
+    }
+    /* ============ WHAT WE VERIFY ============ */
+    .verify-menu {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .verify-menu-item {
+      position: relative;
+      display: grid;
+      grid-template-columns: 36px 1fr 25px;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      border: none;
+      border-radius: 12px;
+      background: transparent;
+      color: #687780;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      width: 100%;
+    }
+    .verify-menu-item::before {
+      content: "";
+      position: absolute;
+      left: -8px;
+      top: 8px;
+      bottom: 8px;
+      width: 3px;
+      background: #7C3AED;
+      border-radius: 4px;
+      opacity: 0;
+      transform: scaleY(0.4);
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+    .verify-menu-item:hover,
+    .verify-menu-item.active {
+      background: rgba(124, 58, 237, 0.06);
+      color: #0B1230;
+      padding-left: 20px;
+    }
+    .verify-menu-item:hover::before,
+    .verify-menu-item.active::before {
+      opacity: 1;
+      transform: scaleY(1);
+    }
+    .verify-number {
+      font-size: 12px;
+      font-weight: 700;
+      color: #a3adb2;
+      font-family: 'IBM Plex Mono', monospace;
+      transition: color 0.25s ease;
+    }
+    .verify-menu-item:hover .verify-number,
+    .verify-menu-item.active .verify-number {
+      color: #7C3AED;
+    }
+    .verify-label {
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: -0.01em;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .verify-arrow {
+      color: #7C3AED;
+      font-size: 16px;
+      opacity: 0;
+      transform: translateX(-6px);
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+    .verify-menu-item:hover .verify-arrow,
+    .verify-menu-item.active .verify-arrow {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .verify-info {
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+    .verify-info.changing {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    .verify-index {
+      display: block;
+      margin-bottom: 16px;
+      color: #7C3AED;
+      font-size: 12px;
+      font-weight: 700;
+      font-family: 'IBM Plex Mono', monospace;
+      letter-spacing: 2px;
+    }
+    .verify-label-text {
+      display: block;
+      margin-bottom: 16px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      color: #687780;
+      font-family: 'IBM Plex Mono', monospace;
+    }
+    .verify-title {
+      margin: 0 0 16px;
+      font-size: clamp(32px, 3vw, 44px);
+      line-height: 0.98;
+      letter-spacing: -2px;
+      font-weight: 800;
+      color: #0B1230;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .verify-copy {
+      max-width: 430px;
+      margin: 0 0 24px;
+      font-size: 15px;
+      line-height: 1.65;
+      color: #687780;
+      font-family: 'Inter', sans-serif;
+    }
+    .verify-checks {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .verify-check {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #263845;
+      font-family: 'Inter', sans-serif;
+    }
+    .verify-check-mark {
+      width: 20px;
+      height: 20px;
+      flex: 0 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: #7C3AED;
+      color: white;
+      font-size: 10px;
+      font-weight: 800;
+    }
+    .verify-visual {
+      position: relative;
+      width: 100%;
+      min-height: 500px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding-top: 0;
+    }
+    /* SQUARE FRAME */
+    .verify-square-frame {
+      position: absolute;
+      z-index: 1;
+      width: min(620px, 85%);
+      aspect-ratio: 1;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #241540;
+      background-image: linear-gradient(135deg, #2d1b4e, #1a0f2e);
+      border-radius: 32px;
+      box-shadow: 
+        0 0 0 4px #7C3AED,
+        0 0 0 10px rgba(124, 58, 237, 0.2),
+        0 0 35px 8px rgba(124, 58, 237, 0.45),
+        0 30px 70px rgba(16, 35, 50, 0.2);
+      transition: box-shadow 0.3s ease;
+    }
+    .verify-square-frame::after {
+      content: "";
+      position: absolute;
+      inset: 18px;
+      border-radius: 20px;
+      border: 2px solid rgba(124, 58, 237, 0.35);
+      pointer-events: none;
+    }
+    .verify-image-container {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    .verify-image-square {
+      width: min(520px, 80%);
+      aspect-ratio: 1;
+      object-fit: contain;
+      border-radius: 28px;
+      filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.5));
+      animation: float-image 3s ease-in-out infinite;
+      transition: opacity 0.2s ease;
+    }
+    @keyframes float-image {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+    .verify-status {
+      position: absolute;
+      z-index: 5;
+      right: -20px;
+      top: 45%;
+      width: 175px;
+      padding: 16px 0;
+      background: #102332;
+      color: white;
+      border-radius: 16px;
+      box-shadow: 0 25px 60px rgba(16, 35, 50, 0.18);
+      transform: translateY(-50%);
+    }
+    .verify-status-title {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 0 18px 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      font-family: 'IBM Plex Mono', monospace;
+    }
+    .verify-status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #7C3AED;
+      box-shadow: 0 0 14px rgba(124, 58, 237, 0.7);
+    }
+    .verify-status-row {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 8px 18px;
+      color: #b8c0c5;
+      font-size: 11px;
+      font-weight: 500;
+      font-family: 'Inter', sans-serif;
+    }
+    .verify-status-check {
+      width: 18px;
+      height: 18px;
+      flex: 0 0 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: rgba(124, 58, 237, 0.25);
+      color: #d8ccf7;
+      font-size: 9px;
+    }
+
+    /* Grid & layout */
+    .grid-lg-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+    .py-12 {
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+    }
+    .md\:py-16 {
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+    }
+    .scroll-mt-24 {
+      scroll-margin-top: 6rem;
+    }
+    .max-w-2xl {
+      max-width: 42rem;
+    }
+    .mb-10 {
+      margin-bottom: 2.5rem;
+    }
+    .text-3xl {
+      font-size: 1.875rem;
+    }
+    .sm\:text-4xl {
+      font-size: 2.25rem;
+    }
+    .font-display {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .font-extrabold {
+      font-weight: 800;
+    }
+    .mt-3 {
+      margin-top: 0.75rem;
+    }
+    .leading-tight {
+      line-height: 1.2;
+    }
+    .text-lg {
+      font-size: 1.125rem;
+    }
+    .text-slate {
+      color: #3e4a55;
+    }
+    .leading-relaxed {
+      line-height: 1.7;
+    }
+    .max-w-xl {
+      max-width: 36rem;
+    }
+    .mt-6 {
+      margin-top: 1.5rem;
+    }
+    .font-mono-ui {
+      font-family: 'IBM Plex Mono', monospace;
+    }
+    .text-\[12px\] {
+      font-size: 12px;
+    }
+    .tracking-\[0\.18em\] {
+      letter-spacing: 0.18em;
+    }
+    .text-violet {
+      color: #7C3AED;
+    }
+    .font-semibold {
+      font-weight: 600;
+    }
+    .lg\:col-span-1 {
+      grid-column: span 1;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 1200px) {
+      .verify-visual {
+        min-height: 450px;
+      }
+      .verify-square-frame {
+        width: min(550px, 75%);
+        top: -10px;
+      }
+      .verify-image-square {
+        width: min(420px, 70%);
+      }
+      .verify-status {
+        right: -10px;
+        transform: translateY(-50%) scale(0.9);
+        transform-origin: right center;
+      }
+    }
+    @media (max-width: 1024px) {
+      .grid-lg-3 {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .verify-visual {
+        min-height: 420px;
+        margin-top: 20px;
+      }
+      .verify-square-frame {
+        width: min(450px, 70%);
+        top: -20px;
+      }
+      .verify-image-square {
+        width: min(360px, 65%);
+      }
+      .verify-status {
+        right: 10px;
+        transform: translateY(-50%) scale(0.8);
+      }
+    }
+    @media (max-width: 768px) {
+      .verify-visual {
+        min-height: 350px;
+      }
+      .verify-square-frame {
+        width: min(360px, 80%);
+        top: -30px;
+      }
+      .verify-image-square {
+        width: min(300px, 70%);
+      }
+      .verify-status {
+        right: 0;
+        transform: translateY(-50%) scale(0.7);
+        width: 150px;
+      }
+    }
+    @media (max-width: 480px) {
+      .verify-visual {
+        min-height: 300px;
+      }
+      .verify-square-frame {
+        width: 300px;
+        top: -20px;
+      }
+      .verify-image-square {
+        width: 230px;
+      }
+      .verify-status {
+        transform: translateY(-50%) scale(0.65);
+        width: 140px;
+        right: -5px;
+      }
+      .verify-status-row {
+        padding: 6px 12px;
+        font-size: 9px;
+      }
+      .verify-status-title {
+        padding: 0 12px 8px;
+        font-size: 9px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- ============ WHAT WE VERIFY ============ -->
+  <section id="verify" class="py-12 md:py-16 bg-paper scroll-mt-24">
+    <div style="width:100%; max-width:100%; padding-left:5%; padding-right:5%;" class="relative">
+      <div class="max-w-2xl mb-10" data-aos="fade-up">
+        <span class="font-mono-ui text-[12px] tracking-[0.18em] text-violet font-semibold">WHAT WE VERIFY</span>
+        <h2 class="font-display font-extrabold text-3xl sm:text-4xl mt-3 leading-tight">
+          Know what you're hiring.
+        </h2>
+        <p class="mt-6 text-lg text-slate leading-relaxed max-w-xl">
+          From identity to court records, we verify the claims behind every candidate profile.
+        </p>
+      </div>
+
+      <div class="grid-lg-3" style="gap: 2.5rem;">
+        <!-- LEFT: Verification List -->
+        <div class="lg:col-span-1">
+          <nav class="verify-menu">
+            <button class="verify-menu-item active" type="button" data-category="aadhaar">
+              <span class="verify-number">01</span>
+              <span class="verify-label">Aadhaar</span>
+              <span class="verify-arrow">→</span>
+            </button>
+            <button class="verify-menu-item" type="button" data-category="pan">
+              <span class="verify-number">02</span>
+              <span class="verify-label">PAN</span>
+              <span class="verify-arrow">→</span>
+            </button>
+            <button class="verify-menu-item" type="button" data-category="driving">
+              <span class="verify-number">03</span>
+              <span class="verify-label">Driving License</span>
+              <span class="verify-arrow">→</span>
+            </button>
+            <button class="verify-menu-item" type="button" data-category="voter">
+              <span class="verify-number">04</span>
+              <span class="verify-label">Voter ID</span>
+              <span class="verify-arrow">→</span>
+            </button>
+            <button class="verify-menu-item" type="button" data-category="passport">
+              <span class="verify-number">05</span>
+              <span class="verify-label">Passport</span>
+              <span class="verify-arrow">→</span>
+            </button>
+            <button class="verify-menu-item" type="button" data-category="employment">
+              <span class="verify-number">06</span>
+              <span class="verify-label">Employment</span>
+              <span class="verify-arrow">→</span>
+            </button>
+            <button class="verify-menu-item" type="button" data-category="education">
+              <span class="verify-number">07</span>
+              <span class="verify-label">Education</span>
+              <span class="verify-arrow">→</span>
+            </button>
+            <button class="verify-menu-item" type="button" data-category="criminal">
+              <span class="verify-number">08</span>
+              <span class="verify-label">Criminal</span>
+              <span class="verify-arrow">→</span>
+            </button>
+          </nav>
+        </div>
+
+        <!-- CENTER: Verification Details -->
+        <div class="lg:col-span-1 verify-info" id="verifyInfo">
+          <span class="verify-index" id="verifyIndex">01</span>
+          <span class="verify-label-text" id="verifyLabel">AADHAAR VERIFICATION</span>
+          <h3 class="verify-title" id="verifyTitle">Verify Aadhaar<br>identity</h3>
+          <p class="verify-copy" id="verifyCopy">We validate Aadhaar details through UIDAI to confirm the candidate's identity and address.</p>
+          <ul class="verify-checks" id="verifyChecks">
+            <li class="verify-check"><span class="verify-check-mark">✓</span>Aadhaar number validation</li>
+            <li class="verify-check"><span class="verify-check-mark">✓</span>Name & DOB verification</li>
+            <li class="verify-check"><span class="verify-check-mark">✓</span>Address confirmation</li>
+            <li class="verify-check"><span class="verify-check-mark">✓</span>Biometric check</li>
+          </ul>
+        </div>
+
+        <!-- RIGHT: Square Frame with Glowing Purple -->
+        <div class="lg:col-span-1 verify-visual">
+          <!-- Square frame with purple glow -->
+          <div class="verify-square-frame"></div>
+          <div class="verify-image-container" id="verifyImage">
+            <img src="https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/Aadhar_Verification_Banner.png" class="verify-image-square" alt="Aadhaar verification">
+          </div>
+          <div class="verify-status">
+            <div class="verify-status-title"><span class="verify-status-dot"></span>VERIFIED</div>
+            <div class="verify-status-row"><span class="verify-status-check">✓</span>Document authentic</div>
+            <div class="verify-status-row"><span class="verify-status-check">✓</span>Details matched</div>
+            <div class="verify-status-row"><span class="verify-status-check">✓</span>No discrepancies</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const menuItems = document.querySelectorAll('.verify-menu-item');
+      const verifyIndex = document.getElementById('verifyIndex');
+      const verifyLabel = document.getElementById('verifyLabel');
+      const verifyTitle = document.getElementById('verifyTitle');
+      const verifyCopy = document.getElementById('verifyCopy');
+      const verifyChecks = document.getElementById('verifyChecks');
+      const verifyImageContainer = document.getElementById('verifyImage');
+      const verifyInfo = document.getElementById('verifyInfo');
       
-      // Add active class to clicked item
-      this.classList.add('active');
+      const verificationData = {
+        aadhaar: {
+          index: '01',
+          label: 'AADHAAR VERIFICATION',
+          title: 'Verify Aadhaar<br>identity',
+          copy: 'We validate Aadhaar details through UIDAI to confirm the candidate\'s identity and address.',
+          checks: ['Aadhaar number validation', 'Name & DOB verification', 'Address confirmation', 'Biometric check'],
+          image: 'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/Aadhar_Verification_Banner.png'
+        },
+        pan: {
+          index: '02',
+          label: 'PAN VERIFICATION',
+          title: 'Verify PAN<br>details',
+          copy: 'We verify PAN card details through Income Tax Department records to validate tax information.',
+          checks: ['PAN number validation', 'Name match check', 'IT department verification', 'Tax compliance status'],
+          image: 'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/PAN_Verification_Banner.png'
+        },
+        driving: {
+          index: '03',
+          label: 'DRIVING LICENSE VERIFICATION',
+          title: 'Check driving<br>license',
+          copy: 'We validate driving license details through RTO records to verify authenticity and validity.',
+          checks: ['License number check', 'Name & DOB verification', 'Validity status', 'RTO records match'],
+          image: 'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/DL_Verification_Banner.png'
+        },
+        voter: {
+          index: '04',
+          label: 'VOTER ID VERIFICATION',
+          title: 'Validate voter<br>identity',
+          copy: 'We verify voter ID details through Election Commission records to confirm electoral identity.',
+          checks: ['Voter ID validation', 'Name & address check', 'Constituency verification', 'EPIC number match'],
+          image: 'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/VoterID_Verification_Banner.png'
+        },
+        passport: {
+          index: '05',
+          label: 'PASSPORT VERIFICATION',
+          title: 'Confirm passport<br>details',
+          copy: 'We validate passport details through Passport Seva to verify international identity documents.',
+          checks: ['Passport number check', 'Name & DOB verification', 'Validity status', 'Nationality confirmation'],
+          image: 'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/Passport_Verification_Banner.png'
+        },
+        employment: {
+          index: '06',
+          label: 'EMPLOYMENT VERIFICATION',
+          title: 'Validate work<br>history',
+          copy: 'We verify past employment records, job titles, and durations to ensure professional background accuracy.',
+          checks: ['Previous employer verification', 'Job title confirmation', 'Employment duration check', 'Salary verification'],
+          image: 'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/Employement_Verification_Banner.png'
+        },
+        education: {
+          index: '07',
+          label: 'EDUCATION VERIFICATION',
+          title: 'Verify academic<br>credentials',
+          copy: 'We validate educational qualifications, degrees, and certifications from recognized institutions.',
+          checks: ['Degree verification', 'University authentication', 'Certification validation', 'Academic records check'],
+          image: 'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/Education_Verification_Banner.png'
+        },
+        criminal: {
+          index: '08',
+          label: 'CRIMINAL RECORD CHECK',
+          title: 'Screen for<br>criminal history',
+          copy: 'We conduct thorough criminal background checks through authorized government databases.',
+          checks: ['Police verification', 'Court records check', 'Criminal database search', 'Legal history review'],
+          image: 'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/Criminal_Court_Check_Banner.png'
+        }
+      };
       
-      // Get category data
-      const category = this.getAttribute('data-category');
-      const data = verificationData[category];
-      
-      // Update content with smooth transition
-      verifyInfo.classList.add('changing');
-      
-      setTimeout(() => {
-        verifyIndex.textContent = data.index;
-        verifyLabel.textContent = data.label;
-        verifyTitle.innerHTML = data.title;
-        verifyCopy.textContent = data.copy;
-        
-        // Update checks
-        verifyChecks.innerHTML = data.checks.map(check => 
-          `<li class="verify-check"><span class="verify-check-mark">✓</span>${check}</li>`
-        ).join('');
-        
-        // Update image with fade effect
-        const img = verifyImage.querySelector('img');
-        img.style.opacity = '0';
-        setTimeout(() => {
-          img.src = data.image;
-          img.style.opacity = '1';
-        }, 200);
-        
-        verifyInfo.classList.remove('changing');
-      }, 200);
+      menuItems.forEach(item => {
+        item.addEventListener('click', function() {
+          menuItems.forEach(menuItem => menuItem.classList.remove('active'));
+          this.classList.add('active');
+          
+          const category = this.getAttribute('data-category');
+          const data = verificationData[category];
+          
+          verifyInfo.classList.add('changing');
+          
+          setTimeout(() => {
+            verifyIndex.textContent = data.index;
+            verifyLabel.textContent = data.label;
+            verifyTitle.innerHTML = data.title;
+            verifyCopy.textContent = data.copy;
+            
+            verifyChecks.innerHTML = data.checks.map(check => 
+              `<li class="verify-check"><span class="verify-check-mark">✓</span>${check}</li>`
+            ).join('');
+            
+            const img = verifyImageContainer.querySelector('img');
+            if (img) {
+              img.style.opacity = '0';
+              setTimeout(() => {
+                img.src = data.image;
+                img.style.opacity = '1';
+              }, 200);
+            }
+            
+            verifyInfo.classList.remove('changing');
+          }, 200);
+        });
+      });
     });
-  });
-});
-</script>
+  </script>
+</body>
+</html>
