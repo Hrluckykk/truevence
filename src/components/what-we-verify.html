@@ -14,77 +14,294 @@
     <div class="grid lg:grid-cols-3 gap-12 items-start">
       <!-- LEFT: Verification List -->
       <div class="lg:col-span-1">
-        <nav class="verify-menu">
-          <button class="verify-menu-item active" type="button" data-category="identity">
-            <span class="verify-number font-mono-ui">01</span>
-            <span class="verify-label font-display">Identity</span>
-            <span class="verify-arrow">→</span>
+        <nav class="verify-menu space-y-1">
+          <button class="verify-menu-item active w-full text-left group" type="button" data-category="identity">
+            <span class="verify-number font-mono-ui text-[11px] text-violet font-semibold">01</span>
+            <span class="verify-label font-display font-bold text-[18px] text-ink group-hover:text-violet transition-colors ml-3">Identity</span>
+            <span class="verify-arrow text-violet opacity-0 group-hover:opacity-100 transition-opacity ml-auto">→</span>
           </button>
-          <button class="verify-menu-item" type="button" data-category="employment">
-            <span class="verify-number font-mono-ui">02</span>
-            <span class="verify-label font-display">Employment</span>
-            <span class="verify-arrow">→</span>
+          <button class="verify-menu-item w-full text-left group" type="button" data-category="employment">
+            <span class="verify-number font-mono-ui text-[11px] text-slate font-semibold">02</span>
+            <span class="verify-label font-display font-bold text-[18px] text-ink group-hover:text-violet transition-colors ml-3">Employment</span>
+            <span class="verify-arrow text-violet opacity-0 group-hover:opacity-100 transition-opacity ml-auto">→</span>
           </button>
-          <button class="verify-menu-item" type="button" data-category="education">
-            <span class="verify-number font-mono-ui">03</span>
-            <span class="verify-label font-display">Education</span>
-            <span class="verify-arrow">→</span>
+          <button class="verify-menu-item w-full text-left group" type="button" data-category="education">
+            <span class="verify-number font-mono-ui text-[11px] text-slate font-semibold">03</span>
+            <span class="verify-label font-display font-bold text-[18px] text-ink group-hover:text-violet transition-colors ml-3">Education</span>
+            <span class="verify-arrow text-violet opacity-0 group-hover:opacity-100 transition-opacity ml-auto">→</span>
           </button>
-          <button class="verify-menu-item" type="button" data-category="address">
-            <span class="verify-number font-mono-ui">04</span>
-            <span class="verify-label font-display">Address</span>
-            <span class="verify-arrow">→</span>
+          <button class="verify-menu-item w-full text-left group" type="button" data-category="address">
+            <span class="verify-number font-mono-ui text-[11px] text-slate font-semibold">04</span>
+            <span class="verify-label font-display font-bold text-[18px] text-ink group-hover:text-violet transition-colors ml-3">Address</span>
+            <span class="verify-arrow text-violet opacity-0 group-hover:opacity-100 transition-opacity ml-auto">→</span>
           </button>
-          <button class="verify-menu-item" type="button" data-category="criminal">
-            <span class="verify-number font-mono-ui">05</span>
-            <span class="verify-label font-display">Criminal</span>
-            <span class="verify-arrow">→</span>
+          <button class="verify-menu-item w-full text-left group" type="button" data-category="criminal">
+            <span class="verify-number font-mono-ui text-[11px] text-slate font-semibold">05</span>
+            <span class="verify-label font-display font-bold text-[18px] text-ink group-hover:text-violet transition-colors ml-3">Criminal</span>
+            <span class="verify-arrow text-violet opacity-0 group-hover:opacity-100 transition-opacity ml-auto">→</span>
           </button>
-          <button class="verify-menu-item" type="button" data-category="reference">
-            <span class="verify-number font-mono-ui">06</span>
-            <span class="verify-label font-display">Reference</span>
-            <span class="verify-arrow">→</span>
+          <button class="verify-menu-item w-full text-left group" type="button" data-category="reference">
+            <span class="verify-number font-mono-ui text-[11px] text-slate font-semibold">06</span>
+            <span class="verify-label font-display font-bold text-[18px] text-ink group-hover:text-violet transition-colors ml-3">Reference</span>
+            <span class="verify-arrow text-violet opacity-0 group-hover:opacity-100 transition-opacity ml-auto">→</span>
           </button>
-          <button class="verify-menu-item" type="button" data-category="credit">
-            <span class="verify-number font-mono-ui">07</span>
-            <span class="verify-label font-display">Credit</span>
-            <span class="verify-arrow">→</span>
+          <button class="verify-menu-item w-full text-left group" type="button" data-category="credit">
+            <span class="verify-number font-mono-ui text-[11px] text-slate font-semibold">07</span>
+            <span class="verify-label font-display font-bold text-[18px] text-ink group-hover:text-violet transition-colors ml-3">Credit</span>
+            <span class="verify-arrow text-violet opacity-0 group-hover:opacity-100 transition-opacity ml-auto">→</span>
           </button>
-          <button class="verify-menu-item" type="button" data-category="digital">
-            <span class="verify-number font-mono-ui">08</span>
-            <span class="verify-label font-display">Digital &amp; Others</span>
-            <span class="verify-arrow">→</span>
+          <button class="verify-menu-item w-full text-left group" type="button" data-category="digital">
+            <span class="verify-number font-mono-ui text-[11px] text-slate font-semibold">08</span>
+            <span class="verify-label font-display font-bold text-[18px] text-ink group-hover:text-violet transition-colors ml-3">Digital &amp; Others</span>
+            <span class="verify-arrow text-violet opacity-0 group-hover:opacity-100 transition-opacity ml-auto">→</span>
           </button>
         </nav>
       </div>
 
       <!-- CENTER: Verification Details -->
-      <div class="lg:col-span-1 verify-info" id="verifyInfo">
-        <span class="verify-index font-mono-ui" id="verifyIndex">01</span>
-        <span class="verify-label-text font-mono-ui" id="verifyLabel">IDENTITY VERIFICATION</span>
-        <h3 class="verify-title font-display" id="verifyTitle">Confirm who<br>they are</h3>
-        <p class="verify-copy" id="verifyCopy">We verify government-issued identity documents and validate key personal details to ensure the candidate's identity is genuine.</p>
-        <ul class="verify-checks" id="verifyChecks">
-          <li class="verify-check"><span class="verify-check-mark">✓</span>PAN verification</li>
-          <li class="verify-check"><span class="verify-check-mark">✓</span>Aadhaar verification</li>
-          <li class="verify-check"><span class="verify-check-mark">✓</span>Name &amp; date of birth validation</li>
-          <li class="verify-check"><span class="verify-check-mark">✓</span>Identity document checks</li>
-        </ul>
+      <div class="lg:col-span-1 verify-info relative" id="verifyInfo">
+        <div class="space-y-6">
+          <span class="verify-index font-mono-ui text-[48px] font-bold text-violet/20 block leading-none" id="verifyIndex">01</span>
+          <span class="verify-label-text font-mono-ui text-[11px] tracking-[0.18em] text-violet font-semibold block" id="verifyLabel">IDENTITY VERIFICATION</span>
+          <h3 class="verify-title font-display font-extrabold text-4xl leading-tight text-ink" id="verifyTitle">Confirm who<br>they are</h3>
+          <p class="verify-copy text-slate leading-relaxed text-[16px]" id="verifyCopy">We verify government-issued identity documents and validate key personal details to ensure the candidate's identity is genuine.</p>
+          <ul class="verify-checks space-y-3" id="verifyChecks">
+            <li class="verify-check flex items-center gap-3 text-ink">
+              <span class="verify-check-mark w-6 h-6 bg-violet/10 rounded-full flex items-center justify-center text-violet text-sm">✓</span>
+              PAN verification
+            </li>
+            <li class="verify-check flex items-center gap-3 text-ink">
+              <span class="verify-check-mark w-6 h-6 bg-violet/10 rounded-full flex items-center justify-center text-violet text-sm">✓</span>
+              Aadhaar verification
+            </li>
+            <li class="verify-check flex items-center gap-3 text-ink">
+              <span class="verify-check-mark w-6 h-6 bg-violet/10 rounded-full flex items-center justify-center text-violet text-sm">✓</span>
+              Name &amp; date of birth validation
+            </li>
+            <li class="verify-check flex items-center gap-3 text-ink">
+              <span class="verify-check-mark w-6 h-6 bg-violet/10 rounded-full flex items-center justify-center text-violet text-sm">✓</span>
+              Identity document checks
+            </li>
+          </ul>
+        </div>
       </div>
 
       <!-- RIGHT: Hexagon Image -->
-      <div class="lg:col-span-1 verify-visual">
-        <div class="verify-hexagon-shape"></div>
-        <div class="verify-hexagon" id="verifyImage">
-          <img src="https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/Aadhar_Verification_Banner.png" class="verify-image-square" alt="Verification image">
+      <div class="lg:col-span-1 verify-visual relative">
+        <div class="verify-hexagon-shape absolute inset-0 bg-gradient-to-br from-violet/5 to-lavender/10 rounded-3xl"></div>
+        <div class="verify-hexagon relative z-10 mx-auto max-w-sm" id="verifyImage">
+          <img src="https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/Aadhar_Verification_Banner.png" class="verify-image-square w-full h-auto rounded-2xl shadow-2xl" alt="Verification image">
         </div>
-        <div class="verify-status">
-          <div class="verify-status-title font-mono-ui"><span class="verify-status-dot"></span>VERIFIED</div>
-          <div class="verify-status-row"><span class="verify-status-check">✓</span>Document authentic</div>
-          <div class="verify-status-row"><span class="verify-status-check">✓</span>Details matched</div>
-          <div class="verify-status-row"><span class="verify-status-check">✓</span>No discrepancies</div>
+        <div class="verify-status mt-6 bg-white rounded-2xl p-6 shadow-lg border border-violet/10 relative z-10">
+          <div class="verify-status-title font-mono-ui text-[11px] tracking-[0.18em] text-violet font-semibold flex items-center gap-2 mb-4">
+            <span class="verify-status-dot w-2 h-2 bg-violet rounded-full animate-pulse"></span>
+            VERIFIED
+          </div>
+          <div class="space-y-2">
+            <div class="verify-status-row flex items-center gap-2 text-[14px] text-slate">
+              <span class="verify-status-check text-violet">✓</span>Document authentic
+            </div>
+            <div class="verify-status-row flex items-center gap-2 text-[14px] text-slate">
+              <span class="verify-status-check text-violet">✓</span>Details matched
+            </div>
+            <div class="verify-status-row flex items-center gap-2 text-[14px] text-slate">
+              <span class="verify-status-check text-violet">✓</span>No discrepancies
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<style>
+/* ============ VERIFY MENU STYLES ============ */
+.verify-menu-item {
+  display: flex;
+  align-items: center;
+  padding: 16px 20px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.verify-menu-item:hover {
+  background: rgba(124, 58, 237, 0.05);
+  border-color: rgba(124, 58, 237, 0.2);
+}
+
+.verify-menu-item.active {
+  background: rgba(124, 58, 237, 0.08);
+  border-color: rgba(124, 58, 237, 0.3);
+}
+
+.verify-menu-item.active .verify-number,
+.verify-menu-item.active .verify-label {
+  color: #7C3AED;
+}
+
+.verify-menu-item.active .verify-arrow {
+  opacity: 1;
+}
+
+/* Smooth transitions */
+.verify-info {
+  transition: all 0.3s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .verify-menu-item {
+    padding: 14px 16px;
+  }
+  
+  .verify-label {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .verify-menu-item {
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(19, 27, 69, 0.1);
+    border-radius: 0;
+  }
+  
+  .verify-menu-item:hover {
+    background: transparent;
+    border-color: transparent;
+    border-bottom-color: rgba(124, 58, 237, 0.3);
+  }
+  
+  .verify-menu-item.active {
+    background: transparent;
+    border-color: transparent;
+    border-bottom-color: rgba(124, 58, 237, 0.5);
+  }
+}
+</style>
+
+<script>
+// JavaScript for menu interaction
+document.addEventListener('DOMContentLoaded', function() {
+  const menuItems = document.querySelectorAll('.verify-menu-item');
+  const verifyIndex = document.getElementById('verifyIndex');
+  const verifyLabel = document.getElementById('verifyLabel');
+  const verifyTitle = document.getElementById('verifyTitle');
+  const verifyCopy = document.getElementById('verifyCopy');
+  const verifyChecks = document.getElementById('verifyChecks');
+  const verifyImage = document.getElementById('verifyImage');
+  
+  const verificationData = {
+    identity: {
+      index: '01',
+      label: 'IDENTITY VERIFICATION',
+      title: 'Confirm who<br>they are',
+      copy: 'We verify government-issued identity documents and validate key personal details to ensure the candidate\'s identity is genuine.',
+      checks: ['PAN verification', 'Aadhaar verification', 'Name & date of birth validation', 'Identity document checks'],
+      image: 'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/Aadhar_Verification_Banner.png'
+    },
+    employment: {
+      index: '02',
+      label: 'EMPLOYMENT VERIFICATION',
+      title: 'Validate work<br>history',
+      copy: 'We verify past employment records, job titles, and durations to ensure the candidate\'s professional background is accurate.',
+      checks: ['Previous employer verification', 'Job title confirmation', 'Employment duration check', 'Salary verification'],
+      image: 'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/Employment_Verification_Banner.png'
+    },
+    education: {
+      index: '03',
+      label: 'EDUCATION VERIFICATION',
+      title: 'Verify academic<br>credentials',
+      copy: 'We validate educational qualifications, degrees, and certifications from recognized institutions.',
+      checks: ['Degree verification', 'University authentication', 'Certification validation', 'Academic records check'],
+      image: 'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/Education_Verification_Banner.png'
+    },
+    address: {
+      index: '04',
+      label: 'ADDRESS VERIFICATION',
+      title: 'Confirm current<br>residence',
+      copy: 'We verify current and permanent addresses through multiple reliable sources.',
+      checks: ['Current address verification', 'Permanent address check', 'Residence duration validation', 'Local reference check'],
+      image: 'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/Address_Verification_Banner.png'
+    },
+    criminal: {
+      index: '05',
+      label: 'CRIMINAL RECORD CHECK',
+      title: 'Screen for<br>criminal history',
+      copy: 'We conduct thorough criminal background checks through authorized government databases.',
+      checks: ['Police verification', 'Court records check', 'Criminal database search', 'Legal history review'],
+      image: 'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/Criminal_Check_Banner.png'
+    },
+    reference: {
+      index: '06',
+      label: 'REFERENCE VERIFICATION',
+      title: 'Check professional<br>references',
+      copy: 'We contact professional references to validate character, work ethic, and professional conduct.',
+      checks: ['Professional reference check', 'Manager validation', 'Colleague feedback', 'Character assessment'],
+      image: 'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/Reference_Check_Banner.png'
+    },
+    credit: {
+      index: '07',
+      label: 'CREDIT VERIFICATION',
+      title: 'Assess financial<br>responsibility',
+      copy: 'We verify credit history and financial responsibility for roles involving financial handling.',
+      checks: ['Credit score check', 'Financial history review', 'Debt assessment', 'Bankruptcy check'],
+      image: 'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/Credit_Verification_Banner.png'
+    },
+    digital: {
+      index: '08',
+      label: 'DIGITAL & OTHERS',
+      title: 'Comprehensive<br>screening',
+      copy: 'We conduct additional digital and specialized checks based on role requirements.',
+      checks: ['Social media screening', 'Digital footprint analysis', 'Professional license check', 'Drug test coordination'],
+      image: 'https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/Digital_Verification_Banner.png'
+    }
+  };
+  
+  menuItems.forEach(item => {
+    item.addEventListener('click', function() {
+      // Remove active class from all items
+      menuItems.forEach(menuItem => menuItem.classList.remove('active'));
+      
+      // Add active class to clicked item
+      this.classList.add('active');
+      
+      // Get category data
+      const category = this.getAttribute('data-category');
+      const data = verificationData[category];
+      
+      // Update content with smooth transition
+      verifyInfo.style.opacity = '0';
+      verifyInfo.style.transform = 'translateY(10px)';
+      
+      setTimeout(() => {
+        verifyIndex.textContent = data.index;
+        verifyLabel.textContent = data.label;
+        verifyTitle.innerHTML = data.title;
+        verifyCopy.textContent = data.copy;
+        
+        // Update checks
+        verifyChecks.innerHTML = data.checks.map(check => 
+          `<li class="verify-check flex items-center gap-3 text-ink">
+            <span class="verify-check-mark w-6 h-6 bg-violet/10 rounded-full flex items-center justify-center text-violet text-sm">✓</span>
+            ${check}
+          </li>`
+        ).join('');
+        
+        // Update image with fade effect
+        const img = verifyImage.querySelector('img');
+        img.style.opacity = '0';
+        setTimeout(() => {
+          img.src = data.image;
+          img.style.opacity = '1';
+        }, 200);
+        
+        verifyInfo.style.opacity = '1';
+        verifyInfo.style.transform = 'translateY(0)';
+      }, 300);
+    });
+  });
+});
+</script>
