@@ -34,79 +34,43 @@
         and easy for HR teams to run.
       </p>
 
-
       <!-- REASONS -->
       <div class="tv-why-reasons">
 
-        <!-- 01 -->
         <article class="tv-why-reason">
-
           <div class="tv-why-number">01</div>
-
           <div class="tv-why-reason-content">
             <h3>Confidentiality First</h3>
-            <p>
-              Candidate data is handled on a strict
-              need-to-know basis, end to end.
-            </p>
+            <p>Candidate data is handled on a strict need-to-know basis, end to end.</p>
           </div>
-
           <span class="tv-why-arrow">↗</span>
-
         </article>
 
-
-        <!-- 02 -->
         <article class="tv-why-reason">
-
           <div class="tv-why-number">02</div>
-
           <div class="tv-why-reason-content">
             <h3>Compliance-Led Process</h3>
-            <p>
-              Consent-driven checks aligned to how
-              personal data should be handled.
-            </p>
+            <p>Consent-driven checks aligned to how personal data should be handled.</p>
           </div>
-
           <span class="tv-why-arrow">↗</span>
-
         </article>
 
-
-        <!-- 03 -->
         <article class="tv-why-reason">
-
           <div class="tv-why-number">03</div>
-
           <div class="tv-why-reason-content">
             <h3>Responsive Turnaround</h3>
-            <p>
-              A dedicated point of contact keeps
-              every case moving without chasing.
-            </p>
+            <p>A dedicated point of contact keeps every case moving without chasing.</p>
           </div>
-
           <span class="tv-why-arrow">↗</span>
-
         </article>
 
-
-        <!-- 04 -->
         <article class="tv-why-reason">
-
           <div class="tv-why-number">04</div>
-
           <div class="tv-why-reason-content">
             <h3>Founder-Led Oversight</h3>
-            <p>
-              Every function, from testing to
-              operations, is owned directly by a founder.
-            </p>
+            <p>Every function, from testing to operations, is owned directly by a founder.</p>
           </div>
-
           <span class="tv-why-arrow">↗</span>
-
         </article>
 
       </div>
@@ -119,32 +83,18 @@
 
 <style>
 /* =========================================================
-   TRUEVENCE
    WHY TRUEVENCE SECTION
    ========================================================= */
 
 .tv-why-section {
-  --tv-ink: #0B1230;
-  --tv-navy: #131B45;
-  --tv-navy-lite: #1E2A5E;
-  --tv-violet: #7C3AED;
-  --tv-violet-light: #A78BFA;
-  --tv-lavender: #C9BEFB;
-  --tv-paper: #F7F7FB;
-  --tv-slate: #687780;
-
   position: relative;
   width: 100%;
-  min-height: 820px;
-
+  min-height: 720px;
   overflow: hidden;
-
-  background: var(--tv-paper);
-  color: var(--tv-ink);
-
+  background: #F7F7FB;
+  color: #0B1230;
   font-family: 'Inter', sans-serif;
 }
-
 
 /* =========================================================
    BACKGROUND GRAPHIC
@@ -153,44 +103,30 @@
 .tv-why-bg {
   position: absolute;
   inset: 0;
-
   width: 100%;
   height: 100%;
-
   z-index: 0;
-
   pointer-events: none;
 }
 
 .tv-why-bg img {
   position: absolute;
-
-  width: 60%; /* Reduced from 100% to make image smaller */
+  width: 60%;
   height: 80%;
-
-  right: 200px; /* Position from right */
+  right: 200px;
   top: 120px;
-
   object-fit: cover;
   object-position: center center;
-
   display: block;
 }
 
-
-/* Very subtle readability layer on the left */
-
 .tv-why-bg::after {
   content: "";
-
   position: absolute;
-
   left: 0;
   top: 0;
   bottom: 0;
-
   width: 64%;
-
   background:
     linear-gradient(
       90deg,
@@ -199,133 +135,99 @@
       rgba(247,247,251,0.40) 85%,
       rgba(247,247,251,0) 100%
     );
-
   pointer-events: none;
 }
 
-
 /* =========================================================
-   CONTAINER
+   CONTAINER — matches hero padding
    ========================================================= */
 
 .tv-why-container {
   position: relative;
   z-index: 2;
-
   width: 100%;
-  max-width: 100%; /* Changed from 1440px to match hero style */
+  max-width: 100%;
   margin: 0 auto;
-
-  padding: 105px 220px 95px 250px; /* Same margins as hero section */
+  padding-top: 96px;
+  padding-bottom: 96px;
+  padding-left: 230px;
+  padding-right: 220px;
 }
-
-
-/* =========================================================
-   CONTENT
-   ========================================================= */
 
 .tv-why-content {
-  width: 100%; /* Changed to full width within container */
-  max-width: 590px; /* Maintain max width */
+  width: 100%;
+  max-width: 590px;
   position: relative;
   z-index: 3;
-  padding-left: 25px; /* Same as hero section */
 }
 
-
 /* =========================================================
-   KICKER
+   KICKER — matches hero eyebrow pill
    ========================================================= */
 
 .tv-why-kicker {
   display: inline-flex;
-
   align-items: center;
-  gap: 9px;
-
+  gap: 8px;
   margin-bottom: 24px;
-
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 11px;
-  font-weight: 700;
-
+  font-size: 11.5px;
+  font-weight: 600;
   letter-spacing: 0.18em;
-
-  color: var(--tv-violet);
+  color: #7C3AED;
+  background: rgba(124,58,237,.10);
+  border: 1px solid rgba(124,58,237,.20);
+  border-radius: 999px;
+  padding: 6px 16px;
 }
-
 
 .tv-why-kicker-dot {
-  width: 7px;
-  height: 7px;
-
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
-
-  background: var(--tv-violet);
-
-  box-shadow:
-    0 0 0 4px rgba(124,58,237,0.09),
-    0 0 14px rgba(124,58,237,0.35);
+  background: #7C3AED;
 }
 
-
 /* =========================================================
-   TITLE
+   TITLE — matches hero h1 scale
    ========================================================= */
 
 .tv-why-title {
   margin: 0;
-
   max-width: 620px;
-
   font-family: 'Plus Jakarta Sans', sans-serif;
-
-  font-size: clamp(42px, 4.3vw, 64px);
-
-  line-height: 1.03;
-
-  letter-spacing: -0.045em;
-
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  line-height: 1.06;
+  letter-spacing: -0.02em;
   font-weight: 800;
-
-  color: var(--tv-ink);
+  color: #0B1230;
 }
-
 
 .tv-why-title span {
   background:
     linear-gradient(
       100deg,
-      var(--tv-navy) 10%,
-      var(--tv-violet) 55%,
-      var(--tv-violet-light) 90%
+      #131B45 10%,
+      #7C3AED 55%,
+      #A78BFA 90%
     );
-
   -webkit-background-clip: text;
   background-clip: text;
-
   color: transparent;
 }
 
-
 /* =========================================================
-   DESCRIPTION
+   DESCRIPTION — matches hero paragraph
    ========================================================= */
 
 .tv-why-description {
   max-width: 520px;
-
   margin: 24px 0 0;
-
   font-family: 'Inter', sans-serif;
-
-  font-size: 16px;
-
-  line-height: 1.7;
-
-  color: var(--tv-slate);
+  font-size: 1.125rem;
+  line-height: 1.65;
+  color: #545A78;
 }
-
 
 /* =========================================================
    REASONS GRID
@@ -333,66 +235,37 @@
 
 .tv-why-reasons {
   display: grid;
-
   grid-template-columns: repeat(2, minmax(0, 1fr));
-
   gap: 0;
-
   margin-top: 45px;
-
   width: 100%;
 }
 
-
-/* =========================================================
-   INDIVIDUAL REASON
-   ========================================================= */
-
 .tv-why-reason {
   position: relative;
-
   display: grid;
-
   grid-template-columns: 30px 1fr 18px;
-
   align-items: start;
-
   gap: 12px;
-
   min-height: 112px;
-
-  padding:
-    19px
-    18px
-    19px
-    0;
-
+  padding: 19px 18px 19px 0;
   border-top: 1px solid rgba(19,27,69,0.10);
-
-  transition:
-    transform .28s ease,
-    border-color .28s ease;
+  transition: transform .28s ease, border-color .28s ease;
 }
-
 
 .tv-why-reason:nth-child(odd) {
   padding-right: 28px;
-
   border-right: 1px solid rgba(19,27,69,0.10);
 }
-
 
 .tv-why-reason:nth-child(even) {
   padding-left: 28px;
 }
 
-
 .tv-why-reason:hover {
   transform: translateY(-3px);
-
   border-color: rgba(124,58,237,0.30);
 }
-
 
 /* =========================================================
    NUMBER
@@ -400,20 +273,13 @@
 
 .tv-why-number {
   padding-top: 2px;
-
   font-family: 'IBM Plex Mono', monospace;
-
-  font-size: 11px;
-
+  font-size: 11.5px;
   line-height: 1;
-
-  font-weight: 700;
-
+  font-weight: 600;
   letter-spacing: 0.05em;
-
-  color: var(--tv-violet);
+  color: #7C3AED;
 }
-
 
 /* =========================================================
    REASON CONTENT
@@ -421,33 +287,21 @@
 
 .tv-why-reason-content h3 {
   margin: 0;
-
   font-family: 'Plus Jakarta Sans', sans-serif;
-
   font-size: 15px;
-
   line-height: 1.3;
-
   font-weight: 800;
-
   letter-spacing: -0.025em;
-
-  color: var(--tv-ink);
+  color: #0B1230;
 }
-
 
 .tv-why-reason-content p {
   margin: 8px 0 0;
-
   font-family: 'Inter', sans-serif;
-
-  font-size: 12px;
-
-  line-height: 1.55;
-
-  color: var(--tv-slate);
+  font-size: 13px;
+  line-height: 1.6;
+  color: #545A78;
 }
-
 
 /* =========================================================
    ARROW
@@ -455,41 +309,24 @@
 
 .tv-why-arrow {
   display: flex;
-
   align-items: center;
   justify-content: center;
-
   width: 18px;
   height: 18px;
-
   border-radius: 50%;
-
   font-family: 'Inter', sans-serif;
-
   font-size: 13px;
-
-  color: var(--tv-violet);
-
+  color: #7C3AED;
   opacity: 0.45;
-
   transform: translateY(1px);
-
-  transition:
-    opacity .25s ease,
-    transform .25s ease,
-    background .25s ease;
+  transition: opacity .25s ease, transform .25s ease, background .25s ease;
 }
-
 
 .tv-why-reason:hover .tv-why-arrow {
   opacity: 1;
-
-  transform:
-    translate(3px, -3px);
-
+  transform: translate(3px, -3px);
   background: rgba(124,58,237,0.08);
 }
-
 
 /* =========================================================
    SMALL TECHNICAL DETAIL
@@ -497,61 +334,51 @@
 
 .tv-why-content::after {
   content: "TRUEVENCE / VERIFIED / TRUST";
-
   display: block;
-
   margin-top: 34px;
-
   font-family: 'IBM Plex Mono', monospace;
-
   font-size: 9px;
-
   font-weight: 600;
-
   letter-spacing: 0.22em;
-
   color: rgba(19,27,69,0.38);
 }
-
 
 /* =========================================================
    RESPONSIVE
    ========================================================= */
 
-@media (max-width: 1200px) {
-
+@media (max-width: 1440px) {
   .tv-why-container {
-    padding-left: 150px; /* Adjusted for smaller screens */
-    padding-right: 120px;
-  }
-
-  .tv-why-bg img {
-    width: 50%; /* Slightly smaller on medium screens */
+    padding-left: 120px;
+    padding-right: 100px;
   }
 }
 
+@media (max-width: 1200px) {
+  .tv-why-container {
+    padding-left: 80px;
+    padding-right: 60px;
+  }
+  .tv-why-bg img {
+    width: 50%;
+  }
+}
 
 @media (max-width: 1024px) {
-
   .tv-why-section {
     min-height: auto;
   }
-
   .tv-why-container {
-    padding: 85px 80px 85px 100px; /* Adjusted padding */
+    padding: 80px 32px;
   }
-
   .tv-why-content {
     max-width: 600px;
   }
-
   .tv-why-bg img {
-    width: 45%; /* Further reduced */
+    width: 45%;
   }
-
   .tv-why-bg::after {
     width: 75%;
-
     background:
       linear-gradient(
         90deg,
@@ -561,35 +388,28 @@
         rgba(247,247,251,0) 100%
       );
   }
-
-  .tv-why-title {
-    font-size: 48px;
-  }
 }
 
-
 @media (max-width: 768px) {
-
   .tv-why-section {
     min-height: auto;
   }
-
+  .tv-why-container {
+    padding: 64px 20px;
+  }
   .tv-why-bg {
     height: 430px;
     bottom: auto;
   }
-
   .tv-why-bg img {
-    width: 100%; /* Full width on mobile */
+    width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: 62% center;
   }
-
   .tv-why-bg::after {
     width: 100%;
     height: 100%;
-
     background:
       linear-gradient(
         180deg,
@@ -598,118 +418,71 @@
         rgba(247,247,251,1) 100%
       );
   }
-
-  .tv-why-container {
-    padding: 65px 25px 65px;
-  }
-
   .tv-why-content {
     width: 100%;
     max-width: 100%;
     padding-left: 0;
   }
-
-  .tv-why-title {
-    font-size: clamp(40px, 9vw, 54px);
-  }
-
   .tv-why-description {
     max-width: 600px;
-
-    font-size: 15px;
+    font-size: 1rem;
   }
-
   .tv-why-reasons {
     grid-template-columns: 1fr;
-
     margin-top: 35px;
   }
-
   .tv-why-reason,
   .tv-why-reason:nth-child(odd),
   .tv-why-reason:nth-child(even) {
-    padding:
-      18px
-      0;
-
+    padding: 18px 0;
     border-right: none;
   }
-
   .tv-why-reason:first-child {
     border-top: 1px solid rgba(19,27,69,0.10);
   }
 }
 
-
 @media (max-width: 480px) {
-
+  .tv-why-container {
+    padding: 48px 16px;
+  }
   .tv-why-bg {
     height: 330px;
   }
-
-  .tv-why-container {
-    padding:
-      50px
-      20px
-      55px;
-  }
-
   .tv-why-kicker {
-    font-size: 10px;
-
-    letter-spacing: 0.14em;
+    font-size: 11px;
+    letter-spacing: 0.16em;
   }
-
   .tv-why-title {
-    font-size: 38px;
-
-    letter-spacing: -0.045em;
+    font-size: 1.75rem;
   }
-
   .tv-why-description {
     margin-top: 20px;
-
-    font-size: 14px;
-
+    font-size: 1rem;
     line-height: 1.65;
   }
-
   .tv-why-reasons {
     margin-top: 28px;
   }
-
   .tv-why-reason {
     grid-template-columns: 28px 1fr 18px;
-
     min-height: 105px;
-
     gap: 10px;
   }
-
   .tv-why-reason-content h3 {
     font-size: 14px;
   }
-
   .tv-why-reason-content p {
-    font-size: 11px;
+    font-size: 12.5px;
   }
-
   .tv-why-content::after {
     margin-top: 28px;
-
     font-size: 8px;
-
     letter-spacing: 0.15em;
   }
 }
 
-
-/* =========================================================
-   REDUCED MOTION
-   ========================================================= */
-
 @media (prefers-reduced-motion: reduce) {
-
   .tv-why-reason,
   .tv-why-arrow {
     transition: none;
