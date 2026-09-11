@@ -41,6 +41,7 @@ const partials = {
   why_us: loadFile(componentsDir, 'why-us.html'),
   industries: loadFile(componentsDir, 'industries.html'),
   blog_scroll: loadFile(componentsDir, 'blog-scroll.html'),
+  newsletter: loadFile(componentsDir, 'newsletter.html'),
   faq: loadFile(componentsDir, 'faq.html'),
   cta_banner: loadFile(componentsDir, 'cta-banner.html'),
   contact: loadFile(componentsDir, 'contact.html')
@@ -77,6 +78,7 @@ for (const filePath of htmlFiles) {
     '<!-- INCLUDE_WHY_US -->': partials.why_us,
     '<!-- INCLUDE_INDUSTRIES -->': partials.industries,
     '<!-- INCLUDE_BLOG_SCROLL -->': partials.blog_scroll,
+    '<!-- INCLUDE_NEWSLETTER -->': partials.newsletter,
     '<!-- INCLUDE_FAQ -->': partials.faq,
     '<!-- INCLUDE_CTA_BANNER -->': partials.cta_banner,
     '<!-- INCLUDE_CONTACT -->': partials.contact
