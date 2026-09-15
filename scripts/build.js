@@ -15,18 +15,19 @@ if (fs.existsSync(publicDir)) {
 fs.mkdirSync(publicDir, { recursive: true });
 console.log('✅ Cleaned public directory');
 
-// 2. Copy assets
+// 2. Copy assets (CSS, JS, images)
 if (fs.existsSync(assetsDir)) {
   fs.cpSync(assetsDir, path.join(publicDir, 'assets'), { recursive: true });
   console.log('✅ Copied assets to public/assets');
 }
 
-// 3. Load partials
+// 3. Load partials and components
 function loadFile(dir, filename) {
   const filePath = path.join(dir, filename);
   if (fs.existsSync(filePath)) {
     return fs.readFileSync(filePath, 'utf8');
   }
+  console.warn(`⚠️  Missing file: ${filePath}`);
   return '';
 }
 
@@ -47,7 +48,7 @@ const partials = {
   contact: loadFile(componentsDir, 'contact.html')
 };
 
-// 4. Collect all HTML files from src/pages/
+// 4. Collect all HTML files from src/pages/ recursively
 function getHtmlFiles(dir, fileList = []) {
   const files = fs.readdirSync(dir, { withFileTypes: true });
   for (const file of files) {
@@ -64,8 +65,13 @@ function getHtmlFiles(dir, fileList = []) {
 const htmlFiles = getHtmlFiles(pagesDir);
 
 // 5. Process each HTML file
+let totalReplacements = 0;
+let filesWithIssues = 0;
+
 for (const filePath of htmlFiles) {
   let content = fs.readFileSync(filePath, 'utf8');
+  const originalContent = content;
+  let replacementsInThisFile = 0;
 
   const replacements = {
     '<!-- INCLUDE_HEADER -->': partials.header,
@@ -85,21 +91,48 @@ for (const filePath of htmlFiles) {
   };
 
   for (const [placeholder, replacement] of Object.entries(replacements)) {
-    content = content.replace(placeholder, replacement);
+    while (content.includes(placeholder)) {
+      content = content.replace(placeholder, replacement);
+      replacementsInThisFile++;
+      totalReplacements++;
+    }
+  }
+
+  // Warn if placeholders remain (means we missed a name)
+  const remaining = content.match(/<!--\s*INCLUDE_[A-Z_]+\s*-->/g);
+  if (remaining) {
+    filesWithIssues++;
+    console.warn(`⚠️  ${path.relative(pagesDir, filePath)} still has ${remaining.length} un-replaced placeholder(s):`);
+    remaining.forEach(m => console.warn(`     ${m}`));
   }
 
   const relativePath = path.relative(pagesDir, filePath);
   const outPath = path.join(publicDir, relativePath);
   fs.mkdirSync(path.dirname(outPath), { recursive: true });
   fs.writeFileSync(outPath, content);
-  console.log(`  📄 Built: ${relativePath}`);
+  console.log(`  📄 Built: ${relativePath} (${replacementsInThisFile} replacements)`);
 }
 
-// 6. Copy robots.txt to public
-const robotsSrc = path.join(rootDir, 'robots.txt');
-if (fs.existsSync(robotsSrc)) {
-  fs.copyFileSync(robotsSrc, path.join(publicDir, 'robots.txt'));
-  console.log('✅ Copied robots.txt');
-}
+// 6. Copy robots.txt + sitemap.xml to public
+['robots.txt', 'sitemap.xml'].forEach(file => {
+  const src = path.join(rootDir, file);
+  if (fs.existsSync(src)) {
+    fs.copyFileSync(src, path.join(publicDir, file));
+    console.log(`✅ Copied ${file}`);
+  }
+});
+
+// 7. Copy favicons to public root (so /favicon.ico works)
+['favicon.ico', 'favicon-32.png', 'favicon-192.png'].forEach(file => {
+  const src = path.join(rootDir, file);
+  if (fs.existsSync(src)) {
+    fs.copyFileSync(src, path.join(publicDir, file));
+    console.log(`✅ Copied ${file}`);
+  }
+});
 
 console.log(`\n🎉 Build complete! ${htmlFiles.length} pages built.`);
+console.log(`📊 Total placeholder replacements: ${totalReplacements}`);
+if (filesWithIssues > 0) {
+  console.log(`⚠️  ${filesWithIssues} file(s) had un-replaced placeholders — check above.`);
+}
