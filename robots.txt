@@ -1,5 +1,12 @@
 User-agent: *
+Allow: /
 
-allow: /
+# Block access to build/source directories (they're not real pages)
+Disallow: /scripts/
+Disallow: /src/
+Disallow: /partials/
+Disallow: /components/
+Disallow: /node_modules/
 
-Sitemap: https://truevence.in/sitemap.xml
+# Sitemap
+Sitemap: https://www.truevence.in/sitemap.xml
