@@ -27,7 +27,7 @@ function loadFile(dir, filename) {
   if (fs.existsSync(filePath)) {
     return fs.readFileSync(filePath, 'utf8');
   }
-  console.warn(`⚠️  Missing file: ${filePath}`);
+  console.warn('⚠️  Missing file: ' + filePath);
   return '';
 }
 
@@ -49,7 +49,8 @@ const partials = {
 };
 
 // 4. Collect all HTML files from src/pages/ recursively
-function getHtmlFiles(dir, fileList = []) {
+function getHtmlFiles(dir, fileList) {
+  fileList = fileList || [];
   const files = fs.readdirSync(dir, { withFileTypes: true });
   for (const file of files) {
     const fullPath = path.join(dir, file.name);
@@ -67,10 +68,10 @@ const htmlFiles = getHtmlFiles(pagesDir);
 // 5. Process each HTML file
 let totalReplacements = 0;
 let filesWithIssues = 0;
+const filesWith404Paths = [];
 
 for (const filePath of htmlFiles) {
   let content = fs.readFileSync(filePath, 'utf8');
-  const originalContent = content;
   let replacementsInThisFile = 0;
 
   const replacements = {
@@ -90,49 +91,69 @@ for (const filePath of htmlFiles) {
     '<!-- INCLUDE_CONTACT -->': partials.contact
   };
 
-  for (const [placeholder, replacement] of Object.entries(replacements)) {
-    while (content.includes(placeholder)) {
-      content = content.replace(placeholder, replacement);
-      replacementsInThisFile++;
-      totalReplacements++;
+  for (const key in replacements) {
+    if (Object.prototype.hasOwnProperty.call(replacements, key)) {
+      const placeholder = key;
+      const replacement = replacements[key];
+      while (content.indexOf(placeholder) !== -1) {
+        content = content.replace(placeholder, replacement);
+        replacementsInThisFile++;
+        totalReplacements++;
+      }
     }
   }
 
-  // Warn if placeholders remain (means we missed a name)
+  // Warn if any INCLUDE placeholders remain
   const remaining = content.match(/<!--\s*INCLUDE_[A-Z_]+\s*-->/g);
   if (remaining) {
     filesWithIssues++;
-    console.warn(`⚠️  ${path.relative(pagesDir, filePath)} still has ${remaining.length} un-replaced placeholder(s):`);
-    remaining.forEach(m => console.warn(`     ${m}`));
+    console.warn('⚠️  ' + path.relative(pagesDir, filePath) + ' still has ' + remaining.length + ' un-replaced placeholder(s):');
+    remaining.forEach(function (m) { console.warn('     ' + m); });
+  }
+
+  // Detect wrong CSS/JS paths (the 404 cause)
+  if (content.indexOf('href="/styles.css"') !== -1) {
+    filesWith404Paths.push(path.relative(pagesDir, filePath) + ' → href="/styles.css"');
+  }
+  if (content.indexOf('src="/scripts.js"') !== -1) {
+    filesWith404Paths.push(path.relative(pagesDir, filePath) + ' → src="/scripts.js"');
   }
 
   const relativePath = path.relative(pagesDir, filePath);
   const outPath = path.join(publicDir, relativePath);
   fs.mkdirSync(path.dirname(outPath), { recursive: true });
   fs.writeFileSync(outPath, content);
-  console.log(`  📄 Built: ${relativePath} (${replacementsInThisFile} replacements)`);
+  console.log('  📄 Built: ' + relativePath + ' (' + replacementsInThisFile + ' replacements)');
 }
 
 // 6. Copy robots.txt + sitemap.xml to public
-['robots.txt', 'sitemap.xml'].forEach(file => {
+['robots.txt', 'sitemap.xml'].forEach(function (file) {
   const src = path.join(rootDir, file);
   if (fs.existsSync(src)) {
     fs.copyFileSync(src, path.join(publicDir, file));
-    console.log(`✅ Copied ${file}`);
+    console.log('✅ Copied ' + file);
   }
 });
 
-// 7. Copy favicons to public root (so /favicon.ico works)
-['favicon.ico', 'favicon-32.png', 'favicon-192.png'].forEach(file => {
+// 7. Copy favicons to public root
+['favicon.ico', 'favicon-32.png', 'favicon-192.png'].forEach(function (file) {
   const src = path.join(rootDir, file);
   if (fs.existsSync(src)) {
     fs.copyFileSync(src, path.join(publicDir, file));
-    console.log(`✅ Copied ${file}`);
+    console.log('✅ Copied ' + file);
   }
 });
 
-console.log(`\n🎉 Build complete! ${htmlFiles.length} pages built.`);
-console.log(`📊 Total placeholder replacements: ${totalReplacements}`);
+// Summary
+console.log('\n🎉 Build complete! ' + htmlFiles.length + ' pages built.');
+console.log('📊 Total placeholder replacements: ' + totalReplacements);
+
 if (filesWithIssues > 0) {
-  console.log(`⚠️  ${filesWithIssues} file(s) had un-replaced placeholders — check above.`);
+  console.log('⚠️  ' + filesWithIssues + ' file(s) had un-replaced placeholders — check above.');
+}
+
+if (filesWith404Paths.length > 0) {
+  console.log('\n🚨 FILES STILL POINTING TO BROKEN PATHS (will 404 at runtime):');
+  filesWith404Paths.forEach(function (line) { console.log('   ' + line); });
+  console.log('\n   These need their href/src updated to /assets/css/styles.css and /assets/js/scripts.js');
 }
