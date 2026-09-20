@@ -80,6 +80,7 @@
     });
   });
 
+  /* ---------- Contact form (#contactForm on contact page) ---------- */
   var contactForm = document.getElementById('contactForm');
   if (contactForm) {
     var formNote = document.getElementById('formNote');
@@ -134,6 +135,68 @@
       }
     });
   }
+
+  /* ---------- Generic quote form (#quoteForm on every blog / service page) ----------
+     Handles all variations of field IDs used across the site:
+       #qName, #qEmail, #qPhone, #qCompany, #qMessage, #qLocation, #quoteNote
+  --------------------------------------------------------------------------------- */
+  document.querySelectorAll('form#quoteForm, form.quote-form').forEach(function (form) {
+    var note = form.querySelector('#quoteNote, .quote-note');
+    var btn = form.querySelector('button[type="submit"]');
+    var original = btn ? btn.innerHTML : '';
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      if (!form.reportValidity()) return;
+
+      if (btn) {
+        btn.disabled = true;
+        btn.innerHTML = 'Submitting...';
+      }
+      if (note) {
+        note.classList.add('hidden');
+        note.textContent = '';
+      }
+
+      var locationEl = form.querySelector('#qLocation');
+      var locationValue = locationEl && locationEl.value ? ' — Location: ' + locationEl.value : '';
+      var rawMessage = (form.querySelector('#qMessage') || {}).value || 'Website enquiry';
+
+      try {
+        var response = await fetch('https://truevence-backend.mamta-neschecks.workers.dev/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            full_name: (form.querySelector('#qName')    || {}).value || '',
+            email:     (form.querySelector('#qEmail')   || {}).value || '',
+            phone:     (form.querySelector('#qPhone')   || {}).value || '',
+            company:   (form.querySelector('#qCompany') || {}).value || '',
+            message:   (rawMessage + locationValue).trim()
+          })
+        });
+        var result = await response.json();
+        if (response.ok && result.success) {
+          form.reset();
+          if (note) {
+            note.textContent = 'Thank you! We\'ll get back to you shortly.';
+            note.classList.remove('hidden');
+          }
+        } else {
+          throw new Error((result && result.error) || 'Submission failed');
+        }
+      } catch (err) {
+        if (note) {
+          note.textContent = 'Something went wrong. Please email us at Contact@truevence.in';
+          note.classList.remove('hidden');
+        }
+      } finally {
+        if (btn) {
+          btn.disabled = false;
+          btn.innerHTML = original;
+        }
+      }
+    });
+  });
 
   (function initCursor() {
     if (!window.matchMedia('(pointer: fine)').matches) return;
