@@ -80,7 +80,6 @@
     });
   });
 
-  /* ---------- Contact form (#contactForm on contact page) ---------- */
   var contactForm = document.getElementById('contactForm');
   if (contactForm) {
     var formNote = document.getElementById('formNote');
@@ -136,10 +135,7 @@
     });
   }
 
-  /* ---------- Generic quote form (#quoteForm on every blog / service page) ----------
-     Handles all variations of field IDs used across the site:
-       #qName, #qEmail, #qPhone, #qCompany, #qMessage, #qLocation, #quoteNote
-  --------------------------------------------------------------------------------- */
+  /* ---- ADDED: generic quote form handler for blog/service pages ---- */
   document.querySelectorAll('form#quoteForm, form.quote-form').forEach(function (form) {
     var note = form.querySelector('#quoteNote, .quote-note');
     var btn = form.querySelector('button[type="submit"]');
@@ -149,14 +145,8 @@
       e.preventDefault();
       if (!form.reportValidity()) return;
 
-      if (btn) {
-        btn.disabled = true;
-        btn.innerHTML = 'Submitting...';
-      }
-      if (note) {
-        note.classList.add('hidden');
-        note.textContent = '';
-      }
+      if (btn) { btn.disabled = true; btn.innerHTML = 'Submitting...'; }
+      if (note) { note.classList.add('hidden'); note.textContent = ''; }
 
       var locationEl = form.querySelector('#qLocation');
       var locationValue = locationEl && locationEl.value ? ' — Location: ' + locationEl.value : '';
@@ -190,13 +180,11 @@
           note.classList.remove('hidden');
         }
       } finally {
-        if (btn) {
-          btn.disabled = false;
-          btn.innerHTML = original;
-        }
+        if (btn) { btn.disabled = false; btn.innerHTML = original; }
       }
     });
   });
+  /* ---- END ADDED ---- */
 
   (function initCursor() {
     if (!window.matchMedia('(pointer: fine)').matches) return;
