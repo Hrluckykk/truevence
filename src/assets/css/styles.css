@@ -711,9 +711,8 @@ body.cursor-active .cursor-core {
 
 /* ============================================================
    ADDED: PAGE SHELL
-   Same padding rules as .max-w-7xl block above, but as a
-   standalone class. Use on <div> wrappers in header/footer
-   and blog content — safe, does NOT touch Tailwind utilities.
+   Same padding rules as .max-w-7xl block above, but standalone.
+   Use on <div> wrappers in header/footer and page content.
    ============================================================ */
 .page-shell {
   width: 100%;
@@ -743,9 +742,53 @@ body.cursor-active .cursor-core {
 @media (max-width: 480px)  { .page-shell-narrow { padding-left: 20px;  padding-right: 20px;  } }
 
 /* ============================================================
+   ADDED: EDGE TAG (Sample Report button)
+   Moved out of header inline <style> so it lives once here.
+   ============================================================ */
+.edge-tag {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: white;
+  color: var(--ink);
+  padding: 14px 12px;
+  width: 76px;
+  border: 1px solid rgba(124, 58, 237, 0.2);
+  border-radius: 999px 0 0 999px;
+  box-shadow: 0 2px 12px rgba(139, 124, 246, 0.15);
+  transition: all 0.3s ease;
+  transform: translateX(8px);
+  opacity: 0.9;
+  text-decoration: none;
+  text-align: center;
+}
+.edge-tag:hover {
+  transform: translateX(0);
+  opacity: 1;
+  box-shadow: 0 4px 20px rgba(139, 124, 246, 0.25);
+  border-color: rgba(124, 58, 237, 0.4);
+  background: var(--violet);
+}
+.edge-tag svg {
+  color: var(--violet);
+  transition: color 0.3s ease;
+  flex-shrink: 0;
+}
+.edge-tag:hover svg { color: white; }
+.edge-tag span {
+  color: var(--ink);
+  transition: color 0.3s ease;
+  white-space: normal;
+  line-height: 1.15;
+  font-size: 12px;
+}
+.edge-tag:hover span { color: white; }
+
+/* ============================================================
    ADDED: BLOG ARTICLE TYPOGRAPHY
-   Safe to include on every page — only applies to elements
-   that opt in via .article-body / .highlight-box / etc.
+   Only applies inside .article-body; safe everywhere.
    ============================================================ */
 .article-body { font-size: 16px; line-height: 1.75; color: var(--slate); }
 .article-body h2 { font-size: 1.5rem; margin-top: 3rem; margin-bottom: 1rem; color: var(--ink); }
@@ -757,7 +800,6 @@ body.cursor-active .cursor-core {
 .article-body a:hover { color: var(--ink); }
 .article-body strong { color: var(--ink); font-weight: 700; }
 
-/* Highlight box used inside articles */
 .highlight-box {
   background: linear-gradient(135deg, rgba(124,58,237,0.05), rgba(167,139,250,0.08));
   border-left: 3px solid var(--violet);
@@ -766,7 +808,6 @@ body.cursor-active .cursor-core {
   margin: 24px 0;
 }
 
-/* Timeline dots for process / step sections inside blogs */
 .timeline-dot { position: relative; }
 .timeline-dot::before {
   content: '';
@@ -779,10 +820,8 @@ body.cursor-active .cursor-core {
   background: var(--violet);
 }
 
-/* Table of contents hover nudge */
 .table-of-contents a { transition: padding-left .2s ease; }
 .table-of-contents a:hover { padding-left: 4px; }
 
-/* Comparison tables inside blog posts */
 .table-compare td { padding: 10px 14px; border-bottom: 1px solid var(--paperdim); }
 .table-compare td:first-child { font-weight: 600; }
