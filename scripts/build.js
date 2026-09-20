@@ -8,6 +8,14 @@ const assetsDir = path.join(rootDir, 'src', 'assets');
 const pagesDir = path.join(rootDir, 'src', 'pages');
 const publicDir = path.join(rootDir, 'public');
 
+// 0. Sanity check — Tailwind output must exist
+const tailwindOut = path.join(assetsDir, 'css', 'tailwind.css');
+if (!fs.existsSync(tailwindOut)) {
+  console.error('❌ src/assets/css/tailwind.css is missing.');
+  console.error('   Run `npm run build:css` first (or use `npm run build`).');
+  process.exit(1);
+}
+
 // 1. Clean public directory
 if (fs.existsSync(publicDir)) {
   fs.rmSync(publicDir, { recursive: true, force: true });
@@ -115,8 +123,14 @@ for (const filePath of htmlFiles) {
   if (content.indexOf('href="/styles.css"') !== -1) {
     filesWith404Paths.push(path.relative(pagesDir, filePath) + ' → href="/styles.css"');
   }
+  if (content.indexOf('href="/assets/styles.css"') !== -1) {
+    filesWith404Paths.push(path.relative(pagesDir, filePath) + ' → href="/assets/styles.css"');
+  }
   if (content.indexOf('src="/scripts.js"') !== -1) {
     filesWith404Paths.push(path.relative(pagesDir, filePath) + ' → src="/scripts.js"');
+  }
+  if (content.indexOf('src="/assets/common.js"') !== -1) {
+    filesWith404Paths.push(path.relative(pagesDir, filePath) + ' → src="/assets/common.js"');
   }
 
   const relativePath = path.relative(pagesDir, filePath);
@@ -155,5 +169,5 @@ if (filesWithIssues > 0) {
 if (filesWith404Paths.length > 0) {
   console.log('\n🚨 FILES STILL POINTING TO BROKEN PATHS (will 404 at runtime):');
   filesWith404Paths.forEach(function (line) { console.log('   ' + line); });
-  console.log('\n   These need their href/src updated to /assets/css/styles.css and /assets/js/scripts.js');
+  console.log('\n   These need their href/src updated to /assets/css/tailwind.css + /assets/css/styles.css and /assets/js/scripts.js');
 }
