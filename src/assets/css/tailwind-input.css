@@ -1,21 +1,7 @@
 /* ============================================================
    Truevence — Tailwind input CSS
-   Compiled to src/assets/css/styles.css by the build pipeline.
+   Compiled to src/assets/css/tailwind.css by the build pipeline.
    DO NOT link this file directly from HTML.
    ============================================================ */
 
-/* 1. Tailwind layers — utilities only.
-   We skip preflight (base) because your site already relies on
-   the browser's default reset + your own :root / body rules
-   in styles.css. Enabling preflight would visually change
-   headings, margins, list styles, etc. So we ONLY generate
-   utilities to keep the design 100% identical. */
 @tailwind utilities;
-
-/* 2. Custom layers — anything you want Tailwind to process
-   (e.g. @apply rules) can go below. Currently none needed. */
-
-/* 3. Project-specific overrides that must ship in the same
-   compiled file as the utilities. If you want the existing
-   styles.css to remain the single source for custom rules,
-   leave this section empty and let styles.css handle it. */
