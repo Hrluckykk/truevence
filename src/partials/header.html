@@ -23,9 +23,62 @@
   </a>
 </div>
 
+<style>
+  /* Edge Tag Styling (Sample Report) */
+  .edge-tag {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    background: white;
+    color: var(--ink);
+    padding: 14px 12px;
+    width: 76px;
+    border: 1px solid var(--violet/20);
+    border-radius: 999px 0 0 999px;
+    box-shadow: 0 2px 12px rgba(139, 124, 246, 0.15);
+    transition: all 0.3s ease;
+    transform: translateX(8px);
+    opacity: 0.9;
+    text-decoration: none;
+    text-align: center;
+  }
+
+  .edge-tag:hover {
+    transform: translateX(0);
+    opacity: 1;
+    box-shadow: 0 4px 20px rgba(139, 124, 246, 0.25);
+    border-color: var(--violet/40);
+    background: var(--violet);
+  }
+
+  .edge-tag svg {
+    color: var(--violet);
+    transition: color 0.3s ease;
+    flex-shrink: 0;
+  }
+
+  .edge-tag:hover svg {
+    color: white;
+  }
+
+  .edge-tag span {
+    color: var(--ink);
+    transition: color 0.3s ease;
+    white-space: normal;
+    line-height: 1.15;
+    font-size: 12px;
+  }
+
+  .edge-tag:hover span {
+    color: white;
+  }
+</style>
+
 <!-- ============ NAVBAR ============ -->
 <header class="fixed top-0 left-0 right-0 z-50 nav-glass">
-  <div class="page-shell">
+  <div style="width:100%; max-width:100%; padding-left:250px; padding-right:220px;">
     <div class="flex items-center justify-between h-[76px]">
       <a href="/index.html" class="flex items-center gap-2 shrink-0">
         <img src="https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/ChatGPT%20Image%20Jul%2018%2C%202026%2C%2009_59_12%20PM.png" alt="Truevence background verification company logo" class="h-11 md:h-12 w-auto">
