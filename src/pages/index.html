@@ -79,6 +79,33 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
 
+<!-- Tailwind CDN (temporary — will be removed once all pages are migrated) -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          ink:      '#0B1230',
+          navy:     '#131B45',
+          navylite: '#1E2A5E',
+          violet:   '#7C3AED',
+          violetlt: '#A78BFA',
+          lavender: '#C9BEFB',
+          paper:    '#F7F7FB',
+          paperdim: '#EFEEF9',
+          slate:    '#545A78',
+        },
+        fontFamily: {
+          display: ['"Plus Jakarta Sans"', 'sans-serif'],
+          body: ['"Inter"', 'sans-serif'],
+          mono: ['"IBM Plex Mono"', 'monospace'],
+        },
+      }
+    }
+  }
+</script>
+
 <!-- AOS -->
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
