@@ -708,3 +708,81 @@ body.cursor-active .cursor-core {
   .verify-status-row { padding: 6px 14px; font-size: 9px; }
   .verify-status-title { padding: 0 14px 10px; font-size: 9px; }
 }
+
+/* ============================================================
+   ADDED: PAGE SHELL
+   Same padding rules as .max-w-7xl block above, but as a
+   standalone class. Use on <div> wrappers in header/footer
+   and blog content — safe, does NOT touch Tailwind utilities.
+   ============================================================ */
+.page-shell {
+  width: 100%;
+  padding-left: 250px;
+  padding-right: 220px;
+  box-sizing: border-box;
+}
+@media (max-width: 1536px) { .page-shell { padding-left: 180px; padding-right: 150px; } }
+@media (max-width: 1280px) { .page-shell { padding-left: 120px; padding-right: 100px; } }
+@media (max-width: 1024px) { .page-shell { padding-left: 60px;  padding-right: 50px;  } }
+@media (max-width: 768px)  { .page-shell { padding-left: 25px;  padding-right: 25px;  } }
+@media (max-width: 480px)  { .page-shell { padding-left: 20px;  padding-right: 20px;  } }
+
+/* Narrower shell for long-form blog reading columns */
+.page-shell-narrow {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-left: 250px;
+  padding-right: 220px;
+  box-sizing: border-box;
+}
+@media (max-width: 1536px) { .page-shell-narrow { padding-left: 180px; padding-right: 150px; } }
+@media (max-width: 1280px) { .page-shell-narrow { padding-left: 120px; padding-right: 100px; } }
+@media (max-width: 1024px) { .page-shell-narrow { padding-left: 60px;  padding-right: 50px;  } }
+@media (max-width: 768px)  { .page-shell-narrow { padding-left: 25px;  padding-right: 25px;  } }
+@media (max-width: 480px)  { .page-shell-narrow { padding-left: 20px;  padding-right: 20px;  } }
+
+/* ============================================================
+   ADDED: BLOG ARTICLE TYPOGRAPHY
+   Safe to include on every page — only applies to elements
+   that opt in via .article-body / .highlight-box / etc.
+   ============================================================ */
+.article-body { font-size: 16px; line-height: 1.75; color: var(--slate); }
+.article-body h2 { font-size: 1.5rem; margin-top: 3rem; margin-bottom: 1rem; color: var(--ink); }
+.article-body h3 { font-size: 1.2rem; margin-top: 2rem; margin-bottom: .75rem; color: var(--ink); }
+.article-body p  { margin-bottom: 1.25rem; }
+.article-body ul { margin: 1rem 0 1.5rem 1.25rem; }
+.article-body li { margin-bottom: .5rem; }
+.article-body a  { color: var(--violet); text-decoration: underline; text-underline-offset: 3px; }
+.article-body a:hover { color: var(--ink); }
+.article-body strong { color: var(--ink); font-weight: 700; }
+
+/* Highlight box used inside articles */
+.highlight-box {
+  background: linear-gradient(135deg, rgba(124,58,237,0.05), rgba(167,139,250,0.08));
+  border-left: 3px solid var(--violet);
+  border-radius: 0 14px 14px 0;
+  padding: 20px 24px;
+  margin: 24px 0;
+}
+
+/* Timeline dots for process / step sections inside blogs */
+.timeline-dot { position: relative; }
+.timeline-dot::before {
+  content: '';
+  position: absolute;
+  left: -28px;
+  top: 8px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--violet);
+}
+
+/* Table of contents hover nudge */
+.table-of-contents a { transition: padding-left .2s ease; }
+.table-of-contents a:hover { padding-left: 4px; }
+
+/* Comparison tables inside blog posts */
+.table-compare td { padding: 10px 14px; border-bottom: 1px solid var(--paperdim); }
+.table-compare td:first-child { font-weight: 600; }
