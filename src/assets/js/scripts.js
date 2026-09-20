@@ -1,35 +1,19 @@
-/* ============================================================
-   TRUEVENCE — master scripts
-   Combines every inline script your pages currently duplicate.
-   Loaded on every page with a single <script> tag.
-   ============================================================ */
-
 (function () {
   'use strict';
 
-  /* ---------------------------------------------------------
-     1. AOS init (only if AOS is loaded)
-     --------------------------------------------------------- */
   if (typeof AOS !== 'undefined') {
     AOS.init({ duration: 700, once: true, easing: 'ease-out-cubic', offset: 40 });
   }
 
-  /* ---------------------------------------------------------
-     2. Year injection in footer
-     --------------------------------------------------------- */
   var yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  /* ---------------------------------------------------------
-     3. Cookie consent
-     --------------------------------------------------------- */
   window.acceptCookies = function () {
     var banner = document.getElementById('cookieConsent');
     if (banner) banner.style.display = 'none';
     try { localStorage.setItem('cookieConsent', 'true'); } catch (e) {}
   };
 
-  // Hide banner immediately if already accepted (prevents FOUC)
   try {
     if (localStorage.getItem('cookieConsent') === 'true') {
       var banner = document.getElementById('cookieConsent');
@@ -37,14 +21,10 @@
     }
   } catch (e) {}
 
-  // Wire up any cookie Accept buttons (no inline onclick needed)
   document.querySelectorAll('[data-accept-cookies]').forEach(function (btn) {
     btn.addEventListener('click', window.acceptCookies);
   });
 
-  /* ---------------------------------------------------------
-     4. Mobile menu
-     --------------------------------------------------------- */
   var menuBtn = document.getElementById('menuBtn');
   var mobileMenu = document.getElementById('mobileMenu');
   var iconMenu = document.getElementById('iconMenu');
@@ -70,7 +50,6 @@
     });
   }
 
-  /* Mobile products submenu */
   var mobileProductsBtn = document.getElementById('mobileProductsBtn');
   var mobileProductsMenu = document.getElementById('mobileProductsMenu');
   var mobileProductsArrow = document.getElementById('mobileProductsArrow');
@@ -81,9 +60,6 @@
     });
   }
 
-  /* ---------------------------------------------------------
-     5. FAQ accordion
-     --------------------------------------------------------- */
   document.querySelectorAll('.faq-item').forEach(function (item) {
     var q = item.querySelector('.faq-q');
     if (!q) return;
@@ -92,9 +68,6 @@
     });
   });
 
-  /* ---------------------------------------------------------
-     6. Call buttons (reveal number on click)
-     --------------------------------------------------------- */
   document.querySelectorAll('.call-btn').forEach(function (wrap) {
     var label = wrap.querySelector('.call-label');
     if (label) {
@@ -107,9 +80,6 @@
     });
   });
 
-  /* ---------------------------------------------------------
-     7. Contact form submission (any form with id="contactForm")
-     --------------------------------------------------------- */
   var contactForm = document.getElementById('contactForm');
   if (contactForm) {
     var formNote = document.getElementById('formNote');
@@ -165,9 +135,6 @@
     });
   }
 
-  /* ---------------------------------------------------------
-     8. Custom cursor (desktop only)
-     --------------------------------------------------------- */
   (function initCursor() {
     if (!window.matchMedia('(pointer: fine)').matches) return;
     var ring = document.querySelector('.cursor-ring');
