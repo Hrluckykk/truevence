@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "TrueVence - Background Verification Services",
   "scripts": {
-    "build": "node scripts/build.js",
+    "build:css": "tailwindcss -i ./src/assets/css/tailwind-input.css -o ./src/assets/css/tailwind.css --minify",
+    "build:html": "node scripts/build.js",
+    "build": "npm run build:css && npm run build:html",
+    "watch:css": "tailwindcss -i ./src/assets/css/tailwind-input.css -o ./src/assets/css/tailwind.css --watch",
     "generate-sitemap": "node scripts/generate-sitemap.js",
     "validate": "node scripts/validate-links.js"
   },
@@ -14,5 +17,8 @@
     "employee-screening"
   ],
   "author": "TrueVence",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.4.0"
+  }
 }
