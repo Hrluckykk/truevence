@@ -708,3 +708,32 @@ body.cursor-active .cursor-core {
   .verify-status-row { padding: 6px 14px; font-size: 9px; }
   .verify-status-title { padding: 0 14px 10px; font-size: 9px; }
 }
+
+/* ============================================================
+   ADDED: BLOG ARTICLE HELPERS
+   Used by blog post pages. Only applies to elements that opt in
+   via .article-content / .highlight-box / .timeline-dot /
+   .table-of-contents classes. Safe on every page.
+   ============================================================ */
+.article-content h2 { scroll-margin-top: 100px; }
+.article-content p  { line-height: 1.8; }
+
+.highlight-box {
+  background: linear-gradient(135deg, rgba(124,58,237,0.05), rgba(167,139,250,0.08));
+  border-left: 3px solid #7C3AED;
+}
+
+.timeline-dot { position: relative; }
+.timeline-dot::before {
+  content: '';
+  position: absolute;
+  left: -28px;
+  top: 8px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #7C3AED;
+}
+
+.table-of-contents a { transition: all 0.2s ease; }
+.table-of-contents a:hover { padding-left: 4px; }
