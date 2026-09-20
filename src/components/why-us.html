@@ -8,39 +8,39 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  /* ===== BASE ===== */
-  :root {
-    --n: #10183f;
-    --p: #7438ff;
-    --pl: #ad85ff;
-    --m: #697292;
-    --paper: #fbfbff;
-  }
-  * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body {
-    margin: 0;
-    background: var(--paper);
-    color: var(--n);
-    font-family: "Plus Jakarta Sans", sans-serif;
-    -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
-  }
+  /* =========================================================
+     WHY TRUEVENCE — fully namespaced under .why-*
+     No global selectors. No body/html reset. Safe to drop in.
+     ========================================================= */
 
-  /* ===== SECTION ===== */
-  .why {
+  .why-section {
     position: relative;
     min-height: 100vh;
-    padding: 100px 5vw 100px;
+    padding: 100px 5vw;
     overflow: hidden;
     background:
       radial-gradient(circle at 25% 55%, #eee8ff99, transparent 27%),
       radial-gradient(circle at 80% 20%, #e9e1ff99, transparent 25%),
-      var(--paper);
+      #fbfbff;
     display: flex;
     align-items: center;
+    color: #10183f;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    -webkit-font-smoothing: antialiased;
   }
-  .grid {
+
+  .why-section *,
+  .why-section *::before,
+  .why-section *::after {
+    box-sizing: border-box;
+  }
+
+  .why-section button {
+    font: inherit;
+  }
+
+  /* background grid */
+  .why-bg-grid {
     position: absolute;
     inset: 0;
     background:
@@ -50,8 +50,8 @@
     pointer-events: none;
   }
 
-  /* ===== LAYOUT ===== */
-  .layout {
+  /* layout */
+  .why-layout {
     position: relative;
     z-index: 2;
     max-width: 1560px;
@@ -63,8 +63,8 @@
     gap: 40px;
   }
 
-  /* ===== VISUAL / STACK ===== */
-  .visual {
+  /* ===== visual / stack ===== */
+  .why-visual {
     height: 720px;
     position: relative;
     display: flex;
@@ -74,17 +74,17 @@
     perspective-origin: 50% 45%;
   }
 
-  .stack {
+  .why-stack {
     position: relative;
     width: 640px;
     height: 620px;
     transform-style: preserve-3d;
-    animation: stackSway 9s ease-in-out infinite;
+    animation: why-stack-sway 9s ease-in-out infinite;
     margin-left: -30px;
   }
 
-  .back,
-  .report {
+  .why-back,
+  .why-report {
     position: absolute;
     width: 420px;
     height: 500px;
@@ -93,8 +93,8 @@
     backface-visibility: hidden;
   }
 
-  /* ---- BACK CARDS: 6 layered behind the report ---- */
-  .back {
+  /* back cards */
+  .why-back {
     left: 130px;
     top: 20px;
     padding: 26px 22px;
@@ -115,12 +115,12 @@
                 opacity .9s ease;
     box-shadow: 0 12px 32px rgba(60,40,120,.08);
   }
-  .back span {
+  .why-back span {
     align-self: flex-end;
     font-size: 12px;
     color: #5b4a9499;
   }
-  .back b {
+  .why-back b {
     writing-mode: vertical-rl;
     transform: rotate(180deg);
     line-height: 1.5;
@@ -129,40 +129,15 @@
     white-space: nowrap;
   }
 
-  /* Z-axis rotation + translate — each card fans out */
-  .b6 {
-    transform: translate3d(-96px, 30px, -140px) rotateZ(-9deg) rotateY(6deg);
-    opacity: .35;
-    z-index: 1;
-  }
-  .b5 {
-    transform: translate3d(-78px, 24px, -120px) rotateZ(-7.5deg) rotateY(5deg);
-    opacity: .45;
-    z-index: 2;
-  }
-  .b4 {
-    transform: translate3d(-60px, 18px, -90px) rotateZ(-6deg) rotateY(4deg);
-    opacity: .58;
-    z-index: 3;
-  }
-  .b3 {
-    transform: translate3d(-42px, 12px, -60px) rotateZ(-4.5deg) rotateY(3deg);
-    opacity: .7;
-    z-index: 4;
-  }
-  .b2 {
-    transform: translate3d(-24px, 6px, -30px) rotateZ(-3deg) rotateY(2deg);
-    opacity: .82;
-    z-index: 5;
-  }
-  .b1 {
-    transform: translate3d(-8px, 2px, -12px) rotateZ(-1.5deg) rotateY(1deg);
-    opacity: .92;
-    z-index: 6;
-  }
+  .why-b6 { transform: translate3d(-96px, 30px, -140px) rotateZ(-9deg)   rotateY(6deg); opacity: .35; z-index: 1; }
+  .why-b5 { transform: translate3d(-78px, 24px, -120px) rotateZ(-7.5deg) rotateY(5deg); opacity: .45; z-index: 2; }
+  .why-b4 { transform: translate3d(-60px, 18px, -90px)  rotateZ(-6deg)   rotateY(4deg); opacity: .58; z-index: 3; }
+  .why-b3 { transform: translate3d(-42px, 12px, -60px)  rotateZ(-4.5deg) rotateY(3deg); opacity: .7;  z-index: 4; }
+  .why-b2 { transform: translate3d(-24px, 6px,  -30px)  rotateZ(-3deg)   rotateY(2deg); opacity: .82; z-index: 5; }
+  .why-b1 { transform: translate3d(-8px,  2px,  -12px)  rotateZ(-1.5deg) rotateY(1deg); opacity: .92; z-index: 6; }
 
-  /* ---- MAIN REPORT ---- */
-  .report {
+  /* main report */
+  .why-report {
     left: 160px;
     top: 0;
     padding: 40px 46px 34px;
@@ -178,28 +153,28 @@
       0 0 60px rgba(140,90,255,.12);
     transition: .65s;
   }
-  .report.leave {
+  .why-report.why-leave {
     opacity: 0;
     transform: translateX(35px) scale(.96) rotateZ(2deg);
     filter: blur(5px);
   }
-  .report.enter {
-    animation: enter .75s cubic-bezier(.2,.8,.2,1);
+  .why-report.why-enter {
+    animation: why-enter .75s cubic-bezier(.2,.8,.2,1);
   }
 
-  .report header {
+  .why-report-header {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
   }
-  .report header strong {
+  .why-report-header strong {
     font-family: "IBM Plex Mono", monospace;
     font-size: 19px;
     font-weight: 500;
     line-height: 1.45;
     letter-spacing: .01em;
   }
-  .report header small {
+  .why-report-header small {
     padding: 8px 13px;
     border: 1px solid #9364ff;
     border-radius: 20px;
@@ -211,23 +186,23 @@
     white-space: nowrap;
   }
 
-  /* ===== GRAPHIC ===== */
-  .graphic {
+  /* graphic */
+  .why-graphic {
     height: 250px;
     position: relative;
     display: grid;
     place-items: center;
   }
-  .orbit {
+  .why-orbit {
     position: absolute;
     border: 1px solid #b189ff59;
     border-radius: 50%;
   }
-  .o1 { width: 300px; height: 110px; }
-  .o2 { width: 268px; height: 162px; transform: rotate(45deg); }
-  .o3 { width: 224px; height: 200px; transform: rotate(-55deg); }
+  .why-o1 { width: 300px; height: 110px; }
+  .why-o2 { width: 268px; height: 162px; transform: rotate(45deg); }
+  .why-o3 { width: 224px; height: 200px; transform: rotate(-55deg); }
 
-  .shield {
+  .why-shield {
     width: 124px;
     height: 146px;
     display: grid;
@@ -238,7 +213,7 @@
     font-size: 52px;
     filter: drop-shadow(0 0 18px #915bff40);
   }
-  .shield:before {
+  .why-shield:before {
     content: "";
     position: absolute;
     inset: 0;
@@ -246,20 +221,21 @@
     clip-path: polygon(50% 0, 94% 15%, 86% 65%, 50% 100%, 14% 65%, 6% 15%);
     background: #b492ff2e;
   }
-  .shield span { position: relative; z-index: 2; }
+  .why-shield span { position: relative; z-index: 2; }
 
-  .dot {
+  .why-dot {
     position: absolute;
-    width: 11px; height: 11px;
+    width: 11px;
+    height: 11px;
     border-radius: 50%;
     background: #aa78ff;
     box-shadow: 0 0 14px #9257ff;
   }
-  .d1 { left: 45px; top: 65px; }
-  .d2 { right: 32px; top: 122px; }
-  .d3 { left: 132px; bottom: 10px; animation: pulse 2s infinite; }
+  .why-d1 { left: 45px;  top: 65px; }
+  .why-d2 { right: 32px; top: 122px; }
+  .why-d3 { left: 132px; bottom: 10px; animation: why-pulse 2s infinite; }
 
-  .report p {
+  .why-report p {
     margin: 0;
     color: #c4c9df;
     font-family: "Plus Jakarta Sans", sans-serif;
@@ -267,48 +243,72 @@
     font-weight: 400;
     line-height: 1.65;
   }
-  .report footer {
-    display: flex; align-items: center; justify-content: space-between;
+
+  .why-report-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     margin-top: 30px;
     color: #baa0f6;
     font-family: "IBM Plex Mono", monospace;
-    font-size: 10px; font-weight: 500; letter-spacing: .08em;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: .08em;
   }
-  .report footer button {
-    width: 42px; height: 42px;
+  .why-report-footer button {
+    width: 42px;
+    height: 42px;
     border: 1px solid #a77aff;
     border-radius: 50%;
-    background: none; color: #fff;
-    font-size: 20px; cursor: pointer;
+    background: none;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
     transition: .25s;
   }
-  .report footer button:hover { background: #7d42ff; border-color: #7d42ff; }
+  .why-report-footer button:hover {
+    background: #7d42ff;
+    border-color: #7d42ff;
+  }
 
-  /* ===== PROGRESS ===== */
-  .progress {
+  /* progress */
+  .why-progress {
     position: absolute;
-    bottom: -6px; left: 50%;
+    bottom: -6px;
+    left: 50%;
     transform: translateX(-50%);
     margin-left: -30px;
-    display: flex; align-items: center; gap: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
     font-family: "IBM Plex Mono", monospace;
-    font-size: 11px; font-weight: 500;
-    color: #817c9c; letter-spacing: .06em;
+    font-size: 11px;
+    font-weight: 500;
+    color: #817c9c;
+    letter-spacing: .06em;
   }
-  .progress > div { width: 280px; display: flex; gap: 9px; }
-  .progress i, .progress b {
-    height: 6px; flex: 1; border-radius: 6px; background: #dfdced;
+  .why-progress-track {
+    width: 280px;
+    display: flex;
+    gap: 9px;
   }
-  .progress i {
-    background: var(--p);
+  .why-progress i,
+  .why-progress b {
+    height: 6px;
+    flex: 1;
+    border-radius: 6px;
+    background: #dfdced;
+  }
+  .why-progress i {
+    background: #7438ff;
     box-shadow: 0 0 13px #7438ff59;
     transition: flex .4s ease;
   }
 
-  /* ===== CONTENT ===== */
-  .content { padding-left: 10px; }
+  /* ===== content column ===== */
+  .why-content { padding-left: 10px; }
 
-  .eyebrow {
+  .why-eyebrow {
     display: inline-block;
     padding: 9px 17px;
     margin-bottom: 24px;
@@ -317,45 +317,54 @@
     background: #f5f0ffad;
     color: #7138ef;
     font-family: "IBM Plex Mono", monospace;
-    font-size: 11px; font-weight: 500;
+    font-size: 11px;
+    font-weight: 500;
     letter-spacing: .12em;
     backdrop-filter: blur(10px);
   }
-  .eyebrow span { color: #8f83b0; }
+  .why-eyebrow span { color: #8f83b0; }
 
-  .content h1 {
+  .why-title {
     margin: 0;
     font-family: "Plus Jakarta Sans", sans-serif;
     font-size: clamp(48px, 4.6vw, 78px);
     font-weight: 800;
     line-height: 1.0;
     letter-spacing: -.055em;
+    color: #10183f;
   }
-  .content h1 em { font-style: normal; color: #7035f3; }
+  .why-title em {
+    font-style: normal;
+    color: #7035f3;
+  }
 
-  .intro {
+  .why-intro {
     max-width: 640px;
     margin: 26px 0 48px;
-    color: var(--m);
+    color: #697292;
     font-family: "Plus Jakarta Sans", sans-serif;
-    font-size: 17px; font-weight: 400;
+    font-size: 17px;
+    font-weight: 400;
     line-height: 1.65;
   }
 
-  /* ===== PRINCIPLES ===== */
-  .principles {
+  /* principles */
+  .why-principles {
     position: relative;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
   }
-  .principles:before {
+  .why-principles:before {
     content: "";
     position: absolute;
-    top: 34px; left: 36px; right: 40px;
+    top: 34px;
+    left: 36px;
+    right: 40px;
     height: 1px;
     background: linear-gradient(90deg, #a184ef, #b9a4ef, #a184ef);
   }
-  .principle {
+
+  .why-principle {
     position: relative;
     min-height: 300px;
     padding: 0 16px 24px 0;
@@ -363,14 +372,17 @@
     cursor: pointer;
     transition: .35s;
   }
-  .principle:not(:first-child) { padding-left: 16px; }
-  .principle:last-child { border: 0; }
+  .why-principle:not(:first-child) { padding-left: 16px; }
+  .why-principle:last-child { border: 0; }
 
-  .picon {
-    position: relative; z-index: 2;
-    width: 68px; height: 68px;
+  .why-picon {
+    position: relative;
+    z-index: 2;
+    width: 68px;
+    height: 68px;
     margin-bottom: 20px;
-    display: grid; place-items: center;
+    display: grid;
+    place-items: center;
     border: 1px solid #7753e633;
     border-radius: 50%;
     background: #f8f6ff94;
@@ -380,39 +392,51 @@
     font-size: 30px;
     transition: .35s;
   }
-  .principle:hover .picon,
-  .principle.active .picon {
+  .why-principle:hover .why-picon,
+  .why-principle.why-active .why-picon {
     background: #ede6ffe6;
     border-color: #a988ff;
     box-shadow: 0 10px 30px #6c3adc24, 0 0 0 6px #8b5df50d;
   }
-  .principle small {
+
+  .why-principle small {
     position: absolute;
-    top: 14px; left: 84px;
+    top: 14px;
+    left: 84px;
     color: #786d9b;
     font-family: "IBM Plex Mono", monospace;
-    font-size: 11px; font-weight: 500;
+    font-size: 11px;
+    font-weight: 500;
     letter-spacing: .06em;
   }
-  .principle h2 {
+
+  .why-principle h2 {
     margin: 0 14px 12px 0;
     font-family: "Plus Jakarta Sans", sans-serif;
-    font-size: 17px; font-weight: 700;
+    font-size: 17px;
+    font-weight: 700;
     line-height: 1.25;
     letter-spacing: -.03em;
+    color: #10183f;
   }
-  .principle p {
+
+  .why-principle p {
     margin: 0 16px 0 0;
     color: #6c7593;
     font-family: "Plus Jakarta Sans", sans-serif;
-    font-size: 13px; font-weight: 400;
+    font-size: 13px;
+    font-weight: 400;
     line-height: 1.6;
   }
-  .principle a {
+
+  .why-principle a {
     position: absolute;
-    bottom: 8px; right: 18px;
-    width: 40px; height: 40px;
-    display: grid; place-items: center;
+    bottom: 8px;
+    right: 18px;
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
     border: 1px solid #d6c8f8;
     border-radius: 50%;
     color: #6330e8;
@@ -421,15 +445,15 @@
     font-size: 18px;
     transition: .25s;
   }
-  .principle:hover a {
+  .why-principle:hover a {
     background: #7d42ff;
     border-color: #7d42ff;
-    color: white;
+    color: #fff;
     transform: translateY(-2px);
   }
 
-  /* ===== ANIMATIONS ===== */
-  @keyframes enter {
+  /* ===== animations ===== */
+  @keyframes why-enter {
     0% {
       opacity: 0;
       transform: translateX(50px) scale(.95) rotateZ(3deg);
@@ -443,99 +467,101 @@
     100% { opacity: 1; transform: none; }
   }
 
-  @keyframes pulse {
+  @keyframes why-pulse {
     50% { transform: scale(1.3); opacity: 1; }
   }
 
-  @keyframes stackSway {
+  @keyframes why-stack-sway {
     0%, 100% { transform: rotateY(-2deg) rotateX(.6deg); }
     50%      { transform: rotateY(2deg)  rotateX(-.6deg); }
   }
 
-  /* ===== RESPONSIVE ===== */
+  /* ===== responsive ===== */
   @media (max-width: 1200px) {
-    .layout { grid-template-columns: 1fr; gap: 60px; }
-    .content { order: 1; padding: 0; }
-    .visual  { order: 2; height: 660px; }
-    .stack { margin: 0 auto; margin-left: 0; }
-    .progress { bottom: 0; margin-left: 0; }
+    .why-layout { grid-template-columns: 1fr; gap: 60px; }
+    .why-content { order: 1; padding: 0; }
+    .why-visual  { order: 2; height: 660px; }
+    .why-stack   { margin: 0 auto; }
+    .why-progress { bottom: 0; margin-left: 0; }
   }
 
   @media (max-width: 720px) {
-    .why { padding: 60px 20px; }
-    .content h1 { font-size: 40px; }
-    .intro { font-size: 15px; }
-    .principles {
+    .why-section { padding: 60px 20px; }
+    .why-title { font-size: 40px; }
+    .why-intro { font-size: 15px; }
+    .why-principles {
       grid-template-columns: repeat(2, 1fr);
       gap: 28px 0;
     }
-    .principles:before { display: none; }
-    .principle { min-height: 240px; }
-    .principle:nth-child(2) { border: 0; }
-    .visual { height: 520px; }
-    .stack { transform: scale(.7) translateX(30px); margin-left: 0; }
+    .why-principles:before { display: none; }
+    .why-principle { min-height: 240px; }
+    .why-principle:nth-child(2) { border: 0; }
+    .why-visual { height: 520px; }
+    .why-stack { transform: scale(.7) translateX(30px); margin-left: 0; }
   }
 
   @media (max-width: 480px) {
-    .content h1 { font-size: 34px; }
-    .principles { grid-template-columns: 1fr; gap: 20px; }
-    .principle {
+    .why-title { font-size: 34px; }
+    .why-principles { grid-template-columns: 1fr; gap: 20px; }
+    .why-principle {
       border: 0 !important;
       border-bottom: 1px solid #6f59b021 !important;
       padding-bottom: 20px;
       min-height: auto;
     }
-    .principle:last-child { border-bottom: 0 !important; }
-    .visual { height: 440px; }
-    .stack { transform: scale(.55) translateX(40px); margin-left: 0; }
+    .why-principle:last-child { border-bottom: 0 !important; }
+    .why-visual { height: 440px; }
+    .why-stack { transform: scale(.55) translateX(40px); margin-left: 0; }
   }
 </style>
 </head>
 <body>
 
-<section class="why">
-  <div class="grid"></div>
+<section class="why-section">
+  <div class="why-bg-grid"></div>
 
-  <div class="layout">
-    <!-- VISUAL / STACK -->
-    <div class="visual">
-      <div class="stack">
+  <div class="why-layout">
 
-        <!-- 6 back cards, fanned on Z-axis -->
-        <div class="back b6"><span>06</span><b>CONTINUOUS AUDIT</b></div>
-        <div class="back b5"><span>05</span><b>VERIFIED REPORTS</b></div>
-        <div class="back b4"><span>04</span><b>FOUNDER LED OVERSIGHT</b></div>
-        <div class="back b3"><span>03</span><b>RESPONSIVE TURNAROUND</b></div>
-        <div class="back b2"><span>02</span><b>COMPLIANCE LED PROCESS</b></div>
-        <div class="back b1"><span>01</span><b>CONFIDENTIALITY FIRST</b></div>
+    <!-- VISUAL -->
+    <div class="why-visual">
+      <div class="why-stack">
 
-        <!-- MAIN REPORT -->
-        <article class="report" id="report">
-          <header>
-            <strong id="rTitle">CONFIDENTIALITY<br>FIRST</strong>
-            <small id="rCount">01 / 06</small>
+        <div class="why-back why-b6"><span>06</span><b>CONTINUOUS AUDIT</b></div>
+        <div class="why-back why-b5"><span>05</span><b>VERIFIED REPORTS</b></div>
+        <div class="why-back why-b4"><span>04</span><b>FOUNDER LED OVERSIGHT</b></div>
+        <div class="why-back why-b3"><span>03</span><b>RESPONSIVE TURNAROUND</b></div>
+        <div class="why-back why-b2"><span>02</span><b>COMPLIANCE LED PROCESS</b></div>
+        <div class="why-back why-b1"><span>01</span><b>CONFIDENTIALITY FIRST</b></div>
+
+        <article class="why-report" id="whyReport">
+          <header class="why-report-header">
+            <strong id="whyTitle">CONFIDENTIALITY<br>FIRST</strong>
+            <small id="whyCount">01 / 06</small>
           </header>
-          <div class="graphic">
-            <div class="orbit o1"></div>
-            <div class="orbit o2"></div>
-            <div class="orbit o3"></div>
-            <div class="shield"><span id="rIcon">⌕</span></div>
-            <i class="dot d1"></i>
-            <i class="dot d2"></i>
-            <i class="dot d3"></i>
+
+          <div class="why-graphic">
+            <div class="why-orbit why-o1"></div>
+            <div class="why-orbit why-o2"></div>
+            <div class="why-orbit why-o3"></div>
+            <div class="why-shield"><span id="whyIcon">⌕</span></div>
+            <i class="why-dot why-d1"></i>
+            <i class="why-dot why-d2"></i>
+            <i class="why-dot why-d3"></i>
           </div>
-          <p id="rDesc">Candidate data is handled on a strict need-to-know basis, end to end.</p>
-          <footer>
-            <span>● <b id="rStatus">TRUSTED</b></span>
+
+          <p id="whyDesc">Candidate data is handled on a strict need-to-know basis, end to end.</p>
+
+          <footer class="why-report-footer">
+            <span>● <b id="whyStatus">TRUSTED</b></span>
             <button type="button">↗</button>
           </footer>
         </article>
       </div>
 
-      <div class="progress">
+      <div class="why-progress">
         <span>01</span>
-        <div>
-          <i id="progress"></i>
+        <div class="why-progress-track">
+          <i id="whyBar"></i>
           <b></b><b></b><b></b><b></b><b></b>
         </div>
         <span>06</span>
@@ -543,32 +569,32 @@
     </div>
 
     <!-- CONTENT -->
-    <div class="content">
-      <div class="eyebrow">WHY TRUEVENCE <span>/ 03</span></div>
-      <h1>Verification we<br>build to be <em>trusted.</em></h1>
-      <p class="intro">Truevence was founded to make background checks feel less like paperwork and more like a partnership: accurate, discreet, and easy for HR teams to run.</p>
+    <div class="why-content">
+      <div class="why-eyebrow">WHY TRUEVENCE <span>/ 03</span></div>
+      <h1 class="why-title">Verification we<br>build to be <em>trusted.</em></h1>
+      <p class="why-intro">Truevence was founded to make background checks feel less like paperwork and more like a partnership: accurate, discreet, and easy for HR teams to run.</p>
 
-      <div class="principles">
-        <article class="principle active" data-i="0">
-          <div class="picon">⌕</div><small>01</small>
+      <div class="why-principles">
+        <article class="why-principle why-active" data-i="0">
+          <div class="why-picon">⌕</div><small>01</small>
           <h2>Confidentiality First</h2>
           <p>Candidate data is handled on a strict need-to-know basis, end to end.</p>
           <a>↗</a>
         </article>
-        <article class="principle" data-i="1">
-          <div class="picon">▤</div><small>02</small>
+        <article class="why-principle" data-i="1">
+          <div class="why-picon">▤</div><small>02</small>
           <h2>Compliance-Led Process</h2>
           <p>Consent-driven checks aligned to how personal data should be handled.</p>
           <a>↗</a>
         </article>
-        <article class="principle" data-i="2">
-          <div class="picon">ϟ</div><small>03</small>
+        <article class="why-principle" data-i="2">
+          <div class="why-picon">ϟ</div><small>03</small>
           <h2>Responsive Turnaround</h2>
           <p>A dedicated point of contact keeps every case moving without chasing.</p>
           <a>↗</a>
         </article>
-        <article class="principle" data-i="3">
-          <div class="picon">♧</div><small>04</small>
+        <article class="why-principle" data-i="3">
+          <div class="why-picon">♧</div><small>04</small>
           <h2>Founder-Led Oversight</h2>
           <p>Every function, from testing to operations, is owned directly by a founder.</p>
           <a>↗</a>
@@ -579,6 +605,7 @@
 </section>
 
 <script>
+(function () {
   const data = [
     ["CONFIDENTIALITY<br>FIRST", "Candidate data is handled on a strict need-to-know basis, end to end.", "TRUSTED", "⌕"],
     ["COMPLIANCE<br>LED PROCESS", "Consent-driven checks aligned to how personal data should be handled.", "COMPLIANT", "▤"],
@@ -588,14 +615,14 @@
     ["CONTINUOUS<br>AUDIT", "Processes are reviewed on a rolling basis, not just once a year.", "ONGOING", "⟳"]
   ];
 
-  const report = document.querySelector("#report");
-  const title  = document.querySelector("#rTitle");
-  const count  = document.querySelector("#rCount");
-  const desc   = document.querySelector("#rDesc");
-  const status = document.querySelector("#rStatus");
-  const icon   = document.querySelector("#rIcon");
-  const bar    = document.querySelector("#progress");
-  const items  = [...document.querySelectorAll(".principle")];
+  const report = document.getElementById("whyReport");
+  const title  = document.getElementById("whyTitle");
+  const count  = document.getElementById("whyCount");
+  const desc   = document.getElementById("whyDesc");
+  const status = document.getElementById("whyStatus");
+  const icon   = document.getElementById("whyIcon");
+  const bar    = document.getElementById("whyBar");
+  const items  = [...document.querySelectorAll(".why-principle")];
 
   let current = 0;
   let busy = false;
@@ -604,25 +631,25 @@
   function render(n) {
     if (busy || n === current) return;
     busy = true;
-    report.classList.add("leave");
+    report.classList.add("why-leave");
 
     setTimeout(() => {
-      title.innerHTML    = data[n][0];
-      count.textContent  = `0${n + 1} / 06`;
-      desc.textContent   = data[n][1];
-      status.textContent = data[n][2];
-      icon.textContent   = data[n][3];
+      title.innerHTML     = data[n][0];
+      count.textContent   = `0${n + 1} / 06`;
+      desc.textContent    = data[n][1];
+      status.textContent  = data[n][2];
+      icon.textContent    = data[n][3];
 
-      items.forEach((x, i) => x.classList.toggle("active", i === (n % 4)));
+      items.forEach((x, i) => x.classList.toggle("why-active", i === (n % 4)));
       bar.style.flex = `${n + 1} 0 0`;
 
-      report.classList.remove("leave");
+      report.classList.remove("why-leave");
       void report.offsetWidth;
-      report.classList.add("enter");
+      report.classList.add("why-enter");
 
       current = n;
       setTimeout(() => {
-        report.classList.remove("enter");
+        report.classList.remove("why-enter");
         busy = false;
       }, 760);
     }, 650);
@@ -636,20 +663,21 @@
   }
 
   items.forEach(x => {
-    x.onclick = () => {
+    x.addEventListener("click", () => {
       render(+x.dataset.i);
       start();
-    };
+    });
   });
 
-  report.onmouseenter = () => clearInterval(timer);
-  report.onmouseleave = start;
+  report.addEventListener("mouseenter", () => clearInterval(timer));
+  report.addEventListener("mouseleave", start);
 
   document.addEventListener("visibilitychange", () =>
     document.hidden ? clearInterval(timer) : start()
   );
 
   start();
+})();
 </script>
 </body>
 </html>
