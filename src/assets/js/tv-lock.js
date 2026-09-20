@@ -1,21 +1,18 @@
 /* ============================================================
    TRUEVENCE — DEVICE RESOLUTION LOCK
    ------------------------------------------------------------
-   Makes the entire website render at the exact same layout on
-   every device. Positions of every element, every section,
-   every text block stay pixel-identical regardless of screen
-   width. On smaller screens the whole page is scaled down
-   proportionally to fit, exactly like a zoomed-out desktop.
+   Renders the entire site at a fixed design width on every
+   device, then scales the whole canvas down proportionally so
+   the mobile view is pixel-identical to the desktop view.
 
-   No CSS file needed. No HTML wrappers needed. Self-contained.
-
-   Loaded once per page. Does nothing on desktop >= 1440px.
+   No CSS file needed. No HTML wrapper needed. Self-contained.
+   Loaded once per page. Inert on viewports >= design width.
    ============================================================ */
 (function () {
   'use strict';
 
   // ---------- CONFIG ----------
-  var DESIGN_WIDTH = 1440; // baseline layout width
+  var DESIGN_WIDTH = 1440;
   var WRAPPER_ID   = 'tv-lock';
   var DEBOUNCE_MS  = 60;
 
@@ -23,7 +20,6 @@
   var style = document.createElement('style');
   style.setAttribute('data-tv-lock', '1');
   style.textContent = [
-    /* The wrapper that holds everything */
     '#' + WRAPPER_ID + ' {',
     '  width: ' + DESIGN_WIDTH + 'px;',
     '  max-width: ' + DESIGN_WIDTH + 'px;',
@@ -33,14 +29,11 @@
     '  position: relative;',
     '}',
 
-    /* Kill horizontal scrollbars when locked */
     'html.tv-locked, body.tv-locked {',
     '  overflow-x: hidden;',
     '  width: 100%;',
     '}',
 
-    /* Fixed-position elements are converted to sticky/absolute by JS.
-       Ensure they keep working as expected. */
     'html.tv-locked .nav-glass,',
     'html.tv-locked header.fixed {',
     '  position: sticky !important;',
@@ -50,16 +43,12 @@
     '  width: ' + DESIGN_WIDTH + 'px !important;',
     '}',
 
-    /* Fixed overlays (WhatsApp, cookie banner, edge tags) sit inside
-       the scaled space, so pin them to the wrapper rather than
-       the viewport. */
     'html.tv-locked a[href*="wa.me"],',
     'html.tv-locked #cookieConsent,',
     'html.tv-locked .edge-tags-right {',
     '  position: absolute !important;',
     '}',
 
-    /* WhatsApp button: pin bottom-right of the design canvas */
     'html.tv-locked a[href*="wa.me"] {',
     '  right: 24px !important;',
     '  bottom: 24px !important;',
@@ -67,7 +56,6 @@
     '  left: auto !important;',
     '}',
 
-    /* Cookie banner: full width of the design canvas at the bottom */
     'html.tv-locked #cookieConsent {',
     '  left: 0 !important;',
     '  right: 0 !important;',
@@ -75,7 +63,6 @@
     '  top: auto !important;',
     '}',
 
-    /* Edge tag: right side, vertically centered within the canvas */
     'html.tv-locked .edge-tags-right {',
     '  right: 0 !important;',
     '  top: 50% !important;',
@@ -84,12 +71,10 @@
     '  bottom: auto !important;',
     '}',
 
-    /* Hide custom cursor on touch devices */
     '@media (pointer: coarse) {',
     '  .cursor-ring, .cursor-core { display: none !important; }',
     '}',
 
-    /* Disable AOS zoom/fade jitter on scaled layout */
     'html.tv-locked [data-aos] {',
     '  transition-duration: .001ms !important;',
     '  transition-delay: 0ms !important;',
@@ -111,14 +96,12 @@
     var nodes = Array.prototype.slice.call(body.childNodes);
 
     nodes.forEach(function (node) {
-      // Leave <script> and <style> alone so they keep functioning.
       if (node.nodeType === 1) {
         var tag = node.tagName.toLowerCase();
         if (tag === 'script' || tag === 'style' || tag === 'link' ||
             tag === 'noscript' || tag === 'template') {
           return;
         }
-        // Opt-out hook.
         if (node.hasAttribute && node.hasAttribute('data-tv-lock-ignore')) {
           return;
         }
@@ -140,12 +123,11 @@
     var root = document.documentElement;
     var body = document.body;
 
-    // Fresh each pass so we can compute the natural (unscaled) height.
+    // Reset so we can measure natural height at the design width.
     wrap.style.transform = 'none';
     wrap.style.height    = 'auto';
     wrap.style.minHeight = '0';
 
-    // Read the natural content height at the design width.
     var naturalHeight = wrap.scrollHeight;
 
     if (winW >= DESIGN_WIDTH) {
@@ -155,28 +137,22 @@
       return;
     }
 
-    // Compute scale so the design canvas fits the visible width.
     var scale = winW / DESIGN_WIDTH;
 
-    // Apply transform.
     wrap.style.transform = 'scale(' + scale + ')';
     wrap.style.height    = (naturalHeight / scale) + 'px';
     wrap.style.minHeight = (winH / scale) + 'px';
 
-    // Apply lock classes.
     root.classList.add('tv-locked');
     body.classList.add('tv-locked');
 
-    // Update the meta viewport so the browser doesn't try to
-    // double-scale or apply its own zoom. This keeps the layout
-    // behaving like a desktop window on small devices.
+    // Update the meta viewport so the browser doesn't double-scale.
     var vp = document.querySelector('meta[name="viewport"]');
     if (!vp) {
       vp = document.createElement('meta');
       vp.name = 'viewport';
       document.head.appendChild(vp);
     }
-    // Only override when locked; otherwise restore the site's original.
     if (!vp.dataset.tvOriginal) {
       vp.dataset.tvOriginal = vp.getAttribute('content') || '';
     }
@@ -187,7 +163,6 @@
     );
   }
 
-  // Restore the original meta viewport if we go back to desktop size.
   function restoreViewportMeta() {
     var vp = document.querySelector('meta[name="viewport"]');
     if (vp && vp.dataset.tvOriginal !== undefined) {
@@ -196,12 +171,10 @@
     }
   }
 
-  // ---------- WRAPPER-LEVEL OVERRIDES ----------
-  // Ensure sections that rely on 100vw do not break out of the design canvas.
+  // ---------- 100vw PATCH ----------
   function patchVwUnits() {
-    var css = document.getElementById('tv-lock-vw-patch');
-    if (css) return;
-    css = document.createElement('style');
+    if (document.getElementById('tv-lock-vw-patch')) return;
+    var css = document.createElement('style');
     css.id = 'tv-lock-vw-patch';
     css.textContent = [
       'html.tv-locked, html.tv-locked body { width: ' + DESIGN_WIDTH + 'px; min-width: ' + DESIGN_WIDTH + 'px; }',
@@ -210,15 +183,13 @@
     document.head.appendChild(css);
   }
 
-  // ---------- RESIZE ORCHESTRATION ----------
+  // ---------- RESIZE ----------
   var resizeTimer = null;
   function onResize() {
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(function () {
       var winW = window.innerWidth;
-      if (winW >= DESIGN_WIDTH) {
-        restoreViewportMeta();
-      }
+      if (winW >= DESIGN_WIDTH) restoreViewportMeta();
       applyLock();
     }, DEBOUNCE_MS);
   }
@@ -228,7 +199,6 @@
     getOrCreateWrapper();
     patchVwUnits();
 
-    // Apply immediately, then again after fonts/images settle.
     requestAnimationFrame(function () {
       applyLock();
       setTimeout(applyLock, 250);
@@ -240,13 +210,9 @@
     window.addEventListener('orientationchange', onResize, { passive: true });
     window.addEventListener('load', onResize, { passive: true });
 
-    // Some of your sections (hero carousel, verify-doc rotation, why-us
-    // rotation) change DOM height over time. Watch the wrapper and
-    // re-apply so the scaled height stays correct.
     var wrap = document.getElementById(WRAPPER_ID);
     if (wrap && 'ResizeObserver' in window) {
       var ro = new ResizeObserver(function () {
-        // Only re-run when locked to avoid thrash on desktop.
         if (document.documentElement.classList.contains('tv-locked')) {
           applyLock();
         }
