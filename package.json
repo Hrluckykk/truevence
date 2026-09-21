@@ -18,6 +18,9 @@
   ],
   "author": "TrueVence",
   "license": "ISC",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "devDependencies": {
     "tailwindcss": "^3.4.0"
   }
