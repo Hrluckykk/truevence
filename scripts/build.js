@@ -134,14 +134,28 @@ for (const filePath of htmlFiles) {
   if (content.indexOf('<!-- INCLUDE_HEAD -->') !== -1) {
     const vars = extractHeadValues(content);
     const headHtml = fillVars(partials.head, vars);
+
     while (content.indexOf('<!-- INCLUDE_HEAD -->') !== -1) {
       content = content.replace('<!-- INCLUDE_HEAD -->', headHtml);
       replaced++;
     }
-    content = content
-      .replace(/<title>[\s\S]*?<\/title>\s*(?=<title>)/i, '')
-      .replace(/<meta\s+name="description"[^>]*>\s*(?=<meta\s+name="description")/i, '')
-      .replace(/<link\s+rel="canonical"[^>]*>\s*(?=<link\s+rel="canonical")/i, '');
+
+    /* Strip duplicate <title>, <meta name="description">, <link rel="canonical">
+       that appear AFTER the injected head. We keep the FIRST occurrence
+       (which is now inside the injected head.html) and remove later ones. */
+    const seen = { title: 0, desc: 0, canonical: 0 };
+    content = content.replace(/<title>[\s\S]*?<\/title>/gi, (m) => {
+      seen.title++;
+      return seen.title === 1 ? m : '';
+    });
+    content = content.replace(/<meta\s+name="description"[^>]*>/gi, (m) => {
+      seen.desc++;
+      return seen.desc === 1 ? m : '';
+    });
+    content = content.replace(/<link\s+rel="canonical"[^>]*>/gi, (m) => {
+      seen.canonical++;
+      return seen.canonical === 1 ? m : '';
+    });
   }
 
   /* 7b. Replace all other INCLUDE markers */
@@ -183,26 +197,32 @@ for (const filePath of htmlFiles) {
   }
 });
 
-/* ---------- 9. Copy favicons (from root or src/assets/images) ---------- */
-const faviconSources = [
-  path.join(rootDir, 'favicon.ico'),
-  path.join(rootDir, 'favicon-32.png'),
-  path.join(rootDir, 'favicon-192.png'),
-  path.join(assetsDir, 'images', 'favicon.ico'),
-  path.join(assetsDir, 'images', 'favicon-32.png'),
-  path.join(assetsDir, 'images', 'favicon-192.png'),
-];
+/* ---------- 9. Copy favicons ----------
+   Copied to BOTH:
+     public/favicon-*.png     (root — some pages reference /favicon-32.png)
+     public/assets/favicon-*.png  (matches head.html references)
+*/
+const faviconNames = ['favicon.ico', 'favicon-32.png', 'favicon-192.png'];
+const faviconDirs = [rootDir, path.join(assetsDir, 'images')];
 
-['favicon.ico', 'favicon-32.png', 'favicon-192.png'].forEach(function (name) {
-  const candidates = faviconSources.filter(p => path.basename(p) === name);
-  for (const c of candidates) {
-    if (fs.existsSync(c)) {
-      fs.copyFileSync(c, path.join(publicDir, name));
-      console.log('Copied ' + name + ' (from ' + path.relative(rootDir, c) + ')');
+for (const name of faviconNames) {
+  let copied = false;
+  for (const dir of faviconDirs) {
+    const src = path.join(dir, name);
+    if (fs.existsSync(src)) {
+      /* root copy */
+      fs.copyFileSync(src, path.join(publicDir, name));
+      /* assets copy (matches /assets/favicon-*.png in head.html) */
+      const assetsTarget = path.join(publicDir, 'assets', name);
+      fs.mkdirSync(path.dirname(assetsTarget), { recursive: true });
+      fs.copyFileSync(src, assetsTarget);
+      console.log('Copied ' + name + ' (from ' + path.relative(rootDir, src) + ')');
+      copied = true;
       break;
     }
   }
-});
+  if (!copied) console.warn('Favicon not found: ' + name);
+}
 
 /* ---------- Summary ---------- */
 console.log('\nBuild complete. ' + htmlFiles.length + ' pages, ' + totalReplacements + ' replacements.');
