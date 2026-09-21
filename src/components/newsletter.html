@@ -2,9 +2,6 @@
 <section class="news-section">
 
   <style>
-    /* =========================================================
-       STAY UPDATED / NEWSLETTER — fully namespaced under .news-*
-       ========================================================= */
     .news-section {
       position: relative;
       min-height: 100vh;
@@ -646,20 +643,39 @@
       letter-spacing: .06em;
     }
 
-    @media (max-width: 1280px) {
-      .news-shell { padding: 70px 60px 50px; min-height: 720px; }
-      .news-main h1 { font-size: 54px; }
-      .news-main { width: 55%; }
+    /* ===== RESPONSIVE (mobile-first) ===== */
+
+    @media (max-width: 639px) {
+      .news-section { padding: 40px 16px; display: block; }
+      .news-shell {
+        padding: 36px 22px 40px;
+        min-height: auto;
+        border-radius: 16px;
+      }
+      .news-main { width: 100%; padding-top: 0; }
+      .news-main h1 { font-size: 34px; }
+      .news-intro { font-size: 14px; margin: 22px 0 32px; }
+      .news-email-demo { height: 60px; }
+      .news-email-real,
+      .news-typing-field { font-size: 13px; left: 22px; }
+      .news-email-icon { left: 22px; transform: scale(.85); }
+      .news-subscribe { font-size: 11px; width: 110px; flex-basis: 110px; }
+      .news-subscribe b { margin-left: 8px; }
       .news-visual {
-        width: 660px;
-        height: 560px;
-        right: 0;
-        transform: translateY(-50%) scale(.9);
-        transform-origin: right center;
+        position: relative;
+        top: auto;
+        right: auto;
+        transform: scale(.55);
+        transform-origin: top center;
+        width: 720px;
+        height: 500px;
+        margin: 40px auto -240px;
+        left: 50%;
+        margin-left: -360px;
       }
     }
 
-    @media (max-width: 1024px) {
+    @media (min-width: 640px) and (max-width: 1023px) {
       .news-section { padding: 60px 24px; display: block; }
       .news-shell { min-height: auto; padding: 60px 44px 50px; }
       .news-main { width: 100%; padding-top: 0; }
@@ -673,43 +689,6 @@
         max-width: 100%;
         height: 590px;
         margin: 50px auto 0;
-      }
-    }
-
-    @media (max-width: 700px) {
-      .news-section { padding: 40px 16px; }
-      .news-shell {
-        padding: 40px 24px 40px;
-        min-height: auto;
-        border-radius: 16px;
-      }
-      .news-main h1 { font-size: 40px; }
-      .news-intro { font-size: 14px; margin: 24px 0 34px; }
-      .news-email-demo { height: 64px; }
-      .news-subscribe { width: 130px; flex-basis: 130px; }
-      .news-subscribe b { margin-left: 10px; }
-      .news-visual {
-        width: 720px;
-        height: 500px;
-        transform: scale(.68);
-        transform-origin: top left;
-        margin-bottom: -140px;
-        margin-left: -20px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .news-main h1 { font-size: 34px; }
-      .news-email-demo { height: 58px; }
-      .news-email-real,
-      .news-typing-field { font-size: 13px; left: 24px; }
-      .news-email-icon { left: 24px; transform: scale(.85); }
-      .news-subscribe { font-size: 11px; }
-      .news-visual {
-        transform: scale(.52);
-        transform-origin: top left;
-        margin-bottom: -220px;
-        margin-left: -30px;
       }
     }
   </style>
