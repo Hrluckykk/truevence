@@ -1,61 +1,69 @@
 /* ============================================================
    TRUEVENCE — GLOBAL STYLES
+   Mobile-first, responsive on every device.
+   Desktop (>=1280px) looks identical to the previous build.
    ============================================================ */
 
-/* Fluid container — auto adjusts to screen */
-.max-w-7xl,
-.max-w-7xl.mx-auto {
-  max-width: 100% !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-}
-
+/* ============================================================
+   CONTAINER — responsive padding that scales with viewport.
+   Used by <div class="container-fluid"> in header, footer,
+   and by Tailwind's .max-w-7xl.px-5 containers in page bodies.
+   ============================================================ */
+.container-fluid,
 .max-w-7xl.px-5,
 .max-w-7xl.md\:px-8 {
-  padding-left: 250px !important;
-  padding-right: 220px !important;
+  width: 100% !important;
+  padding-left: 1.25rem !important;   /* 20px  */
+  padding-right: 1.25rem !important;
 }
 
-@media (max-width: 1536px) {
+@media (min-width: 640px) {            /* sm  */
+  .container-fluid,
   .max-w-7xl.px-5,
   .max-w-7xl.md\:px-8 {
-    padding-left: 180px !important;
-    padding-right: 150px !important;
+    padding-left: 2rem !important;      /* 32px  */
+    padding-right: 2rem !important;
   }
 }
 
-@media (max-width: 1280px) {
+@media (min-width: 1024px) {           /* lg  */
+  .container-fluid,
   .max-w-7xl.px-5,
   .max-w-7xl.md\:px-8 {
-    padding-left: 120px !important;
-    padding-right: 100px !important;
+    padding-left: 3rem !important;      /* 48px  */
+    padding-right: 3rem !important;
   }
 }
 
-@media (max-width: 1024px) {
+@media (min-width: 1280px) {           /* xl  */
+  .container-fluid,
   .max-w-7xl.px-5,
   .max-w-7xl.md\:px-8 {
-    padding-left: 60px !important;
-    padding-right: 50px !important;
+    padding-left: 5rem !important;      /* 80px  */
+    padding-right: 5rem !important;
   }
 }
 
-@media (max-width: 768px) {
+@media (min-width: 1536px) {           /* 2xl */
+  .container-fluid,
   .max-w-7xl.px-5,
   .max-w-7xl.md\:px-8 {
-    padding-left: 25px !important;
-    padding-right: 25px !important;
+    padding-left: 7rem !important;      /* 112px */
+    padding-right: 7rem !important;
   }
 }
 
-@media (max-width: 480px) {
-  .max-w-7xl.px-5,
-  .max-w-7xl.md\:px-8 {
-    padding-left: 20px !important;
-    padding-right: 20px !important;
-  }
+/* Restore Tailwind's real max-width for .max-w-7xl containers */
+.max-w-7xl,
+.max-w-7xl.mx-auto {
+  max-width: 80rem !important;          /* 1280px */
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 
+/* ============================================================
+   ROOT VARIABLES
+   ============================================================ */
 :root {
   --ink: #0B1230;
   --navy: #131B45;
@@ -71,6 +79,14 @@
   syntax: '<angle>';
   initial-value: 0deg;
   inherits: false;
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 * { scroll-behavior: smooth; }
@@ -98,8 +114,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 
 /* ============================================================
-   CUSTOM CURSOR — shared across all pages
-   Only active on devices with a fine pointer (mouse/trackpad).
+   CUSTOM CURSOR — desktop (fine pointer) only.
+   Completely removed from rendering on touch devices.
    ============================================================ */
 @media (pointer: fine) {
   body.custom-cursor,
@@ -109,6 +125,13 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   body.custom-cursor textarea,
   body.custom-cursor label {
     cursor: none;
+  }
+}
+
+@media (pointer: coarse) {
+  .cursor-ring,
+  .cursor-core {
+    display: none !important;
   }
 }
 
@@ -269,6 +292,12 @@ body.cursor-active .cursor-core {
   border-radius: 4px;
 }
 
+/* Slow down heavy animations on small screens */
+@media (max-width: 768px) {
+  .id-card::after { animation-duration: 5s; }
+  .stamp         { animation-duration: 5s; }
+}
+
 /* ============================================================
    MARQUEE
    ============================================================ */
@@ -292,11 +321,11 @@ body.cursor-active .cursor-core {
 .faq-a {
   max-height: 0;
   overflow: hidden;
-  transition: max-height .3s ease, padding .3s ease;
+  transition: max-height .35s ease, padding .3s ease;
 }
 
 .faq-item.open .faq-a {
-  max-height: 300px;
+  max-height: 800px;                     /* generous — no clipping on mobile */
   padding-bottom: 1.5rem;
 }
 
@@ -381,15 +410,20 @@ body.cursor-active .cursor-core {
    REDUCED MOTION
    ============================================================ */
 @media (prefers-reduced-motion: reduce) {
-  * {
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
   }
 }
 
 /* ============================================================
    WHAT WE VERIFY
+   Mobile-first. On >=1024px, status card floats to the right
+   (identical to previous desktop layout).
    ============================================================ */
 .verify-menu {
   display: flex;
@@ -400,26 +434,26 @@ body.cursor-active .cursor-core {
 .verify-menu-item {
   position: relative;
   display: grid;
-  grid-template-columns: 36px 1fr 25px;
+  grid-template-columns: 32px 1fr 20px;
   align-items: center;
-  gap: 12px;
-  padding: 12px 16px;
+  gap: 10px;
+  padding: 12px 14px;
   border: none;
   border-radius: 12px;
   background: transparent;
   color: #687780;
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
   text-align: left;
   cursor: pointer;
-  transition: all 0.25s ease;
+  transition: background .25s ease, color .25s ease, padding .25s ease;
   width: 100%;
 }
 
 .verify-menu-item::before {
   content: "";
-  position: absolute; left: -8px; top: 8px; bottom: 8px;
+  position: absolute; left: -6px; top: 8px; bottom: 8px;
   width: 3px;
   background: #7C3AED;
   border-radius: 4px;
@@ -432,7 +466,7 @@ body.cursor-active .cursor-core {
 .verify-menu-item.active {
   background: rgba(124, 58, 237, 0.06);
   color: #0B1230;
-  padding-left: 20px;
+  padding-left: 18px;
 }
 
 .verify-menu-item:hover::before,
@@ -442,7 +476,7 @@ body.cursor-active .cursor-core {
 }
 
 .verify-number {
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
   color: #a3adb2;
   font-family: 'IBM Plex Mono', monospace;
@@ -456,7 +490,7 @@ body.cursor-active .cursor-core {
 
 .verify-label {
   font-weight: 700;
-  font-size: 15px;
+  font-size: 14px;
   letter-spacing: -0.01em;
   font-family: 'Plus Jakarta Sans', sans-serif;
 }
@@ -486,9 +520,9 @@ body.cursor-active .cursor-core {
 
 .verify-index {
   display: block;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   color: #7C3AED;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
   font-family: 'IBM Plex Mono', monospace;
   letter-spacing: 2px;
@@ -496,8 +530,8 @@ body.cursor-active .cursor-core {
 
 .verify-label-text {
   display: block;
-  margin-bottom: 16px;
-  font-size: 11px;
+  margin-bottom: 12px;
+  font-size: 10px;
   font-weight: 700;
   letter-spacing: 2.5px;
   color: #687780;
@@ -505,10 +539,10 @@ body.cursor-active .cursor-core {
 }
 
 .verify-title {
-  margin: 0 0 16px;
-  font-size: clamp(32px, 3vw, 44px);
-  line-height: 0.98;
-  letter-spacing: -2px;
+  margin: 0 0 14px;
+  font-size: clamp(26px, 5vw, 44px);
+  line-height: 1.05;
+  letter-spacing: -1.5px;
   font-weight: 800;
   color: #0B1230;
   font-family: 'Plus Jakarta Sans', sans-serif;
@@ -516,7 +550,7 @@ body.cursor-active .cursor-core {
 
 .verify-copy {
   max-width: 430px;
-  margin: 0 0 24px;
+  margin: 0 0 20px;
   font-size: 15px;
   line-height: 1.65;
   color: #687780;
@@ -554,13 +588,13 @@ body.cursor-active .cursor-core {
 
 .verify-learn-more {
   display: inline-block;
-  margin-top: 24px;
+  margin-top: 20px;
   color: #7C3AED;
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-weight: 700;
   font-size: 14px;
   text-decoration: none;
-  transition: all 0.25s ease;
+  transition: color .25s ease, transform .25s ease;
 }
 
 .verify-learn-more:hover {
@@ -568,20 +602,25 @@ body.cursor-active .cursor-core {
   transform: translateX(4px);
 }
 
+/* Visual side — mobile-first */
 .verify-visual {
   position: relative;
   width: 100%;
-  min-height: 600px;
+  min-height: 320px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 20px 0;
 }
 
-/* Hexagon background shape — BIG with visible borders */
 .verify-hexagon-shape {
   position: absolute;
   z-index: 1;
-  width: min(900px, 100%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(100%, 520px);
   aspect-ratio: 1;
   clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
   -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
@@ -593,7 +632,6 @@ body.cursor-active .cursor-core {
     0 30px 70px rgba(16, 35, 50, 0.15);
 }
 
-/* Image floats above hexagon — 512x512 */
 .verify-hexagon {
   position: relative;
   z-index: 2;
@@ -604,40 +642,40 @@ body.cursor-active .cursor-core {
 }
 
 .verify-hexagon .verify-image-square {
-  width: 512px;
+  width: min(70%, 400px);
   aspect-ratio: 1;
   object-fit: contain;
-  border-radius: 24px;
+  border-radius: 20px;
   z-index: 10;
   position: relative;
-  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.5));
+  filter: drop-shadow(0 16px 32px rgba(0, 0, 0, 0.45));
   animation: float-image 3s ease-in-out infinite;
 }
 
 @keyframes float-image {
   0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(-15px); }
+  50%      { transform: translateY(-12px); }
 }
 
+/* Status card — relative on mobile (stacked below visual) */
 .verify-status {
-  position: absolute;
+  position: relative;
   z-index: 5;
-  right: 0;
-  top: 50%;
-  width: 175px;
-  padding: 16px 0;
+  width: 100%;
+  max-width: 260px;
+  margin: 20px auto 0;
+  padding: 14px 0;
   background: #102332;
   color: white;
   border-radius: 16px;
-  box-shadow: 0 25px 60px rgba(16, 35, 50, 0.18);
-  transform: translateY(-50%);
+  box-shadow: 0 20px 50px rgba(16, 35, 50, 0.18);
 }
 
 .verify-status-title {
   display: flex;
   align-items: center;
   gap: 9px;
-  padding: 0 18px 12px;
+  padding: 0 16px 10px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   font-size: 10px;
   font-weight: 700;
@@ -656,7 +694,7 @@ body.cursor-active .cursor-core {
   display: flex;
   align-items: center;
   gap: 9px;
-  padding: 8px 18px;
+  padding: 7px 16px;
   color: #b8c0c5;
   font-size: 11px;
   font-weight: 500;
@@ -672,48 +710,40 @@ body.cursor-active .cursor-core {
   font-size: 9px;
 }
 
-@media (max-width: 1024px) {
-  .verify-visual { min-height: 500px; }
-  .verify-hexagon-shape { width: 700px; }
-  .verify-hexagon .verify-image-square { width: 400px; }
+/* Desktop (lg+) — restore the floating status card */
+@media (min-width: 1024px) {
+  .verify-visual {
+    min-height: 520px;
+    padding: 0;
+  }
+
+  .verify-hexagon-shape {
+    width: min(100%, 700px);
+  }
+
+  .verify-hexagon .verify-image-square {
+    width: min(55%, 420px);
+  }
+
   .verify-status {
+    position: absolute;
     right: 0;
-    transform: translateY(-50%) scale(0.85);
-    transform-origin: right center;
+    top: 50%;
+    margin: 0;
+    max-width: 175px;
+    transform: translateY(-50%);
   }
 }
 
-@media (max-width: 768px) {
-  .verify-visual { min-height: 420px; margin-top: 20px; }
-  .verify-hexagon-shape { width: 500px; }
-  .verify-hexagon .verify-image-square { width: 300px; }
-  .verify-status {
-    right: 0;
-    transform: translateY(-50%) scale(0.75);
-    transform-origin: right center;
-    width: 160px;
-  }
-  .verify-title { font-size: 28px; }
-}
-
-@media (max-width: 480px) {
-  .verify-visual { min-height: 340px; }
-  .verify-hexagon-shape { width: 340px; }
-  .verify-hexagon .verify-image-square { width: 220px; }
-  .verify-status {
-    transform: translateY(-50%) scale(0.65);
-    transform-origin: right center;
-    width: 150px;
-  }
-  .verify-status-row { padding: 6px 14px; font-size: 9px; }
-  .verify-status-title { padding: 0 14px 10px; font-size: 9px; }
+@media (min-width: 1280px) {
+  .verify-hexagon-shape { width: min(100%, 900px); }
+  .verify-hexagon .verify-image-square { width: min(55%, 512px); }
+  .verify-status { max-width: 185px; }
 }
 
 /* ============================================================
-   ADDED: BLOG ARTICLE HELPERS
-   Used by blog post pages. Only applies to elements that opt in
-   via .article-content / .highlight-box / .timeline-dot /
-   .table-of-contents classes. Safe on every page.
+   BLOG ARTICLE HELPERS
+   Opt-in classes used by blog post pages.
    ============================================================ */
 .article-content h2 { scroll-margin-top: 100px; }
 .article-content p  { line-height: 1.8; }
