@@ -4,7 +4,7 @@
   "description": "TrueVence - Background Verification Services",
   "scripts": {
     "build:css": "tailwindcss -i ./src/assets/css/tailwind-input.css -o ./src/assets/css/tailwind.css --minify",
-    "build:html": "node build.js",
+    "build:html": "node scripts/build.js",
     "build": "npm run build:css && npm run build:html",
     "watch:css": "tailwindcss -i ./src/assets/css/tailwind-input.css -o ./src/assets/css/tailwind.css --watch"
   },
