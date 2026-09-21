@@ -2,42 +2,18 @@ const fs = require('fs');
 const path = require('path');
 
 /* ------------------------------------------------------------------
-   TRUEVENCE — BUILD SCRIPT
-   Resolves <!-- INCLUDE_X --> placeholders and {{VARS}}.
-   Copies src/assets/ → public/assets/.
-   Builds all pages from src/ → public/.
-
-   Folder layout expected:
-     /src/index.html
-     /src/about.html
-     /src/blog.html
-     /src/blog/*.html
-     /src/assets/css/styles.css
-     /src/assets/js/scripts.js
-     /partials/head.html
-     /partials/header.html
-     /partials/footer.html
-     /partials/whatsapp.html
-     /components/hero.html
-     /components/marquee.html
-     /components/what-we-verify.html
-     /components/process.html
-     /components/why-us.html
-     /components/industries.html
-     /components/blog-scroll.html
-     /components/newsletter.html
-     /components/faq.html
-     /components/cta-banner.html
-     /components/contact.html
-     /robots.txt
-     /sitemap.xml
+   TRUEVENCE — BUILD SCRIPT (root build.js)
+   Reads:  src/pages/**/*.html
+   Uses:   partials/*.html and src/components/*.html
+   Copies: src/assets/ → public/assets/
+   Writes: public/**  (src/pages/ prefix is stripped)
    ------------------------------------------------------------------ */
 
-const rootDir       = path.join(__dirname, '..');
-const srcDir        = path.join(rootDir, 'src');
+const rootDir       = __dirname;
+const pagesDir      = path.join(rootDir, 'src', 'pages');
 const partialsDir   = path.join(rootDir, 'partials');
-const componentsDir = path.join(rootDir, 'components');
-const srcAssetsDir  = path.join(srcDir, 'assets');
+const componentsDir = path.join(rootDir, 'src', 'components');
+const assetsDir     = path.join(rootDir, 'src', 'assets');
 const publicDir     = path.join(rootDir, 'public');
 
 /* ---------- 1. Clean public ---------- */
@@ -48,11 +24,11 @@ fs.mkdirSync(publicDir, { recursive: true });
 console.log('✅ Cleaned public/');
 
 /* ---------- 2. Copy src/assets → public/assets ---------- */
-if (fs.existsSync(srcAssetsDir)) {
-  fs.cpSync(srcAssetsDir, path.join(publicDir, 'assets'), { recursive: true });
+if (fs.existsSync(assetsDir)) {
+  fs.cpSync(assetsDir, path.join(publicDir, 'assets'), { recursive: true });
   console.log('✅ Copied src/assets → public/assets');
 } else {
-  console.warn('⚠️  src/assets not found — skipping copy');
+  console.warn('⚠️  src/assets not found');
 }
 
 /* ---------- 3. Load partials & components ---------- */
@@ -84,23 +60,19 @@ const components = {
   contact:        loadFile(componentsDir, 'contact.html'),
 };
 
-/* ---------- 4. Collect all .html in src/ (skip assets/) ---------- */
+/* ---------- 4. Collect all .html under src/pages ---------- */
 function collectHtml(dir, list) {
   list = list || [];
   if (!fs.existsSync(dir)) return list;
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
     const full = path.join(dir, entry.name);
-    if (entry.isDirectory()) {
-      if (entry.name === 'assets') continue;
-      collectHtml(full, list);
-    } else if (entry.name.endsWith('.html')) {
-      list.push(full);
-    }
+    if (entry.isDirectory()) collectHtml(full, list);
+    else if (entry.name.endsWith('.html')) list.push(full);
   }
   return list;
 }
 
-/* ---------- 5. Extract head values from a page ---------- */
+/* ---------- 5. Extract head values ---------- */
 function extractHeadValues(content) {
   const grab = (re) => {
     const m = content.match(re);
@@ -118,14 +90,13 @@ function extractHeadValues(content) {
   };
 }
 
-/* ---------- 6. Fill {{VAR}} in a string ---------- */
 function fillVars(str, vars) {
   return str.replace(/\{\{([A-Z_]+)\}\}/g, (_, key) =>
     vars[key] !== undefined ? vars[key] : ''
   );
 }
 
-/* ---------- 7. Replacement map ---------- */
+/* ---------- 6. Replacement map ---------- */
 const replacements = {
   '<!-- INCLUDE_HEADER -->':         partials.header,
   '<!-- INCLUDE_FOOTER -->':         partials.footer,
@@ -143,11 +114,11 @@ const replacements = {
   '<!-- INCLUDE_CONTACT -->':        components.contact,
 };
 
-/* ---------- 8. Build every page ---------- */
-const htmlFiles = collectHtml(srcDir);
+/* ---------- 7. Build each page ---------- */
+const htmlFiles = collectHtml(pagesDir);
 
 if (htmlFiles.length === 0) {
-  console.error('❌ No HTML files found in src/');
+  console.error('❌ No HTML files found in src/pages/');
   process.exit(1);
 }
 
@@ -158,7 +129,6 @@ for (const filePath of htmlFiles) {
   let content = fs.readFileSync(filePath, 'utf8');
   let replaced = 0;
 
-  /* 8a. Replace <!-- INCLUDE_HEAD --> with filled head.html */
   if (content.indexOf('<!-- INCLUDE_HEAD -->') !== -1) {
     const vars = extractHeadValues(content);
     const headHtml = fillVars(partials.head, vars);
@@ -166,15 +136,12 @@ for (const filePath of htmlFiles) {
       content = content.replace('<!-- INCLUDE_HEAD -->', headHtml);
       replaced++;
     }
-
-    /* 8b. Strip duplicated title/desc/canonical that head.html already added */
     content = content
       .replace(/<title>[\s\S]*?<\/title>\s*(?=<title>)/i, '')
       .replace(/<meta\s+name="description"[^>]*>\s*(?=<meta\s+name="description")/i, '')
       .replace(/<link\s+rel="canonical"[^>]*>\s*(?=<link\s+rel="canonical")/i, '');
   }
 
-  /* 8c. Standard INCLUDE replacements */
   for (const key in replacements) {
     const val = replacements[key];
     while (content.indexOf(key) !== -1) {
@@ -188,46 +155,44 @@ for (const filePath of htmlFiles) {
   const remaining = content.match(/<!--\s*INCLUDE_[A-Z_]+\s*-->/g);
   if (remaining) {
     filesWithIssues.push({
-      file: path.relative(srcDir, filePath),
+      file: path.relative(pagesDir, filePath),
       placeholders: remaining,
     });
   }
 
-  const rel = path.relative(srcDir, filePath);
+  /* IMPORTANT: strip the src/pages/ prefix so index.html → public/index.html */
+  const rel = path.relative(pagesDir, filePath);
   const out = path.join(publicDir, rel);
   fs.mkdirSync(path.dirname(out), { recursive: true });
   fs.writeFileSync(out, content);
-  console.log('  📄 Built: ' + rel + ' (' + replaced + ' replacements)');
+  console.log('  📄 ' + rel);
 }
 
-/* ---------- 9. Copy robots.txt + sitemap.xml ---------- */
-['robots.txt', 'sitemap.xml'].forEach(function (file) {
-  const src = path.join(rootDir, file);
+/* ---------- 8. Copy robots.txt + sitemap.xml ---------- */
+['robots.txt', 'sitemap.xml'].forEach(function (f) {
+  const src = path.join(rootDir, f);
   if (fs.existsSync(src)) {
-    fs.copyFileSync(src, path.join(publicDir, file));
-    console.log('✅ Copied ' + file);
+    fs.copyFileSync(src, path.join(publicDir, f));
+    console.log('✅ Copied ' + f);
   }
 });
 
-/* ---------- 10. Copy favicons ---------- */
-['favicon.ico', 'favicon-32.png', 'favicon-192.png'].forEach(function (file) {
-  const src = path.join(rootDir, file);
+/* ---------- 9. Copy favicons ---------- */
+['favicon.ico', 'favicon-32.png', 'favicon-192.png'].forEach(function (f) {
+  const src = path.join(rootDir, f);
   if (fs.existsSync(src)) {
-    fs.copyFileSync(src, path.join(publicDir, file));
-    console.log('✅ Copied ' + file);
+    fs.copyFileSync(src, path.join(publicDir, f));
+    console.log('✅ Copied ' + f);
   }
 });
 
 /* ---------- Summary ---------- */
-console.log('\n🎉 Build complete! ' + htmlFiles.length + ' pages built.');
-console.log('📊 Total placeholder replacements: ' + totalReplacements);
+console.log('\n🎉 Build complete. ' + htmlFiles.length + ' pages, ' + totalReplacements + ' replacements.');
 
 if (filesWithIssues.length > 0) {
   console.log('\n⚠️  Files still containing un-replaced placeholders:');
   filesWithIssues.forEach(function (item) {
     console.log('   ' + item.file);
-    item.placeholders.forEach(function (p) {
-      console.log('     ' + p);
-    });
+    item.placeholders.forEach(function (p) { console.log('     ' + p); });
   });
 }
