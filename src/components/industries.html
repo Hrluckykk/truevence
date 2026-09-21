@@ -4,7 +4,7 @@
   <style>
     .ind-section {
       position: relative;
-      min-height: 100vh;
+      min-height: 760px;
       overflow: hidden;
       padding: 72px 5.5vw 80px;
       background:
@@ -14,6 +14,7 @@
       color: #10183f;
       font-family: "Plus Jakarta Sans", sans-serif;
       -webkit-font-smoothing: antialiased;
+      contain: layout paint style;
     }
 
     .ind-section *,
@@ -42,21 +43,26 @@
       opacity: .4;
     }
 
+    /* Was: filter: blur(65px) on 400px elements.
+       Now: pre-blurred radial-gradients. Zero filter passes. */
     .ind-glow {
       position: absolute;
       border-radius: 50%;
-      filter: blur(65px);
       pointer-events: none;
     }
     .ind-glow-a {
-      width: 420px; height: 420px;
-      left: 38%; top: 18%;
-      background: rgba(148, 108, 255, .13);
+      width: 900px;
+      height: 900px;
+      left: 15%;
+      top: -18%;
+      background: radial-gradient(circle, rgba(148, 108, 255, .16) 0%, rgba(148, 108, 255, .04) 40%, transparent 65%);
     }
     .ind-glow-b {
-      width: 340px; height: 340px;
-      right: -180px; top: 20%;
-      background: rgba(138, 100, 255, .10);
+      width: 700px;
+      height: 700px;
+      right: -20%;
+      top: 8%;
+      background: radial-gradient(circle, rgba(138, 100, 255, .12) 0%, rgba(138, 100, 255, .03) 42%, transparent 68%);
     }
 
     .ind-layout {
@@ -89,7 +95,6 @@
       font-size: 11px;
       font-weight: 500;
       letter-spacing: .1em;
-      backdrop-filter: blur(12px);
     }
     .ind-eyebrow span {
       margin-left: 9px;
@@ -134,7 +139,7 @@
       font-weight: 700;
       letter-spacing: -.005em;
       box-shadow: 0 14px 30px rgba(16, 24, 63, .13);
-      transition: .25s ease;
+      transition: transform .25s ease, box-shadow .25s ease;
     }
     .ind-primary-btn:hover {
       transform: translateY(-2px);
@@ -145,7 +150,6 @@
     .ind-visual {
       position: relative;
       height: 620px;
-      min-width: 800px;
       justify-self: end;
       width: 100%;
       max-width: 860px;
@@ -162,13 +166,13 @@
       color: #10183f;
       cursor: pointer;
       transition:
-        transform .75s cubic-bezier(.2,.75,.2,1),
-        opacity .65s ease,
-        box-shadow .35s ease,
-        border-color .35s ease,
-        background .35s ease;
+        transform .55s cubic-bezier(.2,.75,.2,1),
+        box-shadow .3s ease,
+        border-color .3s ease,
+        background .3s ease;
     }
 
+    /* Was: backdrop-filter: blur(20px). Now: solid-ish translucent bg. */
     .ind-side-card {
       width: 186px;
       height: 128px;
@@ -178,22 +182,18 @@
       justify-content: space-between;
       align-items: flex-start;
       border-radius: 12px;
-      background:
-        linear-gradient(135deg, rgba(255,255,255,.72), rgba(235,228,255,.5));
+      background: linear-gradient(135deg, rgba(255,255,255,.88), rgba(240,235,255,.78));
       box-shadow:
-        0 20px 48px rgba(76, 58, 143, .09),
+        0 14px 32px rgba(76, 58, 143, .08),
         inset 0 1px 0 rgba(255,255,255,.95);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
     }
 
     .ind-side-card:hover,
     .ind-side-card.ind-active {
       border-color: rgba(119, 75, 244, .45);
-      background:
-        linear-gradient(135deg, rgba(255,255,255,.88), rgba(228,217,255,.68));
+      background: linear-gradient(135deg, rgba(255,255,255,.95), rgba(232,222,255,.88));
       box-shadow:
-        0 26px 55px rgba(80, 55, 161, .15),
+        0 20px 42px rgba(80, 55, 161, .13),
         0 0 0 3px rgba(119,75,244,.05);
       transform: translateY(-3px);
     }
@@ -224,7 +224,7 @@
       bottom: 13px;
       color: #7137f5;
       font-size: 19px;
-      transition: .25s;
+      transition: transform .25s;
     }
     .ind-side-card:hover .ind-card-arrow {
       transform: translateX(3px);
@@ -349,10 +349,10 @@
       color: #fff;
       background: #18214d;
       box-shadow:
-        0 40px 90px rgba(35, 29, 91, .25),
-        0 0 0 1px rgba(113,55,245,.15),
-        0 0 60px rgba(140, 90, 255, .15);
+        0 30px 60px rgba(35, 29, 91, .22),
+        0 0 0 1px rgba(113,55,245,.15);
       z-index: 10;
+      will-change: transform;
     }
 
     .ind-main-top-lines {
@@ -407,7 +407,6 @@
     .ind-city {
       position: absolute;
       bottom: 0;
-      width: 45px;
       background: linear-gradient(#55609a, #171f4a);
       border-top: 1px solid #9e8ad7;
       box-shadow: 0 -10px 30px rgba(150,117,255,.15);
@@ -461,6 +460,7 @@
       line-height: 1.55;
     }
 
+    /* Was: backdrop-filter: blur(8px). Removed. */
     .ind-main-open {
       position: absolute;
       right: 0;
@@ -472,12 +472,11 @@
       border: 1px solid #aa83ff;
       border-radius: 10px;
       color: #fff;
-      background: rgba(27,33,77,.42);
+      background: rgba(27,33,77,.55);
       cursor: pointer;
       font-size: 22px;
       text-decoration: none;
-      backdrop-filter: blur(8px);
-      transition: .25s;
+      transition: background .25s, border-color .25s;
     }
     .ind-main-open:hover {
       background: #7040d9;
@@ -511,24 +510,33 @@
 
     .ind-l8 { width: 60px; left: 45%; top: 12%; transform: rotate(-18deg); opacity: .35; }
 
+    /* Animations paused by default — only run when .ind-in-view is on the section */
     .ind-node {
       position: absolute;
       width: 7px;
       height: 7px;
       border-radius: 50%;
       background: #7137f5;
-      box-shadow: 0 0 14px rgba(113,55,245,.7);
-      animation: ind-node-pulse 2.6s infinite;
+      box-shadow: 0 0 12px rgba(113,55,245,.6);
       transform: translate(-50%, -50%);
     }
     .ind-n1 { left: 13%; top: 19.5%; }
-    .ind-n2 { left: 13%; top: 47.5%; animation-delay: .4s; }
-    .ind-n3 { left: 13%; top: 75.5%; animation-delay: .8s; }
-    .ind-n4 { left: 87.5%; top: 14.5%; animation-delay: 1.2s; }
-    .ind-n5 { left: 87.5%; top: 36.5%; animation-delay: 1.6s; }
-    .ind-n6 { left: 87.5%; top: 80.5%; animation-delay: 2s; }
+    .ind-n2 { left: 13%; top: 47.5%; }
+    .ind-n3 { left: 13%; top: 75.5%; }
+    .ind-n4 { left: 87.5%; top: 14.5%; }
+    .ind-n5 { left: 87.5%; top: 36.5%; }
+    .ind-n6 { left: 87.5%; top: 80.5%; }
 
-    .ind-visual.ind-cycling .ind-main-card {
+    .ind-in-view .ind-node {
+      animation: ind-node-pulse 2.6s infinite;
+    }
+    .ind-n2 { animation-delay: .4s; }
+    .ind-n3 { animation-delay: .8s; }
+    .ind-n4 { animation-delay: 1.2s; }
+    .ind-n5 { animation-delay: 1.6s; }
+    .ind-n6 { animation-delay: 2s; }
+
+    .ind-in-view .ind-main-card {
       animation: ind-main-float 4.5s ease-in-out infinite;
     }
     .ind-main-card.ind-swap {
@@ -568,6 +576,7 @@
     .ind-benefit:first-child { padding-left: 0; }
     .ind-benefit:last-child  { border-right: 0; }
 
+    /* Was: backdrop-filter: blur(14px). Now: solid. */
     .ind-benefit-icon {
       width: 60px;
       height: 60px;
@@ -576,10 +585,9 @@
       place-items: center;
       border: 1px solid #d9cef9;
       border-radius: 11px;
-      background: linear-gradient(145deg, rgba(255,255,255,.72), rgba(231,222,255,.48));
+      background: linear-gradient(145deg, #ffffff, #f0ebff);
       color: #7137f5;
       box-shadow: 0 9px 25px rgba(72,51,139,.06), inset 0 1px #fff;
-      backdrop-filter: blur(14px);
       font-size: 30px;
     }
     .ind-benefit h3 {
@@ -616,7 +624,7 @@
     .ind-chart i:nth-child(3) { height: 28px; }
     .ind-pin { font-size: 35px; }
 
-    /* ===== RESPONSIVE (mobile-first) ===== */
+    /* ===== RESPONSIVE ===== */
 
     @media (max-width: 639px) {
       .ind-section { padding: 48px 18px 56px; }
@@ -626,7 +634,6 @@
       .ind-visual {
         width: 100%;
         max-width: 100%;
-        min-width: 0;
         height: 400px;
         margin: 0 auto;
         justify-self: center;
@@ -650,7 +657,6 @@
       .ind-visual {
         width: 100%;
         max-width: 800px;
-        min-width: 0;
         height: 620px;
         margin: 0 auto;
         justify-self: center;
@@ -659,6 +665,15 @@
       .ind-benefits { grid-template-columns: repeat(2, 1fr); gap: 15px 0; margin-top: 50px; }
       .ind-benefit:nth-child(2) { border-right: 0; }
       .ind-benefit:nth-child(3) { padding-left: 0; }
+    }
+
+    /* Respect reduced-motion users */
+    @media (prefers-reduced-motion: reduce) {
+      .ind-in-view .ind-node,
+      .ind-in-view .ind-main-card,
+      .ind-main-card.ind-swap {
+        animation: none !important;
+      }
     }
   </style>
 
@@ -846,6 +861,7 @@
   let activeIndex = 0;
   let timer = null;
   let changing = false;
+  let isInView = false;
 
   function updateMain(index) {
     if (changing || index === activeIndex) return;
@@ -874,8 +890,14 @@
   }
 
   function startRotation() {
+    if (!isInView) return;
     clearInterval(timer);
     timer = setInterval(nextIndustry, 4500);
+  }
+
+  function stopRotation() {
+    clearInterval(timer);
+    timer = null;
   }
 
   sideCards.forEach(card => {
@@ -885,15 +907,24 @@
     });
   });
 
-  mainCard.addEventListener("mouseenter", () => clearInterval(timer));
+  mainCard.addEventListener("mouseenter", stopRotation);
   mainCard.addEventListener("mouseleave", startRotation);
 
   document.addEventListener("visibilitychange", () => {
-    if (document.hidden) clearInterval(timer);
+    if (document.hidden) stopRotation();
     else startRotation();
   });
 
-  section.querySelector(".ind-visual").classList.add("ind-cycling");
-  startRotation();
+  // Pause animation + timer when section is off-screen
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      isInView = e.isIntersecting;
+      section.classList.toggle("ind-in-view", isInView);
+      if (isInView) startRotation();
+      else stopRotation();
+    });
+  }, { rootMargin: "200px 0px" });
+
+  io.observe(section);
 })();
 </script>
