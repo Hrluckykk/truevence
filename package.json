@@ -4,11 +4,9 @@
   "description": "TrueVence - Background Verification Services",
   "scripts": {
     "build:css": "tailwindcss -i ./src/assets/css/tailwind-input.css -o ./src/assets/css/tailwind.css --minify",
-    "build:html": "node scripts/build.js",
+    "build:html": "node build.js",
     "build": "npm run build:css && npm run build:html",
-    "watch:css": "tailwindcss -i ./src/assets/css/tailwind-input.css -o ./src/assets/css/tailwind.css --watch",
-    "generate-sitemap": "node scripts/generate-sitemap.js",
-    "validate": "node scripts/validate-links.js"
+    "watch:css": "tailwindcss -i ./src/assets/css/tailwind-input.css -o ./src/assets/css/tailwind.css --watch"
   },
   "keywords": [
     "background-verification",
@@ -18,6 +16,9 @@
   ],
   "author": "TrueVence",
   "license": "ISC",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "devDependencies": {
     "tailwindcss": "^3.4.0"
   }
