@@ -783,18 +783,47 @@ body.cursor-active .cursor-core {
   .hero-visual { min-height: 560px; }
 }
 
-/* --- Generic sections using .section-container --- */
+/* ============================================================
+   SECTION CONTAINER — equal left/right gaps at every size.
+   Used by: header, footer, hero, process, contact, blog,
+   and every other section. All sections share the same
+   horizontal start and end positions.
+   ============================================================ */
 .section-container {
   width: 100%;
   max-width: 100%;
-  padding-left: 1.25rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25rem;   /* 20px  — phone  */
   padding-right: 1.25rem;
 }
-@media (min-width: 640px) {
-  .section-container { padding-left: 2rem; padding-right: 2rem; }
+
+@media (min-width: 640px) {          /* sm / tablet */
+  .section-container {
+    padding-left: 2rem;              /* 32px  */
+    padding-right: 2rem;
+  }
 }
-@media (min-width: 1024px) {
-  .section-container { padding-left: 250px; padding-right: 220px; }
+
+@media (min-width: 1024px) {         /* lg / desktop */
+  .section-container {
+    padding-left: 6rem;              /* 96px  */
+    padding-right: 6rem;
+  }
+}
+
+@media (min-width: 1280px) {         /* xl / large desktop */
+  .section-container {
+    padding-left: 10rem;             /* 160px */
+    padding-right: 10rem;
+  }
+}
+
+@media (min-width: 1536px) {         /* 2xl / very large */
+  .section-container {
+    padding-left: 14rem;             /* 224px */
+    padding-right: 14rem;
+  }
 }
 
 /* --- Process section: 5 columns → 1 on phone, 2 on tablet --- */
