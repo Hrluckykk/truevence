@@ -2,9 +2,6 @@
 <section class="why-section">
 
   <style>
-    /* =========================================================
-       WHY TRUEVENCE — fully namespaced under .why-*
-       ========================================================= */
     .why-section {
       position: relative;
       min-height: 100vh;
@@ -454,41 +451,46 @@
       50%      { transform: rotateY(2deg)  rotateX(-.6deg); }
     }
 
-    @media (max-width: 1200px) {
-      .why-layout { grid-template-columns: 1fr; gap: 60px; }
+    /* ===== RESPONSIVE (mobile-first) ===== */
+
+    @media (max-width: 639px) {
+      .why-section { padding: 60px 18px; min-height: auto; }
+      .why-layout { grid-template-columns: 1fr; gap: 50px; }
       .why-content { order: 1; padding: 0; }
-      .why-visual  { order: 2; height: 660px; }
-      .why-stack   { margin: 0 auto; }
-      .why-progress { bottom: 0; margin-left: 0; }
-    }
-
-    @media (max-width: 720px) {
-      .why-section { padding: 60px 20px; }
-      .why-title { font-size: 40px; }
-      .why-intro { font-size: 15px; }
-      .why-principles {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 28px 0;
+      .why-visual {
+        order: 2;
+        height: 480px;
+        transform: scale(.6);
+        transform-origin: top center;
+        margin-bottom: -180px;
       }
-      .why-principles:before { display: none; }
-      .why-principle { min-height: 240px; }
-      .why-principle:nth-child(2) { border: 0; }
-      .why-visual { height: 520px; }
-      .why-stack { transform: scale(.7) translateX(30px); margin-left: 0; }
-    }
-
-    @media (max-width: 480px) {
+      .why-stack { margin: 0 auto; }
       .why-title { font-size: 34px; }
-      .why-principles { grid-template-columns: 1fr; gap: 20px; }
+      .why-intro { font-size: 15px; margin: 20px 0 36px; }
+      .why-principles { grid-template-columns: 1fr; gap: 0; }
+      .why-principles:before { display: none; }
       .why-principle {
-        border: 0 !important;
+        border-right: 0 !important;
         border-bottom: 1px solid #6f59b021 !important;
-        padding-bottom: 20px;
+        padding: 22px 0 !important;
         min-height: auto;
       }
       .why-principle:last-child { border-bottom: 0 !important; }
-      .why-visual { height: 440px; }
-      .why-stack { transform: scale(.55) translateX(40px); margin-left: 0; }
+      .why-principle a { position: static; margin-top: 12px; display: inline-grid; }
+      .why-progress { position: static; transform: none; margin: 0 auto; justify-content: center; }
+    }
+
+    @media (min-width: 640px) and (max-width: 1023px) {
+      .why-section { padding: 70px 28px; }
+      .why-layout { grid-template-columns: 1fr; gap: 60px; }
+      .why-content { order: 1; padding: 0; }
+      .why-visual { order: 2; height: 640px; }
+      .why-stack  { margin: 0 auto; transform: scale(.85); transform-origin: top center; }
+      .why-title  { font-size: 52px; }
+      .why-principles { grid-template-columns: repeat(2, 1fr); gap: 28px 0; }
+      .why-principles:before { display: none; }
+      .why-principle { min-height: 240px; }
+      .why-principle:nth-child(2) { border-right: 0; }
     }
   </style>
 
