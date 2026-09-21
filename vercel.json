@@ -2,8 +2,8 @@
   "buildCommand": "npm run build",
   "outputDirectory": "public",
   "cleanUrls": true,
+  "trailingSlash": false,
   "redirects": [
-    { "source": "/index.html", "destination": "/", "permanent": true },
     { "source": "/services.html", "destination": "/services", "permanent": true },
     { "source": "/process.html", "destination": "/process", "permanent": true },
     { "source": "/about.html", "destination": "/about", "permanent": true },
