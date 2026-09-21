@@ -2,14 +2,14 @@ const fs = require('fs');
 const path = require('path');
 
 /* ------------------------------------------------------------------
-   TRUEVENCE — BUILD SCRIPT (repo root)
-   Sources:  src/pages/**/*.html
-   Uses:     partials/*.html, src/components/*.html
-   Copies:   src/assets/  →  public/assets/
-   Output:   public/**  (src/pages/ prefix stripped)
+   TRUEVENCE — BUILD SCRIPT  (scripts/build.js)
+   Sources:  ../src/pages/**/*.html
+   Uses:     ../partials/*.html, ../src/components/*.html
+   Copies:   ../src/assets/  →  ../public/assets/
+   Output:   ../public/**  (src/pages/ prefix stripped)
    ------------------------------------------------------------------ */
 
-const rootDir       = __dirname;
+const rootDir       = path.join(__dirname, '..');
 const pagesDir      = path.join(rootDir, 'src', 'pages');
 const partialsDir   = path.join(rootDir, 'partials');
 const componentsDir = path.join(rootDir, 'src', 'components');
@@ -183,7 +183,7 @@ for (const filePath of htmlFiles) {
   }
 });
 
-/* ---------- 9. Copy favicons from root OR src/assets/images ---------- */
+/* ---------- 9. Copy favicons (from root or src/assets/images) ---------- */
 const faviconSources = [
   path.join(rootDir, 'favicon.ico'),
   path.join(rootDir, 'favicon-32.png'),
