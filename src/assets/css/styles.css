@@ -1,62 +1,58 @@
 /* ============================================================
    TRUEVENCE — GLOBAL STYLES
    Mobile-first, responsive on every device.
-   Desktop (>=1280px) looks identical to the previous build.
    ============================================================ */
 
 /* ============================================================
-   CONTAINER — responsive padding that scales with viewport.
-   Used by <div class="container-fluid"> in header, footer,
-   and by Tailwind's .max-w-7xl.px-5 containers in page bodies.
+   CONTAINER — legacy helper, kept for compatibility.
    ============================================================ */
 .container-fluid,
 .max-w-7xl.px-5,
 .max-w-7xl.md\:px-8 {
   width: 100% !important;
-  padding-left: 1.25rem !important;   /* 20px  */
+  padding-left: 1.25rem !important;
   padding-right: 1.25rem !important;
 }
 
-@media (min-width: 640px) {            /* sm  */
+@media (min-width: 640px) {
   .container-fluid,
   .max-w-7xl.px-5,
   .max-w-7xl.md\:px-8 {
-    padding-left: 2rem !important;      /* 32px  */
+    padding-left: 2rem !important;
     padding-right: 2rem !important;
   }
 }
 
-@media (min-width: 1024px) {           /* lg  */
+@media (min-width: 1024px) {
   .container-fluid,
   .max-w-7xl.px-5,
   .max-w-7xl.md\:px-8 {
-    padding-left: 3rem !important;      /* 48px  */
+    padding-left: 3rem !important;
     padding-right: 3rem !important;
   }
 }
 
-@media (min-width: 1280px) {           /* xl  */
+@media (min-width: 1280px) {
   .container-fluid,
   .max-w-7xl.px-5,
   .max-w-7xl.md\:px-8 {
-    padding-left: 5rem !important;      /* 80px  */
+    padding-left: 5rem !important;
     padding-right: 5rem !important;
   }
 }
 
-@media (min-width: 1536px) {           /* 2xl */
+@media (min-width: 1536px) {
   .container-fluid,
   .max-w-7xl.px-5,
   .max-w-7xl.md\:px-8 {
-    padding-left: 7rem !important;      /* 112px */
+    padding-left: 7rem !important;
     padding-right: 7rem !important;
   }
 }
 
-/* Restore Tailwind's real max-width for .max-w-7xl containers */
 .max-w-7xl,
 .max-w-7xl.mx-auto {
-  max-width: 80rem !important;          /* 1280px */
+  max-width: 80rem !important;
   margin-left: auto !important;
   margin-right: auto !important;
 }
@@ -114,8 +110,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 
 /* ============================================================
-   CUSTOM CURSOR — desktop (fine pointer) only.
-   Completely removed from rendering on touch devices.
+   CUSTOM CURSOR
    ============================================================ */
 @media (pointer: fine) {
   body.custom-cursor,
@@ -248,7 +243,7 @@ body.cursor-active .cursor-core {
 }
 
 /* ============================================================
-   ID CARD (hero animation)
+   ID CARD
    ============================================================ */
 .id-card {
   position: relative;
@@ -292,7 +287,6 @@ body.cursor-active .cursor-core {
   border-radius: 4px;
 }
 
-/* Slow down heavy animations on small screens */
 @media (max-width: 768px) {
   .id-card::after { animation-duration: 5s; }
   .stamp         { animation-duration: 5s; }
@@ -422,7 +416,6 @@ body.cursor-active .cursor-core {
 
 /* ============================================================
    WHAT WE VERIFY
-   Mobile-first. On >=1024px, status card floats to the right.
    ============================================================ */
 .verify-menu {
   display: flex;
@@ -764,12 +757,10 @@ body.cursor-active .cursor-core {
 .table-of-contents a:hover { padding-left: 4px; }
 
 /* ============================================================
-   RESPONSIVE OVERRIDES — mobile + tablet
-   Appended. Nothing above this line is affected.
-   PC (>=1024px) renders exactly as before.
+   RESPONSIVE OVERRIDES
    ============================================================ */
 
-/* --- Hero visual (background cards hidden on phone, shown >=1024px) --- */
+/* --- Hero visual --- */
 .hero-visual {
   position: relative;
   display: flex;
@@ -784,17 +775,16 @@ body.cursor-active .cursor-core {
 }
 
 /* ============================================================
-   SECTION CONTAINER — equal left/right gaps at every size.
-   Used by: header, footer, hero, process, contact, blog,
-   and every other section. All sections share the same
-   horizontal start and end positions.
+   SECTION CONTAINER — the single source of horizontal padding.
+   Equal left/right at every breakpoint.
+   Used by: header, footer, hero, process, contact, blog.
    ============================================================ */
 .section-container {
   width: 100%;
   max-width: 100%;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 1.25rem;   /* 20px  — phone  */
+  padding-left: 1.25rem;    /* 20px  — phone  */
   padding-right: 1.25rem;
 }
 
@@ -807,26 +797,26 @@ body.cursor-active .cursor-core {
 
 @media (min-width: 1024px) {         /* lg / desktop */
   .section-container {
-    padding-left: 6rem;              /* 96px  */
-    padding-right: 6rem;
+    padding-left: 5rem;              /* 80px  */
+    padding-right: 5rem;
   }
 }
 
 @media (min-width: 1280px) {         /* xl / large desktop */
+  .section-container {
+    padding-left: 7rem;              /* 112px */
+    padding-right: 7rem;
+  }
+}
+
+@media (min-width: 1536px) {         /* 2xl / very large */
   .section-container {
     padding-left: 10rem;             /* 160px */
     padding-right: 10rem;
   }
 }
 
-@media (min-width: 1536px) {         /* 2xl / very large */
-  .section-container {
-    padding-left: 14rem;             /* 224px */
-    padding-right: 14rem;
-  }
-}
-
-/* --- Process section: 5 columns → 1 on phone, 2 on tablet --- */
+/* --- Process section responsive grid --- */
 @media (max-width: 639px) {
   .process-grid {
     grid-template-columns: 1fr !important;
