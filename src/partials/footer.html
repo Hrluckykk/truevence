@@ -1,7 +1,7 @@
 <footer class="bg-ink text-white pt-16 pb-8 dark-scan-grid">
-  <div style="width:100%; max-width:100%; padding-left:250px; padding-right:220px;">
-    <div class="flex gap-12 pb-12 border-b border-white/10">
-      <div style="flex: 0 0 280px;">
+  <div class="section-container">
+    <div class="footer-grid">
+      <div class="footer-brand">
         <div class="flex items-center gap-2 mb-4">
           <span class="font-display font-extrabold text-xl tracking-tight">TRUEVENCE</span>
         </div>
@@ -21,8 +21,8 @@
           </a>
         </div>
       </div>
-      <div class="flex-1"></div>
-      <div class="shrink-0">
+
+      <div class="footer-col">
         <h4 class="font-mono-ui text-[11px] tracking-widest text-white/40 mb-6">NAVIGATE</h4>
         <ul class="space-y-3 text-sm text-white/70">
           <li><a href="/index.html" class="hover:text-violetlt transition-colors">Home</a></li>
@@ -35,7 +35,8 @@
           <li><a href="/blog.html" class="hover:text-violetlt transition-colors">Blog</a></li>
         </ul>
       </div>
-      <div class="shrink-0">
+
+      <div class="footer-col">
         <h4 class="font-mono-ui text-[11px] tracking-widest text-white/40 mb-6">LEGAL</h4>
         <ul class="space-y-3 text-sm text-white/70">
           <li><a href="/legal/terms-of-service.html" class="hover:text-violetlt transition-colors">Terms of Service</a></li>
@@ -47,7 +48,8 @@
           <li><a href="/legal/security.html" class="hover:text-violetlt transition-colors">Security</a></li>
         </ul>
       </div>
-      <div class="shrink-0">
+
+      <div class="footer-col">
         <h4 class="font-mono-ui text-[11px] tracking-widest text-white/40 mb-6">CONTACT</h4>
         <ul class="space-y-3 text-sm text-white/70">
           <li><a href="mailto:Contact@truevence.in" class="hover:text-violetlt transition-colors">contact@truevence.in</a></li>
@@ -55,7 +57,8 @@
           <li><a href="https://www.truevence.in" target="_blank" rel="noopener" class="hover:text-violetlt transition-colors">www.truevence.in</a></li>
         </ul>
       </div>
-      <div class="shrink-0">
+
+      <div class="footer-products">
         <h4 class="font-mono-ui text-[11px] tracking-widest text-white/40 mb-6">PRODUCTS</h4>
         <div class="grid grid-cols-2 gap-x-4 text-sm text-white/70">
           <ul class="space-y-3">
@@ -86,11 +89,37 @@
         </div>
       </div>
     </div>
-    <div class="pt-1 flex flex-col sm:flex-row items-center justify-between gap-3">
+
+    <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-3 border-t border-white/10 mt-12">
       <p class="text-white/40 text-xs">&copy; <span id="year"></span> Truevence. All rights reserved.</p>
       <p class="font-mono-ui text-[11px] text-white/30">Simply Certain</p>
     </div>
   </div>
+
+  <style>
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .footer-brand p { max-width: 320px; }
+
+    @media (min-width: 640px) {
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .footer-brand { grid-column: 1 / -1; }
+    }
+    @media (min-width: 1024px) {
+      .footer-grid {
+        grid-template-columns: 1.2fr 0.7fr 0.9fr 0.9fr 1.6fr;
+        gap: 48px;
+      }
+      .footer-brand { grid-column: auto; }
+    }
+  </style>
 </footer>
 
 <!-- Shared scripts — loaded on every page -->
