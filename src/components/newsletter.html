@@ -4,7 +4,7 @@
   <style>
     .news-section {
       position: relative;
-      min-height: 100vh;
+      min-height: 780px;
       overflow: hidden;
       padding: 80px 5.5vw 80px;
       background:
@@ -16,6 +16,7 @@
       -webkit-font-smoothing: antialiased;
       display: flex;
       align-items: center;
+      contain: layout paint style;
     }
 
     .news-section *,
@@ -44,27 +45,28 @@
         radial-gradient(circle at 95% 83%, rgba(113, 55, 245, .15) 0 2px, transparent 3px);
     }
 
+    /* Was: filter: blur(65px) on 460px elements. Now: pre-blurred radial gradients. */
     .news-ambient {
       position: absolute;
       border-radius: 50%;
-      filter: blur(65px);
       pointer-events: none;
     }
     .news-ambient-one {
-      width: 460px;
-      height: 460px;
-      right: 22%;
-      top: 4%;
-      background: rgba(147, 101, 255, .12);
+      width: 900px;
+      height: 900px;
+      right: 8%;
+      top: -14%;
+      background: radial-gradient(circle, rgba(147, 101, 255, .16) 0%, rgba(147, 101, 255, .04) 42%, transparent 68%);
     }
     .news-ambient-two {
-      width: 340px;
-      height: 340px;
-      left: -140px;
-      bottom: 80px;
-      background: rgba(140, 100, 255, .09);
+      width: 700px;
+      height: 700px;
+      left: -25%;
+      bottom: -20%;
+      background: radial-gradient(circle, rgba(140, 100, 255, .12) 0%, rgba(140, 100, 255, .03) 45%, transparent 70%);
     }
 
+    /* Was: backdrop-filter: blur(18px). Now: solid translucent bg. */
     .news-shell {
       position: relative;
       z-index: 3;
@@ -75,13 +77,10 @@
       padding: 90px 90px 60px;
       border: 1px solid rgba(154, 124, 242, .26);
       border-radius: 20px;
-      background:
-        linear-gradient(135deg, rgba(255, 255, 255, .56), rgba(243, 238, 255, .32));
+      background: linear-gradient(135deg, rgba(255, 255, 255, .88), rgba(248, 245, 255, .82));
       box-shadow:
         0 35px 100px rgba(83, 64, 154, .07),
         inset 0 1px 0 rgba(255, 255, 255, .92);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
     }
 
     .news-main {
@@ -91,6 +90,7 @@
       padding-top: 20px;
     }
 
+    /* Was: backdrop-filter: blur(10px). Removed. */
     .news-eyebrow {
       display: inline-flex;
       align-items: center;
@@ -99,12 +99,11 @@
       border: 1px solid #d2c0ff;
       border-radius: 20px;
       color: #7137f5;
-      background: rgba(243, 237, 255, .66);
+      background: #f3edff;
       font-family: "IBM Plex Mono", monospace;
       font-size: 10px;
       font-weight: 500;
       letter-spacing: .09em;
-      backdrop-filter: blur(10px);
     }
     .news-eyebrow span {
       margin-left: 10px;
@@ -135,6 +134,7 @@
       line-height: 1.65;
     }
 
+    /* Was: backdrop-filter: blur(15px). Removed. */
     .news-email-demo {
       position: relative;
       width: 580px;
@@ -145,11 +145,10 @@
       overflow: hidden;
       border: 1px solid #cfc1f5;
       border-radius: 20px;
-      background: rgba(255, 255, 255, .58);
+      background: #ffffff;
       box-shadow:
         0 14px 36px rgba(72, 51, 139, .06),
         inset 0 1px rgba(255, 255, 255, .9);
-      backdrop-filter: blur(15px);
       transition: border-color .25s ease, box-shadow .25s ease;
     }
     .news-email-demo:focus-within {
@@ -300,7 +299,7 @@
       font-family: "Plus Jakarta Sans", sans-serif;
       font-size: 12px;
       font-weight: 700;
-      transition: .25s ease;
+      transition: background .25s ease;
       z-index: 5;
     }
     .news-subscribe:hover { background: #1b2550; }
@@ -377,6 +376,7 @@
       transform: rotate(38deg);
     }
 
+    /* Animation gated behind .news-in-view */
     .news-orbit-point {
       position: absolute;
       z-index: 2;
@@ -386,6 +386,8 @@
       background: #8752ff;
       border: 3px solid #efe8ff;
       box-shadow: 0 0 20px rgba(113, 55, 245, .65);
+    }
+    .news-in-view .news-orbit-point {
       animation: news-point-pulse 2.8s infinite;
     }
     .news-point-one   { left: 95px;  top: 130px; }
@@ -417,18 +419,17 @@
       inset: 0;
     }
 
+    /* Was: backdrop-filter: blur(19px). Now: solid translucent bg. */
     .news-card {
       position: absolute;
       border: 1px solid rgba(255, 255, 255, .88);
-      background:
-        linear-gradient(135deg, rgba(255, 255, 255, .74), rgba(232, 225, 255, .42));
+      background: linear-gradient(135deg, #ffffff, #f0eaff);
       box-shadow:
         0 30px 65px rgba(75, 56, 143, .12),
         inset 0 1px rgba(255,255,255,.95);
-      backdrop-filter: blur(19px);
-      -webkit-backdrop-filter: blur(19px);
     }
 
+    /* Animation gated behind .news-in-view */
     .news-card-main {
       z-index: 7;
       width: 365px;
@@ -437,6 +438,8 @@
       top: 60px;
       padding: 30px;
       border-radius: 15px;
+    }
+    .news-in-view .news-card-main {
       animation: news-main-float 5s ease-in-out infinite;
     }
 
@@ -455,7 +458,7 @@
       border: 1px solid #d0bfff;
       border-radius: 15px;
       color: #6d3aef;
-      background: rgba(240, 233, 255, .65);
+      background: #f0e9ff;
       font-family: "IBM Plex Mono", monospace;
       font-size: 9px;
       font-weight: 500;
@@ -476,6 +479,8 @@
       border-radius: 10px;
       background: linear-gradient(145deg, #d8cdfd, #a99ce5);
     }
+
+    /* Was: perspective(250px) rotateX(4deg) rotateY(-25deg). Now: flat 2D. */
     .news-building-art:before {
       content: "";
       position: absolute;
@@ -483,7 +488,7 @@
       height: 270px;
       left: 80px;
       top: 40px;
-      transform: perspective(250px) rotateX(4deg) rotateY(-25deg);
+      transform: skewY(-4deg) rotate(-12deg);
       border-left: 2px solid rgba(255,255,255,.8);
       border-right: 2px solid rgba(92,70,161,.35);
       background:
@@ -492,11 +497,16 @@
         linear-gradient(145deg, #c7bbfa, #7767b3);
       box-shadow: -20px 15px 45px rgba(58,40,128,.15);
     }
+
+    /* Shimmer gated behind .news-in-view */
     .news-building-art:after {
       content: "";
       position: absolute;
       inset: 0;
       background: linear-gradient(120deg, transparent 42%, rgba(255,255,255,.35), transparent 60%);
+      transform: translateX(-120%);
+    }
+    .news-in-view .news-building-art:after {
       animation: news-image-shimmer 4s infinite;
     }
     @keyframes news-image-shimmer {
@@ -563,9 +573,9 @@
     }
     .news-network-art {
       background:
-        radial-gradient(circle at 25% 50%, #ffffffaa 0 2px, transparent 3px),
-        radial-gradient(circle at 75% 28%, #ffffffaa 0 2px, transparent 3px),
-        radial-gradient(circle at 60% 75%, #ffffffaa 0 2px, transparent 3px),
+        radial-gradient(circle at 25% 50%, rgba(255,255,255,.67) 0 2px, transparent 3px),
+        radial-gradient(circle at 75% 28%, rgba(255,255,255,.67) 0 2px, transparent 3px),
+        radial-gradient(circle at 60% 75%, rgba(255,255,255,.67) 0 2px, transparent 3px),
         linear-gradient(145deg, #c6b9f4, #8779c3);
     }
     .news-network-art:after {
@@ -575,14 +585,14 @@
       height: 1px;
       left: -30%;
       top: 50%;
-      background: #ffffff80;
+      background: rgba(255,255,255,.5);
       transform: rotate(-23deg);
-      box-shadow: 0 25px #ffffff45, 0 -25px #ffffff45;
+      box-shadow: 0 25px rgba(255,255,255,.27), 0 -25px rgba(255,255,255,.27);
     }
 
     .news-fingerprint-art {
       background:
-        repeating-radial-gradient(ellipse at center, transparent 0 5px, #fff8 6px 7px, transparent 8px 13px),
+        repeating-radial-gradient(ellipse at center, transparent 0 5px, rgba(255,255,255,.53) 6px 7px, transparent 8px 13px),
         linear-gradient(145deg, #c4b8f2, #7666b5);
     }
 
@@ -596,7 +606,7 @@
       height: 85px;
       left: 58px;
       bottom: 15px;
-      border: 3px solid #ffffffaa;
+      border: 3px solid rgba(255,255,255,.67);
       clip-path: polygon(25% 0,75% 0,100% 100%,0 100%);
     }
     .news-lighthouse-art:after {
@@ -606,8 +616,8 @@
       height: 3px;
       left: 18px;
       top: 40px;
-      background: #ffffff99;
-      box-shadow: 0 26px #ffffff45;
+      background: rgba(255,255,255,.6);
+      box-shadow: 0 26px rgba(255,255,255,.27);
     }
 
     .news-card-small h3 {
@@ -643,7 +653,7 @@
       letter-spacing: .06em;
     }
 
-    /* ===== RESPONSIVE (mobile-first) ===== */
+    /* ===== RESPONSIVE ===== */
 
     @media (max-width: 639px) {
       .news-section { padding: 40px 16px; display: block; }
@@ -689,6 +699,14 @@
         max-width: 100%;
         height: 590px;
         margin: 50px auto 0;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .news-in-view .news-orbit-point,
+      .news-in-view .news-card-main,
+      .news-in-view .news-building-art:after {
+        animation: none !important;
       }
     }
   </style>
@@ -865,13 +883,17 @@
   ];
 
   let emailIndex = 0;
-  let running = true;
+  let running = false;      // starts false — only runs when in view
+  let isInView = false;
+  let loopActive = false;
 
   function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
   }
 
   async function emailAnimation() {
+    if (loopActive) return;
+    loopActive = true;
     while (running) {
       const email = emails[emailIndex];
 
@@ -881,20 +903,18 @@
       emailIcon.classList.remove("news-show", "news-fly");
 
       for (let i = 0; i < email.length; i++) {
-        if (!running) return;
-
+        if (!running) { loopActive = false; return; }
         typedEmail.textContent += email[i];
-
         const delay =
           email[i] === "@" ? 130 :
           email[i] === "." ? 180 :
           75;
-
         await sleep(delay);
       }
 
       fakeCaret.classList.remove("news-visible");
       await sleep(700);
+      if (!running) { loopActive = false; return; }
       typedEmail.classList.remove("news-visible");
       await sleep(160);
 
@@ -907,21 +927,28 @@
 
       emailIndex = (emailIndex + 1) % emails.length;
     }
+    loopActive = false;
   }
 
-  emailStage.addEventListener("mouseenter", () => { running = false; });
+  function startTyping() {
+    if (running) return;
+    if (realInput.classList.contains("news-shown")) return;
+    running = true;
+    emailAnimation();
+  }
+
+  function stopTyping() {
+    running = false;
+  }
+
+  emailStage.addEventListener("mouseenter", stopTyping);
 
   emailStage.addEventListener("mouseleave", () => {
-    if (!running && !realInput.classList.contains("news-shown")) {
-      running = true;
-      emailAnimation();
-    }
+    if (isInView && !realInput.classList.contains("news-shown")) startTyping();
   });
 
-  emailAnimation();
-
   function enterTypingMode() {
-    running = false;
+    stopTyping();
     typingField.classList.add("news-hidden");
     emailIcon.classList.remove("news-show", "news-fly");
     fakeCaret.classList.remove("news-visible");
@@ -992,6 +1019,23 @@
       submitBtn.disabled = false;
       submitBtn.innerHTML = originalBtnHTML;
     }
+  });
+
+  // Pause the typing loop when section is off-screen
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      isInView = e.isIntersecting;
+      section.classList.toggle("news-in-view", isInView);
+      if (isInView && !realInput.classList.contains("news-shown")) startTyping();
+      else stopTyping();
+    });
+  }, { rootMargin: "200px 0px" });
+
+  io.observe(section);
+
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) stopTyping();
+    else if (isInView && !realInput.classList.contains("news-shown")) startTyping();
   });
 })();
 </script>
