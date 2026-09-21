@@ -769,20 +769,7 @@ body.cursor-active .cursor-core {
    PC (>=1024px) renders exactly as before.
    ============================================================ */
 
-/* --- Hero: stack on phone, side-by-side from tablet up --- */
-.hero-container {
-  width: 100%;
-  max-width: 100%;
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
-}
-@media (min-width: 640px) {
-  .hero-container { padding-left: 2rem; padding-right: 2rem; }
-}
-@media (min-width: 1024px) {
-  .hero-container { padding-left: 230px; padding-right: 220px; }
-}
-
+/* --- Hero visual (background cards hidden on phone, shown >=1024px) --- */
 .hero-visual {
   position: relative;
   display: flex;
@@ -796,15 +783,7 @@ body.cursor-active .cursor-core {
   .hero-visual { min-height: 560px; }
 }
 
-@media (max-width: 1023px) {
-  .hero-container .grid.lg\:grid-cols-2 {
-    grid-template-columns: 1fr !important;
-    gap: 40px !important;
-  }
-  .hero-content { padding-left: 0 !important; }
-}
-
-/* --- Generic sections using inline 250px padding --- */
+/* --- Generic sections using .section-container --- */
 .section-container {
   width: 100%;
   max-width: 100%;
