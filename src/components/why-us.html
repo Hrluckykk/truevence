@@ -4,18 +4,19 @@
   <style>
     .why-section {
       position: relative;
-      min-height: 100vh;
+      min-height: 720px;
       padding: 100px 5vw;
       overflow: hidden;
       background:
-        radial-gradient(circle at 25% 55%, #eee8ff99, transparent 27%),
-        radial-gradient(circle at 80% 20%, #e9e1ff99, transparent 25%),
+        radial-gradient(circle at 25% 55%, rgba(238, 232, 255, .6), transparent 27%),
+        radial-gradient(circle at 80% 20%, rgba(233, 225, 255, .6), transparent 25%),
         #fbfbff;
       display: flex;
       align-items: center;
       color: #10183f;
       font-family: "Plus Jakarta Sans", sans-serif;
       -webkit-font-smoothing: antialiased;
+      contain: layout paint style;
     }
 
     .why-section *,
@@ -28,8 +29,8 @@
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(#352c7110 1px, transparent 1px),
-        linear-gradient(90deg, #352c7110 1px, transparent 1px);
+        linear-gradient(rgba(53, 44, 113, .063) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(53, 44, 113, .063) 1px, transparent 1px);
       background-size: 30px 30px;
       pointer-events: none;
     }
@@ -52,27 +53,26 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      perspective: 1600px;
-      perspective-origin: 50% 45%;
     }
 
     .why-stack {
       position: relative;
       width: 640px;
       height: 620px;
-      transform-style: preserve-3d;
-      animation: why-stack-sway 9s ease-in-out infinite;
       margin-left: -30px;
     }
+    .why-in-view .why-stack {
+      animation: why-stack-sway 9s ease-in-out infinite;
+    }
 
+    /* Removed: backdrop-filter, preserve-3d, will-change, 3D transforms.
+       Now: flat 2D transforms, solid backgrounds. */
     .why-back,
     .why-report {
       position: absolute;
       width: 420px;
       height: 500px;
       border-radius: 18px;
-      transform-style: preserve-3d;
-      backface-visibility: hidden;
     }
 
     .why-back {
@@ -82,24 +82,21 @@
       display: flex;
       justify-content: space-between;
       flex-direction: column;
-      border: 1px solid #ffffffcc;
-      background: linear-gradient(135deg, #ffffffb0, #e2dbff60);
-      backdrop-filter: blur(20px);
-      color: #4a3f7a99;
+      border: 1px solid rgba(255, 255, 255, .8);
+      background: linear-gradient(135deg, #ffffff, #ece6ff);
+      color: rgba(74, 63, 122, .6);
       font-family: "IBM Plex Mono", monospace;
       font-size: 11px;
       font-weight: 500;
       letter-spacing: .14em;
       pointer-events: none;
-      will-change: transform;
-      transition: transform .9s cubic-bezier(.2,.8,.2,1),
-                  opacity .9s ease;
-      box-shadow: 0 12px 32px rgba(60,40,120,.08);
+      transition: transform .9s cubic-bezier(.2,.8,.2,1), opacity .9s ease;
+      box-shadow: 0 12px 32px rgba(60, 40, 120, .08);
     }
     .why-back span {
       align-self: flex-end;
       font-size: 12px;
-      color: #5b4a9499;
+      color: rgba(91, 74, 148, .6);
     }
     .why-back b {
       writing-mode: vertical-rl;
@@ -110,12 +107,12 @@
       white-space: nowrap;
     }
 
-    .why-b6 { transform: translate3d(-96px, 30px, -140px) rotateZ(-9deg)   rotateY(6deg); opacity: .35; z-index: 1; }
-    .why-b5 { transform: translate3d(-78px, 24px, -120px) rotateZ(-7.5deg) rotateY(5deg); opacity: .45; z-index: 2; }
-    .why-b4 { transform: translate3d(-60px, 18px, -90px)  rotateZ(-6deg)   rotateY(4deg); opacity: .58; z-index: 3; }
-    .why-b3 { transform: translate3d(-42px, 12px, -60px)  rotateZ(-4.5deg) rotateY(3deg); opacity: .7;  z-index: 4; }
-    .why-b2 { transform: translate3d(-24px, 6px,  -30px)  rotateZ(-3deg)   rotateY(2deg); opacity: .82; z-index: 5; }
-    .why-b1 { transform: translate3d(-8px,  2px,  -12px)  rotateZ(-1.5deg) rotateY(1deg); opacity: .92; z-index: 6; }
+    .why-b6 { transform: translate(-96px, 30px)  scale(.9)  rotate(-9deg);   opacity: .35; z-index: 1; }
+    .why-b5 { transform: translate(-78px, 24px)  scale(.92) rotate(-7.5deg); opacity: .45; z-index: 2; }
+    .why-b4 { transform: translate(-60px, 18px)  scale(.94) rotate(-6deg);   opacity: .58; z-index: 3; }
+    .why-b3 { transform: translate(-42px, 12px)  scale(.96) rotate(-4.5deg); opacity: .7;  z-index: 4; }
+    .why-b2 { transform: translate(-24px, 6px)   scale(.98) rotate(-3deg);   opacity: .82; z-index: 5; }
+    .why-b1 { transform: translate(-8px,  2px)              rotate(-1.5deg); opacity: .92; z-index: 6; }
 
     .why-report {
       left: 160px;
@@ -123,20 +120,19 @@
       padding: 40px 46px 34px;
       z-index: 10;
       color: #fff;
-      border: 1px solid #ffffff47;
+      border: 1px solid rgba(255, 255, 255, .28);
       background:
-        radial-gradient(circle at 50% 43%, #915fff33, transparent 28%),
-        linear-gradient(140deg, #1c2654f5, #0d1539fa);
+        radial-gradient(circle at 50% 43%, rgba(145, 95, 255, .2), transparent 28%),
+        linear-gradient(140deg, #1c2654, #0d1539);
       box-shadow:
-        0 40px 90px rgba(15,10,55,.4),
-        0 0 0 1px rgba(255,255,255,.06) inset,
-        0 0 60px rgba(140,90,255,.12);
-      transition: .65s;
+        0 30px 70px rgba(15, 10, 55, .35),
+        0 0 0 1px rgba(255, 255, 255, .06) inset;
+      transition: transform .55s ease, opacity .55s ease;
+      will-change: transform, opacity;
     }
     .why-report.why-leave {
       opacity: 0;
-      transform: translateX(35px) scale(.96) rotateZ(2deg);
-      filter: blur(5px);
+      transform: translateX(35px) scale(.96) rotate(2deg);
     }
     .why-report.why-enter {
       animation: why-enter .75s cubic-bezier(.2,.8,.2,1);
@@ -174,13 +170,14 @@
     }
     .why-orbit {
       position: absolute;
-      border: 1px solid #b189ff59;
+      border: 1px solid rgba(177, 137, 255, .35);
       border-radius: 50%;
     }
     .why-o1 { width: 300px; height: 110px; }
     .why-o2 { width: 268px; height: 162px; transform: rotate(45deg); }
     .why-o3 { width: 224px; height: 200px; transform: rotate(-55deg); }
 
+    /* Was: filter: drop-shadow(...). Now: none — shield has its own border glow. */
     .why-shield {
       width: 124px;
       height: 146px;
@@ -190,15 +187,14 @@
       z-index: 2;
       color: #d1bdff;
       font-size: 52px;
-      filter: drop-shadow(0 0 18px #915bff40);
     }
     .why-shield:before {
       content: "";
       position: absolute;
       inset: 0;
-      border: 2px solid #bd9dffe6;
+      border: 2px solid rgba(189, 157, 255, .9);
       clip-path: polygon(50% 0, 94% 15%, 86% 65%, 50% 100%, 14% 65%, 6% 15%);
-      background: #b492ff2e;
+      background: rgba(180, 146, 255, .18);
     }
     .why-shield span { position: relative; z-index: 2; }
 
@@ -212,7 +208,8 @@
     }
     .why-d1 { left: 45px;  top: 65px; }
     .why-d2 { right: 32px; top: 122px; }
-    .why-d3 { left: 132px; bottom: 10px; animation: why-pulse 2s infinite; }
+    .why-d3 { left: 132px; bottom: 10px; }
+    .why-in-view .why-d3 { animation: why-pulse 2s infinite; }
 
     .why-report p {
       margin: 0;
@@ -243,7 +240,7 @@
       color: #fff;
       font-size: 20px;
       cursor: pointer;
-      transition: .25s;
+      transition: background .25s, border-color .25s;
     }
     .why-report-footer button:hover {
       background: #7d42ff;
@@ -279,25 +276,25 @@
     }
     .why-progress i {
       background: #7438ff;
-      box-shadow: 0 0 13px #7438ff59;
+      box-shadow: 0 0 13px rgba(116, 56, 255, .35);
       transition: flex .4s ease;
     }
 
     .why-content { padding-left: 10px; }
 
+    /* Was: backdrop-filter: blur(10px). Now: solid. */
     .why-eyebrow {
       display: inline-block;
       padding: 9px 17px;
       margin-bottom: 24px;
       border: 1px solid #d8c8ff;
       border-radius: 20px;
-      background: #f5f0ffad;
+      background: #f5f0ff;
       color: #7138ef;
       font-family: "IBM Plex Mono", monospace;
       font-size: 11px;
       font-weight: 500;
       letter-spacing: .12em;
-      backdrop-filter: blur(10px);
     }
     .why-eyebrow span { color: #8f83b0; }
 
@@ -344,13 +341,14 @@
       position: relative;
       min-height: 300px;
       padding: 0 16px 24px 0;
-      border-right: 1px solid #6f59b021;
+      border-right: 1px solid rgba(111, 89, 176, .13);
       cursor: pointer;
-      transition: .35s;
+      transition: transform .35s;
     }
     .why-principle:not(:first-child) { padding-left: 16px; }
     .why-principle:last-child { border: 0; }
 
+    /* Was: backdrop-filter: blur(14px). Now: solid. */
     .why-picon {
       position: relative;
       z-index: 2;
@@ -359,20 +357,19 @@
       margin-bottom: 20px;
       display: grid;
       place-items: center;
-      border: 1px solid #7753e633;
+      border: 1px solid rgba(119, 83, 230, .2);
       border-radius: 50%;
-      background: #f8f6ff94;
-      box-shadow: 0 8px 25px #51349f14, inset 0 1px #fff;
-      backdrop-filter: blur(14px);
+      background: #f8f6ff;
+      box-shadow: 0 8px 25px rgba(81, 52, 159, .08), inset 0 1px #fff;
       color: #6f36f5;
       font-size: 30px;
-      transition: .35s;
+      transition: background .35s, border-color .35s, box-shadow .35s;
     }
     .why-principle:hover .why-picon,
     .why-principle.why-active .why-picon {
-      background: #ede6ffe6;
+      background: #ede6ff;
       border-color: #a988ff;
-      box-shadow: 0 10px 30px #6c3adc24, 0 0 0 6px #8b5df50d;
+      box-shadow: 0 10px 30px rgba(108, 58, 220, .14), 0 0 0 6px rgba(139, 93, 245, .05);
     }
 
     .why-principle small {
@@ -405,6 +402,7 @@
       line-height: 1.6;
     }
 
+    /* Was: backdrop-filter: blur(8px). Now: solid. */
     .why-principle a {
       position: absolute;
       bottom: 8px;
@@ -416,10 +414,9 @@
       border: 1px solid #d6c8f8;
       border-radius: 50%;
       color: #6330e8;
-      background: #fff6;
-      backdrop-filter: blur(8px);
+      background: #ffffff;
       font-size: 18px;
-      transition: .25s;
+      transition: background .25s, border-color .25s, color .25s, transform .25s;
     }
     .why-principle:hover a {
       background: #7d42ff;
@@ -428,17 +425,10 @@
       transform: translateY(-2px);
     }
 
+    /* Was: filter: blur(6px) / blur(0). Removed — pure opacity + transform. */
     @keyframes why-enter {
-      0% {
-        opacity: 0;
-        transform: translateX(50px) scale(.95) rotateZ(3deg);
-        filter: blur(6px);
-      }
-      65% {
-        opacity: 1;
-        transform: translateX(-5px) scale(1.01) rotateZ(-.5deg);
-        filter: blur(0);
-      }
+      0%   { opacity: 0; transform: translateX(50px) scale(.95) rotate(3deg); }
+      65%  { opacity: 1; transform: translateX(-5px) scale(1.01) rotate(-.5deg); }
       100% { opacity: 1; transform: none; }
     }
 
@@ -447,11 +437,11 @@
     }
 
     @keyframes why-stack-sway {
-      0%, 100% { transform: rotateY(-2deg) rotateX(.6deg); }
-      50%      { transform: rotateY(2deg)  rotateX(-.6deg); }
+      0%, 100% { transform: rotate(-1.5deg); }
+      50%      { transform: rotate(1.5deg); }
     }
 
-    /* ===== RESPONSIVE (mobile-first) ===== */
+    /* ===== RESPONSIVE ===== */
 
     @media (max-width: 639px) {
       .why-section { padding: 60px 18px; min-height: auto; }
@@ -471,7 +461,7 @@
       .why-principles:before { display: none; }
       .why-principle {
         border-right: 0 !important;
-        border-bottom: 1px solid #6f59b021 !important;
+        border-bottom: 1px solid rgba(111, 89, 176, .13) !important;
         padding: 22px 0 !important;
         min-height: auto;
       }
@@ -491,6 +481,14 @@
       .why-principles:before { display: none; }
       .why-principle { min-height: 240px; }
       .why-principle:nth-child(2) { border-right: 0; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .why-in-view .why-stack,
+      .why-in-view .why-d3,
+      .why-report.why-enter {
+        animation: none !important;
+      }
     }
   </style>
 
@@ -603,7 +601,8 @@
 
   let current = 0;
   let busy = false;
-  let timer;
+  let timer = null;
+  let isInView = false;
 
   function render(n) {
     if (busy || n === current) return;
@@ -635,8 +634,14 @@
   function next() { render((current + 1) % data.length); }
 
   function start() {
+    if (!isInView) return;
     clearInterval(timer);
     timer = setInterval(next, 4600);
+  }
+
+  function stop() {
+    clearInterval(timer);
+    timer = null;
   }
 
   items.forEach(x => {
@@ -646,13 +651,22 @@
     });
   });
 
-  report.addEventListener("mouseenter", () => clearInterval(timer));
+  report.addEventListener("mouseenter", stop);
   report.addEventListener("mouseleave", start);
 
   document.addEventListener("visibilitychange", () =>
-    document.hidden ? clearInterval(timer) : start()
+    document.hidden ? stop() : start()
   );
 
-  start();
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      isInView = e.isIntersecting;
+      section.classList.toggle("why-in-view", isInView);
+      if (isInView) start();
+      else stop();
+    });
+  }, { rootMargin: "200px 0px" });
+
+  io.observe(section);
 })();
 </script>
