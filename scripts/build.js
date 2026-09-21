@@ -4,14 +4,14 @@ const path = require('path');
 /* ------------------------------------------------------------------
    TRUEVENCE — BUILD SCRIPT  (scripts/build.js)
    Sources:  ../src/pages/**/*.html
-   Uses:     ../partials/*.html, ../src/components/*.html
+   Uses:     ../src/partials/*.html, ../src/components/*.html
    Copies:   ../src/assets/  →  ../public/assets/
    Output:   ../public/**  (src/pages/ prefix stripped)
    ------------------------------------------------------------------ */
 
 const rootDir       = path.join(__dirname, '..');
 const pagesDir      = path.join(rootDir, 'src', 'pages');
-const partialsDir   = path.join(rootDir, 'partials');
+const partialsDir   = path.join(rootDir, 'src', 'partials');
 const componentsDir = path.join(rootDir, 'src', 'components');
 const assetsDir     = path.join(rootDir, 'src', 'assets');
 const publicDir     = path.join(rootDir, 'public');
@@ -140,9 +140,6 @@ for (const filePath of htmlFiles) {
       replaced++;
     }
 
-    /* Strip duplicate <title>, <meta name="description">, <link rel="canonical">
-       that appear AFTER the injected head. We keep the FIRST occurrence
-       (which is now inside the injected head.html) and remove later ones. */
     const seen = { title: 0, desc: 0, canonical: 0 };
     content = content.replace(/<title>[\s\S]*?<\/title>/gi, (m) => {
       seen.title++;
@@ -198,8 +195,8 @@ for (const filePath of htmlFiles) {
 });
 
 /* ---------- 9. Copy favicons ----------
-   Copied to BOTH:
-     public/favicon-*.png     (root — some pages reference /favicon-32.png)
+   Copies into BOTH:
+     public/favicon-*.png         (root)
      public/assets/favicon-*.png  (matches head.html references)
 */
 const faviconNames = ['favicon.ico', 'favicon-32.png', 'favicon-192.png'];
@@ -210,9 +207,7 @@ for (const name of faviconNames) {
   for (const dir of faviconDirs) {
     const src = path.join(dir, name);
     if (fs.existsSync(src)) {
-      /* root copy */
       fs.copyFileSync(src, path.join(publicDir, name));
-      /* assets copy (matches /assets/favicon-*.png in head.html) */
       const assetsTarget = path.join(publicDir, 'assets', name);
       fs.mkdirSync(path.dirname(assetsTarget), { recursive: true });
       fs.copyFileSync(src, assetsTarget);
