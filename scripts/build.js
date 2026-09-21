@@ -1,14 +1,6 @@
 const fs = require('fs');
 const path = require('path');
 
-/* ------------------------------------------------------------------
-   TRUEVENCE — BUILD SCRIPT (root build.js)
-   Reads:  src/pages/**/*.html
-   Uses:   partials/*.html and src/components/*.html
-   Copies: src/assets/ → public/assets/
-   Writes: public/**  (src/pages/ prefix is stripped)
-   ------------------------------------------------------------------ */
-
 const rootDir       = __dirname;
 const pagesDir      = path.join(rootDir, 'src', 'pages');
 const partialsDir   = path.join(rootDir, 'partials');
@@ -16,26 +8,21 @@ const componentsDir = path.join(rootDir, 'src', 'components');
 const assetsDir     = path.join(rootDir, 'src', 'assets');
 const publicDir     = path.join(rootDir, 'public');
 
-/* ---------- 1. Clean public ---------- */
 if (fs.existsSync(publicDir)) {
   fs.rmSync(publicDir, { recursive: true, force: true });
 }
 fs.mkdirSync(publicDir, { recursive: true });
-console.log('✅ Cleaned public/');
+console.log('Cleaned public/');
 
-/* ---------- 2. Copy src/assets → public/assets ---------- */
 if (fs.existsSync(assetsDir)) {
   fs.cpSync(assetsDir, path.join(publicDir, 'assets'), { recursive: true });
-  console.log('✅ Copied src/assets → public/assets');
-} else {
-  console.warn('⚠️  src/assets not found');
+  console.log('Copied src/assets -> public/assets');
 }
 
-/* ---------- 3. Load partials & components ---------- */
 function loadFile(dir, name) {
   const p = path.join(dir, name);
   if (fs.existsSync(p)) return fs.readFileSync(p, 'utf8');
-  console.warn('⚠️  Missing: ' + p);
+  console.warn('Missing: ' + p);
   return '';
 }
 
@@ -60,7 +47,6 @@ const components = {
   contact:        loadFile(componentsDir, 'contact.html'),
 };
 
-/* ---------- 4. Collect all .html under src/pages ---------- */
 function collectHtml(dir, list) {
   list = list || [];
   if (!fs.existsSync(dir)) return list;
@@ -72,12 +58,8 @@ function collectHtml(dir, list) {
   return list;
 }
 
-/* ---------- 5. Extract head values ---------- */
 function extractHeadValues(content) {
-  const grab = (re) => {
-    const m = content.match(re);
-    return m ? m[1].trim() : '';
-  };
+  const grab = (re) => { const m = content.match(re); return m ? m[1].trim() : ''; };
   return {
     TITLE:     grab(/<title>([\s\S]*?)<\/title>/i),
     DESC:      grab(/<meta\s+name="description"\s+content="([^"]*)"/i),
@@ -91,12 +73,9 @@ function extractHeadValues(content) {
 }
 
 function fillVars(str, vars) {
-  return str.replace(/\{\{([A-Z_]+)\}\}/g, (_, key) =>
-    vars[key] !== undefined ? vars[key] : ''
-  );
+  return str.replace(/\{\{([A-Z_]+)\}\}/g, (_, k) => vars[k] !== undefined ? vars[k] : '');
 }
 
-/* ---------- 6. Replacement map ---------- */
 const replacements = {
   '<!-- INCLUDE_HEADER -->':         partials.header,
   '<!-- INCLUDE_FOOTER -->':         partials.footer,
@@ -114,17 +93,14 @@ const replacements = {
   '<!-- INCLUDE_CONTACT -->':        components.contact,
 };
 
-/* ---------- 7. Build each page ---------- */
 const htmlFiles = collectHtml(pagesDir);
 
 if (htmlFiles.length === 0) {
-  console.error('❌ No HTML files found in src/pages/');
+  console.error('No HTML files found in src/pages/');
   process.exit(1);
 }
 
-let totalReplacements = 0;
-const filesWithIssues = [];
-
+let total = 0;
 for (const filePath of htmlFiles) {
   let content = fs.readFileSync(filePath, 'utf8');
   let replaced = 0;
@@ -150,49 +126,28 @@ for (const filePath of htmlFiles) {
     }
   }
 
-  totalReplacements += replaced;
-
-  const remaining = content.match(/<!--\s*INCLUDE_[A-Z_]+\s*-->/g);
-  if (remaining) {
-    filesWithIssues.push({
-      file: path.relative(pagesDir, filePath),
-      placeholders: remaining,
-    });
-  }
-
-  /* IMPORTANT: strip the src/pages/ prefix so index.html → public/index.html */
+  total += replaced;
   const rel = path.relative(pagesDir, filePath);
   const out = path.join(publicDir, rel);
   fs.mkdirSync(path.dirname(out), { recursive: true });
   fs.writeFileSync(out, content);
-  console.log('  📄 ' + rel);
+  console.log('  ' + rel);
 }
 
-/* ---------- 8. Copy robots.txt + sitemap.xml ---------- */
 ['robots.txt', 'sitemap.xml'].forEach(function (f) {
   const src = path.join(rootDir, f);
   if (fs.existsSync(src)) {
     fs.copyFileSync(src, path.join(publicDir, f));
-    console.log('✅ Copied ' + f);
+    console.log('Copied ' + f);
   }
 });
 
-/* ---------- 9. Copy favicons ---------- */
 ['favicon.ico', 'favicon-32.png', 'favicon-192.png'].forEach(function (f) {
   const src = path.join(rootDir, f);
   if (fs.existsSync(src)) {
     fs.copyFileSync(src, path.join(publicDir, f));
-    console.log('✅ Copied ' + f);
+    console.log('Copied ' + f);
   }
 });
 
-/* ---------- Summary ---------- */
-console.log('\n🎉 Build complete. ' + htmlFiles.length + ' pages, ' + totalReplacements + ' replacements.');
-
-if (filesWithIssues.length > 0) {
-  console.log('\n⚠️  Files still containing un-replaced placeholders:');
-  filesWithIssues.forEach(function (item) {
-    console.log('   ' + item.file);
-    item.placeholders.forEach(function (p) { console.log('     ' + p); });
-  });
-}
+console.log('\nBuild complete. ' + htmlFiles.length + ' pages, ' + total + ' replacements.');
