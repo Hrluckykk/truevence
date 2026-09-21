@@ -415,7 +415,7 @@ body.cursor-active .cursor-core {
 }
 
 /* ============================================================
-   WHAT WE VERIFY — inner card styles
+   WHAT WE VERIFY
    ============================================================ */
 .verify-menu {
   display: flex;
@@ -797,22 +797,22 @@ body.cursor-active .cursor-core {
 
 @media (min-width: 1024px) {         /* lg / desktop */
   .section-container {
-    padding-left: 250px;
-    padding-right: 250px;
+    padding-left: 220px;
+    padding-right: 220px;
   }
 }
 
 @media (min-width: 1280px) {         /* xl / large desktop */
   .section-container {
-    padding-left: 250px;
-    padding-right: 250px;
+    padding-left: 220px;
+    padding-right: 220px;
   }
 }
 
 @media (min-width: 1536px) {         /* 2xl / very large */
   .section-container {
-    padding-left: 250px;
-    padding-right: 250px;
+    padding-left: 220px;
+    padding-right: 220px;
   }
 }
 
@@ -840,11 +840,9 @@ body.cursor-active .cursor-core {
 
 /* ============================================================
    WHAT WE VERIFY — align with section-container
-   The component ships with its own scoped <style> using
-   `padding: 80px 4.4% ...` — this block overrides that so
-   the section sits at the same 250px gutters as every other
-   section. Uses !important because the scoped rules are
-   more specific (`.services-page .pipeline-section`).
+   Overrides the component's scoped `padding: 80px 4.4% ...`
+   so the pipeline row and detail card sit at the same
+   220px gutters as every other section on desktop.
    ============================================================ */
 .services-page .pipeline-section {
   padding-left: 1.25rem !important;   /* phone  */
@@ -866,23 +864,23 @@ body.cursor-active .cursor-core {
 @media (min-width: 1024px) {
   .services-page .pipeline-section,
   .services-page .detail-section {
-    padding-left: 250px !important;   /* desktop */
-    padding-right: 250px !important;
+    padding-left: 220px !important;   /* desktop */
+    padding-right: 220px !important;
   }
 }
 
 @media (min-width: 1280px) {
   .services-page .pipeline-section,
   .services-page .detail-section {
-    padding-left: 250px !important;
-    padding-right: 250px !important;
+    padding-left: 220px !important;
+    padding-right: 220px !important;
   }
 }
 
 @media (min-width: 1536px) {
   .services-page .pipeline-section,
   .services-page .detail-section {
-    padding-left: 250px !important;
-    padding-right: 250px !important;
+    padding-left: 220px !important;
+    padding-right: 220px !important;
   }
 }
