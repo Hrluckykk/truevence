@@ -415,7 +415,7 @@ body.cursor-active .cursor-core {
 }
 
 /* ============================================================
-   WHAT WE VERIFY
+   WHAT WE VERIFY — inner card styles
    ============================================================ */
 .verify-menu {
   display: flex;
@@ -835,5 +835,54 @@ body.cursor-active .cursor-core {
   .blog-card {
     min-width: 260px !important;
     max-width: 260px !important;
+  }
+}
+
+/* ============================================================
+   WHAT WE VERIFY — align with section-container
+   The component ships with its own scoped <style> using
+   `padding: 80px 4.4% ...` — this block overrides that so
+   the section sits at the same 250px gutters as every other
+   section. Uses !important because the scoped rules are
+   more specific (`.services-page .pipeline-section`).
+   ============================================================ */
+.services-page .pipeline-section {
+  padding-left: 1.25rem !important;   /* phone  */
+  padding-right: 1.25rem !important;
+}
+.services-page .detail-section {
+  padding-left: 1.25rem !important;
+  padding-right: 1.25rem !important;
+}
+
+@media (min-width: 640px) {
+  .services-page .pipeline-section,
+  .services-page .detail-section {
+    padding-left: 2rem !important;    /* tablet */
+    padding-right: 2rem !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .services-page .pipeline-section,
+  .services-page .detail-section {
+    padding-left: 250px !important;   /* desktop */
+    padding-right: 250px !important;
+  }
+}
+
+@media (min-width: 1280px) {
+  .services-page .pipeline-section,
+  .services-page .detail-section {
+    padding-left: 250px !important;
+    padding-right: 250px !important;
+  }
+}
+
+@media (min-width: 1536px) {
+  .services-page .pipeline-section,
+  .services-page .detail-section {
+    padding-left: 250px !important;
+    padding-right: 250px !important;
   }
 }
