@@ -2,9 +2,6 @@
 <section class="ind-section">
 
   <style>
-    /* =========================================================
-       INDUSTRIES WE SERVE — fully namespaced under .ind-*
-       ========================================================= */
     .ind-section {
       position: relative;
       min-height: 100vh;
@@ -619,59 +616,24 @@
     .ind-chart i:nth-child(3) { height: 28px; }
     .ind-pin { font-size: 35px; }
 
-    @media (max-width: 1280px) {
-      .ind-layout { grid-template-columns: 38% 62%; }
-      .ind-intro h1 { font-size: 50px; }
-      .ind-visual {
-        transform: scale(.88);
-        transform-origin: right center;
-      }
-      .ind-benefit {
-        padding-left: 16px;
-        padding-right: 16px;
-        gap: 14px;
-      }
-      .ind-benefit-icon {
-        width: 52px;
-        height: 52px;
-        flex: 0 0 52px;
-        font-size: 26px;
-      }
-    }
+    /* ===== RESPONSIVE (mobile-first) ===== */
 
-    @media (max-width: 1024px) {
-      .ind-section { padding: 60px 24px 60px; }
-      .ind-layout  { grid-template-columns: 1fr; gap: 40px; }
-      .ind-intro   { padding-top: 15px; }
-      .ind-intro h1 { font-size: 48px; }
+    @media (max-width: 639px) {
+      .ind-section { padding: 48px 18px 56px; }
+      .ind-layout  { grid-template-columns: 1fr; gap: 40px; min-height: auto; }
+      .ind-intro h1 { font-size: 34px; }
+      .ind-intro p  { font-size: 14px; margin: 20px 0 26px; }
       .ind-visual {
         width: 100%;
-        max-width: 800px;
-        margin: 0 auto;
-        transform: none;
+        max-width: 100%;
         min-width: 0;
-        height: 560px;
+        height: 400px;
+        margin: 0 auto;
         justify-self: center;
-      }
-      .ind-benefits {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px 0;
-        margin-top: 50px;
-      }
-      .ind-benefit:nth-child(2) { border-right: 0; }
-      .ind-benefit:nth-child(3) { padding-left: 0; }
-    }
-
-    @media (max-width: 700px) {
-      .ind-section { padding: 45px 18px 50px; }
-      .ind-intro h1 { font-size: 40px; }
-      .ind-intro p  { font-size: 14px; }
-      .ind-visual {
-        height: 500px;
-        transform: scale(.75);
+        transform: scale(.55);
         transform-origin: top center;
       }
-      .ind-benefits { grid-template-columns: 1fr; gap: 20px; }
+      .ind-benefits { grid-template-columns: 1fr; gap: 20px; margin-top: 40px; }
       .ind-benefit {
         border-right: 0;
         border-bottom: 1px solid #d9d2eb;
@@ -681,14 +643,22 @@
       .ind-benefit:last-child { border-bottom: 0; }
     }
 
-    @media (max-width: 480px) {
-      .ind-intro h1 { font-size: 34px; }
+    @media (min-width: 640px) and (max-width: 1023px) {
+      .ind-section { padding: 60px 24px 60px; }
+      .ind-layout  { grid-template-columns: 1fr; gap: 50px; min-height: auto; }
+      .ind-intro h1 { font-size: 48px; }
       .ind-visual {
-        height: 440px;
-        transform: scale(.55);
-        transform-origin: top center;
-        margin-bottom: -180px;
+        width: 100%;
+        max-width: 800px;
+        min-width: 0;
+        height: 620px;
+        margin: 0 auto;
+        justify-self: center;
+        transform: none;
       }
+      .ind-benefits { grid-template-columns: repeat(2, 1fr); gap: 15px 0; margin-top: 50px; }
+      .ind-benefit:nth-child(2) { border-right: 0; }
+      .ind-benefit:nth-child(3) { padding-left: 0; }
     }
   </style>
 
