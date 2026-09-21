@@ -8,18 +8,13 @@
     "build": "npm run build:css && npm run build:html",
     "watch:css": "tailwindcss -i ./src/assets/css/tailwind-input.css -o ./src/assets/css/tailwind.css --watch"
   },
-  "keywords": [
-    "background-verification",
-    "bgv",
-    "kyc",
-    "employee-screening"
-  ],
+  "keywords": ["background-verification", "bgv", "kyc", "employee-screening"],
   "author": "TrueVence",
   "license": "ISC",
   "engines": {
     "node": ">=18.0.0"
   },
-  "devDependencies": {
+  "dependencies": {
     "tailwindcss": "^3.4.0"
   }
 }
