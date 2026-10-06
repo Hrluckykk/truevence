@@ -1,61 +1,101 @@
 /* ============================================================
-   INVESTIGATIVE CURSOR — magnifying glass
+   Truevence — Investigative Cursor (magnifying glass)
+   - Follows the pointer with a subtle ease
+   - Rotates slightly on hover so it reads as "scanning"
+   - Scales up on interactive elements
+   - Only runs on fine-pointer devices
    ============================================================ */
-.tv-cursor-wrap {
-  position: fixed;
-  top: 0; left: 0;
-  width: 40px; height: 40px;
-  pointer-events: none;
-  z-index: 2147483647;
-  opacity: 0;
-  transform-origin: 45% 45%;
-  will-change: transform, opacity;
-  transition:
-    opacity .2s ease,
-    transform .28s cubic-bezier(.2,.8,.2,1);
-}
-body.cursor-ready .tv-cursor-wrap { opacity: 1; }
+(function () {
+  'use strict';
+  if (window.__tvCursorInit) return;
+  window.__tvCursorInit = true;
 
-.tv-cursor-svg {
-  display: block;
-  overflow: visible;
-  filter:
-    drop-shadow(0 0 6px rgba(124,58,237,.55))
-    drop-shadow(0 2px 4px rgba(0,0,0,.35));
-  transition: transform .3s cubic-bezier(.2,.8,.2,1), filter .3s ease;
-  transform-origin: 45% 45%;
-}
+  var finePointer = false;
+  try { finePointer = window.matchMedia('(pointer: fine)').matches; } catch (e) {}
+  if (!finePointer) return;
 
-/* Nudge the lens so the pointer sits inside the glass */
-.tv-cursor-svg { transform: translate(-8%, -8%) rotate(-15deg); }
+  function ensureNode(id, cls, html) {
+    var el = document.getElementById(id);
+    if (el) return el;
+    el = document.createElement('div');
+    el.id = id;
+    el.className = cls;
+    el.setAttribute('aria-hidden', 'true');
+    if (html) el.innerHTML = html;
+    document.body.appendChild(el);
+    return el;
+  }
 
-/* Hover state — magnifier scans (rotates slightly, grows, glows brighter) */
-body.cursor-active .tv-cursor-svg {
-  transform: translate(-8%, -8%) rotate(-5deg) scale(1.15);
-  filter:
-    drop-shadow(0 0 12px rgba(124,58,237,.85))
-    drop-shadow(0 2px 6px rgba(0,0,0,.4));
-}
-body.cursor-active .tv-cursor-lens {
-  fill: rgba(124,58,237,.18);
-  stroke: #A78BFA;
-}
-body.cursor-active .tv-cursor-cross { stroke: #C9BEFB; }
-body.cursor-active .tv-cursor-shine { fill: rgba(255,255,255,.85); }
+  function boot() {
+    // Outer wrapper that follows the pointer
+    var wrap = ensureNode('tvCursorWrap', 'tv-cursor-wrap');
 
-/* Hide native cursor site-wide while custom cursor is active */
-body.custom-cursor,
-body.custom-cursor a,
-body.custom-cursor button,
-body.custom-cursor input,
-body.custom-cursor textarea,
-body.custom-cursor label,
-body.custom-cursor select,
-body.custom-cursor [role="button"] { cursor: none; }
+    // SVG magnifying glass
+    wrap.innerHTML = [
+      '<svg class="tv-cursor-svg" viewBox="0 0 40 40" width="40" height="40" fill="none" xmlns="http://www.w3.org/2000/svg">',
+        // glass handle
+        '<line class="tv-cursor-handle" x1="27" y1="27" x2="37" y2="37" stroke="url(#gHandle)" stroke-width="2.4" stroke-linecap="round"/>',
+        // glass lens
+        '<circle class="tv-cursor-lens" cx="17" cy="17" r="11" stroke="url(#gLens)" stroke-width="1.8" fill="rgba(124,58,237,0.08)"/>',
+        // inner shine
+        '<circle class="tv-cursor-shine" cx="13" cy="13" r="3.2" fill="rgba(255,255,255,0.55)"/>',
+        // small crosshair inside lens (investigation vibe)
+        '<line class="tv-cursor-cross" x1="17" y1="12" x2="17" y2="14.5" stroke="rgba(124,58,237,0.75)" stroke-width="1" stroke-linecap="round"/>',
+        '<line class="tv-cursor-cross" x1="17" y1="19.5" x2="17" y2="22" stroke="rgba(124,58,237,0.75)" stroke-width="1" stroke-linecap="round"/>',
+        '<line class="tv-cursor-cross" x1="12" y1="17" x2="14.5" y2="17" stroke="rgba(124,58,237,0.75)" stroke-width="1" stroke-linecap="round"/>',
+        '<line class="tv-cursor-cross" x1="19.5" y1="17" x2="22" y2="17" stroke="rgba(124,58,237,0.75)" stroke-width="1" stroke-linecap="round"/>',
+        // gradients
+        '<defs>',
+          '<linearGradient id="gHandle" x1="27" y1="27" x2="37" y2="37" gradientUnits="userSpaceOnUse">',
+            '<stop offset="0" stop-color="#7C3AED"/>',
+            '<stop offset="1" stop-color="#4C1D95"/>',
+          '</linearGradient>',
+          '<linearGradient id="gLens" x1="6" y1="6" x2="28" y2="28" gradientUnits="userSpaceOnUse">',
+            '<stop offset="0" stop-color="#A78BFA"/>',
+            '<stop offset="1" stop-color="#7C3AED"/>',
+          '</linearGradient>',
+        '</defs>',
+      '</svg>'
+    ].join('');
 
-/* Touch devices: no custom cursor */
-@media (pointer: coarse) {
-  .tv-cursor-wrap { display: none !important; }
-  body.custom-cursor,
-  body.custom-cursor * { cursor: auto !important; }
-}
+    document.body.classList.add('custom-cursor');
+
+    var mx = window.innerWidth / 2, my = window.innerHeight / 2;
+    var rx = mx, ry = my;
+    var ready = false;
+
+    window.addEventListener('mousemove', function (e) {
+      mx = e.clientX;
+      my = e.clientY;
+      if (!ready) { ready = true; document.body.classList.add('cursor-ready'); }
+    }, { passive: true });
+
+    // Eased follow for the whole magnifier
+    (function raf() {
+      rx += (mx - rx) * 0.22;
+      ry += (my - ry) * 0.22;
+      // offset so the lens center sits on the pointer, not the SVG corner
+      wrap.style.transform = 'translate(' + rx + 'px,' + ry + 'px) translate(-45%,-45%)';
+      requestAnimationFrame(raf);
+    })();
+
+    var hoverables = 'a, button, input, textarea, select, label, [role="button"], [data-cursor-hover]';
+    document.addEventListener('mouseover', function (e) {
+      if (e.target.closest && e.target.closest(hoverables)) {
+        document.body.classList.add('cursor-active');
+      }
+    });
+    document.addEventListener('mouseout', function (e) {
+      if (e.target.closest && e.target.closest(hoverables)) {
+        document.body.classList.remove('cursor-active');
+      }
+    });
+
+    window.addEventListener('mouseleave', function () { document.body.classList.remove('cursor-ready'); });
+    window.addEventListener('mouseenter', function () { document.body.classList.add('cursor-ready'); });
+    window.addEventListener('resize', function () { rx = mx; ry = my; }, { passive: true });
+  }
+
+  if (document.body) boot();
+  else document.addEventListener('DOMContentLoaded', boot, { once: true });
+})();
