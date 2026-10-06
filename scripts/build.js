@@ -14,6 +14,9 @@ const componentsDir = path.join(rootDir, 'src', 'components');
 const assetsDir     = path.join(rootDir, 'src', 'assets');
 const publicDir     = path.join(rootDir, 'public');
 
+// Ensure CSS output dir exists before Tailwind CLI runs
+fs.mkdirSync(path.join(publicDir, 'assets', 'css'), { recursive: true });
+
 // ---------- 1. Clean public ----------
 if (fs.existsSync(publicDir)) {
   fs.rmSync(publicDir, { recursive: true, force: true });
