@@ -58,9 +58,6 @@
 </script>
 
 <style>
-/* ============================================================
-   Nav / footer / cookie fallbacks (survive even if styles.css is slow)
-   ============================================================ */
 .section-container { max-width:1440px; margin:0 auto; padding:0 1.25rem; }
 @media (min-width:640px){ .section-container { padding:0 2rem; } }
 @media (min-width:1024px){ .section-container { padding:0 5rem; } }
@@ -73,6 +70,20 @@
   border-bottom: 1px solid rgba(11,18,48,.06);
 }
 .nav-glass a { text-decoration: none; }
+
+/* Logo — inline fallback shown if image fails */
+.nav-logo-img { height: 44px; width: auto; display: block; }
+@media (min-width:768px){ .nav-logo-img { height: 48px; } }
+.nav-logo-fallback {
+  display: none;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  font-size: 20px;
+  letter-spacing: -0.02em;
+  color: #0B1230;
+}
+.nav-logo-img.is-broken { display: none; }
+.nav-logo-img.is-broken + .nav-logo-fallback { display: inline-block; }
 
 .btn-primary {
   display:inline-flex; align-items:center; gap:8px;
@@ -101,18 +112,11 @@
 
 /* ============================================================
    PROFESSIONAL CURSOR
-   - soft outer ring with subtle blur halo
-   - crisp violet core dot
-   - grows + tints on interactive hover
-   - hides native cursor while active
    ============================================================ */
 .cursor-ring, .cursor-core {
-  position: fixed;
-  top: 0; left: 0;
-  pointer-events: none;
-  z-index: 2147483647;
-  opacity: 0;
-  will-change: transform, width, height, opacity;
+  position: fixed; top: 0; left: 0;
+  pointer-events: none; z-index: 2147483647;
+  opacity: 0; will-change: transform, width, height, opacity;
   transition:
     opacity .2s ease,
     width .28s cubic-bezier(.2,.8,.2,1),
@@ -120,7 +124,6 @@
     border-color .25s ease,
     background-color .25s ease;
 }
-
 .cursor-ring {
   width: 36px; height: 36px;
   border: 1.5px solid rgba(124,58,237,.65);
@@ -133,20 +136,14 @@
   backdrop-filter: blur(1px);
   -webkit-backdrop-filter: blur(1px);
 }
-
 .cursor-core {
   width: 6px; height: 6px;
   border-radius: 50%;
   background: #7C3AED;
-  box-shadow:
-    0 0 10px rgba(124,58,237,.85),
-    0 0 3px rgba(255,255,255,.6);
+  box-shadow: 0 0 10px rgba(124,58,237,.85), 0 0 3px rgba(255,255,255,.6);
 }
-
 body.cursor-ready .cursor-ring,
 body.cursor-ready .cursor-core { opacity: 1; }
-
-/* Hover over link/button/input */
 body.cursor-active .cursor-ring {
   width: 60px; height: 60px;
   border-color: rgba(124,58,237,.85);
@@ -156,12 +153,7 @@ body.cursor-active .cursor-ring {
     0 0 32px rgba(124,58,237,.45),
     inset 0 0 18px rgba(124,58,237,.15);
 }
-body.cursor-active .cursor-core {
-  width: 8px; height: 8px;
-  background: #A78BFA;
-}
-
-/* Hide native cursor site-wide while custom cursor is active */
+body.cursor-active .cursor-core { width: 8px; height: 8px; background: #A78BFA; }
 body.custom-cursor,
 body.custom-cursor a,
 body.custom-cursor button,
@@ -170,8 +162,6 @@ body.custom-cursor textarea,
 body.custom-cursor label,
 body.custom-cursor select,
 body.custom-cursor [role="button"] { cursor: none; }
-
-/* Touch devices: no custom cursor */
 @media (pointer: coarse) {
   .cursor-ring, .cursor-core { display: none !important; }
   body.custom-cursor,
@@ -194,9 +184,6 @@ body.custom-cursor [role="button"] { cursor: none; }
 
 [data-aos] { opacity:1 !important; transform:none !important; transition:none !important; }
 
-/* ============================================================
-   TV2 — Homepage. Everything scoped under .tv2.
-   ============================================================ */
 .tv2 {
   --ink:#050814; --navy:#0B1230; --violet:#7C3AED; --violetlt:#A78BFA; --lavender:#C9BEFB;
   --paper:#F7F7FB; --green:#3bd39b; --amber:#febc2e; --red:#ff5f57;
@@ -236,7 +223,6 @@ body.custom-cursor [role="button"] { cursor: none; }
 .tv2 [data-delay="5"] { transition-delay:.4s; }
 .tv2 [data-delay="6"] { transition-delay:.48s; }
 
-/* HERO — full viewport height on desktop */
 .tv2 .hero {
   position:relative; padding:120px 5vw 80px;
   min-height:100vh;
@@ -423,7 +409,6 @@ body.custom-cursor [role="button"] { cursor: none; }
   .tv2 .term-report-summary { grid-template-columns:1fr; }
 }
 
-/* SECTIONS — full viewport height on desktop, natural height on mobile */
 .tv2 .section {
   position:relative; padding:120px 5vw;
   min-height:100vh;
@@ -653,7 +638,12 @@ body.custom-cursor [role="button"] { cursor: none; }
   <div class="section-container">
     <div class="flex items-center justify-between h-[76px]">
       <a href="/" class="flex items-center gap-2 shrink-0">
-        <img src="https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/logo.webp" alt="Truevence background verification company logo" class="h-11 md:h-12 w-auto" width="120" height="48">
+        <img src="https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/ChatGPT%20Image%20Jul%2018%2C%202026%2C%2009_59_12%20PM.png"
+             alt="Truevence"
+             class="nav-logo-img"
+             width="160" height="48"
+             onerror="this.classList.add('is-broken')">
+        <span class="nav-logo-fallback">TRUEVENCE</span>
       </a>
       <nav class="hidden lg:flex items-center gap-9 font-display text-[14px] font-semibold tracking-wide text-navy">
         <a href="/" class="hover:text-violet transition-colors">Home</a>
