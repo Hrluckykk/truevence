@@ -44,7 +44,7 @@
 </script>
 
 <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
-<link rel="stylesheet" href="/assets/css/styles.css?v=3">
+<link rel="stylesheet" href="/assets/css/styles.css?v=4">
 
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -59,8 +59,7 @@
 
 <style>
 /* ============================================================
-   Inline fallback styles for nav + footer + cookie + cursor
-   so they render even if /assets/css/styles.css fails to load.
+   Nav / footer / cookie fallbacks (survive even if styles.css is slow)
    ============================================================ */
 .section-container { max-width:1440px; margin:0 auto; padding:0 1.25rem; }
 @media (min-width:640px){ .section-container { padding:0 2rem; } }
@@ -68,12 +67,12 @@
 @media (min-width:1280px){ .section-container { padding:0 7rem; } }
 
 .nav-glass {
-  background:rgba(255,255,255,.82);
-  backdrop-filter:blur(20px) saturate(180%);
-  -webkit-backdrop-filter:blur(20px) saturate(180%);
-  border-bottom:1px solid rgba(11,18,48,.06);
+  background: rgba(255,255,255,.82);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid rgba(11,18,48,.06);
 }
-.nav-glass a { text-decoration:none; }
+.nav-glass a { text-decoration: none; }
 
 .btn-primary {
   display:inline-flex; align-items:center; gap:8px;
@@ -100,20 +99,84 @@
   font-weight:700; cursor:pointer; font-size:14px; flex-shrink:0;
 }
 
+/* ============================================================
+   PROFESSIONAL CURSOR
+   - soft outer ring with subtle blur halo
+   - crisp violet core dot
+   - grows + tints on interactive hover
+   - hides native cursor while active
+   ============================================================ */
 .cursor-ring, .cursor-core {
-  position:fixed; top:0; left:0; pointer-events:none;
-  z-index:2147483647; opacity:0; border-radius:50%;
-  transition:opacity .25s ease;
+  position: fixed;
+  top: 0; left: 0;
+  pointer-events: none;
+  z-index: 2147483647;
+  opacity: 0;
+  will-change: transform, width, height, opacity;
+  transition:
+    opacity .2s ease,
+    width .28s cubic-bezier(.2,.8,.2,1),
+    height .28s cubic-bezier(.2,.8,.2,1),
+    border-color .25s ease,
+    background-color .25s ease;
 }
-.cursor-ring { width:32px; height:32px; border:1.5px solid rgba(124,58,237,.55); }
-.cursor-core { width:6px; height:6px; background:#7C3AED; }
+
+.cursor-ring {
+  width: 36px; height: 36px;
+  border: 1.5px solid rgba(124,58,237,.65);
+  border-radius: 50%;
+  background: rgba(124,58,237,.06);
+  box-shadow:
+    0 0 0 1px rgba(124,58,237,.06),
+    0 0 20px rgba(124,58,237,.28),
+    inset 0 0 12px rgba(124,58,237,.08);
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
+}
+
+.cursor-core {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #7C3AED;
+  box-shadow:
+    0 0 10px rgba(124,58,237,.85),
+    0 0 3px rgba(255,255,255,.6);
+}
+
 body.cursor-ready .cursor-ring,
-body.cursor-ready .cursor-core { opacity:1; }
-body.cursor-active .cursor-ring { width:48px; height:48px; border-color:rgba(124,58,237,.9); }
-body.custom-cursor { cursor:none; }
-body.custom-cursor a, body.custom-cursor button,
-body.custom-cursor input, body.custom-cursor textarea, body.custom-cursor label { cursor:none; }
-@media (pointer: coarse){ .cursor-ring, .cursor-core { display:none !important; } }
+body.cursor-ready .cursor-core { opacity: 1; }
+
+/* Hover over link/button/input */
+body.cursor-active .cursor-ring {
+  width: 60px; height: 60px;
+  border-color: rgba(124,58,237,.85);
+  background: rgba(124,58,237,.12);
+  box-shadow:
+    0 0 0 1px rgba(124,58,237,.18),
+    0 0 32px rgba(124,58,237,.45),
+    inset 0 0 18px rgba(124,58,237,.15);
+}
+body.cursor-active .cursor-core {
+  width: 8px; height: 8px;
+  background: #A78BFA;
+}
+
+/* Hide native cursor site-wide while custom cursor is active */
+body.custom-cursor,
+body.custom-cursor a,
+body.custom-cursor button,
+body.custom-cursor input,
+body.custom-cursor textarea,
+body.custom-cursor label,
+body.custom-cursor select,
+body.custom-cursor [role="button"] { cursor: none; }
+
+/* Touch devices: no custom cursor */
+@media (pointer: coarse) {
+  .cursor-ring, .cursor-core { display: none !important; }
+  body.custom-cursor,
+  body.custom-cursor * { cursor: auto !important; }
+}
 
 .footer-grid {
   display:grid; grid-template-columns:1fr; gap:40px;
@@ -132,8 +195,7 @@ body.custom-cursor input, body.custom-cursor textarea, body.custom-cursor label 
 [data-aos] { opacity:1 !important; transform:none !important; transition:none !important; }
 
 /* ============================================================
-   TV2 — Homepage. Everything scoped under .tv2 so it does not
-   collide with /assets/css/styles.css.
+   TV2 — Homepage. Everything scoped under .tv2.
    ============================================================ */
 .tv2 {
   --ink:#050814; --navy:#0B1230; --violet:#7C3AED; --violetlt:#A78BFA; --lavender:#C9BEFB;
@@ -174,8 +236,15 @@ body.custom-cursor input, body.custom-cursor textarea, body.custom-cursor label 
 .tv2 [data-delay="5"] { transition-delay:.4s; }
 .tv2 [data-delay="6"] { transition-delay:.48s; }
 
-/* HERO */
-.tv2 .hero { position:relative; padding:120px 5vw 80px; overflow:hidden; isolation:isolate; background:#070912; color:#fff; }
+/* HERO — full viewport height on desktop */
+.tv2 .hero {
+  position:relative; padding:120px 5vw 80px;
+  min-height:100vh;
+  display:flex; align-items:center;
+  overflow:hidden; isolation:isolate;
+  background:#070912; color:#fff;
+}
+@media (max-width:1050px){ .tv2 .hero { min-height:auto; padding:100px 5vw 60px; } }
 .tv2 .hero::before {
   content:''; position:absolute; inset:0; z-index:-3; transition:background 1s ease;
   background:
@@ -354,8 +423,16 @@ body.custom-cursor input, body.custom-cursor textarea, body.custom-cursor label 
   .tv2 .term-report-summary { grid-template-columns:1fr; }
 }
 
-/* SECTIONS */
-.tv2 .section { position:relative; padding:120px 5vw; overflow:hidden; }
+/* SECTIONS — full viewport height on desktop, natural height on mobile */
+.tv2 .section {
+  position:relative; padding:120px 5vw;
+  min-height:100vh;
+  display:flex; flex-direction:column; justify-content:center;
+  overflow:hidden;
+}
+@media (max-width:900px){
+  .tv2 .section { min-height:auto; padding:80px 5vw; display:block; }
+}
 .tv2 .section--cream { background:var(--cream); }
 .tv2 .section--slate { background:var(--slate-bg); }
 .tv2 .section--sand  { background:var(--sand); }
@@ -516,9 +593,10 @@ body.custom-cursor input, body.custom-cursor textarea, body.custom-cursor label 
 .tv2 .faq-item.open .faq-a { max-height:500px; }
 .tv2 .faq-a p { padding:0 0 26px; font-size:15px; line-height:1.7; color:rgba(0,0,0,.6); max-width:720px; }
 
-.tv2 .cta-banner { background: radial-gradient(circle at 85% 20%, rgba(124,58,237,.35), transparent 45%), radial-gradient(circle at 15% 90%, rgba(76,29,149,.3), transparent 45%), linear-gradient(135deg,#050814 0%,#12061F 50%,#0B1230 100%); color:#fff; padding:130px 5vw; position:relative; overflow:hidden; }
+.tv2 .cta-banner { background: radial-gradient(circle at 85% 20%, rgba(124,58,237,.35), transparent 45%), radial-gradient(circle at 15% 90%, rgba(76,29,149,.3), transparent 45%), linear-gradient(135deg,#050814 0%,#12061F 50%,#0B1230 100%); color:#fff; padding:130px 5vw; position:relative; overflow:hidden; min-height:100vh; display:flex; align-items:center; justify-content:center; }
+@media (max-width:900px){ .tv2 .cta-banner { min-height:auto; padding:80px 5vw; } }
 .tv2 .cta-banner::before { content:''; position:absolute; inset:0; background-image: linear-gradient(rgba(167,139,250,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(167,139,250,.06) 1px, transparent 1px); background-size:60px 60px; mask-image:radial-gradient(ellipse 70% 60% at center, black 20%, transparent 75%); -webkit-mask-image:radial-gradient(ellipse 70% 60% at center, black 20%, transparent 75%); pointer-events:none; }
-.tv2 .cta-inner { max-width:1440px; margin:0 auto; position:relative; z-index:1; display:grid; grid-template-columns:1.4fr 1fr; gap:60px; align-items:center; }
+.tv2 .cta-inner { max-width:1440px; margin:0 auto; position:relative; z-index:1; display:grid; grid-template-columns:1.4fr 1fr; gap:60px; align-items:center; width:100%; }
 @media (max-width:900px){ .tv2 .cta-inner { grid-template-columns:1fr; gap:36px; } }
 .tv2 .cta-inner h2 { font-family:'Plus Jakarta Sans',sans-serif; font-size:clamp(2.2rem,4.4vw,3.8rem); font-weight:800; letter-spacing:-.05em; line-height:1.02; color:#fff; }
 .tv2 .cta-inner h2 em { font-family:'Fraunces',serif; font-weight:700; color:var(--violetlt); font-style:normal; }
@@ -560,7 +638,6 @@ body.custom-cursor input, body.custom-cursor textarea, body.custom-cursor label 
 </head>
 <body class="bg-paper text-ink antialiased">
 
-<!-- Cookie Consent -->
 <div id="cookieConsent" class="cookie-banner">
   <p class="cookie-text">
     We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.
@@ -569,18 +646,15 @@ body.custom-cursor input, body.custom-cursor textarea, body.custom-cursor label 
   <button onclick="acceptCookies()" class="cookie-btn">Accept</button>
 </div>
 
-<!-- Custom cursor nodes -->
 <div class="cursor-ring" aria-hidden="true"></div>
 <div class="cursor-core" aria-hidden="true"></div>
 
-<!-- ============ NAVBAR ============ -->
 <header class="fixed top-0 left-0 right-0 z-50 nav-glass">
   <div class="section-container">
     <div class="flex items-center justify-between h-[76px]">
       <a href="/" class="flex items-center gap-2 shrink-0">
         <img src="https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/logo.webp" alt="Truevence background verification company logo" class="h-11 md:h-12 w-auto" width="120" height="48">
       </a>
-
       <nav class="hidden lg:flex items-center gap-9 font-display text-[14px] font-semibold tracking-wide text-navy">
         <a href="/" class="hover:text-violet transition-colors">Home</a>
         <a href="/services" class="hover:text-violet transition-colors">Services</a>
@@ -592,17 +666,14 @@ body.custom-cursor input, body.custom-cursor textarea, body.custom-cursor label 
         <a href="/contact" class="hover:text-violet transition-colors">Contact</a>
         <a href="/blog" class="hover:text-violet transition-colors">Blog</a>
       </nav>
-
       <div class="hidden lg:flex items-center gap-3">
         <a href="/contact" class="btn-primary font-display text-[13.5px] font-bold px-5 py-2.5 rounded-full">Request a Verification</a>
       </div>
-
       <button id="menuBtn" class="lg:hidden text-navy" aria-label="Open menu" aria-expanded="false">
         <svg id="iconMenu" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
       </button>
     </div>
   </div>
-
   <div id="mobileMenu" class="lg:hidden hidden border-t border-ink/10 bg-paper">
     <div class="px-6 py-6 flex flex-col gap-5 font-display font-semibold text-navy">
       <a href="/" class="mobile-link">Home</a>
@@ -621,7 +692,6 @@ body.custom-cursor input, body.custom-cursor textarea, body.custom-cursor label 
 
 <main class="tv2">
 
-<!-- HERO -->
 <section class="hero" id="hero" data-theme="1">
   <div class="hero-grid-bg" aria-hidden="true"></div>
   <div class="hero-inner">
@@ -772,7 +842,6 @@ body.custom-cursor input, body.custom-cursor textarea, body.custom-cursor label 
   </div>
 </section>
 
-<!-- PROBLEM -->
 <section class="section section--cream">
   <div class="grid-bg" aria-hidden="true"></div>
   <div class="tv2-container">
@@ -800,7 +869,6 @@ body.custom-cursor input, body.custom-cursor textarea, body.custom-cursor label 
   </div>
 </section>
 
-<!-- MODULES -->
 <section class="section section--slate">
   <div class="grid-bg" aria-hidden="true"></div>
   <div class="tv2-container">
@@ -825,7 +893,6 @@ body.custom-cursor input, body.custom-cursor textarea, body.custom-cursor label 
   </div>
 </section>
 
-<!-- PROCESS -->
 <section class="section section--sand">
   <div class="grid-bg" aria-hidden="true"></div>
   <div class="tv2-container">
@@ -846,7 +913,6 @@ body.custom-cursor input, body.custom-cursor textarea, body.custom-cursor label 
   </div>
 </section>
 
-<!-- SOLUTION -->
 <section class="section section--plum">
   <div class="grid-bg grid-bg--dark" aria-hidden="true"></div>
   <div class="tv2-container">
@@ -870,7 +936,6 @@ body.custom-cursor input, body.custom-cursor textarea, body.custom-cursor label 
   </div>
 </section>
 
-<!-- WHY -->
 <section class="section section--forest">
   <div class="grid-bg grid-bg--dark" aria-hidden="true"></div>
   <div class="tv2-container">
@@ -906,7 +971,6 @@ body.custom-cursor input, body.custom-cursor textarea, body.custom-cursor label 
   </div>
 </section>
 
-<!-- INDUSTRIES -->
 <section class="section section--blush">
   <div class="grid-bg" aria-hidden="true"></div>
   <div class="tv2-container">
@@ -930,7 +994,6 @@ body.custom-cursor input, body.custom-cursor textarea, body.custom-cursor label 
   </div>
 </section>
 
-<!-- BLOG -->
 <section class="section section--white">
   <div class="grid-bg" aria-hidden="true"></div>
   <div class="tv2-container">
@@ -954,7 +1017,6 @@ body.custom-cursor input, body.custom-cursor textarea, body.custom-cursor label 
   </div>
 </section>
 
-<!-- NEWSLETTER -->
 <section class="section section--plum">
   <div class="grid-bg grid-bg--dark" aria-hidden="true"></div>
   <div class="tv2-container">
@@ -980,7 +1042,6 @@ body.custom-cursor input, body.custom-cursor textarea, body.custom-cursor label 
   </div>
 </section>
 
-<!-- FAQ -->
 <section class="section section--white">
   <div class="grid-bg" aria-hidden="true"></div>
   <div class="tv2-container">
@@ -1020,7 +1081,6 @@ body.custom-cursor input, body.custom-cursor textarea, body.custom-cursor label 
   </div>
 </section>
 
-<!-- CTA -->
 <section class="cta-banner">
   <div class="cta-inner">
     <div data-reveal="left">
@@ -1036,7 +1096,6 @@ body.custom-cursor input, body.custom-cursor textarea, body.custom-cursor label 
   </div>
 </section>
 
-<!-- CONTACT -->
 <section class="section section--bone">
   <div class="grid-bg" aria-hidden="true"></div>
   <div class="tv2-container">
@@ -1075,7 +1134,6 @@ body.custom-cursor input, body.custom-cursor textarea, body.custom-cursor label 
 
 </main>
 
-<!-- FOOTER -->
 <footer class="bg-ink text-white pt-16 pb-8">
   <div class="section-container">
     <div class="footer-grid">
@@ -1138,7 +1196,6 @@ body.custom-cursor input, body.custom-cursor textarea, body.custom-cursor label 
   </div>
 </footer>
 
-<!-- WhatsApp -->
 <a href="https://wa.me/919205757344?text=Hello%20Team%20Truevence%0A%0AWe%20are%20looking%20for%20Background%20Verification%20services%20for%20our%20organization.%20Please%20connect%20with%20us%20to%20discuss%20requirements."
    target="_blank" rel="noopener"
    style="position:fixed; bottom:24px; right:24px; z-index:999; background:linear-gradient(135deg,#0B1230,#7C3AED); color:#fff; width:56px; height:56px; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 8px 20px rgba(124,58,237,0.35);"
@@ -1150,16 +1207,15 @@ body.custom-cursor input, body.custom-cursor textarea, body.custom-cursor label 
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
 <script src="/assets/js/scripts.js" defer></script>
+<script src="/assets/js/cursor.js" defer></script>
 
 <script>
 (function () {
   'use strict';
 
-  // Year
   var y = document.getElementById('year');
   if (y) y.textContent = new Date().getFullYear();
 
-  // Mobile menu
   var btn = document.getElementById('menuBtn');
   var menu = document.getElementById('mobileMenu');
   var icon = document.getElementById('iconMenu');
@@ -1181,7 +1237,6 @@ body.custom-cursor input, body.custom-cursor textarea, body.custom-cursor label 
     });
   }
 
-  // Cookie
   window.acceptCookies = function () {
     var b = document.getElementById('cookieConsent');
     if (b) b.style.display = 'none';
@@ -1194,7 +1249,6 @@ body.custom-cursor input, body.custom-cursor textarea, body.custom-cursor label 
     }
   } catch (e) {}
 
-  // TV2 sections
   var tv2 = document.querySelector('.tv2');
   if (!tv2) return;
 
