@@ -67,11 +67,13 @@
   }
 
   // ============================================================
-  // FAQ accordion
+  // FAQ accordion (idempotent — safe with TV2's own handler)
   // ============================================================
   document.querySelectorAll('.faq-item').forEach(function (item) {
+    if (item.dataset.faqBound === '1') return;
     var q = item.querySelector('.faq-q');
     if (!q) return;
+    item.dataset.faqBound = '1';
     q.addEventListener('click', function () {
       item.classList.toggle('open');
     });
