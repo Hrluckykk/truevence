@@ -1,0 +1,65 @@
+name: Strip AOS and optimize
+
+on:
+  workflow_dispatch:
+
+jobs:
+  strip:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Run cleanup script
+        run: |
+          set -e
+
+          echo "=== Files before ==="
+          find src -type f -name "*.html" | wc -l
+
+          # 1. Remove all data-aos* attributes (with values)
+          find src -type f -name "*.html" -exec sed -i -E 's/ +data-aos(-[a-z]+)?="[^"]*"//g' {} +
+
+          # 2. Remove AOS script tags (all forms)
+          find src -type f -name "*.html" -exec sed -i -E '/<script[^>]*unpkg\.com\/aos[^>]*><\/script>/d' {} +
+
+          # 3. Remove AOS CSS link tags
+          find src -type f -name "*.html" -exec sed -i -E '/<link[^>]*unpkg\.com\/aos[^>]*>/d' {} +
+
+          # 4. Remove AOS.init(...) calls
+          find src -type f -name "*.html" -exec sed -i -E '/AOS\.init\([^)]*\);?/d' {} +
+
+          # 5. Fix /styles.css path
+          find src -type f -name "*.html" -exec sed -i 's|href="/styles.css"|href="/assets/css/styles.css?v=3"|g' {} +
+
+          # 6. Swap logo URL to webp
+          find src -type f -name "*.html" -exec sed -i 's|ChatGPT%20Image%20Jul%2018%2C%202026%2C%2009_59_12%20PM.png|logo.webp|g' {} +
+
+          # 7. Also fix in JS files if they reference AOS
+          find src -type f -name "*.js" -exec sed -i -E '/AOS\.init\([^)]*\);?/d' {} + || true
+
+          echo "=== Files after ==="
+          find src -type f -name "*.html" | wc -l
+
+          echo "=== Remaining AOS references (should be 0) ==="
+          grep -r "unpkg.com/aos" src/ | wc -l || echo "0"
+
+          echo "=== Remaining data-aos (should be 0) ==="
+          grep -r "data-aos" src/ | wc -l || echo "0"
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          if git diff --quiet; then
+            echo "No changes to commit."
+          else
+            git add -A
+            git commit -m "chore: strip AOS, fix CSS paths, swap logo to webp"
+            git push
+          fi
