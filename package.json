@@ -1,14 +1,16 @@
 {
   "name": "truevence",
   "version": "1.0.0",
-  "description": "TrueVence - Background Verification Services",
-  "scripts": {
-    "build": "node scripts/build.js"
-  },
-  "keywords": ["background-verification", "bgv", "kyc", "employee-screening"],
-  "author": "TrueVence",
-  "license": "ISC",
+  "description": "Truevence static site",
+  "private": true,
   "engines": {
     "node": ">=18.0.0"
+  },
+  "scripts": {
+    "build": "node scripts/build.js && npx @tailwindcss/cli -i ./src/assets/css/tailwind.css -o ./public/assets/css/tailwind.css --minify"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.0",
+    "tailwindcss": "^4.1.0"
   }
 }
