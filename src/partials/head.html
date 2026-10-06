@@ -19,35 +19,15 @@
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192.png">
 <link rel="apple-touch-icon" href="/assets/favicon-192.png">
 
+<!-- Google Fonts — non-blocking -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap"></noscript>
 
-<script src="https://cdn.tailwindcss.com"></script>
-<script>
-  tailwind.config = {
-    theme: {
-      extend: {
-        colors: {
-          ink:      '#0B1230',
-          navy:     '#131B45',
-          navylite: '#1E2A5E',
-          violet:   '#7C3AED',
-          violetlt: '#A78BFA',
-          lavender: '#C9BEFB',
-          paper:    '#F7F7FB',
-          paperdim: '#EFEEF9',
-          slate:    '#545A78',
-        },
-        fontFamily: {
-          display: ['"Plus Jakarta Sans"', 'sans-serif'],
-          body:    ['"Inter"', 'sans-serif'],
-          mono:    ['"IBM Plex Mono"', 'monospace'],
-        },
-      }
-    }
-  }
-</script>
+<!-- Tailwind (pre-built static CSS — replaces the CDN) -->
+<link rel="stylesheet" href="/assets/css/tailwind.css">
 
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/styles.css?v=2">
+<!-- Custom global styles -->
+<link rel="stylesheet" href="/assets/css/styles.css?v=3">
