@@ -23,23 +23,951 @@
 </script>
 
 <!-- INCLUDE_HEAD -->
+
+<style>
+/* ============================================================
+   TV2 — Homepage v2 (scoped). All classes prefixed .tv2- to avoid
+   collisions with /assets/css/styles.css
+   ============================================================ */
+.tv2 { --tv2-ink:#050814; --tv2-navy:#0B1230; --tv2-violet:#7C3AED; --tv2-violetlt:#A78BFA; --tv2-lavender:#C9BEFB; --tv2-paper:#F7F7FB; --tv2-green:#3bd39b; --tv2-amber:#febc2e; --tv2-red:#ff5f57; --tv2-grey:#8B90A8; --tv2-cream:#F4EFE6; --tv2-sand:#EDE4D3; --tv2-plum:#1B0A2E; --tv2-plum-deep:#12061F; --tv2-forest:#0F2419; --tv2-slate:#EBEDF2; --tv2-bone:#E8E4DC; --tv2-blush:#F0E2DC; --tv2-border-l:rgba(10,10,10,.09); --tv2-border-m:rgba(10,10,10,.14); --tv2-border-d:rgba(255,255,255,.12); --tv2-ease:cubic-bezier(.2,.8,.2,1); --tv2-ease-out:cubic-bezier(.16,1,.3,1); }
+.tv2 *, .tv2 *::before, .tv2 *::after { box-sizing: border-box; }
+.tv2 { font-family: 'Inter', system-ui, -apple-system, sans-serif; color: var(--tv2-ink); line-height: 1.6; }
+.tv2 .tv2-wrap { max-width: 1440px; margin: 0 auto; padding: 0 5vw; position: relative; z-index: 1; }
+.tv2 .tv2-mono { font-family: 'IBM Plex Mono', ui-monospace, monospace; }
+.tv2 .tv2-display { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; }
+.tv2 .tv2-serif { font-family: 'Fraunces', Georgia, serif; font-style: normal; font-weight: 700; letter-spacing: -.02em; }
+
+.tv2 .tv2-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .26em; text-transform: uppercase; color: var(--tv2-violet); display: inline-flex; align-items: center; gap: 10px; }
+.tv2 .tv2-label::before { content: ''; width: 20px; height: 1px; background: currentColor; }
+.tv2 .tv2-label--dark { color: var(--tv2-violetlt); }
+
+.tv2 .tv2-section { position: relative; padding: 120px 0; overflow: hidden; }
+.tv2 .tv2-section--cream { background: var(--tv2-cream); }
+.tv2 .tv2-section--slate { background: var(--tv2-slate); }
+.tv2 .tv2-section--sand  { background: var(--tv2-sand); }
+.tv2 .tv2-section--bone  { background: var(--tv2-bone); }
+.tv2 .tv2-section--blush { background: var(--tv2-blush); }
+.tv2 .tv2-section--plum  { background: var(--tv2-plum); color: #fff; }
+.tv2 .tv2-section--forest{ background: var(--tv2-forest); color: #fff; }
+.tv2 .tv2-section--white { background: #fff; }
+
+.tv2 .tv2-grid-bg { position: absolute; inset: 0; pointer-events: none; background-image: radial-gradient(circle, rgba(10,10,10,.07) 1px, transparent 1px); background-size: 30px 30px; mask-image: radial-gradient(ellipse 80% 70% at center, black 40%, transparent 90%); -webkit-mask-image: radial-gradient(ellipse 80% 70% at center, black 40%, transparent 90%); z-index: 0; }
+.tv2 .tv2-grid-bg--dark { background-image: radial-gradient(circle, rgba(255,255,255,.05) 1px, transparent 1px); }
+
+.tv2 .tv2-head { display: grid; grid-template-columns: 1fr 1.4fr; gap: 60px; align-items: end; margin-bottom: 72px; }
+@media (max-width: 900px){ .tv2 .tv2-head { grid-template-columns: 1fr; gap: 24px; } }
+.tv2 .tv2-head h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(2rem,3.8vw,3.4rem); font-weight: 800; letter-spacing: -.045em; line-height: 1.02; margin-top: 18px; }
+.tv2 .tv2-head .tv2-lead { font-size: 15.5px; line-height: 1.7; color: rgba(0,0,0,.55); max-width: 500px; }
+.tv2 .tv2-section--plum .tv2-head h2, .tv2 .tv2-section--forest .tv2-head h2 { color: #fff; }
+.tv2 .tv2-section--plum .tv2-head .tv2-lead, .tv2 .tv2-section--forest .tv2-head .tv2-lead { color: rgba(255,255,255,.55); }
+
+/* Reveal */
+.tv2 [data-tv2-reveal] { opacity: 0; transform: translateY(24px); transition: opacity .9s var(--tv2-ease-out), transform .9s var(--tv2-ease-out); }
+.tv2 [data-tv2-reveal].in { opacity: 1; transform: none; }
+.tv2 [data-tv2-reveal="left"]  { transform: translateX(-40px); }
+.tv2 [data-tv2-reveal="right"] { transform: translateX(40px); }
+.tv2 [data-tv2-delay="1"] { transition-delay: .08s; }
+.tv2 [data-tv2-delay="2"] { transition-delay: .16s; }
+.tv2 [data-tv2-delay="3"] { transition-delay: .24s; }
+.tv2 [data-tv2-delay="4"] { transition-delay: .32s; }
+.tv2 [data-tv2-delay="5"] { transition-delay: .4s; }
+.tv2 [data-tv2-delay="6"] { transition-delay: .48s; }
+
+/* HERO */
+.tv2 .tv2-hero { position: relative; padding: 140px 0 90px; background: #070912; color: #fff; overflow: hidden; isolation: isolate; }
+.tv2 .tv2-hero::before { content: ''; position: absolute; inset: 0; z-index: -3; transition: background 1s ease; background: radial-gradient(circle at 78% 45%, rgba(124,58,237,.24), transparent 35%), radial-gradient(circle at 15% 85%, rgba(76,29,149,.18), transparent 32%), linear-gradient(135deg,#070912 0%,#0b1025 54%,#090b17 100%); }
+.tv2 .tv2-hero[data-theme="2"]::before { background: radial-gradient(circle at 78% 45%, rgba(254,188,46,.14), transparent 38%), radial-gradient(circle at 15% 85%, rgba(124,58,237,.18), transparent 32%), linear-gradient(135deg,#070912 0%,#0d0a1c 54%,#090b17 100%); }
+.tv2 .tv2-hero[data-theme="3"]::before { background: radial-gradient(circle at 78% 45%, rgba(124,58,237,.28), transparent 38%), radial-gradient(circle at 15% 85%, rgba(167,139,250,.14), transparent 32%), linear-gradient(135deg,#080912 0%,#0d0d24 54%,#090b17 100%); }
+.tv2 .tv2-hero[data-theme="4"]::before { background: radial-gradient(circle at 78% 45%, rgba(255,95,87,.14), transparent 38%), radial-gradient(circle at 15% 85%, rgba(124,58,237,.18), transparent 32%), linear-gradient(135deg,#0a0708 0%,#120815 54%,#090b17 100%); }
+.tv2 .tv2-hero[data-theme="5"]::before { background: radial-gradient(circle at 78% 45%, rgba(59,211,155,.18), transparent 40%), radial-gradient(circle at 15% 85%, rgba(124,58,237,.14), transparent 32%), linear-gradient(135deg,#04100b 0%,#0b1025 54%,#090b17 100%); }
+.tv2 .tv2-hero-grid { position: absolute; inset: 0; opacity: .3; background-image: linear-gradient(rgba(167,139,250,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(167,139,250,.06) 1px, transparent 1px); background-size: 60px 60px; mask-image: linear-gradient(to bottom, black 0%, black 65%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 0%, black 65%, transparent 100%); z-index: -2; }
+
+.tv2 .tv2-hero-inner { position: relative; z-index: 2; display: grid; grid-template-columns: minmax(340px,1fr) minmax(520px,1.15fr); gap: clamp(40px,5vw,90px); align-items: center; width: min(1380px,100%); margin: 0 auto; padding: 0 5vw; }
+@media (max-width: 1050px){ .tv2 .tv2-hero-inner { grid-template-columns: 1fr; max-width: 760px; } .tv2 .tv2-hero-copy { text-align: center; } .tv2 .tv2-hero-actions { justify-content: center; } }
+
+.tv2 .tv2-hero-copy { max-width: 620px; }
+.tv2 .tv2-hero-slide { position: absolute; inset: 0; opacity: 0; transform: translateY(12px); transition: opacity .55s ease, transform .7s var(--tv2-ease-out); pointer-events: none; }
+.tv2 .tv2-hero-slide.active { position: relative; opacity: 1; transform: none; pointer-events: auto; }
+
+.tv2 .tv2-badge { display: inline-flex; align-items: center; gap: 10px; padding: 8px 13px; border: 1px solid rgba(167,139,250,.24); background: rgba(255,255,255,.045); color: rgba(255,255,255,.72); border-radius: 999px; font: 600 10px/1 'IBM Plex Mono', monospace; letter-spacing: .16em; text-transform: uppercase; margin-bottom: 26px; }
+.tv2 .tv2-badge .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--tv2-green); box-shadow: 0 0 0 4px rgba(59,211,155,.12), 0 0 12px rgba(59,211,155,.65); animation: tv2Pulse 2s ease-in-out infinite; }
+.tv2 .tv2-badge.tint-amber  { border-color: rgba(254,188,46,.32); background: rgba(254,188,46,.06); }
+.tv2 .tv2-badge.tint-amber .dot  { background: var(--tv2-amber); }
+.tv2 .tv2-badge.tint-violet { border-color: rgba(167,139,250,.32); background: rgba(124,58,237,.08); }
+.tv2 .tv2-badge.tint-violet .dot { background: var(--tv2-violetlt); }
+.tv2 .tv2-badge.tint-red    { border-color: rgba(255,95,87,.32); background: rgba(255,95,87,.06); }
+.tv2 .tv2-badge.tint-red .dot    { background: var(--tv2-red); }
+.tv2 .tv2-badge.tint-green  { border-color: rgba(59,211,155,.36); background: rgba(59,211,155,.06); }
+@keyframes tv2Pulse { 0%,100% { box-shadow: 0 0 0 4px rgba(59,211,155,.12), 0 0 12px rgba(59,211,155,.65); } 50% { box-shadow: 0 0 0 8px rgba(59,211,155,.05), 0 0 18px rgba(59,211,155,.85); } }
+
+.tv2 .tv2-kicker { font: 600 10px/1.2 'IBM Plex Mono', monospace; letter-spacing: .24em; text-transform: uppercase; color: var(--tv2-violetlt); margin-bottom: 18px; }
+.tv2 .tv2-kicker.tint-amber  { color: var(--tv2-amber); }
+.tv2 .tv2-kicker.tint-red    { color: var(--tv2-red); }
+.tv2 .tv2-kicker.tint-green  { color: var(--tv2-green); }
+
+.tv2 .tv2-h1 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(2.4rem,5.2vw,4.8rem); font-weight: 800; letter-spacing: -.06em; line-height: .95; color: #fff; margin-bottom: 26px; }
+.tv2 .tv2-h1 em { font-style: normal; color: var(--tv2-violetlt); position: relative; display: inline-block; }
+.tv2 .tv2-h1 em.tint-amber { color: var(--tv2-amber); }
+.tv2 .tv2-h1 em.tint-red   { color: var(--tv2-red); }
+.tv2 .tv2-h1 em.tint-green { color: var(--tv2-green); }
+.tv2 .tv2-h1 em::after { content: ''; position: absolute; left: 0; right: 0; bottom: .06em; height: .08em; background: currentColor; opacity: .35; transform-origin: left; animation: tv2Underline 1.2s var(--tv2-ease-out) .8s both; }
+@keyframes tv2Underline { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+.tv2 .tv2-sub { max-width: 520px; color: rgba(255,255,255,.58); font-size: clamp(.96rem,1.2vw,1.08rem); line-height: 1.72; margin-bottom: 30px; }
+
+.tv2 .tv2-hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+.tv2 .tv2-btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 26px; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 14px; border-radius: 999px; transition: all .35s var(--tv2-ease); text-decoration: none; cursor: pointer; border: 1px solid transparent; }
+.tv2 .tv2-btn-primary { background: #fff; color: #080a12; border-color: #fff; }
+.tv2 .tv2-btn-primary:hover { background: var(--tv2-violetlt); border-color: var(--tv2-violetlt); }
+.tv2 .tv2-btn-ghost { color: #fff; border-color: rgba(255,255,255,.22); background: rgba(255,255,255,.025); }
+.tv2 .tv2-btn-ghost:hover { border-color: rgba(167,139,250,.7); background: rgba(124,58,237,.12); }
+.tv2 .tv2-btn-dark { background: var(--tv2-ink); color: #fff; border-color: var(--tv2-ink); }
+.tv2 .tv2-btn-dark:hover { background: var(--tv2-violet); border-color: var(--tv2-violet); }
+.tv2 .tv2-btn-outline { background: transparent; color: var(--tv2-ink); border-color: rgba(0,0,0,.2); }
+.tv2 .tv2-btn-outline:hover { border-color: var(--tv2-violet); color: var(--tv2-violet); background: rgba(124,58,237,.05); }
+
+/* Terminal */
+.tv2 .tv2-term { position: relative; width: 100%; max-width: 640px; margin-left: auto; border-radius: 20px; background: linear-gradient(180deg,#0d1225 0%,#0a0e1c 100%); border: 1px solid rgba(167,139,250,.2); box-shadow: 0 40px 90px rgba(0,0,0,.55), inset 0 0 0 1px rgba(255,255,255,.02); overflow: hidden; font-family: 'IBM Plex Mono', monospace; }
+.tv2 .tv2-term-chrome { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 16px; padding: 14px 20px; border-bottom: 1px solid rgba(167,139,250,.14); background: rgba(255,255,255,.02); }
+.tv2 .tv2-term-dots { display: flex; gap: 6px; }
+.tv2 .tv2-term-dots span { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,.14); }
+.tv2 .tv2-term-dots span:nth-child(1) { background: #ff5f57; }
+.tv2 .tv2-term-dots span:nth-child(2) { background: #febc2e; }
+.tv2 .tv2-term-dots span:nth-child(3) { background: #3bd39b; }
+.tv2 .tv2-term-path { font-size: 10px; letter-spacing: .14em; color: rgba(255,255,255,.42); text-align: center; text-transform: uppercase; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tv2 .tv2-term-live { display: inline-flex; align-items: center; gap: 7px; padding: 4px 10px; border-radius: 999px; background: rgba(59,211,155,.1); border: 1px solid rgba(59,211,155,.32); font-size: 9px; letter-spacing: .16em; color: var(--tv2-green); text-transform: uppercase; font-weight: 600; }
+.tv2 .tv2-term-live .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--tv2-green); box-shadow: 0 0 8px var(--tv2-green); animation: tv2Pulse 1.6s ease-in-out infinite; }
+
+.tv2 .tv2-term-body { position: relative; padding: 24px 26px; min-height: 440px; }
+.tv2 .tv2-term-meta { display: flex; justify-content: space-between; align-items: center; padding-bottom: 16px; margin-bottom: 16px; border-bottom: 1px dashed rgba(167,139,250,.18); font-size: 9.5px; letter-spacing: .16em; color: rgba(255,255,255,.4); text-transform: uppercase; }
+.tv2 .tv2-term-meta strong { color: #fff; font-weight: 600; }
+.tv2 .tv2-term-slide { position: absolute; top: 76px; left: 26px; right: 26px; bottom: 24px; opacity: 0; transform: translateY(12px); transition: opacity .55s ease, transform .7s var(--tv2-ease-out); pointer-events: none; }
+.tv2 .tv2-term-slide.active { opacity: 1; transform: none; pointer-events: auto; }
+
+.tv2 .tv2-term-log { font-size: 11px; line-height: 1.9; color: rgba(255,255,255,.62); }
+.tv2 .tv2-term-log .row { display: flex; gap: 10px; align-items: baseline; }
+.tv2 .tv2-term-log .ts { color: rgba(167,139,250,.7); font-size: 9.5px; flex-shrink: 0; }
+.tv2 .tv2-term-log .ok { color: var(--tv2-green); }
+.tv2 .tv2-term-log .warn { color: var(--tv2-amber); }
+.tv2 .tv2-term-log .muted { color: rgba(255,255,255,.4); }
+
+.tv2 .tv2-cand { display: grid; grid-template-columns: 56px 1fr auto; gap: 14px; align-items: center; padding: 14px; border-radius: 12px; background: rgba(255,255,255,.025); border: 1px solid rgba(167,139,250,.14); margin-bottom: 18px; }
+.tv2 .tv2-cand-av { width: 56px; height: 56px; border-radius: 12px; background: linear-gradient(135deg, rgba(124,58,237,.45), rgba(167,139,250,.25)); border: 1px solid rgba(167,139,250,.4); display: grid; place-items: center; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 18px; color: #fff; }
+.tv2 .tv2-cand-name { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 15px; color: #fff; margin-bottom: 3px; }
+.tv2 .tv2-cand-role { font-size: 9.5px; letter-spacing: .16em; color: rgba(255,255,255,.45); text-transform: uppercase; }
+.tv2 .tv2-cand-id { font-size: 9px; letter-spacing: .14em; color: rgba(167,139,250,.7); margin-top: 4px; }
+.tv2 .tv2-cand-status { padding: 5px 10px; border-radius: 999px; font-size: 9px; letter-spacing: .14em; text-transform: uppercase; font-weight: 600; background: rgba(59,211,155,.12); border: 1px solid rgba(59,211,155,.4); color: var(--tv2-green); white-space: nowrap; }
+
+.tv2 .tv2-checks { display: flex; flex-direction: column; }
+.tv2 .tv2-check { display: grid; grid-template-columns: 22px 1fr auto; gap: 12px; align-items: center; padding: 9px 4px; border-bottom: 1px dashed rgba(167,139,250,.1); font-size: 11px; }
+.tv2 .tv2-check:last-child { border-bottom: 0; }
+.tv2 .tv2-check-ico { width: 20px; height: 20px; border-radius: 50%; display: grid; place-items: center; font-size: 10px; font-weight: 800; }
+.tv2 .tv2-check-ico.pass { background: rgba(59,211,155,.14); border: 1px solid rgba(59,211,155,.5); color: var(--tv2-green); }
+.tv2 .tv2-check-ico.warn { background: rgba(254,188,46,.14); border: 1px solid rgba(254,188,46,.5); color: var(--tv2-amber); }
+.tv2 .tv2-check-ico.info { background: rgba(167,139,250,.14); border: 1px solid rgba(167,139,250,.5); color: var(--tv2-violetlt); }
+.tv2 .tv2-check-lbl { color: rgba(255,255,255,.82); font-size: 11px; }
+.tv2 .tv2-check-val { font-size: 9.5px; letter-spacing: .12em; text-transform: uppercase; font-weight: 600; }
+.tv2 .tv2-check-val.pass { color: var(--tv2-green); }
+.tv2 .tv2-check-val.warn { color: var(--tv2-amber); }
+.tv2 .tv2-check-val.info { color: var(--tv2-violetlt); }
+
+.tv2 .tv2-net { display: flex; flex-direction: column; gap: 14px; height: 100%; }
+.tv2 .tv2-net-hd { font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.45); padding-bottom: 14px; border-bottom: 1px dashed rgba(167,139,250,.18); }
+.tv2 .tv2-net-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.tv2 .tv2-node { padding: 14px; border-radius: 10px; background: rgba(255,255,255,.025); border: 1px solid rgba(167,139,250,.16); }
+.tv2 .tv2-node-hd { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+.tv2 .tv2-node-title { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 11.5px; color: #fff; }
+.tv2 .tv2-node-status { font-size: 8.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--tv2-green); font-weight: 600; }
+.tv2 .tv2-node-status.warn { color: var(--tv2-amber); }
+.tv2 .tv2-node-meta { font-size: 9px; letter-spacing: .12em; color: rgba(255,255,255,.38); text-transform: uppercase; }
+.tv2 .tv2-node-bar { height: 3px; border-radius: 2px; background: rgba(167,139,250,.14); overflow: hidden; margin-top: 10px; }
+.tv2 .tv2-node-bar span { display: block; height: 100%; width: 0; background: linear-gradient(90deg,var(--tv2-violet),var(--tv2-violetlt)); border-radius: 2px; transition: width 1s var(--tv2-ease-out); }
+.tv2 .tv2-term-slide.active .tv2-node-bar span { width: 100%; }
+
+.tv2 .tv2-report-top { display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 16px; border-bottom: 1px dashed rgba(167,139,250,.18); margin-bottom: 16px; }
+.tv2 .tv2-report-title { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 18px; color: #fff; margin-bottom: 4px; }
+.tv2 .tv2-report-sub { font-size: 9.5px; letter-spacing: .16em; text-transform: uppercase; color: rgba(167,139,250,.75); }
+.tv2 .tv2-stamp { display: inline-flex; align-items: center; gap: 8px; padding: 7px 12px; border-radius: 999px; background: rgba(59,211,155,.12); border: 1px solid rgba(59,211,155,.45); color: var(--tv2-green); font-size: 9.5px; letter-spacing: .16em; text-transform: uppercase; font-weight: 700; }
+.tv2 .tv2-report-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.tv2 .tv2-stat-mini { padding: 12px; border-radius: 10px; background: rgba(255,255,255,.025); border: 1px solid rgba(167,139,250,.14); }
+.tv2 .tv2-stat-mini .k { font-size: 9px; letter-spacing: .16em; text-transform: uppercase; color: rgba(255,255,255,.4); margin-bottom: 6px; }
+.tv2 .tv2-stat-mini .v { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 18px; color: #fff; letter-spacing: -.03em; line-height: 1; }
+.tv2 .tv2-stat-mini .v.green { color: var(--tv2-green); }
+.tv2 .tv2-stat-mini .v.amber { color: var(--tv2-amber); }
+
+.tv2 .tv2-final { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; height: 100%; gap: 14px; }
+.tv2 .tv2-final-ring { width: 96px; height: 96px; border-radius: 50%; border: 2px solid var(--tv2-green); display: grid; place-items: center; background: rgba(59,211,155,.08); box-shadow: 0 0 50px rgba(59,211,155,.25); margin-bottom: 8px; }
+.tv2 .tv2-final-ring .check { font-size: 42px; color: var(--tv2-green); font-weight: 800; line-height: 1; }
+.tv2 .tv2-final-title { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 26px; color: #fff; line-height: 1.05; }
+.tv2 .tv2-final-title span { color: var(--tv2-green); }
+.tv2 .tv2-final-sub { font-size: 10px; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.4); }
+.tv2 .tv2-final-tags { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 10px; }
+.tv2 .tv2-final-tags span { padding: 5px 11px; border-radius: 999px; background: rgba(167,139,250,.1); border: 1px solid rgba(167,139,250,.24); font-size: 9px; letter-spacing: .14em; text-transform: uppercase; color: var(--tv2-violetlt); }
+
+.tv2 .tv2-dots { position: absolute; top: 18px; right: 20px; display: flex; gap: 7px; z-index: 10; }
+.tv2 .tv2-dot { width: 22px; height: 3px; border: 0; background: rgba(255,255,255,.16); padding: 0; cursor: pointer; border-radius: 2px; position: relative; overflow: hidden; }
+.tv2 .tv2-dot.active { background: rgba(167,139,250,.25); }
+.tv2 .tv2-dot.active::after { content: ''; position: absolute; inset: 0; background: var(--tv2-violetlt); border-radius: 2px; transform-origin: left; animation: tv2DotFill 5s linear forwards; }
+@keyframes tv2DotFill { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+/* STATS BAND */
+.tv2 .tv2-band { display: flex; align-items: stretch; border-top: 1px solid var(--tv2-border-m); border-bottom: 1px solid var(--tv2-border-m); }
+.tv2 .tv2-band-item { flex: 1; padding: 56px 44px; display: flex; flex-direction: column; gap: 14px; position: relative; transition: background .4s; }
+.tv2 .tv2-band-item + .tv2-band-item { border-left: 1px solid var(--tv2-border-m); }
+.tv2 .tv2-band-item:hover { background: rgba(124,58,237,.035); }
+.tv2 .tv2-band-item::after { content: ''; position: absolute; top: 0; left: 0; width: 0; height: 3px; background: linear-gradient(90deg,var(--tv2-violet),var(--tv2-violetlt)); transition: width .7s var(--tv2-ease-out); }
+.tv2 .tv2-band-item:hover::after { width: 100%; }
+.tv2 .tv2-band-num { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(2.8rem,4.4vw,4rem); font-weight: 800; letter-spacing: -.06em; line-height: .9; display: flex; align-items: baseline; gap: 6px; }
+.tv2 .tv2-band-num span { font-size: .4em; color: var(--tv2-violet); font-weight: 700; }
+.tv2 .tv2-band-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+.tv2 .tv2-band-desc { font-size: 13.5px; line-height: 1.6; color: rgba(0,0,0,.55); }
+.tv2 .tv2-band-body { margin-top: auto; }
+@media (max-width: 900px){ .tv2 .tv2-band { flex-direction: column; } .tv2 .tv2-band-item + .tv2-band-item { border-left: 0; border-top: 1px solid var(--tv2-border-m); } .tv2 .tv2-band-item { padding: 40px 0; } }
+
+/* MODULES EDITORIAL */
+.tv2 .tv2-modules { display: grid; grid-template-columns: 1fr 1.6fr; gap: 80px; align-items: start; }
+@media (max-width: 900px){ .tv2 .tv2-modules { grid-template-columns: 1fr; gap: 40px; } }
+.tv2 .tv2-modules h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(2.4rem,4.8vw,4rem); font-weight: 800; letter-spacing: -.05em; line-height: .98; margin: 22px 0 26px; }
+.tv2 .tv2-modules h3 em { font-family: 'Fraunces', serif; font-weight: 700; color: var(--tv2-violet); }
+.tv2 .tv2-modules p { font-size: 15px; line-height: 1.7; color: rgba(0,0,0,.55); max-width: 400px; margin-bottom: 32px; }
+.tv2 .tv2-modules-meta { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .22em; text-transform: uppercase; color: rgba(0,0,0,.4); border-top: 1px solid var(--tv2-border-m); padding-top: 18px; max-width: 400px; }
+.tv2 .tv2-modules-meta strong { color: var(--tv2-violet); }
+
+.tv2 .tv2-index { display: flex; flex-direction: column; border-top: 1px solid var(--tv2-border-m); }
+.tv2 .tv2-row { display: grid; grid-template-columns: 70px 1fr auto; gap: 30px; align-items: center; padding: 22px 0; border-bottom: 1px solid var(--tv2-border-m); color: inherit; text-decoration: none; transition: padding .5s var(--tv2-ease-out), background .4s; position: relative; }
+.tv2 .tv2-row::before { content: ''; position: absolute; left: 0; top: 50%; width: 0; height: 1px; background: var(--tv2-violet); transition: width .5s var(--tv2-ease-out); }
+.tv2 .tv2-row:hover { padding-left: 32px; background: rgba(124,58,237,.035); }
+.tv2 .tv2-row:hover::before { width: 20px; }
+.tv2 .tv2-row-idx { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 26px; letter-spacing: -.04em; color: rgba(10,10,10,.18); transition: color .35s, transform .4s; }
+.tv2 .tv2-row:hover .tv2-row-idx { color: var(--tv2-violet); transform: scale(1.08); }
+.tv2 .tv2-row-text { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: clamp(1.15rem,1.6vw,1.5rem); letter-spacing: -.025em; line-height: 1.15; transition: color .3s; }
+.tv2 .tv2-row-text small { display: block; font-family: 'Inter', sans-serif; font-weight: 500; font-size: 12.5px; letter-spacing: 0; color: rgba(0,0,0,.42); margin-top: 4px; }
+.tv2 .tv2-row:hover .tv2-row-text { color: var(--tv2-violet); }
+.tv2 .tv2-row:hover .tv2-row-text small { color: rgba(124,58,237,.7); }
+.tv2 .tv2-row-arrow { font-size: 22px; color: rgba(0,0,0,.15); transition: transform .4s, color .3s; }
+.tv2 .tv2-row:hover .tv2-row-arrow { transform: translateX(10px); color: var(--tv2-violet); }
+@media (max-width: 640px){ .tv2 .tv2-row { grid-template-columns: 50px 1fr auto; gap: 18px; padding: 18px 0; } .tv2 .tv2-row-idx { font-size: 22px; } }
+
+/* SPLIT PANEL */
+.tv2 .tv2-split { display: grid; grid-template-columns: 1fr 1.4fr; border: 1px solid var(--tv2-border-d); min-height: 620px; }
+@media (max-width: 900px){ .tv2 .tv2-split { grid-template-columns: 1fr; } }
+.tv2 .tv2-split-l { background: linear-gradient(160deg,#1E0B36 0%,#0B0719 100%); padding: 60px 50px; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; }
+.tv2 .tv2-split-l::before { content: ''; position: absolute; bottom: -30%; right: -30%; width: 380px; height: 380px; background: radial-gradient(circle, rgba(124,58,237,.35), transparent 70%); filter: blur(50px); }
+.tv2 .tv2-split-kick { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .24em; text-transform: uppercase; color: var(--tv2-violetlt); position: relative; }
+.tv2 .tv2-split-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(3rem,6vw,5rem); font-weight: 800; letter-spacing: -.06em; line-height: .86; color: #fff; margin: 40px 0 auto; position: relative; }
+.tv2 .tv2-split-title::after { content: ''; display: block; width: 56px; height: 3px; background: var(--tv2-violetlt); margin-top: 24px; }
+.tv2 .tv2-split-foot { font-size: 12px; color: rgba(255,255,255,.4); letter-spacing: .06em; position: relative; margin-top: 40px; }
+.tv2 .tv2-split-r { background: rgba(255,255,255,.02); padding: 60px 50px; display: flex; flex-direction: column; }
+@media (max-width: 900px){ .tv2 .tv2-split-l, .tv2 .tv2-split-r { padding: 40px 28px; } }
+
+.tv2 .tv2-ledger { display: flex; flex-direction: column; }
+.tv2 .tv2-ledger-item { display: grid; grid-template-columns: 40px 1fr; gap: 24px; padding: 26px 0; border-bottom: 1px solid var(--tv2-border-d); transition: padding-left .4s var(--tv2-ease-out); position: relative; }
+.tv2 .tv2-ledger-item:first-child { padding-top: 0; }
+.tv2 .tv2-ledger-item:last-child { border-bottom: 0; padding-bottom: 0; }
+.tv2 .tv2-ledger-item::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: var(--tv2-violetlt); transform: scaleY(0); transform-origin: top; transition: transform .4s var(--tv2-ease-out); }
+.tv2 .tv2-ledger-item:hover { padding-left: 20px; }
+.tv2 .tv2-ledger-item:hover::before { transform: scaleY(1); }
+.tv2 .tv2-ledger-num { font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: .14em; color: var(--tv2-violetlt); padding-top: 3px; }
+.tv2 .tv2-ledger-body h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+.tv2 .tv2-ledger-body p { font-size: 13.5px; line-height: 1.65; color: rgba(255,255,255,.5); }
+
+/* PROCESS LEDGER */
+.tv2 .tv2-proc { display: flex; flex-direction: column; border-top: 1px solid var(--tv2-border-m); }
+.tv2 .tv2-proc-row { display: grid; grid-template-columns: 120px 1fr 1.4fr; gap: 40px; align-items: start; padding: 40px 0; border-bottom: 1px solid var(--tv2-border-m); transition: background .4s, padding .4s var(--tv2-ease-out); position: relative; }
+.tv2 .tv2-proc-row::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: linear-gradient(180deg,var(--tv2-violet),var(--tv2-violetlt)); transform: scaleY(0); transform-origin: top; transition: transform .5s var(--tv2-ease-out); }
+.tv2 .tv2-proc-row:hover { padding-left: 28px; background: rgba(124,58,237,.03); }
+.tv2 .tv2-proc-row:hover::before { transform: scaleY(1); }
+.tv2 .tv2-proc-num { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(2.6rem,3.6vw,3.4rem); font-weight: 800; letter-spacing: -.06em; line-height: .9; opacity: .35; transition: opacity .4s, color .4s; }
+.tv2 .tv2-proc-row:hover .tv2-proc-num { opacity: 1; color: var(--tv2-violet); }
+.tv2 .tv2-proc-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 20px; font-weight: 700; letter-spacing: -.02em; padding-top: 6px; }
+.tv2 .tv2-proc-desc { font-size: 14px; line-height: 1.7; color: rgba(0,0,0,.55); padding-top: 8px; }
+@media (max-width: 900px){ .tv2 .tv2-proc-row { grid-template-columns: 60px 1fr; gap: 20px; } .tv2 .tv2-proc-desc { grid-column: 1 / -1; padding-top: 0; } }
+
+/* INDUSTRIES */
+.tv2 .tv2-ind { display: grid; grid-template-columns: 1fr 1fr; column-gap: 80px; }
+@media (max-width: 800px){ .tv2 .tv2-ind { grid-template-columns: 1fr; column-gap: 0; } }
+.tv2 .tv2-ind-item { display: grid; grid-template-columns: 44px 1fr auto; gap: 20px; align-items: baseline; padding: 26px 0; border-bottom: 1px solid var(--tv2-border-m); transition: padding .4s var(--tv2-ease-out); position: relative; text-decoration: none; color: inherit; }
+.tv2 .tv2-ind-item::after { content: ''; position: absolute; bottom: -1px; left: 0; width: 0; height: 1px; background: var(--tv2-violet); transition: width .5s var(--tv2-ease-out); }
+.tv2 .tv2-ind-item:hover { padding-left: 12px; }
+.tv2 .tv2-ind-item:hover::after { width: 100%; }
+.tv2 .tv2-ind-num { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .2em; color: var(--tv2-violet); opacity: .6; }
+.tv2 .tv2-ind-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 18px; font-weight: 700; letter-spacing: -.02em; margin-bottom: 4px; transition: color .3s; }
+.tv2 .tv2-ind-desc { font-size: 13px; line-height: 1.55; color: rgba(0,0,0,.5); }
+.tv2 .tv2-ind-arrow { font-size: 20px; color: rgba(0,0,0,.2); align-self: center; transition: transform .4s, color .3s; }
+.tv2 .tv2-ind-item:hover .tv2-ind-title { color: var(--tv2-violet); }
+.tv2 .tv2-ind-item:hover .tv2-ind-arrow { transform: translateX(8px); color: var(--tv2-violet); }
+
+/* BLOG SCROLL */
+.tv2 .tv2-blog-scroll { display: flex; gap: 20px; overflow-x: auto; padding-bottom: 16px; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
+.tv2 .tv2-blog-scroll::-webkit-scrollbar { height: 6px; }
+.tv2 .tv2-blog-scroll::-webkit-scrollbar-track { background: rgba(0,0,0,.05); border-radius: 3px; }
+.tv2 .tv2-blog-scroll::-webkit-scrollbar-thumb { background: var(--tv2-violet); border-radius: 3px; }
+.tv2 .tv2-blog-card { flex: 0 0 320px; scroll-snap-align: start; background: #fff; border: 1px solid var(--tv2-border-m); border-radius: 12px; padding: 28px 24px; text-decoration: none; color: inherit; transition: transform .4s var(--tv2-ease-out), border-color .3s, box-shadow .4s; display: flex; flex-direction: column; gap: 14px; }
+.tv2 .tv2-blog-card:hover { transform: translateY(-6px); border-color: var(--tv2-violet); box-shadow: 0 20px 50px rgba(124,58,237,.12); }
+.tv2 .tv2-blog-tag { font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; letter-spacing: .2em; text-transform: uppercase; color: var(--tv2-violet); }
+.tv2 .tv2-blog-title { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 17px; line-height: 1.3; letter-spacing: -.02em; }
+.tv2 .tv2-blog-desc { font-size: 13px; line-height: 1.6; color: rgba(0,0,0,.55); flex: 1; }
+.tv2 .tv2-blog-more { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--tv2-violet); display: inline-flex; align-items: center; gap: 8px; }
+
+/* NEWSLETTER */
+.tv2 .tv2-news { display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; align-items: center; }
+@media (max-width: 900px){ .tv2 .tv2-news { grid-template-columns: 1fr; gap: 36px; } }
+.tv2 .tv2-news h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(1.8rem,3vw,2.6rem); font-weight: 800; letter-spacing: -.04em; line-height: 1.08; color: #fff; margin: 18px 0 18px; }
+.tv2 .tv2-news p { font-size: 15px; line-height: 1.7; color: rgba(255,255,255,.55); max-width: 460px; }
+.tv2 .tv2-news-topics { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
+.tv2 .tv2-news-topics span { padding: 6px 13px; border-radius: 999px; border: 1px solid rgba(167,139,250,.24); background: rgba(167,139,250,.06); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--tv2-violetlt); }
+.tv2 .tv2-news-form { display: flex; flex-direction: column; gap: 12px; background: rgba(255,255,255,.03); border: 1px solid rgba(167,139,250,.18); border-radius: 16px; padding: 28px; }
+.tv2 .tv2-news-form label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.4); }
+.tv2 .tv2-news-form input { width: 100%; padding: 13px 0; background: transparent; border: 0; border-bottom: 1px solid rgba(255,255,255,.2); color: #fff; font-size: 15px; outline: none; transition: border-color .3s; }
+.tv2 .tv2-news-form input::placeholder { color: rgba(255,255,255,.35); }
+.tv2 .tv2-news-form input:focus { border-bottom-color: var(--tv2-violetlt); }
+.tv2 .tv2-news-note { font-size: 12px; color: rgba(255,255,255,.5); }
+.tv2 .tv2-news-note.ok { color: var(--tv2-green); }
+
+/* FAQ */
+.tv2 .tv2-faq { max-width: 900px; margin: 0 auto; }
+.tv2 .tv2-faq-item { border-bottom: 1px solid var(--tv2-border-m); }
+.tv2 .tv2-faq-q { width: 100%; text-align: left; background: none; border: 0; padding: 26px 0; cursor: pointer; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 17px; letter-spacing: -.015em; color: var(--tv2-ink); display: flex; justify-content: space-between; align-items: center; gap: 20px; transition: color .25s; }
+.tv2 .tv2-faq-q:hover { color: var(--tv2-violet); }
+.tv2 .tv2-faq-icon { flex-shrink: 0; width: 24px; height: 24px; display: grid; place-items: center; border: 1px solid var(--tv2-border-m); border-radius: 50%; transition: transform .35s var(--tv2-ease-out), border-color .3s, background .3s, color .3s; }
+.tv2 .tv2-faq-item.open .tv2-faq-icon { transform: rotate(45deg); border-color: var(--tv2-violet); background: var(--tv2-violet); color: #fff; }
+.tv2 .tv2-faq-a { max-height: 0; overflow: hidden; transition: max-height .5s var(--tv2-ease-out); }
+.tv2 .tv2-faq-item.open .tv2-faq-a { max-height: 400px; }
+.tv2 .tv2-faq-a p { padding: 0 0 26px; font-size: 15px; line-height: 1.7; color: rgba(0,0,0,.6); max-width: 720px; }
+
+/* CTA */
+.tv2 .tv2-cta { position: relative; padding: 130px 0; overflow: hidden; background: radial-gradient(circle at 85% 20%, rgba(124,58,237,.35), transparent 45%), radial-gradient(circle at 15% 90%, rgba(76,29,149,.3), transparent 45%), linear-gradient(135deg,#050814 0%,#12061F 50%,#0B1230 100%); color: #fff; }
+.tv2 .tv2-cta::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(167,139,250,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(167,139,250,.06) 1px, transparent 1px); background-size: 60px 60px; mask-image: radial-gradient(ellipse 70% 60% at center, black 20%, transparent 75%); -webkit-mask-image: radial-gradient(ellipse 70% 60% at center, black 20%, transparent 75%); pointer-events: none; }
+.tv2 .tv2-cta-inner { max-width: 1440px; margin: 0 auto; padding: 0 5vw; position: relative; z-index: 1; display: grid; grid-template-columns: 1.4fr 1fr; gap: 60px; align-items: center; }
+@media (max-width: 900px){ .tv2 .tv2-cta-inner { grid-template-columns: 1fr; gap: 36px; } }
+.tv2 .tv2-cta h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(2.2rem,4.4vw,3.8rem); font-weight: 800; letter-spacing: -.05em; line-height: 1.02; color: #fff; }
+.tv2 .tv2-cta h2 em { font-style: normal; font-family: 'Fraunces', serif; font-weight: 700; color: var(--tv2-violetlt); }
+.tv2 .tv2-cta p { font-size: 15px; line-height: 1.7; color: rgba(255,255,255,.6); margin-bottom: 26px; max-width: 400px; }
+.tv2 .tv2-cta-actions { display: flex; flex-wrap: wrap; gap: 14px; }
+
+/* Contact (mini) */
+.tv2 .tv2-contact { display: grid; grid-template-columns: 1fr 1.3fr; gap: 70px; align-items: start; }
+@media (max-width: 900px){ .tv2 .tv2-contact { grid-template-columns: 1fr; gap: 44px; } }
+.tv2 .tv2-contact h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(1.9rem,3.2vw,2.8rem); font-weight: 800; letter-spacing: -.04em; line-height: 1.08; margin: 18px 0 20px; }
+.tv2 .tv2-contact p { font-size: 15px; line-height: 1.7; color: rgba(0,0,0,.55); margin-bottom: 40px; max-width: 400px; }
+.tv2 .tv2-contact-lines { display: flex; flex-direction: column; border-top: 1px solid var(--tv2-border-m); }
+.tv2 .tv2-contact-line { display: flex; align-items: center; gap: 16px; padding: 22px 0; border-bottom: 1px solid var(--tv2-border-m); font-size: 14.5px; color: rgba(0,0,0,.75); text-decoration: none; transition: color .25s, padding .4s var(--tv2-ease-out); position: relative; }
+.tv2 .tv2-contact-line::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: linear-gradient(180deg,var(--tv2-violet),var(--tv2-violetlt)); transform: scaleY(0); transform-origin: top; transition: transform .4s var(--tv2-ease-out); }
+.tv2 .tv2-contact-line:hover { color: var(--tv2-violet); padding-left: 12px; }
+.tv2 .tv2-contact-line:hover::before { transform: scaleY(1); }
+.tv2 .tv2-contact-ico { width: 38px; height: 38px; display: grid; place-items: center; background: linear-gradient(135deg, rgba(124,58,237,.1), rgba(124,58,237,.02)); border: 1px solid rgba(124,58,237,.14); color: var(--tv2-violet); border-radius: 10px; flex-shrink: 0; transition: transform .4s var(--tv2-ease-out); }
+.tv2 .tv2-contact-line:hover .tv2-contact-ico { transform: translateY(-3px) rotate(-4deg); }
+
+.tv2 .tv2-form { display: grid; gap: 26px; padding: 48px; border: 1px solid var(--tv2-border-m); border-radius: 2px; position: relative; transition: box-shadow .4s; }
+.tv2 .tv2-form:hover { box-shadow: 0 8px 30px rgba(10,10,10,.06); }
+.tv2 .tv2-form::before { content: ''; position: absolute; top: -1px; left: 48px; width: 40px; height: 3px; background: linear-gradient(90deg,var(--tv2-violet),var(--tv2-violetlt)); }
+@media (max-width: 640px){ .tv2 .tv2-form { padding: 30px 22px; } .tv2 .tv2-form::before { left: 22px; } }
+.tv2 .tv2-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; }
+@media (max-width: 640px){ .tv2 .tv2-form-row { grid-template-columns: 1fr; } }
+.tv2 .tv2-form label { display: block; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .2em; color: rgba(0,0,0,.45); text-transform: uppercase; margin-bottom: 8px; }
+.tv2 .tv2-form input, .tv2 .tv2-form textarea { width: 100%; padding: 12px 0; background: transparent; border: 0; border-bottom: 1px solid rgba(0,0,0,.18); color: var(--tv2-ink); font-size: 15px; font-family: inherit; outline: none; transition: border-color .35s, padding .35s; }
+.tv2 .tv2-form input:focus, .tv2 .tv2-form textarea:focus { border-bottom-color: var(--tv2-violet); padding-left: 4px; }
+.tv2 .tv2-form input::placeholder, .tv2 .tv2-form textarea::placeholder { color: rgba(0,0,0,.3); }
+.tv2 .tv2-form textarea { resize: vertical; min-height: 80px; }
+.tv2 .tv2-form-note { font-size: 13px; color: rgba(0,0,0,.55); }
+.tv2 .tv2-form-note.ok { color: var(--tv2-green); }
+.tv2 .tv2-form-note.err { color: var(--tv2-red); }
+
+@media (prefers-reduced-motion: reduce){
+  .tv2 *, .tv2 *::before, .tv2 *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
+  .tv2 [data-tv2-reveal] { opacity: 1 !important; transform: none !important; }
+}
+</style>
 </head>
 <body class="bg-paper text-ink antialiased">
 
 <!-- INCLUDE_HEADER -->
-<!-- INCLUDE_HERO -->
-<!-- INCLUDE_MARQUEE -->
-<!-- INCLUDE_WHAT_WE_VERIFY -->
-<!-- INCLUDE_PROCESS -->
-<!-- INCLUDE_WHY_US -->
-<!-- INCLUDE_INDUSTRIES -->
-<!-- INCLUDE_BLOG_SCROLL -->
-<!-- INCLUDE_NEWSLETTER -->
-<!-- INCLUDE_FAQ -->
-<!-- INCLUDE_CTA_BANNER -->
-<!-- INCLUDE_CONTACT -->
+
+<main class="tv2">
+
+  <!-- ============================================================
+       1. HERO — 5-stage synced
+       ============================================================ -->
+  <section class="tv2-hero" id="tv2-hero" data-theme="1">
+    <div class="tv2-hero-grid" aria-hidden="true"></div>
+
+    <div class="tv2-hero-inner">
+      <div class="tv2-hero-copy">
+
+        <div class="tv2-hero-slide active" data-slide="1">
+          <div class="tv2-badge"><span class="dot"></span><span>Pan-India · DPDP Aligned</span></div>
+          <div class="tv2-kicker">Background intelligence / Intake</div>
+          <h1 class="tv2-h1">Don't just read<br>the <em>resume.</em></h1>
+          <p class="tv2-sub">A candidate tells you who they want to be. Truevence investigates who they actually are — connecting the records, sources and signals behind the profile before you make the hire.</p>
+          <div class="tv2-hero-actions">
+            <a href="/contact" class="tv2-btn tv2-btn-primary">Request a Verification →</a>
+            <a href="/services" class="tv2-btn tv2-btn-ghost">Explore Intelligence</a>
+          </div>
+        </div>
+
+        <div class="tv2-hero-slide" data-slide="2">
+          <div class="tv2-badge tint-amber"><span class="dot"></span><span>Candidate · Live Screening</span></div>
+          <div class="tv2-kicker tint-amber">Background intelligence / Candidate</div>
+          <h1 class="tv2-h1">Every claim<br>gets a <em class="tint-amber">source.</em></h1>
+          <p class="tv2-sub">Identity, PAN, employment and education — cross-checked at origin, not on trust. If the résumé says it, we prove it. If it can't be proven, you'll know first.</p>
+          <div class="tv2-hero-actions">
+            <a href="/contact" class="tv2-btn tv2-btn-primary">Start a Check →</a>
+            <a href="/services" class="tv2-btn tv2-btn-ghost">See Modules</a>
+          </div>
+        </div>
+
+        <div class="tv2-hero-slide" data-slide="3">
+          <div class="tv2-badge tint-violet"><span class="dot"></span><span>Multi-Source · Live Network</span></div>
+          <div class="tv2-kicker">Background intelligence / Sources</div>
+          <h1 class="tv2-h1">Four sources.<br>One <em>truth.</em></h1>
+          <p class="tv2-sub">UIDAI, universities, past employers, court records — all queried in parallel. Independent signals that converge on a single, defensible picture of the candidate.</p>
+          <div class="tv2-hero-actions">
+            <a href="/contact" class="tv2-btn tv2-btn-primary">Request a Demo →</a>
+            <a href="/process" class="tv2-btn tv2-btn-ghost">How It Works</a>
+          </div>
+        </div>
+
+        <div class="tv2-hero-slide" data-slide="4">
+          <div class="tv2-badge tint-red"><span class="dot"></span><span>Anomaly Detected · Alert</span></div>
+          <div class="tv2-kicker tint-red">Background intelligence / Red flag</div>
+          <h1 class="tv2-h1">One red flag<br>changes <em class="tint-red">everything.</em></h1>
+          <p class="tv2-sub">A tenure gap. An unverifiable degree. A pending court record. We surface the anomalies that generic screenings miss — before they become your problem.</p>
+          <div class="tv2-hero-actions">
+            <a href="/contact" class="tv2-btn tv2-btn-primary">Catch it Early →</a>
+            <a href="/services" class="tv2-btn tv2-btn-ghost">Risk Coverage</a>
+          </div>
+        </div>
+
+        <div class="tv2-hero-slide" data-slide="5">
+          <div class="tv2-badge tint-green"><span class="dot"></span><span>Report Ready · Verified</span></div>
+          <div class="tv2-kicker tint-green">Background intelligence / Delivered</div>
+          <h1 class="tv2-h1">Now hire with<br><em class="tint-green">certainty.</em></h1>
+          <p class="tv2-sub">Two to five days from request to structured report. Every claim source-checked, every anomaly documented, every finding audit-ready for your records.</p>
+          <div class="tv2-hero-actions">
+            <a href="/contact" class="tv2-btn tv2-btn-primary">Get Your Report →</a>
+            <a href="https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/Sample_Report-Rohit_Sharma-TVR-2026-0826-001.pdf" target="_blank" rel="noopener" class="tv2-btn tv2-btn-ghost">See a Sample</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Terminal -->
+      <div class="tv2-term" id="tv2-term" role="img" aria-label="Truevence verification terminal preview">
+        <div class="tv2-term-chrome">
+          <div class="tv2-term-dots"><span></span><span></span><span></span></div>
+          <div class="tv2-term-path">truevence / verify / stream</div>
+          <div class="tv2-term-live"><span class="dot"></span>Live</div>
+        </div>
+
+        <div class="tv2-term-body">
+          <div class="tv2-dots" role="tablist" aria-label="Verification stages">
+            <button class="tv2-dot active" data-slide="0" aria-label="Stage 1"></button>
+            <button class="tv2-dot" data-slide="1" aria-label="Stage 2"></button>
+            <button class="tv2-dot" data-slide="2" aria-label="Stage 3"></button>
+            <button class="tv2-dot" data-slide="3" aria-label="Stage 4"></button>
+            <button class="tv2-dot" data-slide="4" aria-label="Stage 5"></button>
+          </div>
+
+          <div class="tv2-term-meta">
+            <span>Session · <strong>TVR-2026-0826-001</strong></span>
+            <span id="tv2-term-stage">Stage 01/05</span>
+          </div>
+
+          <!-- Stage 1 -->
+          <div class="tv2-term-slide active" data-stage="1">
+            <div class="tv2-term-log">
+              <div class="row"><span class="ts">00:01</span><span>Candidate consent captured</span><span class="ok">✓</span></div>
+              <div class="row"><span class="ts">00:02</span><span>Identity packet created</span><span class="ok">✓</span></div>
+              <div class="row"><span class="ts">00:03</span><span class="muted">Fetching Aadhaar / PAN / UAN…</span></div>
+              <div class="row"><span class="ts">00:05</span><span>Primary sources reachable</span><span class="ok">✓</span></div>
+              <div class="row"><span class="ts">00:06</span><span class="muted">Scheduling field verification…</span></div>
+              <div class="row"><span class="ts">00:08</span><span>Verification pipeline armed</span><span class="warn">…</span></div>
+            </div>
+          </div>
+
+          <!-- Stage 2 -->
+          <div class="tv2-term-slide" data-stage="2">
+            <div class="tv2-cand">
+              <div class="tv2-cand-av">RS</div>
+              <div>
+                <div class="tv2-cand-name">Rohit Sharma</div>
+                <div class="tv2-cand-role">Senior Engineer · Bengaluru</div>
+                <div class="tv2-cand-id">ID · TVR-2026-0826-001</div>
+              </div>
+              <span class="tv2-cand-status">In Progress</span>
+            </div>
+            <div class="tv2-checks">
+              <div class="tv2-check"><span class="tv2-check-ico pass">✓</span><span class="tv2-check-lbl">Aadhaar Identity</span><span class="tv2-check-val pass">Verified</span></div>
+              <div class="tv2-check"><span class="tv2-check-ico pass">✓</span><span class="tv2-check-lbl">PAN Status</span><span class="tv2-check-val pass">Matched</span></div>
+              <div class="tv2-check"><span class="tv2-check-ico pass">✓</span><span class="tv2-check-lbl">Employment History</span><span class="tv2-check-val pass">Confirmed</span></div>
+              <div class="tv2-check"><span class="tv2-check-ico pass">✓</span><span class="tv2-check-lbl">Education Records</span><span class="tv2-check-val pass">Authentic</span></div>
+              <div class="tv2-check"><span class="tv2-check-ico warn">!</span><span class="tv2-check-lbl">Address Verification</span><span class="tv2-check-val warn">Field Visit</span></div>
+              <div class="tv2-check"><span class="tv2-check-ico info">•</span><span class="tv2-check-lbl">UAN / EPFO Check</span><span class="tv2-check-val info">Processing</span></div>
+            </div>
+          </div>
+
+          <!-- Stage 3 -->
+          <div class="tv2-term-slide" data-stage="3">
+            <div class="tv2-net">
+              <div class="tv2-net-hd">Multi-source verification · 4 active</div>
+              <div class="tv2-net-grid">
+                <div class="tv2-node"><div class="tv2-node-hd"><span class="tv2-node-title">Identity</span><span class="tv2-node-status">Matched</span></div><div class="tv2-node-meta">UIDAI · PAN</div><div class="tv2-node-bar"><span></span></div></div>
+                <div class="tv2-node"><div class="tv2-node-hd"><span class="tv2-node-title">Employer</span><span class="tv2-node-status">Confirmed</span></div><div class="tv2-node-meta">2 sources</div><div class="tv2-node-bar"><span></span></div></div>
+                <div class="tv2-node"><div class="tv2-node-hd"><span class="tv2-node-title">Education</span><span class="tv2-node-status">Authentic</span></div><div class="tv2-node-meta">University record</div><div class="tv2-node-bar"><span></span></div></div>
+                <div class="tv2-node"><div class="tv2-node-hd"><span class="tv2-node-title">Address</span><span class="tv2-node-status warn">Field Visit</span></div><div class="tv2-node-meta">Agent assigned</div><div class="tv2-node-bar"><span></span></div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Stage 4 -->
+          <div class="tv2-term-slide" data-stage="4">
+            <div class="tv2-report-top">
+              <div>
+                <div class="tv2-report-title">Verification Summary</div>
+                <div class="tv2-report-sub">TVR-2026-0826-001 · Rohit Sharma</div>
+              </div>
+              <span class="tv2-stamp">✓ Verified</span>
+            </div>
+            <div class="tv2-report-grid">
+              <div class="tv2-stat-mini"><div class="k">Checks Complete</div><div class="v green">6 / 8</div></div>
+              <div class="tv2-stat-mini"><div class="k">Sources Hit</div><div class="v">11</div></div>
+              <div class="tv2-stat-mini"><div class="k">Anomalies</div><div class="v amber">1</div></div>
+              <div class="tv2-stat-mini"><div class="k">Turnaround</div><div class="v">2.4d</div></div>
+            </div>
+          </div>
+
+          <!-- Stage 5 -->
+          <div class="tv2-term-slide" data-stage="5">
+            <div class="tv2-final">
+              <div class="tv2-final-ring"><span class="check">✓</span></div>
+              <div class="tv2-final-title">Hire with <span>certainty.</span></div>
+              <div class="tv2-final-sub">Facts behind every offer letter</div>
+              <div class="tv2-final-tags">
+                <span>Source-checked</span>
+                <span>Consent-based</span>
+                <span>Audit-ready</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       2. PROBLEM STATS BAND
+       ============================================================ -->
+  <section class="tv2-section tv2-section--cream">
+    <div class="tv2-grid-bg" aria-hidden="true"></div>
+    <div class="tv2-wrap">
+      <div class="tv2-head" data-tv2-reveal>
+        <div>
+          <p class="tv2-label">The Problem</p>
+          <h2>Every unverified hire is a <span class="tv2-serif">risk</span> you're choosing to take.</h2>
+        </div>
+        <p class="tv2-lead">Unverified claims walk straight into payroll. The gap between an accepted offer and joining is only 2–5 days.</p>
+      </div>
+
+      <div class="tv2-band">
+        <div class="tv2-band-item" data-tv2-reveal data-tv2-delay="1">
+          <div class="tv2-band-num">1 in 6</div>
+          <div class="tv2-band-body"><div class="tv2-band-title">Résumé Fraud</div><p class="tv2-band-desc">Indian CVs contain some form of misrepresentation.</p></div>
+        </div>
+        <div class="tv2-band-item" data-tv2-reveal data-tv2-delay="2">
+          <div class="tv2-band-num">40<span>%</span></div>
+          <div class="tv2-band-body"><div class="tv2-band-title">Early Attrition</div><p class="tv2-band-desc">Of new hires with a hidden red flag are gone within 18 months.</p></div>
+        </div>
+        <div class="tv2-band-item" data-tv2-reveal data-tv2-delay="3">
+          <div class="tv2-band-num">2–5<span>days</span></div>
+          <div class="tv2-band-body"><div class="tv2-band-title">Realistic TAT</div><p class="tv2-band-desc">The window between an accepted offer and the joining date.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       3. MODULES EDITORIAL INDEX
+       ============================================================ -->
+  <section class="tv2-section tv2-section--slate">
+    <div class="tv2-grid-bg" aria-hidden="true"></div>
+    <div class="tv2-wrap">
+      <div class="tv2-modules">
+        <div data-tv2-reveal="left">
+          <p class="tv2-label">What We Verify</p>
+          <h3>Eight checks.<br>One <em>defensible</em><br>picture.</h3>
+          <p>Every module runs on documented consent, hits primary sources, and closes with a second-reviewer audit. Mix and match to the risk profile of the role.</p>
+          <div class="tv2-modules-meta"><strong>8 modules</strong> · 2–5 day TAT · Pan-India field network</div>
+        </div>
+
+        <div class="tv2-index" data-tv2-reveal="right">
+          <a href="/products/aadhaar-verification" class="tv2-row"><div class="tv2-row-idx">01</div><div class="tv2-row-text">Aadhaar Verification<small>UIDAI-linked identity confirmation</small></div><div class="tv2-row-arrow">→</div></a>
+          <a href="/products/pan-verification" class="tv2-row"><div class="tv2-row-idx">02</div><div class="tv2-row-text">PAN Verification<small>Name · DOB · PAN status at source</small></div><div class="tv2-row-arrow">→</div></a>
+          <a href="/products/employment-verification" class="tv2-row"><div class="tv2-row-idx">03</div><div class="tv2-row-text">Employment Verification<small>Tenure, designation, exit reason</small></div><div class="tv2-row-arrow">→</div></a>
+          <a href="/products/education-verification" class="tv2-row"><div class="tv2-row-idx">04</div><div class="tv2-row-text">Education Verification<small>Degree, marksheet, institution</small></div><div class="tv2-row-arrow">→</div></a>
+          <a href="/products/criminal-court-check" class="tv2-row"><div class="tv2-row-idx">05</div><div class="tv2-row-text">Criminal Court Check<small>Civil & criminal record search</small></div><div class="tv2-row-arrow">→</div></a>
+          <a href="/products/address-verification" class="tv2-row"><div class="tv2-row-idx">06</div><div class="tv2-row-text">Address Verification<small>Physical + digital residence check</small></div><div class="tv2-row-arrow">→</div></a>
+          <a href="/products/uan-epfo-verification" class="tv2-row"><div class="tv2-row-idx">07</div><div class="tv2-row-text">UAN / EPFO Check<small>Employment history & PF trail</small></div><div class="tv2-row-arrow">→</div></a>
+          <a href="/products/professional-reference-check" class="tv2-row"><div class="tv2-row-idx">08</div><div class="tv2-row-text">Professional Reference<small>Structured reference calls</small></div><div class="tv2-row-arrow">→</div></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       4. PROCESS LEDGER
+       ============================================================ -->
+  <section class="tv2-section tv2-section--sand">
+    <div class="tv2-grid-bg" aria-hidden="true"></div>
+    <div class="tv2-wrap">
+      <div class="tv2-head" data-tv2-reveal>
+        <div>
+          <p class="tv2-label">How It Works</p>
+          <h2>From request to report, in <span class="tv2-serif">five</span> clear steps.</h2>
+        </div>
+        <p class="tv2-lead">Documented consent first, primary-source verification, second reviewer before sign-off.</p>
+      </div>
+
+      <div class="tv2-proc">
+        <div class="tv2-proc-row" data-tv2-reveal data-tv2-delay="1"><div class="tv2-proc-num">01</div><div class="tv2-proc-title">Request & Consent</div><div class="tv2-proc-desc">Role and candidate details come in. Documented consent is collected before anything starts — no exceptions.</div></div>
+        <div class="tv2-proc-row" data-tv2-reveal data-tv2-delay="2"><div class="tv2-proc-num">02</div><div class="tv2-proc-title">Data Collection</div><div class="tv2-proc-desc">Documents gathered, institutions and past employers identified, references prepared for verification.</div></div>
+        <div class="tv2-proc-row" data-tv2-reveal data-tv2-delay="3"><div class="tv2-proc-num">03</div><div class="tv2-proc-title">Multi-Source Verification</div><div class="tv2-proc-desc">Every claim cross-checked against primary sources — court records, universities, employers, UIDAI.</div></div>
+        <div class="tv2-proc-row" data-tv2-reveal data-tv2-delay="4"><div class="tv2-proc-num">04</div><div class="tv2-proc-title">Quality Review</div><div class="tv2-proc-desc">A second reviewer audits every finding for accuracy and completeness before the report is signed off.</div></div>
+        <div class="tv2-proc-row" data-tv2-reveal data-tv2-delay="5"><div class="tv2-proc-num">05</div><div class="tv2-proc-title">Report Delivery</div><div class="tv2-proc-desc">A clear, structured report delivered to your dashboard — ready to act on with confidence.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       5. SOLUTION SPLIT PANEL
+       ============================================================ -->
+  <section class="tv2-section tv2-section--plum">
+    <div class="tv2-grid-bg tv2-grid-bg--dark" aria-hidden="true"></div>
+    <div class="tv2-wrap">
+      <div class="tv2-split" data-tv2-reveal>
+        <div class="tv2-split-l">
+          <div class="tv2-split-kick">The Solution</div>
+          <h1 class="tv2-split-title">TRUE<br>VENCE</h1>
+          <div class="tv2-split-foot">Background verification platform · Pan-India · Est. 2026</div>
+        </div>
+        <div class="tv2-split-r">
+          <div class="tv2-ledger">
+            <div class="tv2-ledger-item" data-tv2-reveal data-tv2-delay="1"><div class="tv2-ledger-num">01</div><div class="tv2-ledger-body"><h3>Everything In One Place</h3><p>8 verification modules, one dashboard. No vendor juggling, no fragmented reports.</p></div></div>
+            <div class="tv2-ledger-item" data-tv2-reveal data-tv2-delay="2"><div class="tv2-ledger-num">02</div><div class="tv2-ledger-body"><h3>Fast, Real TAT</h3><p>Most checks close in 2–5 business days. Physical verifications included, not outsourced.</p></div></div>
+            <div class="tv2-ledger-item" data-tv2-reveal data-tv2-delay="3"><div class="tv2-ledger-num">03</div><div class="tv2-ledger-body"><h3>Transparent Pricing</h3><p>Pay per check. No retainers. No minimum volume. No hidden fees.</p></div></div>
+            <div class="tv2-ledger-item" data-tv2-reveal data-tv2-delay="4"><div class="tv2-ledger-num">04</div><div class="tv2-ledger-body"><h3>Consent & Compliance</h3><p>Every check runs on documented consent. DPDP-aligned, audit-ready, no exceptions.</p></div></div>
+            <div class="tv2-ledger-item" data-tv2-reveal data-tv2-delay="5"><div class="tv2-ledger-num">05</div><div class="tv2-ledger-body"><h3>Pan-India Field Network</h3><p>On-ground agents reach addresses, universities and past employers across all states.</p></div></div>
+            <div class="tv2-ledger-item" data-tv2-reveal data-tv2-delay="6"><div class="tv2-ledger-num">06</div><div class="tv2-ledger-body"><h3>Founder-Led Oversight</h3><p>Every function — from testing to operations — owned directly by a founder.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       6. INDUSTRIES
+       ============================================================ -->
+  <section class="tv2-section tv2-section--blush">
+    <div class="tv2-grid-bg" aria-hidden="true"></div>
+    <div class="tv2-wrap">
+      <div class="tv2-head" data-tv2-reveal>
+        <div>
+          <p class="tv2-label">Industries We Serve</p>
+          <h2>Tailored checks for <span class="tv2-serif">every</span> sector.</h2>
+        </div>
+        <p class="tv2-lead">From IT to logistics, we adapt the verification stack to the risk profile of the role.</p>
+      </div>
+
+      <div class="tv2-ind">
+        <a href="/industries" class="tv2-ind-item" data-tv2-reveal data-tv2-delay="1"><div class="tv2-ind-num">01</div><div><div class="tv2-ind-title">Information Technology</div><div class="tv2-ind-desc">Digital-first screening for engineers and IT support.</div></div><span class="tv2-ind-arrow">→</span></a>
+        <a href="/industries" class="tv2-ind-item" data-tv2-reveal data-tv2-delay="2"><div class="tv2-ind-num">02</div><div><div class="tv2-ind-title">BFSI</div><div class="tv2-ind-desc">Criminal, credit and compliance checks for banking.</div></div><span class="tv2-ind-arrow">→</span></a>
+        <a href="/industries" class="tv2-ind-item" data-tv2-reveal data-tv2-delay="3"><div class="tv2-ind-num">03</div><div><div class="tv2-ind-title">Healthcare</div><div class="tv2-ind-desc">Credential verification and fitness screening.</div></div><span class="tv2-ind-arrow">→</span></a>
+        <a href="/industries" class="tv2-ind-item" data-tv2-reveal data-tv2-delay="4"><div class="tv2-ind-num">04</div><div><div class="tv2-ind-title">Manufacturing</div><div class="tv2-ind-desc">Blue-collar verification at scale.</div></div><span class="tv2-ind-arrow">→</span></a>
+        <a href="/industries" class="tv2-ind-item" data-tv2-reveal data-tv2-delay="5"><div class="tv2-ind-num">05</div><div><div class="tv2-ind-title">Retail & E-commerce</div><div class="tv2-ind-desc">Rapid screening for delivery and warehouse staff.</div></div><span class="tv2-ind-arrow">→</span></a>
+        <a href="/industries" class="tv2-ind-item" data-tv2-reveal data-tv2-delay="6"><div class="tv2-ind-num">06</div><div><div class="tv2-ind-title">Logistics</div><div class="tv2-ind-desc">Driver, address and licence checks, pan-India.</div></div><span class="tv2-ind-arrow">→</span></a>
+        <a href="/industries" class="tv2-ind-item" data-tv2-reveal data-tv2-delay="1"><div class="tv2-ind-num">07</div><div><div class="tv2-ind-title">Education</div><div class="tv2-ind-desc">Faculty verification and mandatory screening.</div></div><span class="tv2-ind-arrow">→</span></a>
+        <a href="/industries" class="tv2-ind-item" data-tv2-reveal data-tv2-delay="2"><div class="tv2-ind-num">08</div><div><div class="tv2-ind-title">Startups</div><div class="tv2-ind-desc">Lightweight, affordable checks for fast hiring.</div></div><span class="tv2-ind-arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       7. BLOG SCROLL
+       ============================================================ -->
+  <section class="tv2-section tv2-section--white">
+    <div class="tv2-grid-bg" aria-hidden="true"></div>
+    <div class="tv2-wrap">
+      <div class="tv2-head" data-tv2-reveal>
+        <div>
+          <p class="tv2-label">BGV Insights</p>
+          <h2>Reading for HR teams who <span class="tv2-serif">screen.</span></h2>
+        </div>
+        <p class="tv2-lead">Guides, comparisons and pricing breakdowns from the Truevence team.</p>
+      </div>
+
+      <div class="tv2-blog-scroll">
+        <a href="/blog/what-is-background-verification" class="tv2-blog-card"><span class="tv2-blog-tag">Guide</span><span class="tv2-blog-title">What is Background Verification?</span><span class="tv2-blog-desc">The beginner's guide to BGV — what gets checked, why it matters, and what HR teams should know.</span><span class="tv2-blog-more">Read Article →</span></a>
+        <a href="/blog/bgv-cost-in-india-2026" class="tv2-blog-card"><span class="tv2-blog-tag">Pricing</span><span class="tv2-blog-title">BGV Cost in India 2026</span><span class="tv2-blog-desc">A per-check price breakdown of identity, employment, education and criminal verification in India.</span><span class="tv2-blog-more">Read Article →</span></a>
+        <a href="/blog/bgv-tat-turnaround-time" class="tv2-blog-card"><span class="tv2-blog-tag">Operations</span><span class="tv2-blog-title">How Long Does BGV Take?</span><span class="tv2-blog-desc">Realistic turnaround times for each verification type — and what slows them down.</span><span class="tv2-blog-more">Read Article →</span></a>
+        <a href="/blog/police-verification-guide" class="tv2-blog-card"><span class="tv2-blog-tag">Guide</span><span class="tv2-blog-title">Police Verification Guide</span><span class="tv2-blog-desc">How police verification works in India, when it's required, and how to speed up the process.</span><span class="tv2-blog-more">Read Article →</span></a>
+        <a href="/blog/court-verification-bgv-guide" class="tv2-blog-card"><span class="tv2-blog-tag">Risk</span><span class="tv2-blog-title">Court Record Checks</span><span class="tv2-blog-desc">How criminal and civil court records are checked — and why district-level coverage matters.</span><span class="tv2-blog-more">Read Article →</span></a>
+        <a href="/blog/top-bgv-companies-india" class="tv2-blog-card"><span class="tv2-blog-tag">Comparison</span><span class="tv2-blog-title">Top BGV Companies India</span><span class="tv2-blog-desc">An honest comparison of the leading background verification vendors in India.</span><span class="tv2-blog-more">Read Article →</span></a>
+        <a href="/blog/digital-vs-physical-background-verification" class="tv2-blog-card"><span class="tv2-blog-tag">Explainer</span><span class="tv2-blog-title">Digital vs Physical BGV</span><span class="tv2-blog-desc">When digital verification is enough — and when a physical field visit is still required.</span><span class="tv2-blog-more">Read Article →</span></a>
+        <a href="/blog/bgv-documents-checklist-hr" class="tv2-blog-card"><span class="tv2-blog-tag">Checklist</span><span class="tv2-blog-title">BGV Documents Checklist</span><span class="tv2-blog-desc">The exact documents HR needs to collect from a candidate to run a complete BGV.</span><span class="tv2-blog-more">Read Article →</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       8. NEWSLETTER
+       ============================================================ -->
+  <section class="tv2-section tv2-section--plum">
+    <div class="tv2-grid-bg tv2-grid-bg--dark" aria-hidden="true"></div>
+    <div class="tv2-wrap">
+      <div class="tv2-news">
+        <div data-tv2-reveal="left">
+          <p class="tv2-label tv2-label--dark">Truevence Dispatch</p>
+          <h3>BGV insights, monthly. Straight to your inbox.</h3>
+          <p>Compliance updates, fraud prevention tactics and hiring risk intelligence — written for HR leaders, not marketers.</p>
+          <div class="tv2-news-topics">
+            <span>BGV Trends</span>
+            <span>Compliance Updates</span>
+            <span>Fraud Prevention</span>
+            <span>Expert Insights</span>
+          </div>
+        </div>
+        <form class="tv2-news-form" id="tv2-news-form" data-tv2-reveal="right">
+          <label for="tv2-news-email">Work Email</label>
+          <input id="tv2-news-email" type="email" required placeholder="you@company.com">
+          <button type="submit" class="tv2-btn tv2-btn-primary" style="justify-content:center;">Subscribe →</button>
+          <p class="tv2-news-note" id="tv2-news-note">No spam. Unsubscribe any time.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       9. FAQ
+       ============================================================ -->
+  <section class="tv2-section tv2-section--white">
+    <div class="tv2-grid-bg" aria-hidden="true"></div>
+    <div class="tv2-wrap">
+      <div class="tv2-head" data-tv2-reveal>
+        <div>
+          <p class="tv2-label">FAQ</p>
+          <h2>Questions HR teams <span class="tv2-serif">actually</span> ask.</h2>
+        </div>
+        <p class="tv2-lead">Short, honest answers. If yours isn't here, email us at <a href="mailto:Contact@truevence.in" style="color:var(--tv2-violet);text-decoration:underline;">Contact@truevence.in</a>.</p>
+      </div>
+
+      <div class="tv2-faq">
+        <div class="tv2-faq-item">
+          <button class="tv2-faq-q">How long does a background verification take?<span class="tv2-faq-icon">+</span></button>
+          <div class="tv2-faq-a"><p>Most checks close in 2–5 business days. Address and education verifications that require a field visit may take slightly longer. We give you an ETA per check when you submit the request.</p></div>
+        </div>
+        <div class="tv2-faq-item">
+          <button class="tv2-faq-q">Do you operate across all of India?<span class="tv2-faq-icon">+</span></button>
+          <div class="tv2-faq-a"><p>Yes. We have a pan-India field network covering every state, including tier-2 and tier-3 cities. Digital checks (Aadhaar, PAN, UAN, court records) are nationwide by default.</p></div>
+        </div>
+        <div class="tv2-faq-item">
+          <button class="tv2-faq-q">Is candidate consent required?<span class="tv2-faq-icon">+</span></button>
+          <div class="tv2-faq-a"><p>Always. Every check runs on documented consent from the candidate. Our process is DPDP-aligned and audit-ready, so you're covered during any internal or regulatory review.</p></div>
+        </div>
+        <div class="tv2-faq-item">
+          <button class="tv2-faq-q">What if a check comes back adverse?<span class="tv2-faq-icon">+</span></button>
+          <div class="tv2-faq-a"><p>We surface anomalies clearly, with source-level evidence attached. You get the raw finding, a second-reviewer confirmation, and a recommendation on next steps — no vague "red flag" language.</p></div>
+        </div>
+        <div class="tv2-faq-item">
+          <button class="tv2-faq-q">How is pricing structured?<span class="tv2-faq-icon">+</span></button>
+          <div class="tv2-faq-a"><p>Pay-per-check. No retainers, no minimum volume, no hidden fees. You only pay for the modules you actually run for each candidate.</p></div>
+        </div>
+        <div class="tv2-faq-item">
+          <button class="tv2-faq-q">Can we integrate with our HRMS or ATS?<span class="tv2-faq-icon">+</span></button>
+          <div class="tv2-faq-a"><p>Yes — we offer API access and can push verification requests and status updates into your existing HRMS or ATS. Email us at Contact@truevence.in to discuss the integration.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       10. CTA BANNER
+       ============================================================ -->
+  <section class="tv2-cta">
+    <div class="tv2-cta-inner">
+      <div data-tv2-reveal="left">
+        <h2>Stop guessing.<br>Start <em>verifying.</em></h2>
+      </div>
+      <div data-tv2-reveal="right">
+        <p>Send over a role and we'll come back with a scoped verification plan — same business day.</p>
+        <div class="tv2-cta-actions">
+          <a href="/contact" class="tv2-btn tv2-btn-primary">Request a Verification →</a>
+          <a href="/services" class="tv2-btn tv2-btn-ghost">View Services</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       11. CONTACT
+       ============================================================ -->
+  <section class="tv2-section tv2-section--bone">
+    <div class="tv2-grid-bg" aria-hidden="true"></div>
+    <div class="tv2-wrap">
+      <div class="tv2-contact">
+        <div data-tv2-reveal="left">
+          <p class="tv2-label">Get In Touch</p>
+          <h2>Let's start the <span class="tv2-serif">verification.</span></h2>
+          <p>Send over the role and candidate details, or reach us directly. Same business day response.</p>
+
+          <div class="tv2-contact-lines">
+            <a href="mailto:Contact@truevence.in" class="tv2-contact-line">
+              <span class="tv2-contact-ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 6 10-6"/></svg></span>
+              Contact@truevence.in
+            </a>
+            <a href="tel:+918383091474" class="tv2-contact-line">
+              <span class="tv2-contact-ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+              +91 83830 91474
+            </a>
+          </div>
+        </div>
+
+        <form class="tv2-form" id="contactForm" novalidate data-tv2-reveal="right">
+          <div class="tv2-form-row">
+            <div><label for="fname">Full Name</label><input required id="fname" name="name" type="text" placeholder="Your name"></div>
+            <div><label for="company">Company</label><input id="company" name="company" type="text" placeholder="Company name"></div>
+          </div>
+          <div class="tv2-form-row">
+            <div><label for="email">Email</label><input required id="email" name="email" type="email" placeholder="you@company.com"></div>
+            <div><label for="phone">Phone</label><input id="phone" name="phone" type="tel" placeholder="Your phone number"></div>
+          </div>
+          <div><label for="message">What do you need verified?</label><textarea required id="message" name="message" rows="3" placeholder="Role and checks required..."></textarea></div>
+          <button type="submit" class="tv2-btn tv2-btn-dark" style="justify-content:center; padding:15px 28px;">Send Request →</button>
+          <p id="formNote" class="tv2-form-note hidden"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
 <!-- INCLUDE_FOOTER -->
 <!-- INCLUDE_WHATSAPP -->
+
+<script>
+/* ============================================================
+   TV2 — Homepage v2 scripts. Scoped to .tv2.
+   Does NOT duplicate scripts.js (AOS, mobile menu, cookie, cursor,
+   contact form, quote form are all already handled by scripts.js).
+   ============================================================ */
+(function () {
+  'use strict';
+
+  // ---------- Hero synced slideshow ----------
+  var hero = document.getElementById('tv2-hero');
+  var term = document.getElementById('tv2-term');
+  if (hero && term) {
+    var termSlides = term.querySelectorAll('.tv2-term-slide');
+    var heroSlides = hero.querySelectorAll('.tv2-hero-slide');
+    var dots = term.querySelectorAll('.tv2-dot');
+    var stageLabel = document.getElementById('tv2-term-stage');
+    var current = 0;
+    var timer;
+    var DURATION = 5000;
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function show(index) {
+      var total = termSlides.length;
+      current = ((index % total) + total) % total;
+
+      termSlides.forEach(function (s, i) { s.classList.toggle('active', i === current); });
+      heroSlides.forEach(function (s, i) { s.classList.toggle('active', i === current); });
+
+      dots.forEach(function (d, i) {
+        d.classList.remove('active');
+        if (i === current) { void d.offsetWidth; d.classList.add('active'); }
+      });
+
+      hero.setAttribute('data-theme', String(current + 1));
+
+      if (stageLabel) {
+        var n = ('0' + (current + 1)).slice(-2);
+        stageLabel.textContent = 'Stage ' + n + '/' + ('0' + total).slice(-2);
+      }
+    }
+
+    function start() {
+      if (reduce) return;
+      clearInterval(timer);
+      timer = setInterval(function () { show(current + 1); }, DURATION);
+    }
+
+    dots.forEach(function (d, i) {
+      d.addEventListener('click', function () { show(i); start(); });
+    });
+
+    term.addEventListener('mouseenter', function () { clearInterval(timer); });
+    term.addEventListener('mouseleave', start);
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) clearInterval(timer);
+      else start();
+    });
+
+    start();
+  }
+
+  // ---------- Reveal on scroll ----------
+  var revealEls = document.querySelectorAll('.tv2 [data-tv2-reveal]');
+  if (revealEls.length) {
+    if (!('IntersectionObserver' in window)) {
+      revealEls.forEach(function (el) { el.classList.add('in'); });
+    } else {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+      revealEls.forEach(function (el) { io.observe(el); });
+    }
+  }
+
+  // ---------- FAQ accordion (scoped to .tv2-faq-item) ----------
+  document.querySelectorAll('.tv2-faq-item').forEach(function (item) {
+    var q = item.querySelector('.tv2-faq-q');
+    if (!q) return;
+    q.addEventListener('click', function () {
+      item.classList.toggle('open');
+    });
+  });
+
+  // ---------- Newsletter (mocked) ----------
+  var newsForm = document.getElementById('tv2-news-form');
+  var newsNote = document.getElementById('tv2-news-note');
+  if (newsForm && newsNote) {
+    newsForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var email = document.getElementById('tv2-news-email').value.trim();
+      if (!email) return;
+      newsNote.textContent = 'Thank you — you\'re on the list.';
+      newsNote.classList.add('ok');
+      newsForm.reset();
+      setTimeout(function () {
+        newsNote.textContent = 'No spam. Unsubscribe any time.';
+        newsNote.classList.remove('ok');
+      }, 6000);
+    });
+  }
+
+  // ---------- Contact form ----------
+  // The form keeps id="contactForm" and field names (name/company/email/phone/message),
+  // so the existing handler in /assets/js/scripts.js picks it up automatically.
+  // Do NOT add a second handler here — it would double-submit.
+
+})();
+</script>
 
 </body>
 </html>
