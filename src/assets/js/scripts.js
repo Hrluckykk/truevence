@@ -1,13 +1,15 @@
 (function () {
   'use strict';
 
-  if (typeof AOS !== 'undefined') {
-    AOS.init({ duration: 700, once: true, easing: 'ease-out-cubic', offset: 40 });
-  }
-
+  // ============================================================
+  // Year stamp
+  // ============================================================
   var yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+  // ============================================================
+  // Cookie consent
+  // ============================================================
   window.acceptCookies = function () {
     var banner = document.getElementById('cookieConsent');
     if (banner) banner.style.display = 'none';
@@ -25,6 +27,9 @@
     btn.addEventListener('click', window.acceptCookies);
   });
 
+  // ============================================================
+  // Mobile menu
+  // ============================================================
   var menuBtn = document.getElementById('menuBtn');
   var mobileMenu = document.getElementById('mobileMenu');
   var iconMenu = document.getElementById('iconMenu');
@@ -50,6 +55,7 @@
     });
   }
 
+  // Mobile products submenu
   var mobileProductsBtn = document.getElementById('mobileProductsBtn');
   var mobileProductsMenu = document.getElementById('mobileProductsMenu');
   var mobileProductsArrow = document.getElementById('mobileProductsArrow');
@@ -60,6 +66,9 @@
     });
   }
 
+  // ============================================================
+  // FAQ accordion
+  // ============================================================
   document.querySelectorAll('.faq-item').forEach(function (item) {
     var q = item.querySelector('.faq-q');
     if (!q) return;
@@ -68,6 +77,9 @@
     });
   });
 
+  // ============================================================
+  // Call button reveal
+  // ============================================================
   document.querySelectorAll('.call-btn').forEach(function (wrap) {
     var label = wrap.querySelector('.call-label');
     if (label) {
@@ -80,6 +92,9 @@
     });
   });
 
+  // ============================================================
+  // Contact form → Cloudflare Worker
+  // ============================================================
   var contactForm = document.getElementById('contactForm');
   if (contactForm) {
     var formNote = document.getElementById('formNote');
@@ -135,7 +150,9 @@
     });
   }
 
-  /* ---- ADDED: generic quote form handler for blog/service pages ---- */
+  // ============================================================
+  // Generic quote form (blog/service pages)
+  // ============================================================
   document.querySelectorAll('form#quoteForm, form.quote-form').forEach(function (form) {
     var note = form.querySelector('#quoteNote, .quote-note');
     var btn = form.querySelector('button[type="submit"]');
@@ -184,8 +201,10 @@
       }
     });
   });
-  /* ---- END ADDED ---- */
 
+  // ============================================================
+  // Custom cursor (RAF loop)
+  // ============================================================
   (function initCursor() {
     if (!window.matchMedia('(pointer: fine)').matches) return;
     var ring = document.querySelector('.cursor-ring');
