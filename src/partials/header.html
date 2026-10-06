@@ -23,109 +23,12 @@
   </a>
 </div>
 
-<style>
-  /* Cookie banner — responsive padding */
-  .cookie-banner {
-    position: fixed;
-    bottom: 0; left: 0; right: 0;
-    background: var(--ink);
-    color: white;
-    padding: 16px 1.25rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    z-index: 9999;
-    font-family: 'Inter', sans-serif;
-    box-shadow: 0 -4px 20px rgba(0,0,0,0.3);
-  }
-  @media (min-width: 640px) {
-    .cookie-banner { padding: 16px 2rem; }
-  }
-  @media (min-width: 1024px) {
-    .cookie-banner { padding: 16px 5rem; }
-  }
-  @media (min-width: 1280px) {
-    .cookie-banner { padding: 16px 7rem; }
-  }
-  @media (min-width: 1536px) {
-    .cookie-banner { padding: 16px 10rem; }
-  }
-  .cookie-text {
-    margin: 0;
-    font-size: 14px;
-    flex: 1;
-  }
-  .cookie-text a {
-    color: var(--violetlt);
-    text-decoration: underline;
-  }
-  .cookie-btn {
-    background: var(--violet);
-    color: white;
-    border: none;
-    padding: 10px 22px;
-    border-radius: 999px;
-    font-weight: 700;
-    cursor: pointer;
-    font-size: 14px;
-    flex-shrink: 0;
-  }
-  @media (max-width: 639px) {
-    .cookie-banner { flex-direction: column; align-items: flex-start; }
-    .cookie-text { padding-right: 0; }
-    .cookie-btn { align-self: flex-end; }
-  }
-
-  /* Edge Tag Styling (Sample Report) */
-  .edge-tag {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    background: white;
-    color: var(--ink);
-    padding: 14px 12px;
-    width: 76px;
-    border: 1px solid rgba(124, 58, 237, 0.2);
-    border-radius: 999px 0 0 999px;
-    box-shadow: 0 2px 12px rgba(139, 124, 246, 0.15);
-    transition: all 0.3s ease;
-    transform: translateX(8px);
-    opacity: 0.9;
-    text-decoration: none;
-    text-align: center;
-  }
-  .edge-tag:hover {
-    transform: translateX(0);
-    opacity: 1;
-    box-shadow: 0 4px 20px rgba(139, 124, 246, 0.25);
-    border-color: rgba(124, 58, 237, 0.4);
-    background: var(--violet);
-  }
-  .edge-tag svg {
-    color: var(--violet);
-    transition: color 0.3s ease;
-    flex-shrink: 0;
-  }
-  .edge-tag:hover svg { color: white; }
-  .edge-tag span {
-    color: var(--ink);
-    transition: color 0.3s ease;
-    white-space: normal;
-    line-height: 1.15;
-    font-size: 12px;
-  }
-  .edge-tag:hover span { color: white; }
-</style>
-
 <!-- ============ NAVBAR ============ -->
 <header class="fixed top-0 left-0 right-0 z-50 nav-glass">
   <div class="section-container">
     <div class="flex items-center justify-between h-[76px]">
       <a href="/index.html" class="flex items-center gap-2 shrink-0">
-        <img src="https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/ChatGPT%20Image%20Jul%2018%2C%202026%2C%2009_59_12%20PM.png" alt="Truevence background verification company logo" class="h-11 md:h-12 w-auto">
+        <img src="https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/logo.webp" alt="Truevence background verification company logo" class="h-11 md:h-12 w-auto" width="120" height="48">
       </a>
 
       <nav class="hidden lg:flex items-center gap-9 font-display text-[14px] font-semibold tracking-wide text-navy">
@@ -145,7 +48,7 @@
       </div>
 
       <button id="menuBtn" class="lg:hidden text-navy" aria-label="Open menu" aria-expanded="false">
-        <svg id="iconMenu" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 16h16"/></svg>
+        <svg id="iconMenu" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
       </button>
     </div>
   </div>
