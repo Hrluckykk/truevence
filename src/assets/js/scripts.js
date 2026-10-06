@@ -204,42 +204,6 @@
     });
   });
 
-  // ============================================================
-  // Custom cursor (RAF loop)
-  // ============================================================
-  (function initCursor() {
-    if (!window.matchMedia('(pointer: fine)').matches) return;
-    var ring = document.querySelector('.cursor-ring');
-    var core = document.querySelector('.cursor-core');
-    if (!ring || !core) return;
-
-    document.body.classList.add('custom-cursor');
-    var mx = window.innerWidth / 2, my = window.innerHeight / 2;
-    var rx = mx, ry = my;
-    var ready = false;
-
-    window.addEventListener('mousemove', function (e) {
-      mx = e.clientX; my = e.clientY;
-      core.style.transform = 'translate(' + mx + 'px,' + my + 'px) translate(-50%,-50%)';
-      if (!ready) { ready = true; document.body.classList.add('cursor-ready'); }
-    });
-
-    (function raf() {
-      rx += (mx - rx) * 0.45;
-      ry += (my - ry) * 0.45;
-      ring.style.transform = 'translate(' + rx + 'px,' + ry + 'px) translate(-50%,-50%)';
-      requestAnimationFrame(raf);
-    })();
-
-    var hoverables = 'a, button, input, textarea, label, [data-cursor-hover]';
-    document.addEventListener('mouseover', function (e) {
-      if (e.target.closest(hoverables)) document.body.classList.add('cursor-active');
-    });
-    document.addEventListener('mouseout', function (e) {
-      if (e.target.closest(hoverables)) document.body.classList.remove('cursor-active');
-    });
-    window.addEventListener('mouseleave', function () { document.body.classList.remove('cursor-ready'); });
-    window.addEventListener('mouseenter', function () { document.body.classList.add('cursor-ready'); });
-  })();
+  // Cursor logic now lives in /assets/js/cursor.js — do not duplicate here.
 
 })();
