@@ -71,7 +71,6 @@
 }
 .nav-glass a { text-decoration: none; }
 
-/* Logo — inline fallback shown if image fails */
 .nav-logo-img { height: 44px; width: auto; display: block; }
 @media (min-width:768px){ .nav-logo-img { height: 48px; } }
 .nav-logo-fallback {
@@ -111,49 +110,47 @@
 }
 
 /* ============================================================
-   PROFESSIONAL CURSOR
+   INVESTIGATIVE CURSOR — magnifying glass
    ============================================================ */
-.cursor-ring, .cursor-core {
-  position: fixed; top: 0; left: 0;
-  pointer-events: none; z-index: 2147483647;
-  opacity: 0; will-change: transform, width, height, opacity;
+.tv-cursor-wrap {
+  position: fixed;
+  top: 0; left: 0;
+  width: 40px; height: 40px;
+  pointer-events: none;
+  z-index: 2147483647;
+  opacity: 0;
+  transform-origin: 45% 45%;
+  will-change: transform, opacity;
   transition:
     opacity .2s ease,
-    width .28s cubic-bezier(.2,.8,.2,1),
-    height .28s cubic-bezier(.2,.8,.2,1),
-    border-color .25s ease,
-    background-color .25s ease;
+    transform .28s cubic-bezier(.2,.8,.2,1);
 }
-.cursor-ring {
-  width: 36px; height: 36px;
-  border: 1.5px solid rgba(124,58,237,.65);
-  border-radius: 50%;
-  background: rgba(124,58,237,.06);
-  box-shadow:
-    0 0 0 1px rgba(124,58,237,.06),
-    0 0 20px rgba(124,58,237,.28),
-    inset 0 0 12px rgba(124,58,237,.08);
-  backdrop-filter: blur(1px);
-  -webkit-backdrop-filter: blur(1px);
+body.cursor-ready .tv-cursor-wrap { opacity: 1; }
+
+.tv-cursor-svg {
+  display: block;
+  overflow: visible;
+  filter:
+    drop-shadow(0 0 6px rgba(124,58,237,.55))
+    drop-shadow(0 2px 4px rgba(0,0,0,.35));
+  transition: transform .3s cubic-bezier(.2,.8,.2,1), filter .3s ease;
+  transform-origin: 45% 45%;
+  transform: translate(-8%, -8%) rotate(-15deg);
 }
-.cursor-core {
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: #7C3AED;
-  box-shadow: 0 0 10px rgba(124,58,237,.85), 0 0 3px rgba(255,255,255,.6);
+
+body.cursor-active .tv-cursor-svg {
+  transform: translate(-8%, -8%) rotate(-5deg) scale(1.15);
+  filter:
+    drop-shadow(0 0 12px rgba(124,58,237,.85))
+    drop-shadow(0 2px 6px rgba(0,0,0,.4));
 }
-body.cursor-ready .cursor-ring,
-body.cursor-ready .cursor-core { opacity: 1; }
-body.cursor-active .cursor-ring {
-  width: 60px; height: 60px;
-  border-color: rgba(124,58,237,.85);
-  background: rgba(124,58,237,.12);
-  box-shadow:
-    0 0 0 1px rgba(124,58,237,.18),
-    0 0 32px rgba(124,58,237,.45),
-    inset 0 0 18px rgba(124,58,237,.15);
+body.cursor-active .tv-cursor-lens {
+  fill: rgba(124,58,237,.18);
+  stroke: #A78BFA;
 }
-body.cursor-active .cursor-core { width: 8px; height: 8px; background: #A78BFA; }
+body.cursor-active .tv-cursor-cross { stroke: #C9BEFB; }
+body.cursor-active .tv-cursor-shine { fill: rgba(255,255,255,.85); }
+
 body.custom-cursor,
 body.custom-cursor a,
 body.custom-cursor button,
@@ -162,8 +159,9 @@ body.custom-cursor textarea,
 body.custom-cursor label,
 body.custom-cursor select,
 body.custom-cursor [role="button"] { cursor: none; }
+
 @media (pointer: coarse) {
-  .cursor-ring, .cursor-core { display: none !important; }
+  .tv-cursor-wrap { display: none !important; }
   body.custom-cursor,
   body.custom-cursor * { cursor: auto !important; }
 }
@@ -630,9 +628,6 @@ body.custom-cursor [role="button"] { cursor: none; }
   </p>
   <button onclick="acceptCookies()" class="cookie-btn">Accept</button>
 </div>
-
-<div class="cursor-ring" aria-hidden="true"></div>
-<div class="cursor-core" aria-hidden="true"></div>
 
 <header class="fixed top-0 left-0 right-0 z-50 nav-glass">
   <div class="section-container">
