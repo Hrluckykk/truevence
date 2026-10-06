@@ -12,7 +12,7 @@
      IF you remove the duplicate from scripts.js. If you don't
      remove it, this file still wins because it runs last.
    ============================================================ */
-
+document.body.classList.add('custom-cursor');
 (function () {
   'use strict';
 
