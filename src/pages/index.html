@@ -113,7 +113,7 @@
 
 .footer-grid {
   display:grid; grid-template-columns:1fr; gap:40px;
-  padding-bottom:48px; border-bottom:1px solid rgba(255,255,255,.1);
+  padding-bottom:0;
 }
 @media (min-width:640px){
   .footer-grid { grid-template-columns:repeat(2,1fr); }
@@ -355,12 +355,12 @@
 /* --- SECTION PADDING ADJUSTMENTS --- */
 .tv2 .section {
   position:relative; 
-  padding:120px 5vw; /* Increased from 80px to 120px for more breathing room */
+  padding:120px 5vw;
   display:flex; flex-direction:column; justify-content:center;
   overflow:hidden;
 }
 .tv2 .section--faq {
-  min-height: 70vh; /* Added min-height to FAQ to prevent it from feeling too slim */
+  min-height: 70vh;
 }
 @media (max-width:900px){
   .tv2 .section { padding:80px 5vw; }
@@ -1146,8 +1146,8 @@
       </div>
     </div>
 
-    <!-- Footer Bottom Bar: Single border, reduced margin-top -->
-    <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 border-t border-white/10 mt-8">
+    <!-- Footer Bottom Bar: Single border line (the only one), tightened spacing -->
+    <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 border-t border-white/10 mt-10">
       <p class="text-white/40 text-xs">&copy; <span id="year"></span> Truevence. All rights reserved.</p>
       <p class="font-mono-ui text-[11px] text-white/30">Simply Certain</p>
     </div>
@@ -1261,7 +1261,7 @@
   // WARNING: This script does NOT store data anywhere. 
   // It only shows a success message. 
   // To actually receive emails, you must connect these forms to a backend service
-  // (e.g., Formspree, Netlify Forms, or your own API) by setting the 'action' attribute
+  // (e.g., Formspree, Netlify, or your own API) by setting the 'action' attribute
   // on the form element and ensuring the backend sends emails to no-reply@truevence.in
 
   var newsForm = tv2.querySelector('#newsForm');
