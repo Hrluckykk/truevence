@@ -59,7 +59,7 @@
   }
 </script>
 
-<link rel="stylesheet" href="/assets/css/styles.css?v=5">
+<link rel="stylesheet" href="/assets/css/styles.css?v=6">
 
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -67,8 +67,15 @@
 
 <style>
 /* ============================================================
-   SHARED HEADER / FOOTER / COOKIE
+   PAGE-LEVEL SHIMS
+   These cover the small pieces that are page-specific and
+   not part of the shared master stylesheet. Everything else
+   (masthead, article, chapter-list, ledger, matrix, signals,
+   faq, toc, related, quote form, cta-banner) now lives in
+   /assets/css/styles.css so the fix is applied globally.
    ============================================================ */
+
+/* Header / footer / cookie shims (fallback if master is stale) */
 .section-container { max-width:1440px; margin:0 auto; padding:0 1.25rem; }
 @media (min-width:640px){ .section-container { padding:0 2rem; } }
 @media (min-width:1024px){ .section-container { padding:0 5rem; } }
@@ -98,270 +105,12 @@
 
 [data-aos] { opacity:1 !important; transform:none !important; transition:none !important; }
 
-/* ============================================================
-   TV2 — blog article design system
-   ============================================================ */
-.tv2 {
-  --ink:#050814; --navy:#0B1230; --violet:#7C3AED; --violetlt:#A78BFA; --lavender:#C9BEFB;
-  --paper:#F7F7FB; --green:#3bd39b; --amber:#febc2e; --red:#ff5f57;
-  --cream:#F4EFE6; --sand:#EDE4D3; --plum:#1B0A2E; --plum-deep:#12061F; --forest:#0F2419;
-  --slate-bg:#EBEDF2; --bone:#E8E4DC; --blush:#F0E2DC;
-  --border-mid:rgba(10,10,10,.14); --border-dark:rgba(255,255,255,.12);
-  --ease:cubic-bezier(.2,.8,.2,1); --ease-out:cubic-bezier(.16,1,.3,1);
-  font-family:'Inter',system-ui,-apple-system,sans-serif;
-  color:var(--ink);
-  line-height:1.6;
-}
-.tv2 *, .tv2 *::before, .tv2 *::after { box-sizing:border-box; }
-.tv2 img { max-width:100%; display:block; }
-.tv2 a { color:inherit; text-decoration:none; }
-.tv2 button { font:inherit; cursor:pointer; background:none; border:0; color:inherit; }
-
-.tv2 .tv2-container { max-width:1440px; margin:0 auto; padding:0 5vw; position:relative; z-index:1; }
-.tv2 .serif { font-family:'Fraunces',Georgia,serif; font-weight:700; letter-spacing:-.02em; font-style:normal; }
-.tv2 .label { font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.26em; text-transform:uppercase; color:var(--violet); display:inline-flex; align-items:center; gap:10px; }
-.tv2 .label::before { content:''; width:20px; height:1px; background:currentColor; }
-
-.tv2 [data-reveal] { opacity:0; transform:translateY(28px); transition:opacity .9s var(--ease-out), transform .9s var(--ease-out); }
-.tv2 [data-reveal].in-view { opacity:1; transform:none; }
-.tv2 [data-reveal="left"]  { transform:translateX(-40px); }
-.tv2 [data-reveal="right"] { transform:translateX(40px); }
-.tv2 [data-reveal].in-view[data-reveal="left"],
-.tv2 [data-reveal].in-view[data-reveal="right"] { transform:none; }
-.tv2 [data-delay="1"] { transition-delay:.08s; }
-.tv2 [data-delay="2"] { transition-delay:.16s; }
-.tv2 [data-delay="3"] { transition-delay:.24s; }
-.tv2 [data-delay="4"] { transition-delay:.32s; }
-.tv2 [data-delay="5"] { transition-delay:.4s; }
-.tv2 [data-delay="6"] { transition-delay:.48s; }
-
-/* ============================================================
-   ARTICLE MASTHEAD
-   ============================================================ */
-.tv2 .masthead {
-  position:relative;
-  padding:150px 5vw 70px;
-  background:#070912;
-  color:#fff;
-  overflow:hidden;
-  isolation:isolate;
-}
-@media (max-width:900px){ .tv2 .masthead { padding:120px 5vw 50px; } }
-.tv2 .masthead::before {
-  content:''; position:absolute; inset:0; z-index:-3;
-  background:
-    radial-gradient(circle at 78% 30%, rgba(124,58,237,.24), transparent 38%),
-    radial-gradient(circle at 15% 80%, rgba(76,29,149,.2), transparent 40%),
-    linear-gradient(135deg,#070912 0%,#0b1025 54%,#090b17 100%);
-}
-.tv2 .masthead-grid-bg {
-  position:absolute; inset:0; z-index:-2; opacity:.32;
-  background-image:
-    linear-gradient(rgba(167,139,250,.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(167,139,250,.06) 1px, transparent 1px);
-  background-size:56px 56px;
-  mask-image:linear-gradient(to bottom, black 0%, black 60%, transparent 100%);
-  -webkit-mask-image:linear-gradient(to bottom, black 0%, black 60%, transparent 100%);
-}
-.tv2 .masthead-inner { max-width:1440px; margin:0 auto; position:relative; }
-
-.tv2 .crumb {
-  display:flex; align-items:center; gap:10px; flex-wrap:wrap;
-  font-family:'IBM Plex Mono',monospace;
-  font-size:10px; letter-spacing:.22em;
-  text-transform:uppercase;
-  color:rgba(255,255,255,.55);
-  margin-bottom:44px;
-}
-.tv2 .crumb a { color:rgba(255,255,255,.65); transition:color .3s; }
-.tv2 .crumb a:hover { color:var(--violetlt); }
-.tv2 .crumb .sep { color:var(--violetlt); }
-.tv2 .crumb .here { color:var(--violetlt); font-weight:600; }
-
-.tv2 .masthead-tag {
-  display:inline-flex; align-items:center; gap:10px;
-  padding:8px 13px;
-  border:1px solid rgba(167,139,250,.32);
-  background:rgba(124,58,237,.08);
-  color:rgba(255,255,255,.72);
-  border-radius:999px;
-  font:600 10px/1 'IBM Plex Mono',monospace;
-  letter-spacing:.16em;
-  text-transform:uppercase;
-  margin-bottom:28px;
-}
-.tv2 .masthead-tag .dot {
-  width:6px; height:6px; border-radius:50%;
-  background:var(--violetlt);
-  box-shadow:0 0 0 4px rgba(167,139,250,.16), 0 0 12px rgba(167,139,250,.7);
-  animation:pulseDot 2s ease-in-out infinite;
-}
-@keyframes pulseDot { 0%,100% { box-shadow:0 0 0 4px rgba(167,139,250,.16), 0 0 12px rgba(167,139,250,.7); } 50% { box-shadow:0 0 0 8px rgba(167,139,250,.05), 0 0 18px rgba(167,139,250,.85); } }
-
-.tv2 .masthead-headline {
-  font-family:'Plus Jakarta Sans',sans-serif;
-  font-weight:800;
-  font-size:clamp(2.2rem,5vw,4.4rem);
-  letter-spacing:-.055em;
-  line-height:1.02;
-  color:#fff;
-  max-width:1000px;
-  margin-bottom:32px;
-}
-.tv2 .masthead-headline em { color:var(--violetlt); font-style:normal; }
-
-.tv2 .masthead-dek {
-  font-size:clamp(.98rem,1.2vw,1.1rem);
-  line-height:1.75;
-  color:rgba(255,255,255,.6);
-  max-width:760px;
-  margin-bottom:44px;
-}
-.tv2 .masthead-dek strong { color:#fff; font-weight:600; }
-
-.tv2 .masthead-meta {
-  display:flex;
-  flex-wrap:wrap;
-  gap:22px 44px;
-  padding-top:28px;
-  border-top:1px solid rgba(255,255,255,.14);
-  font-family:'IBM Plex Mono',monospace;
-  font-size:10px;
-  letter-spacing:.22em;
-  text-transform:uppercase;
-  color:rgba(255,255,255,.5);
-}
-.tv2 .masthead-meta span { display:inline-flex; align-items:center; gap:8px; }
-.tv2 .masthead-meta span::before {
-  content:''; width:5px; height:5px; border-radius:50%;
-  background:var(--violetlt); display:inline-block;
-}
-
-/* ============================================================
-   ARTICLE BODY — cream editorial
-   ============================================================ */
-.tv2 .article {
-  position:relative;
-  padding:100px 5vw;
-  background:var(--cream);
-  overflow:hidden;
-  border-bottom:1px solid var(--border-mid);
-}
-@media (max-width:900px){ .tv2 .article { padding:80px 5vw; } }
-.tv2 .grid-bg { position:absolute; inset:0; pointer-events:none; z-index:0; background-image:radial-gradient(circle, rgba(10,10,10,.07) 1px, transparent 1px); background-size:30px 30px; mask-image:radial-gradient(ellipse 80% 70% at center, black 40%, transparent 90%); -webkit-mask-image:radial-gradient(ellipse 80% 70% at center, black 40%, transparent 90%); }
-
-.tv2 .article-layout {
-  display:grid;
-  grid-template-columns:minmax(0, 2.2fr) minmax(240px, 1fr);
-  gap:clamp(40px,6vw,90px);
-  align-items:start;
-}
-@media (max-width:950px){ .tv2 .article-layout { grid-template-columns:1fr; gap:44px; } }
-
-.tv2 .article-body { max-width:820px; min-width:0; }
-
-.tv2 .prose h2 {
-  font-family:'Plus Jakarta Sans',sans-serif;
-  font-weight:800;
-  font-size:clamp(1.6rem,2.8vw,2.4rem);
-  letter-spacing:-.035em;
-  line-height:1.15;
-  margin:0 0 24px;
-  color:var(--ink);
-}
-.tv2 .prose h2 em { font-family:'Fraunces',serif; font-weight:700; color:var(--violet); font-style:normal; }
-
-.tv2 .prose p {
-  font-size:15.5px;
-  line-height:1.78;
-  color:rgba(0,0,0,.65);
-  margin-bottom:22px;
-  max-width:760px;
-}
-.tv2 .prose p strong { color:var(--ink); font-weight:600; }
-.tv2 .prose p em { color:var(--violet); font-style:italic; }
-
-.tv2 .section-tag {
-  font-family:'IBM Plex Mono',monospace;
-  font-size:10px;
-  letter-spacing:.26em;
-  text-transform:uppercase;
-  color:var(--violet);
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  margin-bottom:18px;
-}
-.tv2 .section-tag::before { content:''; width:20px; height:1px; background:currentColor; }
-
-/* ============================================================
-   LEDGER — ruled key/value rows
-   ============================================================ */
-.tv2 .ledger { display:flex; flex-direction:column; margin-top:8px; border-top:1px solid var(--border-mid); }
-.tv2 .ledger-row {
-  display:grid;
-  grid-template-columns:minmax(140px,1fr) minmax(0,2fr);
-  gap:32px;
-  padding:22px 0;
-  border-bottom:1px solid var(--border-mid);
-  align-items:baseline;
-  position:relative;
-  transition:padding-left .4s var(--ease-out);
-}
-.tv2 .ledger-row::before {
-  content:''; position:absolute; left:0; top:0; bottom:0;
-  width:2px; background:var(--violet);
-  transform:scaleY(0); transform-origin:top;
-  transition:transform .4s var(--ease-out);
-}
-.tv2 .ledger-row:hover { padding-left:20px; }
-.tv2 .ledger-row:hover::before { transform:scaleY(1); }
-.tv2 .ledger-k {
-  font-family:'IBM Plex Mono',monospace;
-  font-size:10px;
-  letter-spacing:.22em;
-  text-transform:uppercase;
-  color:var(--violet);
-  font-weight:600;
-  min-width:0;
-}
-.tv2 .ledger-v {
-  font-family:'Fraunces',Georgia,serif;
-  font-size:15.5px;
-  line-height:1.65;
-  color:rgba(0,0,0,.68);
-  letter-spacing:-.005em;
-  min-width:0;
-}
-.tv2 .ledger-v em { color:var(--violet); font-style:italic; }
-.tv2 .ledger-v strong { color:var(--ink); font-weight:600; }
-@media (max-width:640px){
-  .tv2 .ledger-row { grid-template-columns:1fr; gap:8px; }
-}
-
-/* ============================================================
-   VERDICT — pull-quote callout
-   ============================================================ */
-.tv2 .verdict {
-  margin:44px 0;
-  padding:28px 0 28px 32px;
-  border-left:3px solid var(--violet);
-  max-width:760px;
-}
-.tv2 .verdict p {
-  font-family:'Fraunces',Georgia,serif;
-  font-weight:600;
-  font-size:clamp(1.05rem,1.5vw,1.28rem);
-  line-height:1.55;
-  letter-spacing:-.015em;
-  color:var(--ink);
-  margin:0;
-}
-.tv2 .verdict p em { color:var(--violet); font-style:normal; }
-
-/* ============================================================
-   CHAPTER-LIST — checklist lines (FIXED: no more per-word wrap)
-   ============================================================ */
+/* ------------------------------------------------------------
+   CRITICAL LOCAL FIX — chapter-list
+   Even if the master stylesheet is cached with the old grid
+   version, this flex version will win. It is placed after the
+   master link so it always applies.
+   ------------------------------------------------------------ */
 .tv2 .chapter-list {
   list-style:none;
   padding:0;
@@ -370,581 +119,38 @@
   flex-direction:column;
   gap:14px;
   max-width:760px;
+  width:100%;
   min-width:0;
 }
 .tv2 .chapter-list li {
-  display:grid;
-  grid-template-columns:22px minmax(0, 1fr);
+  display:flex;
+  align-items:flex-start;
   gap:14px;
-  align-items:start;
   font-size:14.5px;
   line-height:1.7;
   color:rgba(0,0,0,.65);
   padding-bottom:12px;
-  border-bottom:1px solid var(--border-mid);
+  border-bottom:1px solid rgba(10,10,10,.14);
+  width:100%;
   min-width:0;
+  white-space:normal;
   word-break:normal;
-  overflow-wrap:break-word;
+  overflow-wrap:normal;
+  hyphens:none;
 }
 .tv2 .chapter-list li:last-child { border-bottom:0; padding-bottom:0; }
 .tv2 .chapter-list li::before {
   content:'✓';
   font-family:'IBM Plex Mono',monospace;
-  color:var(--violet);
+  color:#7C3AED;
   font-weight:600;
   font-size:13px;
-  padding-top:3px;
-  line-height:1;
-}
-.tv2 .chapter-list li strong { color:var(--ink); font-weight:600; display:inline; }
-.tv2 .chapter-list li span { display:inline; }
-
-/* ============================================================
-   HIGHLIGHT — dark editorial band
-   ============================================================ */
-.tv2 .highlight {
-  position:relative;
-  padding:56px 52px;
-  margin:0 0 72px;
-  background:
-    radial-gradient(circle at 85% 20%, rgba(124,58,237,.32), transparent 45%),
-    radial-gradient(circle at 15% 90%, rgba(76,29,149,.24), transparent 45%),
-    linear-gradient(135deg,#0B0719 0%,#12061F 50%,#0B1230 100%);
-  color:#fff;
-  overflow:hidden;
-}
-@media (max-width:640px){ .tv2 .highlight { padding:36px 26px; } }
-.tv2 .highlight::before {
-  content:''; position:absolute; inset:0;
-  background-image:
-    linear-gradient(rgba(167,139,250,.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(167,139,250,.05) 1px, transparent 1px);
-  background-size:48px 48px;
-  mask-image:radial-gradient(ellipse 80% 70% at center, black 30%, transparent 85%);
-  -webkit-mask-image:radial-gradient(ellipse 80% 70% at center, black 30%, transparent 85%);
-  pointer-events:none;
-}
-.tv2 .highlight-inner { position:relative; z-index:1; }
-.tv2 .highlight-kicker {
-  font-family:'IBM Plex Mono',monospace;
-  font-size:10px;
-  letter-spacing:.24em;
-  text-transform:uppercase;
-  color:var(--violetlt);
-  display:block;
-  margin-bottom:18px;
-}
-.tv2 .highlight-title {
-  font-family:'Plus Jakarta Sans',sans-serif;
-  font-weight:800;
-  font-size:clamp(1.4rem,2.4vw,1.9rem);
-  letter-spacing:-.03em;
-  line-height:1.15;
-  color:#fff;
-  margin:0 0 20px;
-  max-width:640px;
-}
-.tv2 .highlight-title em { font-family:'Fraunces',serif; font-weight:700; color:var(--violetlt); font-style:normal; }
-.tv2 .highlight p {
-  font-size:14.5px;
-  line-height:1.75;
-  color:rgba(255,255,255,.72);
-  margin:0 0 16px;
-  max-width:680px;
-}
-.tv2 .highlight p:last-child { margin-bottom:0; }
-.tv2 .highlight p strong { color:#fff; font-weight:600; }
-.tv2 .highlight p em { color:var(--violetlt); font-style:italic; }
-
-/* ============================================================
-   MATRIX — editorial ruled rows for status codes (no cards)
-   ============================================================ */
-.tv2 .matrix {
-  margin-top:12px;
-  border-top:1px solid var(--border-mid);
-}
-.tv2 .matrix-row {
-  display:grid;
-  grid-template-columns:minmax(160px,1.1fr) minmax(0,1.8fr) minmax(0,1.4fr);
-  gap:28px;
-  padding:22px 0;
-  border-bottom:1px solid var(--border-mid);
-  align-items:start;
-  position:relative;
-  transition:padding-left .4s var(--ease-out);
-  min-width:0;
-}
-.tv2 .matrix-row::before {
-  content:''; position:absolute; left:0; top:0; bottom:0;
-  width:2px; background:var(--violet);
-  transform:scaleY(0); transform-origin:top;
-  transition:transform .4s var(--ease-out);
-}
-.tv2 .matrix-row:hover { padding-left:16px; }
-.tv2 .matrix-row:hover::before { transform:scaleY(1); }
-
-.tv2 .matrix-row.is-head {
-  padding:14px 0;
-  border-bottom:1px solid var(--ink);
-  font-family:'IBM Plex Mono',monospace;
-  font-size:9.5px;
-  letter-spacing:.22em;
-  text-transform:uppercase;
-  color:rgba(0,0,0,.5);
-  font-weight:600;
-}
-.tv2 .matrix-row.is-head:hover { padding-left:0; }
-.tv2 .matrix-row.is-head::before { display:none; }
-
-.tv2 .matrix-code {
-  font-family:'IBM Plex Mono',monospace;
-  font-size:12px;
-  letter-spacing:.14em;
-  font-weight:600;
-  color:var(--violet);
-  text-transform:uppercase;
-  min-width:0;
-}
-.tv2 .matrix-cell {
-  font-family:'Fraunces',Georgia,serif;
-  font-size:14.5px;
-  line-height:1.6;
-  color:rgba(0,0,0,.68);
-  min-width:0;
-}
-.tv2 .matrix-cell strong { color:var(--ink); font-weight:600; }
-
-@media (max-width:800px){
-  .tv2 .matrix-row { grid-template-columns:1fr; gap:8px; padding:20px 0; }
-  .tv2 .matrix-row.is-head { display:none; }
-  .tv2 .matrix-code { font-size:12px; }
-  .tv2 .matrix-cell { font-size:14px; }
-}
-
-/* ============================================================
-   SIGNALS — colored editorial bands
-   ============================================================ */
-.tv2 .signals {
-  display:flex;
-  flex-direction:column;
-  margin-top:12px;
-  border-top:1px solid var(--border-mid);
-}
-.tv2 .signal {
-  display:grid;
-  grid-template-columns:96px minmax(0, 1fr);
-  gap:32px;
-  padding:28px 0;
-  border-bottom:1px solid var(--border-mid);
-  align-items:start;
-  position:relative;
-  transition:padding-left .4s var(--ease-out);
-  min-width:0;
-}
-.tv2 .signal::before {
-  content:''; position:absolute; left:0; top:0; bottom:0;
-  width:3px;
-  transform:scaleY(0); transform-origin:top;
-  transition:transform .4s var(--ease-out);
-}
-.tv2 .signal:hover { padding-left:22px; }
-.tv2 .signal:hover::before { transform:scaleY(1); }
-
-.tv2 .signal.is-green::before { background:var(--green); }
-.tv2 .signal.is-amber::before { background:var(--amber); }
-.tv2 .signal.is-red::before { background:var(--red); }
-
-.tv2 .signal-dot {
-  width:44px; height:44px;
-  border-radius:50%;
-  display:flex; align-items:center; justify-content:center;
-  font-family:'IBM Plex Mono',monospace;
-  font-weight:700;
-  font-size:16px;
-  color:#fff;
-  margin-top:2px;
-}
-.tv2 .signal.is-green .signal-dot { background:var(--green); color:#053024; }
-.tv2 .signal.is-amber .signal-dot { background:var(--amber); color:#3a2500; }
-.tv2 .signal.is-red .signal-dot { background:var(--red); color:#3d0a06; }
-
-.tv2 .signal-body { min-width:0; }
-.tv2 .signal-body h3 {
-  font-family:'Plus Jakarta Sans',sans-serif;
-  font-weight:800;
-  font-size:clamp(1.1rem,1.6vw,1.35rem);
-  letter-spacing:-.02em;
-  line-height:1.2;
-  margin:0 0 6px;
-  color:var(--ink);
-}
-.tv2 .signal-sub {
-  font-family:'IBM Plex Mono',monospace;
-  font-size:10px;
-  letter-spacing:.22em;
-  text-transform:uppercase;
-  color:var(--violet);
-  font-weight:600;
-  margin-bottom:12px;
-  display:block;
-}
-.tv2 .signal-body p {
-  font-size:14.5px;
   line-height:1.7;
-  color:rgba(0,0,0,.65);
-  margin:0;
-  max-width:620px;
-}
-.tv2 .signal-body p strong { color:var(--ink); font-weight:600; }
-
-@media (max-width:640px){
-  .tv2 .signal { grid-template-columns:56px minmax(0,1fr); gap:18px; padding:24px 0; }
-  .tv2 .signal-dot { width:36px; height:36px; font-size:14px; }
-}
-
-/* ============================================================
-   FAQ — ruled editorial accordion (uses <details>)
-   ============================================================ */
-.tv2 .faq { margin-top:16px; border-top:1px solid var(--border-mid); }
-.tv2 .faq details {
-  border-bottom:1px solid var(--border-mid);
-  padding:0;
-}
-.tv2 .faq summary {
-  cursor:pointer;
-  list-style:none;
-  padding:22px 0;
-  display:grid;
-  grid-template-columns:minmax(0,1fr) 24px;
-  gap:20px;
-  align-items:center;
-  font-family:'Plus Jakarta Sans',sans-serif;
-  font-weight:700;
-  font-size:clamp(1rem,1.3vw,1.15rem);
-  letter-spacing:-.015em;
-  color:var(--ink);
-  transition:color .3s;
-}
-.tv2 .faq summary::-webkit-details-marker { display:none; }
-.tv2 .faq summary:hover { color:var(--violet); }
-.tv2 .faq summary .faq-plus {
-  width:24px; height:24px;
-  border:1px solid var(--border-mid);
-  border-radius:50%;
-  display:flex; align-items:center; justify-content:center;
-  font-family:'IBM Plex Mono',monospace;
-  font-size:14px;
-  color:var(--violet);
-  transition:transform .35s var(--ease-out), background .3s, border-color .3s;
   flex-shrink:0;
+  display:inline-block;
 }
-.tv2 .faq details[open] summary .faq-plus {
-  transform:rotate(45deg);
-  background:var(--violet);
-  color:#fff;
-  border-color:var(--violet);
-}
-.tv2 .faq .faq-answer {
-  font-size:14.5px;
-  line-height:1.75;
-  color:rgba(0,0,0,.65);
-  padding:0 44px 24px 0;
-  max-width:720px;
-}
-.tv2 .faq .faq-answer strong { color:var(--ink); font-weight:600; }
-
-/* ============================================================
-   QUOTE FORM — dark editorial
-   ============================================================ */
-.tv2 .quote-wrap {
-  margin-top:24px;
-  padding:52px 48px;
-  background:
-    radial-gradient(circle at 85% 20%, rgba(124,58,237,.28), transparent 45%),
-    radial-gradient(circle at 15% 90%, rgba(76,29,149,.22), transparent 45%),
-    linear-gradient(135deg,#0B0719 0%,#12061F 50%,#0B1230 100%);
-  border:1px solid rgba(167,139,250,.22);
-  position:relative;
-  overflow:hidden;
-  color:#fff;
-}
-@media (max-width:640px){ .tv2 .quote-wrap { padding:36px 24px; } }
-.tv2 .quote-wrap::before {
-  content:''; position:absolute; inset:0;
-  background-image:
-    linear-gradient(rgba(167,139,250,.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(167,139,250,.05) 1px, transparent 1px);
-  background-size:48px 48px;
-  mask-image:radial-gradient(ellipse 80% 70% at center, black 30%, transparent 85%);
-  -webkit-mask-image:radial-gradient(ellipse 80% 70% at center, black 30%, transparent 85%);
-  pointer-events:none;
-}
-.tv2 .quote-head, .tv2 .quote-form { position:relative; z-index:1; }
-
-.tv2 .quote-head h2 {
-  font-family:'Plus Jakarta Sans',sans-serif;
-  font-weight:800;
-  font-size:clamp(1.5rem,2.4vw,2rem);
-  letter-spacing:-.035em;
-  line-height:1.15;
-  margin:0 0 12px;
-  color:#fff;
-}
-.tv2 .quote-head h2 em { font-family:'Fraunces',serif; font-weight:700; color:var(--violetlt); font-style:normal; }
-.tv2 .quote-head p {
-  font-size:15px;
-  line-height:1.7;
-  color:rgba(255,255,255,.62);
-  max-width:600px;
-  margin:0 0 30px;
-}
-.tv2 .quote-form {
-  display:grid;
-  grid-template-columns:repeat(2, minmax(0,1fr));
-  gap:16px;
-  max-width:720px;
-}
-@media (max-width:640px){ .tv2 .quote-form { grid-template-columns:1fr; } }
-.tv2 .quote-form .full { grid-column:1 / -1; }
-.tv2 .quote-form input,
-.tv2 .quote-form textarea {
-  width:100%;
-  border:1px solid rgba(167,139,250,.28);
-  background:rgba(255,255,255,.04);
-  padding:14px 16px;
-  font-family:'Inter',sans-serif;
-  font-size:14px;
-  color:#fff;
-  outline:none;
-  transition:border-color .3s, box-shadow .3s, background .3s;
-  border-radius:2px;
-}
-.tv2 .quote-form input::placeholder,
-.tv2 .quote-form textarea::placeholder { color:rgba(255,255,255,.4); }
-.tv2 .quote-form input:focus,
-.tv2 .quote-form textarea:focus {
-  border-color:var(--violetlt);
-  background:rgba(167,139,250,.08);
-  box-shadow:0 0 0 3px rgba(167,139,250,.15);
-}
-.tv2 .quote-form textarea { resize:none; }
-
-.tv2 .quote-btn {
-  display:inline-flex; align-items:center; justify-content:center; gap:10px;
-  background:#fff;
-  color:var(--ink);
-  border:1px solid #fff;
-  padding:15px 34px;
-  font-family:'Plus Jakarta Sans',sans-serif;
-  font-weight:700;
-  font-size:14.5px;
-  letter-spacing:-.01em;
-  border-radius:2px;
-  transition:all .35s var(--ease);
-  cursor:pointer;
-}
-.tv2 .quote-btn:hover { background:var(--violetlt); border-color:var(--violetlt); color:var(--ink); }
-.tv2 .quote-btn:disabled { opacity:.7; cursor:not-allowed; }
-.tv2 .quote-note {
-  margin:16px 0 0;
-  font-family:'IBM Plex Mono',monospace;
-  font-size:11px;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  color:var(--violetlt);
-}
-.tv2 .quote-note.error { color:var(--red); }
-
-/* ============================================================
-   SIDEBAR
-   ============================================================ */
-.tv2 .article-aside {
-  position:sticky;
-  top:110px;
-  display:flex;
-  flex-direction:column;
-  gap:44px;
-}
-.tv2 .aside-title {
-  font-family:'IBM Plex Mono',monospace;
-  font-size:10px;
-  letter-spacing:.24em;
-  text-transform:uppercase;
-  color:var(--violet);
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  margin-bottom:22px;
-}
-.tv2 .aside-title::before { content:''; width:20px; height:1px; background:currentColor; }
-
-.tv2 .toc { display:flex; flex-direction:column; border-top:1px solid var(--border-mid); }
-.tv2 .toc-item {
-  display:grid;
-  grid-template-columns:28px minmax(0,1fr);
-  gap:14px;
-  padding:14px 0;
-  border-bottom:1px solid var(--border-mid);
-  align-items:baseline;
-  text-decoration:none;
-  color:inherit;
-  transition:padding-left .35s var(--ease-out), color .3s;
-  position:relative;
-  min-width:0;
-}
-.tv2 .toc-item::before {
-  content:''; position:absolute; left:0; top:50%; width:0; height:1px;
-  background:var(--violet);
-  transition:width .4s var(--ease-out);
-}
-.tv2 .toc-item:hover { padding-left:20px; color:var(--violet); }
-.tv2 .toc-item:hover::before { width:12px; }
-.tv2 .toc-num {
-  font-family:'IBM Plex Mono',monospace;
-  font-size:10px; letter-spacing:.2em;
-  color:rgba(0,0,0,.35);
-  transition:color .35s;
-}
-.tv2 .toc-item:hover .toc-num { color:var(--violet); }
-.tv2 .toc-text {
-  font-family:'Plus Jakarta Sans',sans-serif;
-  font-weight:600;
-  font-size:13.5px;
-  letter-spacing:-.01em;
-  line-height:1.4;
-  min-width:0;
-}
-
-.tv2 .aside-dark {
-  background:linear-gradient(160deg,#0B1230 0%,#070912 100%);
-  padding:32px 28px;
-  border:1px solid rgba(167,139,250,.18);
-}
-.tv2 .aside-dark .aside-title { color:var(--violetlt); }
-.tv2 .related { display:flex; flex-direction:column; border-top:1px solid var(--border-dark); }
-.tv2 .related-item {
-  display:grid;
-  grid-template-columns:28px minmax(0,1fr);
-  gap:14px;
-  padding:16px 0;
-  border-bottom:1px solid var(--border-dark);
-  align-items:baseline;
-  text-decoration:none;
-  color:inherit;
-  transition:padding-left .35s var(--ease-out);
-  min-width:0;
-}
-.tv2 .related-item:hover { padding-left:16px; }
-.tv2 .related-item:last-child { border-bottom:0; padding-bottom:0; }
-.tv2 .related-num {
-  font-family:'IBM Plex Mono',monospace;
-  font-size:10px; letter-spacing:.2em;
-  color:var(--violetlt);
-  font-weight:600;
-}
-.tv2 .related-text {
-  font-family:'Plus Jakarta Sans',sans-serif;
-  font-weight:600;
-  font-size:13.5px;
-  letter-spacing:-.01em;
-  line-height:1.4;
-  color:#fff;
-  transition:color .3s;
-  display:block;
-  min-width:0;
-}
-.tv2 .related-item:hover .related-text { color:var(--violetlt); }
-.tv2 .related-sub {
-  display:block;
-  font-family:'IBM Plex Mono',monospace;
-  font-weight:500;
-  font-size:9px;
-  letter-spacing:.2em;
-  text-transform:uppercase;
-  color:rgba(255,255,255,.45);
-  margin-top:5px;
-}
-
-/* ============================================================
-   CTA BANNER
-   ============================================================ */
-.tv2 .cta-banner {
-  background:
-    radial-gradient(circle at 85% 20%, rgba(124,58,237,.35), transparent 45%),
-    radial-gradient(circle at 15% 90%, rgba(76,29,149,.3), transparent 45%),
-    linear-gradient(135deg,#050814 0%,#12061F 50%,#0B1230 100%);
-  color:#fff;
-  padding:100px 5vw;
-  position:relative;
-  overflow:hidden;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-@media (max-width:900px){ .tv2 .cta-banner { padding:80px 5vw; } }
-.tv2 .cta-banner::before {
-  content:''; position:absolute; inset:0;
-  background-image:
-    linear-gradient(rgba(167,139,250,.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(167,139,250,.06) 1px, transparent 1px);
-  background-size:60px 60px;
-  mask-image:radial-gradient(ellipse 70% 60% at center, black 20%, transparent 75%);
-  -webkit-mask-image:radial-gradient(ellipse 70% 60% at center, black 20%, transparent 75%);
-  pointer-events:none;
-}
-.tv2 .cta-inner {
-  max-width:1440px; margin:0 auto; position:relative; z-index:1;
-  display:grid;
-  grid-template-columns:1.3fr 1fr;
-  gap:60px;
-  align-items:center;
-  width:100%;
-}
-@media (max-width:900px){ .tv2 .cta-inner { grid-template-columns:1fr; gap:36px; } }
-.tv2 .cta-inner h2 {
-  font-family:'Plus Jakarta Sans',sans-serif;
-  font-weight:800;
-  font-size:clamp(2.2rem,4.4vw,3.8rem);
-  letter-spacing:-.05em;
-  line-height:1.02;
-  color:#fff;
-}
-.tv2 .cta-inner h2 em { font-family:'Fraunces',serif; font-weight:700; color:var(--violetlt); font-style:normal; }
-.tv2 .cta-inner p {
-  font-size:15px;
-  line-height:1.7;
-  color:rgba(255,255,255,.6);
-  margin-bottom:26px;
-  max-width:400px;
-}
-.tv2 .cta-actions { display:flex; flex-wrap:wrap; gap:14px; }
-.tv2 .btn-light {
-  display:inline-flex; align-items:center; gap:8px;
-  padding:15px 28px;
-  background:#fff; color:var(--ink);
-  border:1px solid #fff;
-  border-radius:2px;
-  font-family:'Plus Jakarta Sans',sans-serif;
-  font-weight:700; font-size:14px;
-  transition:all .35s var(--ease);
-}
-.tv2 .btn-light:hover { background:var(--violetlt); border-color:var(--violetlt); }
-.tv2 .btn-outline-light {
-  display:inline-flex; align-items:center; gap:8px;
-  padding:15px 28px;
-  background:transparent; color:#fff;
-  border:1px solid rgba(255,255,255,.3);
-  border-radius:2px;
-  font-family:'Plus Jakarta Sans',sans-serif;
-  font-weight:700; font-size:14px;
-  transition:all .35s var(--ease);
-}
-.tv2 .btn-outline-light:hover { border-color:#fff; background:rgba(255,255,255,.08); }
-
-@media (prefers-reduced-motion:reduce){
-  .tv2 *, .tv2 *::before, .tv2 *::after { animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; }
-  .tv2 [data-reveal] { opacity:1 !important; transform:none !important; }
-}
+.tv2 .chapter-list li strong { color:#050814; font-weight:600; display:inline; }
+.tv2 .chapter-list li span { display:inline; }
 </style>
 </head>
 <body class="bg-paper text-ink antialiased">
@@ -998,9 +204,6 @@
 
 <main class="tv2">
 
-<!-- ============================================================
-     ARTICLE MASTHEAD
-     ============================================================ -->
 <section class="masthead">
   <div class="masthead-grid-bg" aria-hidden="true"></div>
   <div class="masthead-inner">
@@ -1031,9 +234,6 @@
   </div>
 </section>
 
-<!-- ============================================================
-     ARTICLE BODY
-     ============================================================ -->
 <section class="article">
   <div class="grid-bg" aria-hidden="true"></div>
   <div class="tv2-container">
@@ -1041,7 +241,6 @@
 
       <article class="article-body prose" data-reveal>
 
-        <!-- § 01 — What is the BGV marking system -->
         <div id="what" style="margin-bottom:72px;">
           <span class="section-tag">§ 01 — What it is</span>
           <h2>What is the <em>BGV marking system?</em></h2>
@@ -1068,12 +267,10 @@
           </div>
         </div>
 
-        <!-- Verdict pull-quote -->
         <div class="verdict">
           <p>A BGV code is not a verdict. <em>It's a signal, and how you respond to it defines the quality of your hiring.</em></p>
         </div>
 
-        <!-- § 02 — Colour signals -->
         <div id="signals" style="margin-bottom:72px;">
           <span class="section-tag">§ 02 — The three signals</span>
           <h2>The colour code system <em>in a BGV report.</em></h2>
@@ -1113,7 +310,6 @@
           <p style="margin-top:24px;">Truevence uses the same clear colour coding plus a detailed remark section for each check, so there is no ambiguity about why a code was applied.</p>
         </div>
 
-        <!-- § 03 — Common status codes -->
         <div id="status" style="margin-bottom:72px;">
           <span class="section-tag">§ 03 — Common status codes</span>
           <h2>BGV status codes and <em>what they mean.</em></h2>
@@ -1166,7 +362,6 @@
           </div>
         </div>
 
-        <!-- § 04 — Codes by verification type -->
         <div id="types" style="margin-bottom:72px;">
           <span class="section-tag">§ 04 — Codes by check type</span>
           <h2>Codes specific to <em>each verification type.</em></h2>
@@ -1186,7 +381,6 @@
           </div>
         </div>
 
-        <!-- § 05 — Using codes in hiring -->
         <div id="workflow" style="margin-bottom:72px;">
           <span class="section-tag">§ 05 — Hiring workflow</span>
           <h2>How to use BGV codes <em>in your hiring workflow.</em></h2>
@@ -1200,7 +394,6 @@
           </ul>
         </div>
 
-        <!-- § 06 — Why standardisation matters -->
         <div id="standardisation" style="margin-bottom:72px;">
           <span class="section-tag">§ 06 — Why it matters</span>
           <h2>Why standardised BGV codes <em>matter.</em></h2>
@@ -1208,7 +401,6 @@
           <p>For compliance-heavy sectors like BFSI, healthcare, and IT, a standardised marking system is also a defensive measure. If a hiring decision is ever questioned, a documented code and a clear response policy make it easy to show that the decision was consistent, fair, and based on evidence.</p>
         </div>
 
-        <!-- § 07 — FAQ -->
         <div id="faq" style="margin-bottom:72px;">
           <span class="section-tag">§ 07 — Frequently asked</span>
           <h2>Frequently asked questions about <em>BGV marking.</em></h2>
@@ -1278,7 +470,6 @@
           </div>
         </div>
 
-        <!-- § 08 — Quote form -->
         <div id="quote">
           <span class="section-tag">§ 08 — Get a sample</span>
           <div class="quote-wrap">
@@ -1361,9 +552,6 @@
   </div>
 </section>
 
-<!-- ============================================================
-     CTA BANNER
-     ============================================================ -->
 <section class="cta-banner">
   <div class="cta-inner">
     <div data-reveal="left">
@@ -1491,7 +679,6 @@
     }
   } catch (e) {}
 
-  /* --- Quote form (submits to D1 worker) --- */
   var quoteForm = document.getElementById('quoteForm');
   if (quoteForm) {
     var quoteNote = document.getElementById('quoteNote');
