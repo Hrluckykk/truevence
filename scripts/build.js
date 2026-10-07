@@ -120,9 +120,6 @@ for (const filePath of htmlFiles) {
 });
 
 // ---------- 8. Copy favicons ----------
-// Copies into both:
-//   public/favicon-*.png         (root)
-//   public/assets/favicon-*.png  (matches any head references)
 const faviconNames = ['favicon.ico', 'favicon-32.png', 'favicon-192.png'];
 const faviconDirs = [rootDir, path.join(assetsDir, 'images')];
 
