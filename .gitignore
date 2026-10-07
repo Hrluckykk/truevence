@@ -1,5 +1,23 @@
-node_modules/
+# Build output
 public/
+node_modules/
+
+# OS junk
 .DS_Store
+Thumbs.db
+
+# Logs
 *.log
+npm-debug.log*
+
+# Env / secrets
 .env
+.env.local
+.env.*.local
+
+# Vercel local link
+.vercel
+
+# Editors
+.vscode/
+.idea/
