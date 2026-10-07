@@ -352,15 +352,21 @@
   .tv2 .term-report-summary { grid-template-columns:1fr; }
 }
 
+/* --- SECTION PADDING ADJUSTMENTS --- */
 .tv2 .section {
-  position:relative; padding:80px 5vw;
-  /* Removed min-height: 100vh to prevent excessive whitespace */
+  position:relative; 
+  padding:120px 5vw; /* Increased from 80px to 120px for more breathing room */
   display:flex; flex-direction:column; justify-content:center;
   overflow:hidden;
 }
-@media (max-width:900px){
-  .tv2 .section { padding:60px 5vw; }
+.tv2 .section--faq {
+  min-height: 70vh; /* Added min-height to FAQ to prevent it from feeling too slim */
 }
+@media (max-width:900px){
+  .tv2 .section { padding:80px 5vw; }
+  .tv2 .section--faq { min-height: auto; }
+}
+
 .tv2 .section--cream { background:var(--cream); }
 .tv2 .section--slate { background:var(--slate-bg); }
 .tv2 .section--sand  { background:var(--sand); }
@@ -988,7 +994,7 @@
   </div>
 </section>
 
-<section class="section section--white">
+<section class="section section--white section--faq">
   <div class="grid-bg" aria-hidden="true"></div>
   <div class="tv2-container">
     <div class="section-head" data-reveal>
@@ -1140,8 +1146,8 @@
       </div>
     </div>
 
-    <!-- Fixed double lines: merged the border-top and padding into a single container -->
-    <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-3 border-t border-white/10 mt-12">
+    <!-- Footer Bottom Bar: Single border, reduced margin-top -->
+    <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 border-t border-white/10 mt-8">
       <p class="text-white/40 text-xs">&copy; <span id="year"></span> Truevence. All rights reserved.</p>
       <p class="font-mono-ui text-[11px] text-white/30">Simply Certain</p>
     </div>
@@ -1274,6 +1280,28 @@
         newsNote.textContent = 'No spam. Unsubscribe any time.';
         newsNote.classList.remove('ok');
       }, 6000);
+    });
+  }
+
+  var contactForm = tv2.querySelector('#contactForm');
+  var formNote = tv2.querySelector('#formNote');
+  if (contactForm && formNote) {
+    contactForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var name = tv2.querySelector('#fname').value.trim();
+      var email = tv2.querySelector('#email').value.trim();
+      var message = tv2.querySelector('#message').value.trim();
+      
+      if (!name || !email || !message) {
+        formNote.textContent = 'Please fill in all required fields.';
+        formNote.className = 'form-note error';
+        return;
+      }
+
+      // Simulate submission (Replace this with actual fetch to your backend)
+      formNote.textContent = 'Request sent! We will get back to you within one business day.';
+      formNote.className = 'form-note success';
+      contactForm.reset();
     });
   }
 
