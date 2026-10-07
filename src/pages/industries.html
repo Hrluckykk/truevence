@@ -41,7 +41,7 @@
 <!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&display=swap" rel="stylesheet">
 
 <!-- Tailwind CSS -->
 <script src="https://cdn.tailwindcss.com"></script>
@@ -59,11 +59,15 @@
           paper:    '#F7F7FB',
           paperdim: '#EFEEF9',
           slate:    '#545A78',
+          green:    '#3bd39b',
+          amber:    '#febc2e',
+          red:      '#ff5f57',
         },
         fontFamily: {
           display: ['"Plus Jakarta Sans"', 'sans-serif'],
-          body: ['"Inter"', 'sans-serif'],
-          mono: ['"IBM Plex Mono"', 'monospace'],
+          body:    ['"Inter"', 'sans-serif'],
+          mono:    ['"IBM Plex Mono"', 'monospace'],
+          serif:   ['"Fraunces"', 'serif'],
         },
       }
     }
@@ -74,99 +78,484 @@
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
 <!-- Custom CSS (external) -->
-<link rel="stylesheet" href="/assets/css/styles.css">
+<link rel="stylesheet" href="/assets/css/styles.css?v=5">
 </head>
 <body class="bg-paper text-ink antialiased">
 
 <!-- INCLUDE_HEADER -->
 
-<!-- Main Content -->
-<main class="pt-[160px] pb-24 md:pt-[180px] md:pb-32">
-  <div class="max-w-7xl mx-auto px-5 md:px-8">
-    <div data-aos="fade-up">
-      <span class="font-mono-ui text-[12px] tracking-[0.18em] text-violet font-semibold">INDUSTRIES WE SERVE</span>
-      <h1 class="font-display font-extrabold text-3xl sm:text-4xl mt-3 leading-tight">
-        Tailored background checks for every sector.
-      </h1>
-      <p class="mt-6 text-lg text-slate leading-relaxed max-w-2xl">
-        From fast‑growing startups to established enterprises, our verification modules adapt to your industry's unique compliance and hiring needs.
-      </p>
+<main class="tv2">
+
+<!-- ============================================================
+     HERO — Split editorial
+     ============================================================ -->
+<section class="hero" id="hero" data-theme="3">
+  <div class="hero-grid-bg" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <div class="hero-text-slide active" data-text="1">
+        <div class="hero-badge tint-violet"><span class="dot"></span><span>8 Sectors · Pan-India Network</span></div>
+        <div class="hero-kicker">Sector intelligence / Coverage</div>
+        <h1 class="hero-headline">Every industry<br>has its own <em>risk.</em></h1>
+        <p class="hero-sub">A software engineer, a bank teller, a factory floor worker, a schoolteacher — each role carries a different threat model. Truevence builds the verification stack to match.</p>
+        <div class="hero-actions">
+          <a href="/contact.html" class="btn-primary">Request a Verification →</a>
+          <a href="#sectors" class="btn-ghost">See All Sectors</a>
+        </div>
+      </div>
     </div>
 
-    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-16">
-      <!-- Card 1 IT -->
-      <div class="svc-card bg-white border border-ink/8 rounded-2xl p-7" data-aos="fade-up">
-        <div class="w-11 h-11 rounded-xl bg-violet/10 flex items-center justify-center mb-5">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="1.8"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/></svg>
-        </div>
-        <h3 class="font-display font-bold text-[15px] mb-2">Information Technology</h3>
-        <p class="text-sm text-slate leading-relaxed">Fast, digital‑first screening for software engineers, project managers, and IT support staff.</p>
+    <div class="terminal" role="img" aria-label="Sector coverage overview">
+      <div class="terminal-chrome">
+        <div class="terminal-dots"><span></span><span></span><span></span></div>
+        <div class="terminal-path">truevence / industries / coverage</div>
+        <div class="terminal-live"><span class="dot"></span>Live</div>
       </div>
-
-      <!-- Card 2 BFSI -->
-      <div class="svc-card bg-white border border-ink/8 rounded-2xl p-7" data-aos="fade-up" data-aos-delay="60">
-        <div class="w-11 h-11 rounded-xl bg-violet/10 flex items-center justify-center mb-5">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M12 9v4M12 17h.01"/></svg>
+      <div class="terminal-body">
+        <div class="terminal-meta">
+          <span>Coverage · <strong>8 sectors</strong></span>
+          <span>Pan-India</span>
         </div>
-        <h3 class="font-display font-bold text-[15px] mb-2">BFSI</h3>
-        <p class="text-sm text-slate leading-relaxed">Criminal record, credit history, and compliance checks for banking and insurance roles.</p>
-      </div>
 
-      <!-- Card 3 Healthcare -->
-      <div class="svc-card bg-white border border-ink/8 rounded-2xl p-7" data-aos="fade-up" data-aos-delay="120">
-        <div class="w-11 h-11 rounded-xl bg-violet/10 flex items-center justify-center mb-5">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="1.8"><path d="M12 22s8-4.5 8-11V5l-8-3-8 3v6c0 6.5 8 11 8 11z"/></svg>
+        <div class="term-network">
+          <div class="term-network-header">Sector modules · active</div>
+          <div class="term-network-grid">
+            <div class="term-node">
+              <div class="term-node-head"><span class="term-node-title">IT &amp; Software</span><span class="term-node-status">Digital-first</span></div>
+              <div class="term-node-meta">Code · Credentials · Court</div>
+              <div class="term-node-bar"><span></span></div>
+            </div>
+            <div class="term-node">
+              <div class="term-node-head"><span class="term-node-title">BFSI</span><span class="term-node-status">Compliance</span></div>
+              <div class="term-node-meta">Credit · Criminal · Sanction</div>
+              <div class="term-node-bar"><span></span></div>
+            </div>
+            <div class="term-node">
+              <div class="term-node-head"><span class="term-node-title">Healthcare</span><span class="term-node-status">Credentialed</span></div>
+              <div class="term-node-meta">Medical · Fitness · Registry</div>
+              <div class="term-node-bar"><span></span></div>
+            </div>
+            <div class="term-node">
+              <div class="term-node-head"><span class="term-node-title">Manufacturing</span><span class="term-node-status">Field-led</span></div>
+              <div class="term-node-meta">Address · Employment · Safety</div>
+              <div class="term-node-bar"><span></span></div>
+            </div>
+            <div class="term-node">
+              <div class="term-node-head"><span class="term-node-title">Retail &amp; E-comm</span><span class="term-node-status">High-volume</span></div>
+              <div class="term-node-meta">Rapid · Batch · Digital KYC</div>
+              <div class="term-node-bar"><span></span></div>
+            </div>
+            <div class="term-node">
+              <div class="term-node-head"><span class="term-node-title">Logistics</span><span class="term-node-status warn">Field network</span></div>
+              <div class="term-node-meta">Licence · Address · Route</div>
+              <div class="term-node-bar"><span></span></div>
+            </div>
+            <div class="term-node">
+              <div class="term-node-head"><span class="term-node-title">Education</span><span class="term-node-status">Mandatory</span></div>
+              <div class="term-node-meta">Faculty · Credentials · Court</div>
+              <div class="term-node-bar"><span></span></div>
+            </div>
+            <div class="term-node">
+              <div class="term-node-head"><span class="term-node-title">Startups</span><span class="term-node-status">Fast-track</span></div>
+              <div class="term-node-meta">Lean · Modular · 2-5 day TAT</div>
+              <div class="term-node-bar"><span></span></div>
+            </div>
+          </div>
         </div>
-        <h3 class="font-display font-bold text-[15px] mb-2">Healthcare</h3>
-        <p class="text-sm text-slate leading-relaxed">Medical credential verification, fitness screening, and background checks for clinical staff.</p>
-      </div>
-
-      <!-- Card 4 Manufacturing -->
-      <div class="svc-card bg-white border border-ink/8 rounded-2xl p-7" data-aos="fade-up" data-aos-delay="180">
-        <div class="w-11 h-11 rounded-xl bg-violet/10 flex items-center justify-center mb-5">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="1.8"><path d="M3 3v18h18M7 15l4-5 3 3 5-7"/></svg>
-        </div>
-        <h3 class="font-display font-bold text-[15px] mb-2">Manufacturing</h3>
-        <p class="text-sm text-slate leading-relaxed">Blue‑collar workforce verification, address checks, and past employment validation.</p>
-      </div>
-
-      <!-- Card 5 Retail & E‑commerce -->
-      <div class="svc-card bg-white border border-ink/8 rounded-2xl p-7" data-aos="fade-up">
-        <div class="w-11 h-11 rounded-xl bg-violet/10 flex items-center justify-center mb-5">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="1.8"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
-        </div>
-        <h3 class="font-display font-bold text-[15px] mb-2">Retail & E‑commerce</h3>
-        <p class="text-sm text-slate leading-relaxed">High‑volume, rapid screening for delivery personnel, warehouse staff, and customer service.</p>
-      </div>
-
-      <!-- Card 6 Logistics -->
-      <div class="svc-card bg-white border border-ink/8 rounded-2xl p-7" data-aos="fade-up" data-aos-delay="60">
-        <div class="w-11 h-11 rounded-xl bg-violet/10 flex items-center justify-center mb-5">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="1.8"><path d="M17.5 19H9a7 7 0 116.71-9h1.79a4.5 4.5 0 110 9z"/></svg>
-        </div>
-        <h3 class="font-display font-bold text-[15px] mb-2">Logistics</h3>
-        <p class="text-sm text-slate leading-relaxed">Driver verification, address checks, and driving licence validation across pan‑India locations.</p>
-      </div>
-
-      <!-- Card 7 Education -->
-      <div class="svc-card bg-white border border-ink/8 rounded-2xl p-7" data-aos="fade-up" data-aos-delay="120">
-        <div class="w-11 h-11 rounded-xl bg-violet/10 flex items-center justify-center mb-5">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M2 12h20M12 2a15 15 0 010 20 15 15 0 010-20z"/></svg>
-        </div>
-        <h3 class="font-display font-bold text-[15px] mb-2">Education</h3>
-        <p class="text-sm text-slate leading-relaxed">Faculty verification, credential checks, and mandatory background screening for educational institutions.</p>
-      </div>
-
-      <!-- Card 8 Startups -->
-      <div class="svc-card bg-white border border-ink/8 rounded-2xl p-7" data-aos="fade-up" data-aos-delay="180">
-        <div class="w-11 h-11 rounded-xl bg-violet/10 flex items-center justify-center mb-5">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="1.8"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/></svg>
-        </div>
-        <h3 class="font-display font-bold text-[15px] mb-2">Startups</h3>
-        <p class="text-sm text-slate leading-relaxed">Lightweight, affordable packages for early‑stage companies needing quick background checks.</p>
       </div>
     </div>
   </div>
+</section>
+
+<!-- ============================================================
+     THE PREMISE — Editorial section with stat band
+     ============================================================ -->
+<section class="section section--cream">
+  <div class="grid-bg" aria-hidden="true"></div>
+  <div class="tv2-container">
+    <div class="section-head" data-reveal>
+      <div>
+        <p class="label">The Premise</p>
+        <h2>One <span class="serif">verification</span> template doesn't fit every sector.</h2>
+      </div>
+      <p class="lead">An IT screening focused on code ownership looks nothing like a BFSI check built around credit discipline. Sector shapes the questions we ask.</p>
+    </div>
+
+    <div class="stat-band">
+      <div class="band-item" data-reveal data-delay="1">
+        <div class="band-num">8</div>
+        <div class="band-body">
+          <div class="band-title">Sectors, deeply covered</div>
+          <p class="band-desc">Not a badge list. Each sector gets a purpose-built verification stack.</p>
+        </div>
+      </div>
+      <div class="band-item" data-reveal data-delay="2">
+        <div class="band-num">20<span>+</span></div>
+        <div class="band-body">
+          <div class="band-title">Verification modules</div>
+          <p class="band-desc">Mix and match to the risk profile of the role you're filling.</p>
+        </div>
+      </div>
+      <div class="band-item" data-reveal data-delay="3">
+        <div class="band-num">Pan<span>-India</span></div>
+        <div class="band-body">
+          <div class="band-title">Field + digital network</div>
+          <p class="band-desc">On-ground agents reach every state, tier-2 and tier-3 cities included.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTOR 01 — IT (dark editorial)
+     ============================================================ -->
+<section class="section section--plum" id="sectors">
+  <div class="grid-bg grid-bg--dark" aria-hidden="true"></div>
+  <div class="tv2-container">
+    <div class="split-panel" data-reveal>
+      <div class="panel-left">
+        <div class="panel-kicker">Sector · 01</div>
+        <h1 class="panel-title">IT &amp;<br>SOFT<br>WARE</h1>
+        <p style="font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.6; margin-top: 24px; max-width: 320px;">
+          Where a single falsified credential can compromise an entire product line. Digital-first screening with deeper focus on what the resume doesn't say.
+        </p>
+        <ul style="list-style: none; padding: 0; margin-top: 20px; font-size: 13px; color: rgba(255,255,255,0.6); display: flex; flex-direction: column; gap: 8px;">
+          <li style="display: flex; align-items: center; gap: 8px;"><span style="color: #A78BFA;">→</span> Identity &amp; address (digital-first)</li>
+          <li style="display: flex; align-items: center; gap: 8px;"><span style="color: #A78BFA;">→</span> Employment &amp; tenure at previous employers</li>
+          <li style="display: flex; align-items: center; gap: 8px;"><span style="color: #A78BFA;">→</span> Education &amp; degree authenticity</li>
+          <li style="display: flex; align-items: center; gap: 8px;"><span style="color: #A78BFA;">→</span> Court records &amp; litigation search</li>
+        </ul>
+        <div class="panel-footer">Fast-growing startups · Global capability centres · Product &amp; service firms</div>
+      </div>
+      <div class="panel-right">
+        <div class="ledger">
+          <div class="ledger-item" data-reveal data-delay="1"><div class="ledger-num">01</div><div class="ledger-body"><h3>Fast TAT Matters</h3><p>Tech offers close in days. Our digital-first screening delivers a cleared candidate before the notice period ends.</p></div></div>
+          <div class="ledger-item" data-reveal data-delay="2"><div class="ledger-num">02</div><div class="ledger-body"><h3>Moonlighting Risk</h3><p>Dual employment, hidden concurrent roles, and undeclared freelance work are surfaced where red flags are contractual.</p></div></div>
+          <div class="ledger-item" data-reveal data-delay="3"><div class="ledger-num">03</div><div class="ledger-body"><h3>IP &amp; Code Ownership</h3><p>Where relevant, we surface non-compete exposure and any prior litigation that touches the candidate's work.</p></div></div>
+          <div class="ledger-item" data-reveal data-delay="4"><div class="ledger-num">04</div><div class="ledger-body"><h3>Global Coverage</h3><p>Past employers and universities outside India are reachable through our partner network and official channels.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTOR 02 — BFSI (light editorial)
+     ============================================================ -->
+<section class="section section--bone">
+  <div class="grid-bg" aria-hidden="true"></div>
+  <div class="tv2-container">
+    <div class="section-head" data-reveal>
+      <div>
+        <p class="label">Sector · 02</p>
+        <h2>BFSI — where <span class="serif">compliance</span> isn't optional.</h2>
+      </div>
+      <p class="lead">Banking, financial services and insurance roles carry the highest regulatory exposure of any sector. A weak verification is a compliance event waiting to happen.</p>
+    </div>
+
+    <div class="principle-bands">
+      <div class="principle-band" data-reveal data-delay="1" style="border-top-color: rgba(10,10,10,.14);">
+        <div class="band-icon" style="background: linear-gradient(135deg, rgba(124,58,237,.15), rgba(124,58,237,.02)); border-color: rgba(124,58,237,.22); color: var(--violet);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M12 9v4M12 17h.01"/></svg>
+        </div>
+        <div class="band-content">
+          <h3 style="color: var(--ink);">Credit &amp; Financial History</h3>
+          <p style="color: rgba(0,0,0,.55);">CIBIL checks and outstanding default disclosures where the role involves fiduciary responsibility or access to customer funds.</p>
+        </div>
+        <div class="band-index" style="color: rgba(0,0,0,.28);">01</div>
+      </div>
+      <div class="principle-band" data-reveal data-delay="2" style="border-top-color: rgba(10,10,10,.14);">
+        <div class="band-icon" style="background: linear-gradient(135deg, rgba(124,58,237,.15), rgba(124,58,237,.02)); border-color: rgba(124,58,237,.22); color: var(--violet);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/></svg>
+        </div>
+        <div class="band-content">
+          <h3 style="color: var(--ink);">Criminal &amp; Court Records</h3>
+          <p style="color: rgba(0,0,0,.55);">District-level and High Court searches across jurisdictions where the candidate has resided or worked. Financial fraud cases specifically surfaced.</p>
+        </div>
+        <div class="band-index" style="color: rgba(0,0,0,.28);">02</div>
+      </div>
+      <div class="principle-band" data-reveal data-delay="3" style="border-top-color: rgba(10,10,10,.14);">
+        <div class="band-icon" style="background: linear-gradient(135deg, rgba(124,58,237,.15), rgba(124,58,237,.02)); border-color: rgba(124,58,237,.22); color: var(--violet);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M2 12h20M12 2a15 15 0 010 20 15 15 0 010-20z"/></svg>
+        </div>
+        <div class="band-content">
+          <h3 style="color: var(--ink);">AML &amp; Sanction Screening</h3>
+          <p style="color: rgba(0,0,0,.55);">Screening against global watchlists, PEP databases and sanction registries — mandatory for many BFSI roles under RBI and SEBI guidelines.</p>
+        </div>
+        <div class="band-index" style="color: rgba(0,0,0,.28);">03</div>
+      </div>
+      <div class="principle-band" data-reveal data-delay="4" style="border-top-color: rgba(10,10,10,.14); border-bottom-color: rgba(10,10,10,.14);">
+        <div class="band-icon" style="background: linear-gradient(135deg, rgba(124,58,237,.15), rgba(124,58,237,.02)); border-color: rgba(124,58,237,.22); color: var(--violet);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 12l2 2 4-4"/><path d="M21 12c0 5-4 9-9 9s-9-4-9-9 4-9 9-9 9 4 9 9z"/></svg>
+        </div>
+        <div class="band-content">
+          <h3 style="color: var(--ink);">Regulatory Fit &amp; Proper</h3>
+          <p style="color: rgba(0,0,0,.55);">Documented evidence trail aligned with RBI, SEBI and IRDAI onboarding norms. Every check leaves an audit-ready record.</p>
+        </div>
+        <div class="band-index" style="color: rgba(0,0,0,.28);">04</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTOR 03 — HEALTHCARE (dark green editorial)
+     ============================================================ -->
+<section class="section section--forest">
+  <div class="grid-bg grid-bg--dark" aria-hidden="true"></div>
+  <div class="tv2-container">
+    <div class="split-panel" data-reveal>
+      <div class="panel-left" style="background: linear-gradient(160deg, #0F2419 0%, #061008 100%);">
+        <div class="panel-kicker" style="color: #6ee7b7;">Sector · 03</div>
+        <h1 class="panel-title">HEALTH<br>CARE</h1>
+        <p style="font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.6; margin-top: 24px; max-width: 320px;">
+          When a candidate touches patient lives, verification isn't a checkbox — it's a duty of care. Credentials, registrations and fitness, all verified at source.
+        </p>
+        <ul style="list-style: none; padding: 0; margin-top: 20px; font-size: 13px; color: rgba(255,255,255,0.65); display: flex; flex-direction: column; gap: 8px;">
+          <li style="display: flex; align-items: center; gap: 8px;"><span style="color: #6ee7b7;">→</span> Medical council registrations</li>
+          <li style="display: flex; align-items: center; gap: 8px;"><span style="color: #6ee7b7;">→</span> Degree &amp; internship verification</li>
+          <li style="display: flex; align-items: center; gap: 8px;"><span style="color: #6ee7b7;">→</span> Fitness &amp; medical screening</li>
+          <li style="display: flex; align-items: center; gap: 8px;"><span style="color: #6ee7b7;">→</span> Criminal record &amp; court search</li>
+        </ul>
+        <div class="panel-footer">Hospitals · Clinics · Diagnostic chains · Health-tech</div>
+      </div>
+      <div class="panel-right" style="background: rgba(255,255,255,.02);">
+        <div class="ledger">
+          <div class="ledger-item" data-reveal data-delay="1"><div class="ledger-num" style="color: #6ee7b7;">01</div><div class="ledger-body"><h3>Credential Rigour</h3><p>MCI / State Medical Council registration numbers cross-verified at the source — not taken from a scanned certificate.</p></div></div>
+          <div class="ledger-item" data-reveal data-delay="2"><div class="ledger-num" style="color: #6ee7b7;">02</div><div class="ledger-body"><h3>Fitness Screening</h3><p>Coordination with certified diagnostic partners for pre-employment medical fitness — panel doctor validation on file.</p></div></div>
+          <div class="ledger-item" data-reveal data-delay="3"><div class="ledger-num" style="color: #6ee7b7;">03</div><div class="ledger-body"><h3>Guardian Consent</h3><p>For paediatric and vulnerable-patient roles, additional checks against any documented complaints or disciplinary actions.</p></div></div>
+          <div class="ledger-item" data-reveal data-delay="4"><div class="ledger-num" style="color: #6ee7b7;">04</div><div class="ledger-body"><h3>Continuous Reverification</h3><p>Optional annual re-screening for registered clinical staff — aligned with hospital accreditation requirements.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTOR 04 — MANUFACTURING (light editorial)
+     ============================================================ -->
+<section class="section section--sand">
+  <div class="grid-bg" aria-hidden="true"></div>
+  <div class="tv2-container">
+    <div class="section-head" data-reveal>
+      <div>
+        <p class="label">Sector · 04</p>
+        <h2>Manufacturing — <span class="serif">scale</span> meets substance.</h2>
+      </div>
+      <p class="lead">Hiring hundreds of blue-collar workers a month means verification at scale — with the same rigour as a single CXO hire. Field network makes it possible.</p>
+    </div>
+
+    <div class="modules-editorial">
+      <div class="modules-intro" data-reveal="left">
+        <p class="label">The Field Advantage</p>
+        <h3>Digital<br>checks have<br>a <em>ceiling.</em></h3>
+        <p>When a candidate lives in a tier-3 town and their last employer was a small-scale unit, a database hit isn't enough. You need an agent at the door.</p>
+        <div class="modules-intro-meta"><strong>Pan-India</strong> · Physical verification network · 2-6 day TAT</div>
+      </div>
+      <div class="module-index" data-reveal="right">
+        <a href="/products/address-verification.html" class="module-row"><div class="row-idx">01</div><div class="row-text">Address Verification<small>On-ground agent visit, residency confirmation</small></div><div class="row-arrow">→</div></a>
+        <a href="/products/employment-verification.html" class="module-row"><div class="row-idx">02</div><div class="row-text">Employment Verification<small>Tenure, designation, exit reason — even at small units</small></div><div class="row-arrow">→</div></a>
+        <a href="/products/criminal-court-check.html" class="module-row"><div class="row-idx">03</div><div class="row-text">Criminal Court Check<small>District-level search in the candidate's home jurisdiction</small></div><div class="row-arrow">→</div></a>
+        <a href="/products/aadhaar-verification.html" class="module-row"><div class="row-idx">04</div><div class="row-text">Aadhaar Identity<small>UIDAI-linked confirmation of identity documents</small></div><div class="row-arrow">→</div></a>
+        <a href="/products/uan-epfo-verification.html" class="module-row"><div class="row-idx">05</div><div class="row-text">UAN / EPFO Trail<small>Employment history via PF contributions</small></div><div class="row-arrow">→</div></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTOR 05 — RETAIL & E-COMMERCE (dark editorial)
+     ============================================================ -->
+<section class="section section--plum">
+  <div class="grid-bg grid-bg--dark" aria-hidden="true"></div>
+  <div class="tv2-container">
+    <div class="split-panel" data-reveal>
+      <div class="panel-left">
+        <div class="panel-kicker">Sector · 05</div>
+        <h1 class="panel-title">RETAIL<br>&amp; E-<br>COMM</h1>
+        <p style="font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.6; margin-top: 24px; max-width: 320px;">
+          High-volume, high-turnover, high-trust-sensitive. When you hire 200 delivery partners in a month, per-candidate checks need to be fast — and they need to be consistent.
+        </p>
+        <ul style="list-style: none; padding: 0; margin-top: 20px; font-size: 13px; color: rgba(255,255,255,0.6); display: flex; flex-direction: column; gap: 8px;">
+          <li style="display: flex; align-items: center; gap: 8px;"><span style="color: #A78BFA;">→</span> Digital KYC for gig workers</li>
+          <li style="display: flex; align-items: center; gap: 8px;"><span style="color: #A78BFA;">→</span> Address verification (delivery radius)</li>
+          <li style="display: flex; align-items: center; gap: 8px;"><span style="color: #A78BFA;">→</span> Criminal record — critical for cash handling</li>
+          <li style="display: flex; align-items: center; gap: 8px;"><span style="color: #A78BFA;">→</span> Driving licence for last-mile roles</li>
+        </ul>
+        <div class="panel-footer">D2C brands · Marketplaces · Q-commerce · Warehouse networks</div>
+      </div>
+      <div class="panel-right">
+        <div class="ledger">
+          <div class="ledger-item" data-reveal data-delay="1"><div class="ledger-num">01</div><div class="ledger-body"><h3>Batch Processing</h3><p>Submit hundreds of candidates as a single batch. Same per-candidate rigour, coordinated reporting.</p></div></div>
+          <div class="ledger-item" data-reveal data-delay="2"><div class="ledger-num">02</div><div class="ledger-body"><h3>2-Hour Digital KYC</h3><p>Aadhaar + PAN + bank account verification closes within hours. Physical checks run in parallel.</p></div></div>
+          <div class="ledger-item" data-reveal data-delay="3"><div class="ledger-num">03</div><div class="ledger-body"><h3>Delivery-Specific Checks</h3><p>Address within delivery zone, licence validity, and route history if available from prior employers.</p></div></div>
+          <div class="ledger-item" data-reveal data-delay="4"><div class="ledger-num">04</div><div class="ledger-body"><h3>Fraud Signals</h3><p>Duplicate bank accounts, shared Aadhaar clusters, or a candidate flagged by another client surface at submission.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTOR 06 — LOGISTICS (light editorial)
+     ============================================================ -->
+<section class="section section--blush">
+  <div class="grid-bg" aria-hidden="true"></div>
+  <div class="tv2-container">
+    <div class="section-head" data-reveal>
+      <div>
+        <p class="label">Sector · 06</p>
+        <h2>Logistics — moving <span class="serif">people</span>, moving risk.</h2>
+      </div>
+      <p class="lead">Drivers, riders, warehouse staff, dispatch managers — each role carries a distinct liability profile. We verify what insurance and legal teams care about.</p>
+    </div>
+
+    <div class="industry-bordered">
+      <div class="bordered-item" data-reveal data-delay="1"><div class="bordered-num">01</div><div><div class="bordered-title">Driving Licence Verification</div><div class="bordered-desc">RTO-source validation of licence number, class, and validity.</div></div><span class="bordered-arrow">→</span></div>
+      <div class="bordered-item" data-reveal data-delay="2"><div class="bordered-num">02</div><div><div class="bordered-title">Address &amp; Residency</div><div class="bordered-desc">Physical verification within the operating radius.</div></div><span class="bordered-arrow">→</span></div>
+      <div class="bordered-item" data-reveal data-delay="3"><div class="bordered-num">03</div><div><div class="bordered-title">Criminal Record Search</div><div class="bordered-desc">District court check where the candidate resides.</div></div><span class="bordered-arrow">→</span></div>
+      <div class="bordered-item" data-reveal data-delay="4"><div class="bordered-num">04</div><div><div class="bordered-title">Employment History</div><div class="bordered-desc">Previous logistics employers, tenure and exit reason.</div></div><span class="bordered-arrow">→</span></div>
+      <div class="bordered-item" data-reveal data-delay="5"><div class="bordered-num">05</div><div><div class="bordered-title">Drug Test Coordination</div><div class="bordered-desc">Panel-lab coordination for high-risk or long-haul roles.</div></div><span class="bordered-arrow">→</span></div>
+      <div class="bordered-item" data-reveal data-delay="6"><div class="bordered-num">06</div><div><div class="bordered-title">Reference Checks</div><div class="bordered-desc">Structured calls with previous supervisors where permitted.</div></div><span class="bordered-arrow">→</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTOR 07 — EDUCATION (dark editorial)
+     ============================================================ -->
+<section class="section section--plum">
+  <div class="grid-bg grid-bg--dark" aria-hidden="true"></div>
+  <div class="tv2-container">
+    <div class="split-panel" data-reveal>
+      <div class="panel-left">
+        <div class="panel-kicker">Sector · 07</div>
+        <h1 class="panel-title">EDU<br>CA<br>TION</h1>
+        <p style="font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.6; margin-top: 24px; max-width: 320px;">
+          When the candidate stands in front of children every day, the standard is different. Every faculty hire is a safeguarding decision.
+        </p>
+        <ul style="list-style: none; padding: 0; margin-top: 20px; font-size: 13px; color: rgba(255,255,255,0.6); display: flex; flex-direction: column; gap: 8px;">
+          <li style="display: flex; align-items: center; gap: 8px;"><span style="color: #A78BFA;">→</span> Degree &amp; teaching credential verification</li>
+          <li style="display: flex; align-items: center; gap: 8px;"><span style="color: #A78BFA;">→</span> Court records — all jurisdictions of residence</li>
+          <li style="display: flex; align-items: center; gap: 8px;"><span style="color: #A78BFA;">→</span> Address verification at the source</li>
+          <li style="display: flex; align-items: center; gap: 8px;"><span style="color: #A78BFA;">→</span> Prior employment at educational institutions</li>
+        </ul>
+        <div class="panel-footer">K-12 schools · Universities · EdTech · Coaching centres</div>
+      </div>
+      <div class="panel-right">
+        <div class="ledger">
+          <div class="ledger-item" data-reveal data-delay="1"><div class="ledger-num">01</div><div class="ledger-body"><h3>Safeguarding Standard</h3><p>Court record search across every jurisdiction where the candidate has lived for the past 5-7 years.</p></div></div>
+          <div class="ledger-item" data-reveal data-delay="2"><div class="ledger-num">02</div><div class="ledger-body"><h3>Credential Deep-Dive</h3><p>Degree at source from the university. B.Ed, M.Ed and teaching certifications where applicable.</p></div></div>
+          <div class="ledger-item" data-reveal data-delay="3"><div class="ledger-num">03</div><div class="ledger-body"><h3>Prior School Reference</h3><p>Direct verification of tenure, role, and any documented conduct issues from previous institutions.</p></div></div>
+          <div class="ledger-item" data-reveal data-delay="4"><div class="ledger-num">04</div><div class="ledger-body"><h3>Board Compliance</h3><p>Aligned with CBSE, ICSE, and State Board guidelines for staff onboarding documentation.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTOR 08 — STARTUPS (light editorial)
+     ============================================================ -->
+<section class="section section--cream">
+  <div class="grid-bg" aria-hidden="true"></div>
+  <div class="tv2-container">
+    <div class="section-head" data-reveal>
+      <div>
+        <p class="label">Sector · 08</p>
+        <h2>Startups — <span class="serif">speed</span> without shortcuts.</h2>
+      </div>
+      <p class="lead">You're hiring fast, on limited budget, and every bad hire hurts disproportionately. Our modular checks scale with you — from one candidate to a full round.</p>
+    </div>
+
+    <div class="principle-bands">
+      <div class="principle-band" data-reveal data-delay="1" style="border-top-color: rgba(10,10,10,.14);">
+        <div class="band-icon" style="background: linear-gradient(135deg, rgba(124,58,237,.15), rgba(124,58,237,.02)); border-color: rgba(124,58,237,.22); color: var(--violet);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <div class="band-content">
+          <h3 style="color: var(--ink);">No Minimum Volume</h3>
+          <p style="color: rgba(0,0,0,.55);">Verify one candidate or one hundred. You pay per check — no monthly retainer, no onboarding fee, no minimum commitment.</p>
+        </div>
+        <div class="band-index" style="color: rgba(0,0,0,.28);">01</div>
+      </div>
+      <div class="principle-band" data-reveal data-delay="2" style="border-top-color: rgba(10,10,10,.14);">
+        <div class="band-icon" style="background: linear-gradient(135deg, rgba(124,58,237,.15), rgba(124,58,237,.02)); border-color: rgba(124,58,237,.22); color: var(--violet);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        </div>
+        <div class="band-content">
+          <h3 style="color: var(--ink);">2–5 Day Turnaround</h3>
+          <p style="color: rgba(0,0,0,.55);">Fast enough to match your hiring velocity. Digital checks close within hours; field checks complete within the business week.</p>
+        </div>
+        <div class="band-index" style="color: rgba(0,0,0,.28);">02</div>
+      </div>
+      <div class="principle-band" data-reveal data-delay="3" style="border-top-color: rgba(10,10,10,.14);">
+        <div class="band-icon" style="background: linear-gradient(135deg, rgba(124,58,237,.15), rgba(124,58,237,.02)); border-color: rgba(124,58,237,.22); color: var(--violet);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/></svg>
+        </div>
+        <div class="band-content">
+          <h3 style="color: var(--ink);">Startup-Friendly Checks</h3>
+          <p style="color: rgba(0,0,0,.55);">CV validation, employment history, and education credentials — the three checks that catch most CV inflation. Everything else is optional.</p>
+        </div>
+        <div class="band-index" style="color: rgba(0,0,0,.28);">03</div>
+      </div>
+      <div class="principle-band" data-reveal data-delay="4" style="border-top-color: rgba(10,10,10,.14); border-bottom-color: rgba(10,10,10,.14);">
+        <div class="band-icon" style="background: linear-gradient(135deg, rgba(124,58,237,.15), rgba(124,58,237,.02)); border-color: rgba(124,58,237,.22); color: var(--violet);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 12l2 2 4-4"/><path d="M21 12c0 5-4 9-9 9s-9-4-9-9 4-9 9-9 9 4 9 9z"/></svg>
+        </div>
+        <div class="band-content">
+          <h3 style="color: var(--ink);">Founder-Level Support</h3>
+          <p style="color: rgba(0,0,0,.55);">You email us, a founder replies. No account managers, no ticket queues. Especially for early-stage companies running their first structured hiring round.</p>
+        </div>
+        <div class="band-index" style="color: rgba(0,0,0,.28);">04</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     INSIGHTS — blog scroll matching homepage
+     ============================================================ -->
+<section class="section section--white">
+  <div class="grid-bg" aria-hidden="true"></div>
+  <div class="tv2-container">
+    <div class="section-head" data-reveal>
+      <div>
+        <p class="label">Sector Insights</p>
+        <h2>Reading for HR teams who <span class="serif">hire</span> by sector.</h2>
+      </div>
+      <p class="lead">Industry-specific guides, checklists and compliance breakdowns from the Truevence team.</p>
+    </div>
+    <div class="blog-scroll">
+      <a href="/blog/bgv-for-it-professionals.html" class="blog-card"><span class="blog-tag">IT</span><span class="blog-title">BGV for IT Professionals</span><span class="blog-desc">What to verify for software engineers and tech roles — beyond the obvious education and employment checks.</span><span class="blog-more">Read Article →</span></a>
+      <a href="/blog/bgv-for-healthcare-workers.html" class="blog-card"><span class="blog-tag">Healthcare</span><span class="blog-title">Healthcare BGV Guide</span><span class="blog-desc">Medical council registration, credential verification, and safeguarding standards for clinical staff.</span><span class="blog-more">Read Article →</span></a>
+      <a href="/blog/bgv-for-manufacturing-companies-india.html" class="blog-card"><span class="blog-tag">Manufacturing</span><span class="blog-title">Manufacturing BGV at Scale</span><span class="blog-desc">How to run 200+ blue-collar verifications a month without losing rigour.</span><span class="blog-more">Read Article →</span></a>
+      <a href="/blog/bgv-for-gig-workers-contractors.html" class="blog-card"><span class="blog-tag">Retail</span><span class="blog-title">Gig Worker &amp; Contractor BGV</span><span class="blog-desc">Digital-first screening for delivery partners and last-mile workforce.</span><span class="blog-more">Read Article →</span></a>
+      <a href="/blog/bgv-for-small-businesses.html" class="blog-card"><span class="blog-tag">Startups</span><span class="blog-title">BGV for Small Businesses</span><span class="blog-desc">The minimum viable verification stack for early-stage companies.</span><span class="blog-more">Read Article →</span></a>
+      <a href="/blog/bgv-for-c-suite-executives.html" class="blog-card"><span class="blog-tag">Executive</span><span class="blog-title">BGV for C-Suite Executives</span><span class="blog-desc">Deep-dive verification for leadership hires — where a single gap costs millions.</span><span class="blog-more">Read Article →</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CTA BANNER
+     ============================================================ -->
+<section class="cta-banner">
+  <div class="cta-inner">
+    <div data-reveal="left">
+      <h2>Not sure which checks<br>your <em>sector</em> needs?</h2>
+    </div>
+    <div data-reveal="right">
+      <p>Tell us the role and industry. We'll send back a scoped verification plan — usually within a few hours.</p>
+      <div class="cta-actions">
+        <a href="/contact.html" class="btn-light">Request a Scoped Plan →</a>
+        <a href="/services.html" class="btn-outline-light">View All Services</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 </main>
 
 <!-- INCLUDE_FOOTER -->
@@ -174,6 +563,8 @@
 
 <!-- External Scripts -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script src="/assets/js/scripts.js"></script>
+<script src="/assets/js/scripts.js" defer></script>
+<script src="/assets/js/cursor.js" defer></script>
+
 </body>
 </html>
