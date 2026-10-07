@@ -41,7 +41,7 @@
 <!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&display=swap" rel="stylesheet">
 
 <!-- Tailwind CSS -->
 <script src="https://cdn.tailwindcss.com"></script>
@@ -59,11 +59,15 @@
           paper:    '#F7F7FB',
           paperdim: '#EFEEF9',
           slate:    '#545A78',
+          green:    '#3bd39b',
+          amber:    '#febc2e',
+          red:      '#ff5f57',
         },
         fontFamily: {
           display: ['"Plus Jakarta Sans"', 'sans-serif'],
-          body: ['"Inter"', 'sans-serif'],
-          mono: ['"IBM Plex Mono"', 'monospace'],
+          body:    ['"Inter"', 'sans-serif'],
+          mono:    ['"IBM Plex Mono"', 'monospace'],
+          serif:   ['"Fraunces"', 'serif'],
         },
       }
     }
@@ -74,295 +78,125 @@
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
 <!-- Custom CSS (external) -->
-<link rel="stylesheet" href="/assets/css/styles.css">
+<link rel="stylesheet" href="/assets/css/styles.css?v=5">
 </head>
 <body class="bg-paper text-ink antialiased">
 
 <!-- INCLUDE_HEADER -->
 
-<!-- ============ EXISTING PROCESS SECTION (5 steps, untouched) ============ -->
-<section id="process" class="pt-[160px] pb-24 md:pt-[180px] md:pb-32 bg-ink text-white dark-scan-grid relative overflow-hidden">
-  <div class="pointer-events-none absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-violet/15 blur-3xl"></div>
-  <div class="max-w-7xl mx-auto px-5 md:px-8 relative">
-    <div class="max-w-2xl mb-20" data-aos="fade-up">
-      <span class="font-mono-ui text-[12px] tracking-[0.18em] text-violetlt font-semibold">HOW IT WORKS</span>
-      <h2 class="font-display font-extrabold text-3xl sm:text-4xl mt-3 leading-tight">
-        From request to report, in five clear steps.
-      </h2>
-    </div>
+<main class="tv2">
 
-    <div class="grid md:grid-cols-5 gap-8 md:gap-6">
-      <div data-aos="fade-up">
-        <div class="process-num font-extrabold text-5xl mb-5">01</div>
-        <h3 class="font-display font-bold text-[15px] mb-2">Request &amp; Consent</h3>
-        <p class="text-sm text-white/60 leading-relaxed">We collect candidate details and documented consent before anything starts.</p>
-      </div>
-      <div data-aos="fade-up" data-aos-delay="60">
-        <div class="process-num font-extrabold text-5xl mb-5">02</div>
-        <h3 class="font-display font-bold text-[15px] mb-2">Data Collection</h3>
-        <p class="text-sm text-white/60 leading-relaxed">Our team gathers documents and reaches out to institutions, employers and references.</p>
-      </div>
-      <div data-aos="fade-up" data-aos-delay="120">
-        <div class="process-num font-extrabold text-5xl mb-5">03</div>
-        <h3 class="font-display font-bold text-[15px] mb-2">Multi-Source Verification</h3>
-        <p class="text-sm text-white/60 leading-relaxed">Every claim is cross-checked against primary sources, not self-reported paperwork.</p>
-      </div>
-      <div data-aos="fade-up" data-aos-delay="180">
-        <div class="process-num font-extrabold text-5xl mb-5">04</div>
-        <h3 class="font-display font-bold text-[15px] mb-2">Quality Review</h3>
-        <p class="text-sm text-white/60 leading-relaxed">A second reviewer audits findings for accuracy and completeness before sign-off.</p>
-      </div>
-      <div data-aos="fade-up" data-aos-delay="240">
-        <div class="process-num font-extrabold text-5xl mb-5">05</div>
-        <h3 class="font-display font-bold text-[15px] mb-2">Report Delivery</h3>
-        <p class="text-sm text-white/60 leading-relaxed">We deliver a clear, structured report ready to act on with confidence.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========== REDESIGNED NEW SECTIONS (lower card density, pathway feel) ========== -->
-
-<!-- Section 1: The Day‑by‑Day Flow -->
-<section class="py-24 md:py-32 bg-paper">
-  <div class="max-w-3xl mx-auto px-5 md:px-8">
-    <div class="mb-16" data-aos="fade-up">
-      <span class="font-mono-ui text-[12px] tracking-[0.18em] text-violet font-semibold">THE DAY‑BY‑DAY FLOW</span>
-      <h2 class="font-display font-extrabold text-3xl sm:text-4xl mt-3 leading-tight">
-        What happens after you hit "submit."
-      </h2>
-      <p class="mt-4 text-slate leading-relaxed">The five steps above are the skeleton. Here's the living, breathing process that unfolds each day.</p>
-    </div>
-
-    <!-- Timeline style, few cards -->
-    <div class="space-y-10" data-aos="fade-up" data-aos-delay="100">
-      <div class="flex gap-4 items-start">
-        <div class="w-12 h-12 rounded-full bg-violet/10 flex items-center justify-center shrink-0 text-violet font-bold">1</div>
-        <div>
-          <h3 class="font-display font-bold text-[15px]">Document Forensics First</h3>
-          <p class="text-sm text-slate mt-1">Before any call, submitted documents go through digital analysis. Pixel‑level tampering, font mismatches, and template anomalies are flagged within hours. This alone stops 3 out of 10 fraudulent submissions.</p>
-        </div>
-      </div>
-      <div class="flex gap-4 items-start">
-        <div class="w-12 h-12 rounded-full bg-violet/10 flex items-center justify-center shrink-0 text-violet font-bold">2</div>
-        <div>
-          <h3 class="font-display font-bold text-[15px]">Parallel Outreach</h3>
-          <p class="text-sm text-slate mt-1">Our team contacts universities, employers, and references simultaneously – not one after another. If a university doesn't respond in 48 hours, we escalate to an alternate contact or a physical visit.</p>
-        </div>
-      </div>
-      <div class="flex gap-4 items-start">
-        <div class="w-12 h-12 rounded-full bg-violet/10 flex items-center justify-center shrink-0 text-violet font-bold">3</div>
-        <div>
-          <h3 class="font-display font-bold text-[15px]">Discrepancy Deep‑Dive</h3>
-          <p class="text-sm text-slate mt-1">When a claim doesn't match source data, we don't just flag it. We investigate: clerical error, misunderstanding, or intentional? The context matters.</p>
-        </div>
-      </div>
-      <div class="flex gap-4 items-start">
-        <div class="w-12 h-12 rounded-full bg-violet/10 flex items-center justify-center shrink-0 text-violet font-bold">4</div>
-        <div>
-          <h3 class="font-display font-bold text-[15px]">Blind Second Review</h3>
-          <p class="text-sm text-slate mt-1">A second reviewer sees only raw findings, not the first reviewer's conclusion. This eliminates confirmation bias before the final report is drafted.</p>
+<!-- ============================================================
+     HERO — Split editorial
+     ============================================================ -->
+<section class="hero" id="hero" data-theme="1">
+  <div class="hero-grid-bg" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <div class="hero-text-slide active" data-text="1">
+        <div class="hero-badge"><span class="dot"></span><span>Transparent · Consent-First · Audit-Ready</span></div>
+        <div class="hero-kicker">Process intelligence / Overview</div>
+        <h1 class="hero-headline">From consent<br>to <em>certainty.</em></h1>
+        <p class="hero-sub">Every check runs on documented consent, hits primary sources, and passes through a second reviewer before sign-off. No shortcuts, no guesswork — just a defensible report you can act on.</p>
+        <div class="hero-actions">
+          <a href="/contact.html" class="btn-primary">Start a Verification →</a>
+          <a href="#day-by-day" class="btn-ghost">See the Flow</a>
         </div>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- Section 2: How We Handle Delays (single card with bullet points, not a grid) -->
-<section class="py-24 md:py-32 bg-paperdim">
-  <div class="max-w-3xl mx-auto px-5 md:px-8">
-    <div class="mb-12" data-aos="fade-up">
-      <span class="font-mono-ui text-[12px] tracking-[0.18em] text-violet font-semibold">HOW WE HANDLE DELAYS</span>
-      <h2 class="font-display font-extrabold text-3xl sm:text-4xl mt-3 leading-tight">
-        Honest timelines, no silent waiting.
-      </h2>
-      <p class="mt-4 text-slate leading-relaxed">Some checks take longer because a university is slow or a past employer is unresponsive. Here's how we handle those moments – with transparency, not excuses.</p>
-    </div>
+    <div class="terminal" role="img" aria-label="Verification process terminal preview">
+      <div class="terminal-chrome">
+        <div class="terminal-dots"><span></span><span></span><span></span></div>
+        <div class="terminal-path">truevence / process / flow</div>
+        <div class="terminal-live"><span class="dot"></span>Live</div>
+      </div>
+      <div class="terminal-body">
+        <div class="story-dots" role="tablist" aria-label="Process stages">
+          <button class="story-dot active" data-slide="0" aria-label="Stage 1"></button>
+          <button class="story-dot" data-slide="1" aria-label="Stage 2"></button>
+          <button class="story-dot" data-slide="2" aria-label="Stage 3"></button>
+          <button class="story-dot" data-slide="3" aria-label="Stage 4"></button>
+          <button class="story-dot" data-slide="4" aria-label="Stage 5"></button>
+        </div>
+        <div class="terminal-meta">
+          <span>Session · <strong>TVR-2026-PROC-01</strong></span>
+          <span id="termStage">Stage 01/05</span>
+        </div>
 
-    <div class="bg-white border border-ink/8 rounded-2xl p-8" data-aos="fade-up" data-aos-delay="100">
-      <div class="grid sm:grid-cols-2 gap-8">
-        <div class="space-y-6">
-          <div class="flex gap-3">
-            <span class="text-violet text-lg shrink-0">•</span>
-            <div>
-              <h3 class="font-display font-bold text-sm">Proactive Status Updates</h3>
-              <p class="text-[13px] text-slate">You never need to ask. We send updates every 48 hours while a check is in progress, even if there's no new development.</p>
-            </div>
+        <div class="term-slide active" data-stage="1">
+          <div class="term-log">
+            <div class="row"><span class="ts">00:01</span><span>Consent form received</span><span class="ok">✓</span></div>
+            <div class="row"><span class="ts">00:02</span><span>Consent verified &amp; logged</span><span class="ok">✓</span></div>
+            <div class="row"><span class="ts">00:03</span><span>Candidate packet created</span><span class="ok">✓</span></div>
+            <div class="row"><span class="ts">00:04</span><span class="muted">Awaiting documents…</span></div>
+            <div class="row"><span class="ts">00:06</span><span class="muted">Reviewing submitted files…</span></div>
+            <div class="row"><span class="ts">00:08</span><span>Ready for verification pipeline</span><span class="warn">…</span></div>
           </div>
-          <div class="flex gap-3">
-            <span class="text-violet text-lg shrink-0">•</span>
-            <div>
-              <h3 class="font-display font-bold text-sm">Clear Reason for Delay</h3>
-              <p class="text-[13px] text-slate">We tell you exactly why – "university closed for holidays," "past employer's HR is on leave" – so you can plan around it.</p>
+        </div>
+
+        <div class="term-slide" data-stage="2">
+          <div class="term-candidate">
+            <div class="term-avatar">RS</div>
+            <div class="term-candidate-info">
+              <div class="name">Rohit Sharma</div>
+              <div class="role">Senior Engineer · Bengaluru</div>
+              <div class="id">ID · TVR-2026-PROC-01</div>
             </div>
+            <span class="term-status-badge">Collecting</span>
           </div>
-          <div class="flex gap-3">
-            <span class="text-violet text-lg shrink-0">•</span>
-            <div>
-              <h3 class="font-display font-bold text-sm">Partial Report Option</h3>
-              <p class="text-[13px] text-slate">If one check is stuck but others are complete, we can release a partial report. You decide whether to wait or proceed.</p>
+          <div class="term-checks">
+            <div class="term-check"><span class="term-check-icon pass">✓</span><span class="term-check-label">Consent Document</span><span class="term-check-value pass">On file</span></div>
+            <div class="term-check"><span class="term-check-icon pass">✓</span><span class="term-check-label">Identity Documents</span><span class="term-check-value pass">Received</span></div>
+            <div class="term-check"><span class="term-check-icon pass">✓</span><span class="term-check-label">Education Certificates</span><span class="term-check-value pass">Received</span></div>
+            <div class="term-check"><span class="term-check-icon warn">!</span><span class="term-check-label">Employment Letters</span><span class="term-check-value warn">Awaiting</span></div>
+            <div class="term-check"><span class="term-check-icon info">•</span><span class="term-check-label">Reference Contacts</span><span class="term-check-value info">Confirming</span></div>
+            <div class="term-check"><span class="term-check-icon info">•</span><span class="term-check-label">Address Proof</span><span class="term-check-value info">Pending</span></div>
+          </div>
+        </div>
+
+        <div class="term-slide" data-stage="3">
+          <div class="term-network">
+            <div class="term-network-header">Multi-source verification · 4 active</div>
+            <div class="term-network-grid">
+              <div class="term-node"><div class="term-node-head"><span class="term-node-title">Identity</span><span class="term-node-status">Matched</span></div><div class="term-node-meta">UIDAI · PAN</div><div class="term-node-bar"><span></span></div></div>
+              <div class="term-node"><div class="term-node-head"><span class="term-node-title">Employer</span><span class="term-node-status">Confirmed</span></div><div class="term-node-meta">2 sources</div><div class="term-node-bar"><span></span></div></div>
+              <div class="term-node"><div class="term-node-head"><span class="term-node-title">Education</span><span class="term-node-status">Authentic</span></div><div class="term-node-meta">University record</div><div class="term-node-bar"><span></span></div></div>
+              <div class="term-node"><div class="term-node-head"><span class="term-node-title">Address</span><span class="term-node-status warn">Field Visit</span></div><div class="term-node-meta">Agent assigned</div><div class="term-node-bar"><span></span></div></div>
             </div>
           </div>
         </div>
-        <div class="border-l border-ink/10 pl-6 space-y-3">
-          <div class="font-mono-ui text-xs text-violet tracking-wide">COMMON DELAY REASONS</div>
-          <div class="text-sm text-slate flex items-start gap-2"><span class="w-2 h-2 mt-1.5 rounded-full bg-amber-400 shrink-0"></span> University examination periods</div>
-          <div class="text-sm text-slate flex items-start gap-2"><span class="w-2 h-2 mt-1.5 rounded-full bg-amber-400 shrink-0"></span> Past employer restructuring</div>
-          <div class="text-sm text-slate flex items-start gap-2"><span class="w-2 h-2 mt-1.5 rounded-full bg-amber-400 shrink-0"></span> Remote location accessibility</div>
-          <div class="text-sm text-slate flex items-start gap-2"><span class="w-2 h-2 mt-1.5 rounded-full bg-amber-400 shrink-0"></span> International time zone barriers</div>
-          <div class="text-xs text-slate italic mt-2">We've seen these before. We know how to navigate around them.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- Section 3: Our Toolkit (simple row of icon + text, no cards) -->
-<section class="py-24 md:py-32 bg-ink text-white dark-scan-grid relative overflow-hidden">
-  <div class="pointer-events-none absolute -bottom-24 left-1/2 -translate-x-1/2 w-[600px] h-[300px] rounded-full bg-violet/15 blur-3xl"></div>
-  <div class="max-w-4xl mx-auto px-5 md:px-8 relative text-center">
-    <div class="mb-16" data-aos="fade-up">
-      <span class="font-mono-ui text-[12px] tracking-[0.18em] text-violetlt font-semibold">OUR VERIFICATION TOOLKIT</span>
-      <h2 class="font-display font-extrabold text-3xl sm:text-4xl mt-3 leading-tight">
-        The methods we use to get to the truth.
-      </h2>
-      <p class="mt-4 text-white/60 max-w-xl mx-auto">We combine digital tools, human persistence, and field presence to verify every claim.</p>
-    </div>
-
-    <div class="grid grid-cols-2 sm:grid-cols-4 gap-y-8 gap-x-4 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">
-      <div class="flex flex-col items-center gap-2">
-        <div class="text-2xl">🔍</div>
-        <span class="text-sm font-medium">API Integrations</span>
-      </div>
-      <div class="flex flex-col items-center gap-2">
-        <div class="text-2xl">📞</div>
-        <span class="text-sm font-medium">Direct Calling</span>
-      </div>
-      <div class="flex flex-col items-center gap-2">
-        <div class="text-2xl">🏠</div>
-        <span class="text-sm font-medium">Physical Field Visits</span>
-      </div>
-      <div class="flex flex-col items-center gap-2">
-        <div class="text-2xl">📧</div>
-        <span class="text-sm font-medium">Official Email Trails</span>
-      </div>
-      <div class="flex flex-col items-center gap-2">
-        <div class="text-2xl">🔬</div>
-        <span class="text-sm font-medium">Document Forensics</span>
-      </div>
-      <div class="flex flex-col items-center gap-2">
-        <div class="text-2xl">🌐</div>
-        <span class="text-sm font-medium">Global Database Search</span>
-      </div>
-      <div class="flex flex-col items-center gap-2">
-        <div class="text-2xl">📋</div>
-        <span class="text-sm font-medium">Structured Questionnaires</span>
-      </div>
-      <div class="flex flex-col items-center gap-2">
-        <div class="text-2xl">👥</div>
-        <span class="text-sm font-medium">Dual Review System</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Section 4: The Startup Way (two-column text, no card grid) -->
-<section class="py-24 md:py-32 bg-paper">
-  <div class="max-w-4xl mx-auto px-5 md:px-8">
-    <div class="mb-12" data-aos="fade-up">
-      <span class="font-mono-ui text-[12px] tracking-[0.18em] text-violet font-semibold">THE STARTUP WAY</span>
-      <h2 class="font-display font-extrabold text-3xl sm:text-4xl mt-3 leading-tight">
-        We verify like we're hiring for ourselves.
-      </h2>
-      <p class="mt-4 text-slate">As a startup ourselves, we approach every verification with the same care we would if the candidate were joining our own team. This mindset shapes our entire process.</p>
-    </div>
-
-    <div class="grid sm:grid-cols-2 gap-8" data-aos="fade-up" data-aos-delay="100">
-      <div class="space-y-5">
-        <div>
-          <h3 class="font-display font-bold text-sm">No Assembly Line</h3>
-          <p class="text-[13px] text-slate">One verifier owns a case end-to-end, understanding the full context of the candidate.</p>
-        </div>
-        <div>
-          <h3 class="font-display font-bold text-sm">Flexible Process</h3>
-          <p class="text-[13px] text-slate">Need a specific check done first? We reprioritise and can deliver partial results.</p>
-        </div>
-        <div>
-          <h3 class="font-display font-bold text-sm">Direct Founder Access</h3>
-          <p class="text-[13px] text-slate">If something feels off, you're talking to the people who designed the process.</p>
-        </div>
-      </div>
-      <div class="space-y-5">
-        <div>
-          <h3 class="font-display font-bold text-sm">We Remember You</h3>
-          <p class="text-[13px] text-slate">We learn your preferences over time and adapt our process to your rhythm.</p>
-        </div>
-        <div>
-          <h3 class="font-display font-bold text-sm">Continuous Improvement</h3>
-          <p class="text-[13px] text-slate">After every case, we ask: what could have been faster? Clearer? Our process evolves.</p>
-        </div>
-        <div>
-          <h3 class="font-display font-bold text-sm">Human Judgement Matters</h3>
-          <p class="text-[13px] text-slate">We don't automate away the thinking. A person knows to check alternate spellings or previous names.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Section 5: What We Need From You (simple checklist, no cards) -->
-<section class="py-24 md:py-32 bg-paperdim">
-  <div class="max-w-3xl mx-auto px-5 md:px-8">
-    <div class="mb-12" data-aos="fade-up">
-      <span class="font-mono-ui text-[12px] tracking-[0.18em] text-violet font-semibold">WHAT WE NEED FROM YOU</span>
-      <h2 class="font-display font-extrabold text-3xl sm:text-4xl mt-3 leading-tight">
-        A smooth process starts with clear inputs.
-      </h2>
-      <p class="mt-4 text-slate">The faster we receive accurate information, the faster we can deliver verified results.</p>
-    </div>
-
-    <div class="bg-white border border-ink/8 rounded-2xl p-8" data-aos="fade-up" data-aos-delay="100">
-      <div class="grid sm:grid-cols-2 gap-6">
-        <div class="flex gap-3">
-          <span class="text-violet text-lg shrink-0">✓</span>
-          <div>
-            <h3 class="font-display font-bold text-sm">Candidate Consent Form</h3>
-            <p class="text-[13px] text-slate">We provide a simple template. Once signed, we begin immediately.</p>
+        <div class="term-slide" data-stage="4">
+          <div class="term-report-top">
+            <div>
+              <div class="term-report-title">Quality Review</div>
+              <div class="term-report-sub">Blind second-reviewer audit</div>
+            </div>
+            <span class="term-verified-stamp"><span class="check">✓</span> Passed</span>
+          </div>
+          <div class="term-report-summary">
+            <div class="term-stat-mini"><div class="k">First Reviewer</div><div class="v green">Signed</div></div>
+            <div class="term-stat-mini"><div class="k">Second Reviewer</div><div class="v green">Signed</div></div>
+            <div class="term-stat-mini"><div class="k">Anomalies Logged</div><div class="v amber">1</div></div>
+            <div class="term-stat-mini"><div class="k">Source Citations</div><div class="v">11</div></div>
+          </div>
+          <div class="term-report-foot">
+            <span>Audit log sealed · 26 Aug 2026</span>
+            <span>DPDP aligned</span>
           </div>
         </div>
-        <div class="flex gap-3">
-          <span class="text-violet text-lg shrink-0">✓</span>
-          <div>
-            <h3 class="font-display font-bold text-sm">Basic Candidate Details</h3>
-            <p class="text-[13px] text-slate">Full name, date of birth, and the checks you want. That's the minimum.</p>
-          </div>
-        </div>
-        <div class="flex gap-3">
-          <span class="text-violet text-lg shrink-0">✓</span>
-          <div>
-            <h3 class="font-display font-bold text-sm">Scanned Documents</h3>
-            <p class="text-[13px] text-slate">Clear scans of certificates, offer letters, and identity proof. No blurry photos.</p>
-          </div>
-        </div>
-        <div class="flex gap-3">
-          <span class="text-violet text-lg shrink-0">✓</span>
-          <div>
-            <h3 class="font-display font-bold text-sm">Reference Contacts</h3>
-            <p class="text-[13px] text-slate">Names, designations, and phone numbers. We handle the rest.</p>
-          </div>
-        </div>
-        <div class="flex gap-3">
-          <span class="text-violet text-lg shrink-0">✓</span>
-          <div>
-            <h3 class="font-display font-bold text-sm">Urgency Flag</h3>
-            <p class="text-[13px] text-slate">If there's a joining date pressure, tell us. We fast-track critical checks.</p>
-          </div>
-        </div>
-        <div class="flex gap-3">
-          <span class="text-violet text-lg shrink-0">✓</span>
-          <div>
-            <h3 class="font-display font-bold text-sm">Your Hiring Context</h3>
-            <p class="text-[13px] text-slate">The more we know about the role, the better we tailor our scrutiny.</p>
+
+        <div class="term-slide" data-stage="5">
+          <div class="term-final">
+            <div class="term-final-ring"><span class="check">✓</span></div>
+            <div class="term-final-title">Report <span>delivered.</span></div>
+            <div class="term-final-sub">Ready for your HR decision</div>
+            <div class="term-final-tags">
+              <span>Source-checked</span>
+              <span>Consent-based</span>
+              <span>Audit-ready</span>
+            </div>
           </div>
         </div>
       </div>
@@ -370,26 +204,467 @@
   </div>
 </section>
 
-<!-- Final CTA -->
-<section class="py-20 bg-ink relative overflow-hidden dark-scan-grid">
-  <div class="pointer-events-none absolute -bottom-24 left-1/2 -translate-x-1/2 w-[600px] h-[300px] rounded-full bg-violet/20 blur-3xl"></div>
-  <div class="max-w-4xl mx-auto px-5 md:px-8 text-center relative" data-aos="zoom-in">
-    <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-white leading-tight">
-      Ready to see the process in action?
-    </h2>
-    <p class="mt-4 text-white/60 max-w-xl mx-auto">Send us a candidate, and we'll take it from consent to completed report. You'll experience every step we've described.</p>
-    <div class="mt-9 flex flex-wrap items-center justify-center gap-4">
-      <a href="contact.html" class="bg-white text-ink font-display text-[15px] font-bold px-7 py-3.5 rounded-full hover:bg-lavender transition-colors">Start Your First Verification</a>
-      <a href="mailto:Contact@truevence.in" class="font-display text-[15px] font-bold px-7 py-3.5 rounded-full border-2 border-white/25 text-white hover:border-violetlt hover:text-violetlt transition-colors">Contact@truevence.in</a>
+<!-- ============================================================
+     FIVE STEPS — Editorial numbered ledger
+     ============================================================ -->
+<section class="section section--cream" id="process">
+  <div class="grid-bg" aria-hidden="true"></div>
+  <div class="tv2-container">
+    <div class="section-head" data-reveal>
+      <div>
+        <p class="label">How It Works</p>
+        <h2>Five steps. <span class="serif">Zero</span> guesswork.</h2>
+      </div>
+      <p class="lead">Documented consent first. Primary-source verification. Second reviewer before sign-off. Every step is designed to be defensible.</p>
+    </div>
+
+    <div class="process-ledger">
+      <div class="ledger-row" data-reveal data-delay="1">
+        <div class="row-num">01</div>
+        <div class="row-title">Request &amp; Consent</div>
+        <div class="row-desc">Role and candidate details come in. Documented consent is collected before anything starts — no exceptions. Every check traces back to a signed approval.</div>
+      </div>
+      <div class="ledger-row" data-reveal data-delay="2">
+        <div class="row-num">02</div>
+        <div class="row-title">Data Collection</div>
+        <div class="row-desc">Documents gathered, institutions and past employers identified, references prepared. Missing items flagged within 24 hours — not silently waited on.</div>
+      </div>
+      <div class="ledger-row" data-reveal data-delay="3">
+        <div class="row-num">03</div>
+        <div class="row-title">Multi-Source Verification</div>
+        <div class="row-desc">Every claim cross-checked against primary sources — court records, universities, employers, UIDAI. Parallel outreach, not sequential waiting.</div>
+      </div>
+      <div class="ledger-row" data-reveal data-delay="4">
+        <div class="row-num">04</div>
+        <div class="row-title">Quality Review</div>
+        <div class="row-desc">A second reviewer sees raw findings — not the first reviewer's conclusion — before the report is drafted. Bias removed by design.</div>
+      </div>
+      <div class="ledger-row" data-reveal data-delay="5">
+        <div class="row-num">05</div>
+        <div class="row-title">Report Delivery</div>
+        <div class="row-desc">A clear, structured report delivered to your dashboard — with source citations attached. Ready to act on, ready for audit.</div>
+      </div>
     </div>
   </div>
 </section>
+
+<!-- ============================================================
+     STAT BAND — By the numbers
+     ============================================================ -->
+<section class="section section--sand">
+  <div class="grid-bg" aria-hidden="true"></div>
+  <div class="tv2-container">
+    <div class="section-head" data-reveal>
+      <div>
+        <p class="label">By The Numbers</p>
+        <h2>What the process <span class="serif">actually</span> delivers.</h2>
+      </div>
+      <p class="lead">Not marketing metrics — internal benchmarks from the last 12 months of casework across our field and digital networks.</p>
+    </div>
+
+    <div class="stat-band">
+      <div class="band-item" data-reveal data-delay="1">
+        <div class="band-num">2–5<span>days</span></div>
+        <div class="band-body">
+          <div class="band-title">Median turnaround</div>
+          <p class="band-desc">From consent to signed report on a standard 8-module package.</p>
+        </div>
+      </div>
+      <div class="band-item" data-reveal data-delay="2">
+        <div class="band-num">2<span>reviewers</span></div>
+        <div class="band-body">
+          <div class="band-title">Every case</div>
+          <p class="band-desc">Blind second-reviewer audit on every finding before sign-off.</p>
+        </div>
+      </div>
+      <div class="band-item" data-reveal data-delay="3">
+        <div class="band-num">48<span>hours</span></div>
+        <div class="band-body">
+          <div class="band-title">Proactive updates</div>
+          <p class="band-desc">Status ping every 48 hours — even when nothing has changed.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     DAY-BY-DAY FLOW — Dark editorial
+     ============================================================ -->
+<section class="section section--plum" id="day-by-day">
+  <div class="grid-bg grid-bg--dark" aria-hidden="true"></div>
+  <div class="tv2-container">
+    <div class="section-head" data-reveal>
+      <div>
+        <p class="label label-dark">The Day-by-Day Flow</p>
+        <h2>What happens after you hit <span class="serif">submit.</span></h2>
+      </div>
+      <p class="lead">The five steps above are the skeleton. Here's the living, breathing process that unfolds each day.</p>
+    </div>
+
+    <div class="split-panel" data-reveal>
+      <div class="panel-left">
+        <div class="panel-kicker">Behind the scenes</div>
+        <h1 class="panel-title">THE<br>FLOW</h1>
+        <p style="font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.6; margin-top: 24px; max-width: 320px;">
+          From the moment consent lands, four things run in parallel: document forensics, outreach, discrepancy analysis, and blind review. Each has a dedicated owner.
+        </p>
+        <ul style="list-style: none; padding: 0; margin-top: 20px; font-size: 13px; color: rgba(255,255,255,0.6); display: flex; flex-direction: column; gap: 8px;">
+          <li style="display: flex; align-items: center; gap: 8px;"><span style="color: #A78BFA;">→</span> Documents scanned before any call</li>
+          <li style="display: flex; align-items: center; gap: 8px;"><span style="color: #A78BFA;">→</span> Outreach runs in parallel, not sequence</li>
+          <li style="display: flex; align-items: center; gap: 8px;"><span style="color: #A78BFA;">→</span> Discrepancies investigated, not just flagged</li>
+          <li style="display: flex; align-items: center; gap: 8px;"><span style="color: #A78BFA;">→</span> Blind second review before sign-off</li>
+        </ul>
+        <div class="panel-footer">Median 2–5 days · 8-module package</div>
+      </div>
+
+      <div class="panel-right">
+        <div class="ledger">
+          <div class="ledger-item" data-reveal data-delay="1">
+            <div class="ledger-num">01</div>
+            <div class="ledger-body">
+              <h3>Document Forensics First</h3>
+              <p>Before any call, submitted documents go through digital analysis. Pixel-level tampering, font mismatches, and template anomalies are flagged within hours. This alone stops 3 out of 10 fraudulent submissions.</p>
+            </div>
+          </div>
+          <div class="ledger-item" data-reveal data-delay="2">
+            <div class="ledger-num">02</div>
+            <div class="ledger-body">
+              <h3>Parallel Outreach</h3>
+              <p>Our team contacts universities, employers, and references simultaneously — not one after another. If a university doesn't respond in 48 hours, we escalate to an alternate contact or a physical visit.</p>
+            </div>
+          </div>
+          <div class="ledger-item" data-reveal data-delay="3">
+            <div class="ledger-num">03</div>
+            <div class="ledger-body">
+              <h3>Discrepancy Deep-Dive</h3>
+              <p>When a claim doesn't match source data, we don't just flag it. We investigate: clerical error, misunderstanding, or intentional? The context matters — and it changes the recommendation.</p>
+            </div>
+          </div>
+          <div class="ledger-item" data-reveal data-delay="4">
+            <div class="ledger-num">04</div>
+            <div class="ledger-body">
+              <h3>Blind Second Review</h3>
+              <p>A second reviewer sees only raw findings — not the first reviewer's conclusion. This eliminates confirmation bias before the final report is drafted.</p>
+            </div>
+          </div>
+          <div class="ledger-item" data-reveal data-delay="5">
+            <div class="ledger-num">05</div>
+            <div class="ledger-body">
+              <h3>Report Sign-Off</h3>
+              <p>Every finding source-cited, every anomaly documented, every check traceable back to its origin. The signed report is audit-ready the moment it lands.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     HOW WE HANDLE DELAYS — Editorial with side-panel
+     ============================================================ -->
+<section class="section section--bone">
+  <div class="grid-bg" aria-hidden="true"></div>
+  <div class="tv2-container">
+    <div class="section-head" data-reveal>
+      <div>
+        <p class="label">Honest Timelines</p>
+        <h2>No <span class="serif">silent</span> waiting. Ever.</h2>
+      </div>
+      <p class="lead">Some checks take longer because a university is slow or a past employer is unresponsive. Here's how we handle those moments — with transparency, not excuses.</p>
+    </div>
+
+    <div class="principle-bands">
+      <div class="principle-band" data-reveal data-delay="1" style="border-top-color: rgba(10,10,10,.14);">
+        <div class="band-icon" style="background: linear-gradient(135deg, rgba(124,58,237,.15), rgba(124,58,237,.02)); border-color: rgba(124,58,237,.22); color: var(--violet);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        </div>
+        <div class="band-content">
+          <h3 style="color: var(--ink);">Proactive Status Updates</h3>
+          <p style="color: rgba(0,0,0,.55);">You never need to ask. We send updates every 48 hours while a check is in progress, even if there's no new development.</p>
+        </div>
+        <div class="band-index" style="color: rgba(0,0,0,.28);">01</div>
+      </div>
+      <div class="principle-band" data-reveal data-delay="2" style="border-top-color: rgba(10,10,10,.14);">
+        <div class="band-icon" style="background: linear-gradient(135deg, rgba(124,58,237,.15), rgba(124,58,237,.02)); border-color: rgba(124,58,237,.22); color: var(--violet);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 12l2 2 4-4"/><path d="M21 12c0 5-4 9-9 9s-9-4-9-9 4-9 9-9 9 4 9 9z"/></svg>
+        </div>
+        <div class="band-content">
+          <h3 style="color: var(--ink);">Clear Reason for Delay</h3>
+          <p style="color: rgba(0,0,0,.55);">We tell you exactly why — "university closed for holidays," "past employer's HR is on leave" — so you can plan around it. No vague "in progress" placeholders.</p>
+        </div>
+        <div class="band-index" style="color: rgba(0,0,0,.28);">02</div>
+      </div>
+      <div class="principle-band" data-reveal data-delay="3" style="border-top-color: rgba(10,10,10,.14);">
+        <div class="band-icon" style="background: linear-gradient(135deg, rgba(124,58,237,.15), rgba(124,58,237,.02)); border-color: rgba(124,58,237,.22); color: var(--violet);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+        </div>
+        <div class="band-content">
+          <h3 style="color: var(--ink);">Partial Report Option</h3>
+          <p style="color: rgba(0,0,0,.55);">If one check is stuck but others are complete, we can release a partial report. You decide whether to wait for the full picture or proceed with what's ready.</p>
+        </div>
+        <div class="band-index" style="color: rgba(0,0,0,.28);">03</div>
+      </div>
+      <div class="principle-band" data-reveal data-delay="4" style="border-top-color: rgba(10,10,10,.14); border-bottom-color: rgba(10,10,10,.14);">
+        <div class="band-icon" style="background: linear-gradient(135deg, rgba(124,58,237,.15), rgba(124,58,237,.02)); border-color: rgba(124,58,237,.22); color: var(--violet);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <div class="band-content">
+          <h3 style="color: var(--ink);">Fast-Track When It Matters</h3>
+          <p style="color: rgba(0,0,0,.55);">If there's a joining date closing in, tell us upfront. We reprioritise critical checks and reorder the sequence to protect your timeline.</p>
+        </div>
+        <div class="band-index" style="color: rgba(0,0,0,.28);">04</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     TOOLKIT — Dark editorial, module index style
+     ============================================================ -->
+<section class="section section--forest">
+  <div class="grid-bg grid-bg--dark" aria-hidden="true"></div>
+  <div class="tv2-container">
+    <div class="section-head" data-reveal>
+      <div>
+        <p class="label label-dark">Our Toolkit</p>
+        <h2>The <span class="serif">methods</span> we use to get to the truth.</h2>
+      </div>
+      <p class="lead">We combine digital tools, human persistence, and field presence. No single channel is trusted alone — every claim is triangulated.</p>
+    </div>
+
+    <div class="modules-editorial">
+      <div class="modules-intro" data-reveal="left">
+        <p class="label label-dark">Multi-channel</p>
+        <h3>Eight<br>methods.<br>One <em style="color: var(--violetlt);">answer.</em></h3>
+        <p style="color: rgba(255,255,255,.55);">Digital access to primary sources, plus a pan-India field network for anything that can't be verified remotely.</p>
+        <div class="modules-intro-meta" style="color: rgba(255,255,255,.4); border-top-color: rgba(255,255,255,.12);"><strong style="color: var(--violetlt);">8 methods</strong> · Combined by role risk · Audit-cited</div>
+      </div>
+
+      <div class="module-index" data-reveal="right" style="border-top-color: rgba(255,255,255,.12);">
+        <div class="module-row" style="border-bottom-color: rgba(255,255,255,.12); color: #fff;">
+          <div class="row-idx" style="color: rgba(255,255,255,.28);">01</div>
+          <div class="row-text" style="color: #fff;">API Integrations<small style="color: rgba(255,255,255,.5);">Direct source hits — UIDAI, PAN, UAN, court databases</small></div>
+          <div class="row-arrow" style="color: rgba(255,255,255,.28);">→</div>
+        </div>
+        <div class="module-row" style="border-bottom-color: rgba(255,255,255,.12); color: #fff;">
+          <div class="row-idx" style="color: rgba(255,255,255,.28);">02</div>
+          <div class="row-text" style="color: #fff;">Direct Calling<small style="color: rgba(255,255,255,.5);">Human conversation with HRs, universities, references</small></div>
+          <div class="row-arrow" style="color: rgba(255,255,255,.28);">→</div>
+        </div>
+        <div class="module-row" style="border-bottom-color: rgba(255,255,255,.12); color: #fff;">
+          <div class="row-idx" style="color: rgba(255,255,255,.28);">03</div>
+          <div class="row-text" style="color: #fff;">Physical Field Visits<small style="color: rgba(255,255,255,.5);">On-ground agents at addresses, universities, employers</small></div>
+          <div class="row-arrow" style="color: rgba(255,255,255,.28);">→</div>
+        </div>
+        <div class="module-row" style="border-bottom-color: rgba(255,255,255,.12); color: #fff;">
+          <div class="row-idx" style="color: rgba(255,255,255,.28);">04</div>
+          <div class="row-text" style="color: #fff;">Official Email Trails<small style="color: rgba(255,255,255,.5);">Documented correspondence — audit-citable records</small></div>
+          <div class="row-arrow" style="color: rgba(255,255,255,.28);">→</div>
+        </div>
+        <div class="module-row" style="border-bottom-color: rgba(255,255,255,.12); color: #fff;">
+          <div class="row-idx" style="color: rgba(255,255,255,.28);">05</div>
+          <div class="row-text" style="color: #fff;">Document Forensics<small style="color: rgba(255,255,255,.5);">Pixel-level tampering and template anomaly detection</small></div>
+          <div class="row-arrow" style="color: rgba(255,255,255,.28);">→</div>
+        </div>
+        <div class="module-row" style="border-bottom-color: rgba(255,255,255,.12); color: #fff;">
+          <div class="row-idx" style="color: rgba(255,255,255,.28);">06</div>
+          <div class="row-text" style="color: #fff;">Global Database Search<small style="color: rgba(255,255,255,.5);">Sanction, PEP, watchlist, adverse media</small></div>
+          <div class="row-arrow" style="color: rgba(255,255,255,.28);">→</div>
+        </div>
+        <div class="module-row" style="border-bottom-color: rgba(255,255,255,.12); color: #fff;">
+          <div class="row-idx" style="color: rgba(255,255,255,.28);">07</div>
+          <div class="row-text" style="color: #fff;">Structured Questionnaires<small style="color: rgba(255,255,255,.5);">Standardised reference-call scripts</small></div>
+          <div class="row-arrow" style="color: rgba(255,255,255,.28);">→</div>
+        </div>
+        <div class="module-row" style="border-bottom-color: rgba(255,255,255,.12); color: #fff;">
+          <div class="row-idx" style="color: rgba(255,255,255,.28);">08</div>
+          <div class="row-text" style="color: #fff;">Dual Review System<small style="color: rgba(255,255,255,.5);">Blind second-reviewer on every finding</small></div>
+          <div class="row-arrow" style="color: rgba(255,255,255,.28);">→</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     THE STARTUP WAY — Editorial bands
+     ============================================================ -->
+<section class="section section--blush">
+  <div class="grid-bg" aria-hidden="true"></div>
+  <div class="tv2-container">
+    <div class="section-head" data-reveal>
+      <div>
+        <p class="label">The Startup Way</p>
+        <h2>We verify like we're <span class="serif">hiring</span> for ourselves.</h2>
+      </div>
+      <p class="lead">As a startup ourselves, we approach every verification with the same care we would if the candidate were joining our own team. This mindset shapes our entire process.</p>
+    </div>
+
+    <div class="principle-bands">
+      <div class="principle-band" data-reveal data-delay="1" style="border-top-color: rgba(10,10,10,.14);">
+        <div class="band-icon" style="background: linear-gradient(135deg, rgba(124,58,237,.15), rgba(124,58,237,.02)); border-color: rgba(124,58,237,.22); color: var(--violet);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        </div>
+        <div class="band-content">
+          <h3 style="color: var(--ink);">No Assembly Line</h3>
+          <p style="color: rgba(0,0,0,.55);">One verifier owns a case end-to-end, understanding the full context of the candidate. No handoffs, no context loss, no "that's not my job."</p>
+        </div>
+        <div class="band-index" style="color: rgba(0,0,0,.28);">01</div>
+      </div>
+      <div class="principle-band" data-reveal data-delay="2" style="border-top-color: rgba(10,10,10,.14);">
+        <div class="band-icon" style="background: linear-gradient(135deg, rgba(124,58,237,.15), rgba(124,58,237,.02)); border-color: rgba(124,58,237,.22); color: var(--violet);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <div class="band-content">
+          <h3 style="color: var(--ink);">Flexible Process</h3>
+          <p style="color: rgba(0,0,0,.55);">Need a specific check done first? We reprioritise and can deliver partial results. Your hiring timeline drives our sequence — not the other way around.</p>
+        </div>
+        <div class="band-index" style="color: rgba(0,0,0,.28);">02</div>
+      </div>
+      <div class="principle-band" data-reveal data-delay="3" style="border-top-color: rgba(10,10,10,.14);">
+        <div class="band-icon" style="background: linear-gradient(135deg, rgba(124,58,237,.15), rgba(124,58,237,.02)); border-color: rgba(124,58,237,.22); color: var(--violet);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/></svg>
+        </div>
+        <div class="band-content">
+          <h3 style="color: var(--ink);">Direct Founder Access</h3>
+          <p style="color: rgba(0,0,0,.55);">If something feels off, you're talking to the people who designed the process. No account manager telephone games, no ticket queues.</p>
+        </div>
+        <div class="band-index" style="color: rgba(0,0,0,.28);">03</div>
+      </div>
+      <div class="principle-band" data-reveal data-delay="4" style="border-top-color: rgba(10,10,10,.14); border-bottom-color: rgba(10,10,10,.14);">
+        <div class="band-icon" style="background: linear-gradient(135deg, rgba(124,58,237,.15), rgba(124,58,237,.02)); border-color: rgba(124,58,237,.22); color: var(--violet);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 3v18h18M7 15l4-5 3 3 5-7"/></svg>
+        </div>
+        <div class="band-content">
+          <h3 style="color: var(--ink);">Continuous Improvement</h3>
+          <p style="color: rgba(0,0,0,.55);">After every case, we ask: what could have been faster? Clearer? Our process evolves because we treat every client's feedback as product input.</p>
+        </div>
+        <div class="band-index" style="color: rgba(0,0,0,.28);">04</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     WHAT WE NEED — Editorial bordered checklist
+     ============================================================ -->
+<section class="section section--cream">
+  <div class="grid-bg" aria-hidden="true"></div>
+  <div class="tv2-container">
+    <div class="section-head" data-reveal>
+      <div>
+        <p class="label">What We Need</p>
+        <h2>A smooth process starts with <span class="serif">clear</span> inputs.</h2>
+      </div>
+      <p class="lead">The faster we receive accurate information, the faster we can deliver verified results. This is everything we need from you to begin.</p>
+    </div>
+
+    <div class="industry-bordered">
+      <div class="bordered-item" data-reveal data-delay="1">
+        <div class="bordered-num">01</div>
+        <div>
+          <div class="bordered-title">Candidate Consent Form</div>
+          <div class="bordered-desc">We provide a simple template. Once signed, we begin immediately.</div>
+        </div>
+        <span class="bordered-arrow">→</span>
+      </div>
+      <div class="bordered-item" data-reveal data-delay="2">
+        <div class="bordered-num">02</div>
+        <div>
+          <div class="bordered-title">Basic Candidate Details</div>
+          <div class="bordered-desc">Full name, date of birth, and the checks you want. That's the minimum.</div>
+        </div>
+        <span class="bordered-arrow">→</span>
+      </div>
+      <div class="bordered-item" data-reveal data-delay="3">
+        <div class="bordered-num">03</div>
+        <div>
+          <div class="bordered-title">Scanned Documents</div>
+          <div class="bordered-desc">Clear scans of certificates, offer letters, and identity proof. No blurry photos.</div>
+        </div>
+        <span class="bordered-arrow">→</span>
+      </div>
+      <div class="bordered-item" data-reveal data-delay="4">
+        <div class="bordered-num">04</div>
+        <div>
+          <div class="bordered-title">Reference Contacts</div>
+          <div class="bordered-desc">Names, designations, and phone numbers. We handle the rest.</div>
+        </div>
+        <span class="bordered-arrow">→</span>
+      </div>
+      <div class="bordered-item" data-reveal data-delay="5">
+        <div class="bordered-num">05</div>
+        <div>
+          <div class="bordered-title">Urgency Flag</div>
+          <div class="bordered-desc">If there's a joining date pressure, tell us. We fast-track critical checks.</div>
+        </div>
+        <span class="bordered-arrow">→</span>
+      </div>
+      <div class="bordered-item" data-reveal data-delay="6">
+        <div class="bordered-num">06</div>
+        <div>
+          <div class="bordered-title">Your Hiring Context</div>
+          <div class="bordered-desc">The more we know about the role, the better we tailor our scrutiny.</div>
+        </div>
+        <span class="bordered-arrow">→</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     INSIGHTS — blog scroll matching homepage
+     ============================================================ -->
+<section class="section section--white">
+  <div class="grid-bg" aria-hidden="true"></div>
+  <div class="tv2-container">
+    <div class="section-head" data-reveal>
+      <div>
+        <p class="label">Process Insights</p>
+        <h2>Reading for HR teams who <span class="serif">operate.</span></h2>
+      </div>
+      <p class="lead">Deeper dives on turnaround times, delay handling, and process design from the Truevence team.</p>
+    </div>
+    <div class="blog-scroll">
+      <a href="/blog/bgv-tat-turnaround-time.html" class="blog-card"><span class="blog-tag">Operations</span><span class="blog-title">How Long Does BGV Take?</span><span class="blog-desc">Realistic turnaround times for each verification type — and what slows them down.</span><span class="blog-more">Read Article →</span></a>
+      <a href="/blog/reduce-bgv-turnaround-time-guide.html" class="blog-card"><span class="blog-tag">Guide</span><span class="blog-title">Reduce BGV Turnaround Time</span><span class="blog-desc">Operational tactics that cut days off your screening cycle without sacrificing accuracy.</span><span class="blog-more">Read Article →</span></a>
+      <a href="/blog/employment-verification-process-documents-timeline.html" class="blog-card"><span class="blog-tag">Deep Dive</span><span class="blog-title">Employment Verification Process</span><span class="blog-desc">Documents needed, timeline expectations, and edge cases in employment history checks.</span><span class="blog-more">Read Article →</span></a>
+      <a href="/blog/digital-vs-physical-background-verification.html" class="blog-card"><span class="blog-tag">Explainer</span><span class="blog-title">Digital vs Physical BGV</span><span class="blog-desc">When digital verification is enough — and when a physical field visit is still required.</span><span class="blog-more">Read Article →</span></a>
+      <a href="/blog/handling-adverse-bgv-report.html" class="blog-card"><span class="blog-tag">Risk</span><span class="blog-title">Handling Adverse BGV Reports</span><span class="blog-desc">What to do when a check comes back flagged — procedure, communication, and compliance.</span><span class="blog-more">Read Article →</span></a>
+      <a href="/blog/truevence-quality-control-process.html" class="blog-card"><span class="blog-tag">Internal</span><span class="blog-title">Our Quality Control Process</span><span class="blog-desc">A behind-the-scenes look at how the second-reviewer system actually works.</span><span class="blog-more">Read Article →</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CTA BANNER
+     ============================================================ -->
+<section class="cta-banner">
+  <div class="cta-inner">
+    <div data-reveal="left">
+      <h2>Ready to see the<br>process in <em>action?</em></h2>
+    </div>
+    <div data-reveal="right">
+      <p>Send us a candidate, and we'll take it from consent to completed report. You'll experience every step we've described.</p>
+      <div class="cta-actions">
+        <a href="/contact.html" class="btn-light">Start Your First Verification →</a>
+        <a href="/services.html" class="btn-outline-light">View Services</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
 
 <!-- INCLUDE_FOOTER -->
 <!-- INCLUDE_WHATSAPP -->
 
 <!-- External Scripts -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script src="/assets/js/scripts.js"></script>
+<script src="/assets/js/scripts.js" defer></script>
+<script src="/assets/js/cursor.js" defer></script>
+
 </body>
 </html>
