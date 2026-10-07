@@ -7,7 +7,6 @@
 <meta name="description" content="From consent to report delivery – our 5‑step verification process is fast, compliant, and transparent. Behind-the-scenes insights on how we verify, handle delays, and keep you informed. Serving Delhi NCR and across India.">
 <meta name="keywords" content="background verification process, how BGV works, employee screening steps, verification methodology, Truevence process, verification timeline">
 
-<!-- Open Graph / Social -->
 <meta property="og:title" content="How Background Verification Works – Transparent Process | Truevence">
 <meta property="og:description" content="Request, data collection, multi‑source verification, quality review, and report delivery. See our behind-the-scenes approach, delay handling, and communication philosophy.">
 <meta property="og:url" content="https://www.truevence.in/process.html">
@@ -17,271 +16,1300 @@
 <meta name="twitter:title" content="How Background Verification Works – Transparent Process | Truevence">
 <meta name="twitter:description" content="Fast, transparent, pan‑India verification process. Request → collect → verify → review → report. Plus behind-the-scenes insights.">
 <meta name="twitter:image" content="https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/ChatGPT%20Image%20Jul%2018%2C%202026%2C%2009_59_12%20PM.png">
-
-<!-- Canonical -->
 <link rel="canonical" href="https://www.truevence.in/process.html">
 
-<!-- BreadcrumbList Schema -->
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.truevence.in/" },
-    { "@type": "ListItem", "position": 2, "name": "Process", "item": "https://www.truevence.in/process" }
-  ]
-}
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.truevence.in/"},{"@type":"ListItem","position":2,"name":"Process","item":"https://www.truevence.in/process"}]}
 </script>
 
-<!-- Favicon -->
-<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
-<link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192.png">
-<link rel="apple-touch-icon" href="/assets/favicon-192.png">
-
-<!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
 
-<!-- Tailwind CSS -->
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
   tailwind.config = {
     theme: {
       extend: {
         colors: {
-          ink:      '#0B1230',
-          navy:     '#131B45',
-          navylite: '#1E2A5E',
-          violet:   '#7C3AED',
-          violetlt: '#A78BFA',
-          lavender: '#C9BEFB',
-          paper:    '#F7F7FB',
-          paperdim: '#EFEEF9',
-          slate:    '#545A78',
-          green:    '#3bd39b',
-          amber:    '#febc2e',
-          red:      '#ff5f57',
+          ink: '#0B1230', navy: '#131B45', navylite: '#1E2A5E',
+          violet: '#7C3AED', violetlt: '#A78BFA', lavender: '#C9BEFB',
+          paper: '#F7F7FB', paperdim: '#EFEEF9', slate: '#545A78',
+          green: '#3bd39b', amber: '#febc2e', red: '#ff5f57'
         },
         fontFamily: {
           display: ['"Plus Jakarta Sans"', 'sans-serif'],
-          body:    ['"Inter"', 'sans-serif'],
-          mono:    ['"IBM Plex Mono"', 'monospace'],
-          serif:   ['"Fraunces"', 'serif'],
-        },
+          body: ['Inter', 'sans-serif'],
+          'mono-ui': ['"IBM Plex Mono"', 'monospace'],
+          serif: ['"Newsreader"', 'Georgia', 'serif']
+        }
       }
     }
   }
 </script>
 
-<!-- AOS -->
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-<!-- Custom CSS (external) -->
 <link rel="stylesheet" href="/assets/css/styles.css?v=5">
+
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+
+<style>
+/* ============================================================
+   SHARED HEADER / FOOTER / COOKIE (same chrome everywhere)
+   ============================================================ */
+.section-container { max-width:1440px; margin:0 auto; padding:0 1.25rem; }
+@media (min-width:640px){ .section-container { padding:0 2rem; } }
+@media (min-width:1024px){ .section-container { padding:0 5rem; } }
+@media (min-width:1280px){ .section-container { padding:0 7rem; } }
+
+.nav-glass { background: rgba(255,255,255,.82); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-bottom: 1px solid rgba(11,18,48,.06); }
+.nav-glass a { text-decoration: none; }
+.nav-logo-img { height: 44px; width: auto; display: block; }
+@media (min-width:768px){ .nav-logo-img { height: 48px; } }
+.nav-logo-fallback { display: none; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 20px; letter-spacing: -0.02em; color: #0B1230; }
+.nav-logo-img.is-broken { display: none; }
+.nav-logo-img.is-broken + .nav-logo-fallback { display: inline-block; }
+.btn-primary { display:inline-flex; align-items:center; gap:8px; background:#0B1230; color:#fff; border:1px solid #0B1230; transition:all .3s ease; }
+.btn-primary:hover { background:#7C3AED; border-color:#7C3AED; color:#fff; }
+
+.cookie-banner { position:fixed; bottom:0; left:0; right:0; background:#0B1230; color:#fff; padding:16px 1.25rem; display:flex; align-items:center; justify-content:space-between; gap:16px; z-index:9999; font-family:'Inter',sans-serif; box-shadow:0 -4px 20px rgba(0,0,0,.3); }
+@media (min-width:640px){ .cookie-banner { padding:16px 2rem; } }
+@media (min-width:1024px){ .cookie-banner { padding:16px 5rem; } }
+.cookie-text { margin:0; font-size:14px; flex:1; color:#fff; }
+.cookie-text a { color:#A78BFA; text-decoration:underline; }
+.cookie-btn { background:#7C3AED; color:#fff; border:none; padding:10px 22px; border-radius:999px; font-weight:700; cursor:pointer; font-size:14px; flex-shrink:0; }
+
+.footer-grid { display:grid; grid-template-columns:1fr; gap:40px; padding-bottom:0; }
+@media (min-width:640px){ .footer-grid { grid-template-columns:repeat(2,1fr); } .footer-brand { grid-column:1 / -1; } }
+@media (min-width:1024px){ .footer-grid { grid-template-columns:1.2fr .7fr .9fr .9fr 1.6fr; gap:48px; } .footer-brand { grid-column:auto; } }
+.footer-brand p { max-width:320px; }
+
+[data-aos] { opacity:1 !important; transform:none !important; transition:none !important; }
+
+/* ============================================================
+   TV2 — fresh dossier design system
+   New palette anchors: warm paper, ink stain, filing red,
+   typewriter blue. No plum / no forest / no blush.
+   ============================================================ */
+.tv2 {
+  --ink:#0B0F1E;
+  --ink-soft:#2B3046;
+  --paper:#F2ECE0;         /* warm document cream */
+  --paper-2:#EBE4D5;       /* slightly aged */
+  --paper-3:#E3DAC6;       /* manila */
+  --rule:#C9BFA8;          /* ruled line */
+  --rule-dark:#B5A887;
+  --stamp:#B33A2B;         /* filing red */
+  --typewriter:#1B3A66;    /* typed ink blue */
+  --violet:#7C3AED;
+  --violetlt:#A78BFA;
+  --green:#3E8E6C;
+  --amber:#C08A1F;
+  --red:#B33A2B;
+  --ease:cubic-bezier(.2,.8,.2,1);
+  --ease-out:cubic-bezier(.16,1,.3,1);
+  font-family:'Inter',system-ui,-apple-system,sans-serif;
+  color:var(--ink);
+  line-height:1.6;
+}
+.tv2 *, .tv2 *::before, .tv2 *::after { box-sizing:border-box; }
+.tv2 img { max-width:100%; display:block; }
+.tv2 a { color:inherit; text-decoration:none; }
+.tv2 button { font:inherit; cursor:pointer; background:none; border:0; color:inherit; }
+
+.tv2 .tv2-container { max-width:1440px; margin:0 auto; padding:0 5vw; position:relative; z-index:1; }
+.tv2 .serif { font-family:'Newsreader',Georgia,serif; font-weight:500; font-style:italic; letter-spacing:-.01em; }
+.tv2 .serif-up { font-family:'Newsreader',Georgia,serif; font-weight:600; letter-spacing:-.015em; font-style:normal; }
+
+.tv2 .meta {
+  font-family:'IBM Plex Mono',monospace;
+  font-size:10px; letter-spacing:.24em;
+  text-transform:uppercase;
+  color:var(--typewriter);
+  display:inline-flex; align-items:center; gap:10px;
+  font-weight:500;
+}
+.tv2 .meta::before { content:''; width:22px; height:1px; background:currentColor; }
+.tv2 .meta--stamp { color:var(--stamp); }
+.tv2 .meta--ink { color:var(--ink); }
+
+.tv2 [data-reveal] { opacity:0; transform:translateY(24px); transition:opacity .9s var(--ease-out), transform .9s var(--ease-out); }
+.tv2 [data-reveal].in-view { opacity:1; transform:none; }
+.tv2 [data-reveal="left"]  { transform:translateX(-36px); }
+.tv2 [data-reveal="right"] { transform:translateX(36px); }
+.tv2 [data-reveal].in-view[data-reveal="left"],
+.tv2 [data-reveal].in-view[data-reveal="right"] { transform:none; }
+.tv2 [data-delay="1"] { transition-delay:.08s; }
+.tv2 [data-delay="2"] { transition-delay:.16s; }
+.tv2 [data-delay="3"] { transition-delay:.24s; }
+.tv2 [data-delay="4"] { transition-delay:.32s; }
+.tv2 [data-delay="5"] { transition-delay:.4s; }
+.tv2 [data-delay="6"] { transition-delay:.48s; }
+.tv2 [data-delay="7"] { transition-delay:.56s; }
+.tv2 [data-delay="8"] { transition-delay:.64s; }
+
+/* ============================================================
+   DOSSIER COVER — paper texture, filed stamps, typewriter headline
+   ============================================================ */
+.tv2 .dossier {
+  position:relative;
+  padding:150px 5vw 90px;
+  background:var(--paper);
+  overflow:hidden;
+  isolation:isolate;
+  border-bottom:1px solid var(--rule);
+}
+@media (max-width:900px){ .tv2 .dossier { padding:120px 5vw 60px; } }
+/* paper grain — layered radial dots, no grid, no glow */
+.tv2 .dossier::before {
+  content:''; position:absolute; inset:0; z-index:-2; pointer-events:none;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(27,58,102,.05) 0, transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(179,58,43,.05) 0, transparent 45%),
+    radial-gradient(circle, rgba(0,0,0,.028) 1px, transparent 1px);
+  background-size:auto, auto, 3px 3px;
+}
+/* ruled margin line down the left */
+.tv2 .dossier::after {
+  content:''; position:absolute; top:0; bottom:0; left:64px; width:1px;
+  background:var(--stamp); opacity:.28; z-index:-1;
+}
+@media (max-width:800px){ .tv2 .dossier::after { left:32px; } }
+
+.tv2 .dossier-inner { max-width:1440px; margin:0 auto; position:relative; }
+
+.tv2 .dossier-top {
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  gap:24px; align-items:baseline;
+  padding-bottom:20px;
+  border-bottom:1px solid var(--rule);
+  font-family:'IBM Plex Mono',monospace;
+  font-size:10px; letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--ink-soft);
+}
+.tv2 .dossier-top .idx { color:var(--stamp); font-weight:600; }
+.tv2 .dossier-top .mid { text-align:center; color:var(--typewriter); }
+.tv2 .dossier-top .r { text-align:right; color:var(--ink-soft); }
+@media (max-width:700px){ .tv2 .dossier-top { grid-template-columns:1fr; gap:8px; text-align:left; } .tv2 .dossier-top .mid, .tv2 .dossier-top .r { text-align:left; } }
+
+.tv2 .dossier-body {
+  display:grid;
+  grid-template-columns:minmax(320px, 1.35fr) minmax(320px, 1fr);
+  gap:clamp(40px,6vw,100px);
+  padding:70px 0 40px;
+  align-items:end;
+}
+@media (max-width:900px){ .tv2 .dossier-body { grid-template-columns:1fr; gap:48px; padding:48px 0 24px; } }
+
+.tv2 .dossier-title {
+  font-family:'Newsreader',Georgia,serif;
+  font-weight:500;
+  font-size:clamp(3rem,7.2vw,6.2rem);
+  letter-spacing:-.045em;
+  line-height:.94;
+  color:var(--ink);
+  margin:0 0 28px;
+}
+.tv2 .dossier-title em {
+  font-style:italic;
+  color:var(--stamp);
+  font-weight:500;
+}
+.tv2 .dossier-title .line { display:block; }
+
+.tv2 .dossier-id {
+  display:inline-flex;
+  align-items:center;
+  gap:14px;
+  padding:8px 14px;
+  border:1px solid var(--rule-dark);
+  background:rgba(255,255,255,.35);
+  font-family:'IBM Plex Mono',monospace;
+  font-size:10px;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--ink-soft);
+  margin-bottom:26px;
+}
+.tv2 .dossier-id .dot {
+  width:6px; height:6px; border-radius:50%;
+  background:var(--green);
+  box-shadow:0 0 6px rgba(62,142,108,.6);
+  animation:pulseInk 2s ease-in-out infinite;
+}
+@keyframes pulseInk { 0%,100% { opacity:1; transform:scale(1);} 50% { opacity:.55; transform:scale(.8);} }
+
+.tv2 .dossier-meta p {
+  font-family:'Newsreader',Georgia,serif;
+  font-weight:400;
+  font-size:clamp(1.05rem,1.4vw,1.28rem);
+  line-height:1.6;
+  color:var(--ink-soft);
+  max-width:480px;
+  margin-bottom:26px;
+}
+.tv2 .dossier-meta p em { font-style:italic; color:var(--typewriter); font-weight:500; }
+
+.tv2 .dossier-actions { display:flex; flex-wrap:wrap; gap:12px; }
+
+.tv2 .btn-navy { display:inline-flex; align-items:center; gap:8px; padding:14px 26px; background:var(--ink); color:var(--paper); border:1px solid var(--ink); font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:13.5px; letter-spacing:.01em; transition:all .3s var(--ease); border-radius:2px; }
+.tv2 .btn-navy:hover { background:var(--stamp); border-color:var(--stamp); color:#fff; }
+.tv2 .btn-lined { display:inline-flex; align-items:center; gap:8px; padding:14px 26px; background:transparent; color:var(--ink); border:1px solid var(--ink-soft); font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:13.5px; letter-spacing:.01em; transition:all .3s var(--ease); border-radius:2px; }
+.tv2 .btn-lined:hover { background:var(--ink); color:var(--paper); border-color:var(--ink); }
+
+/* Typewriter strip — 5-step preview across bottom of dossier */
+.tv2 .strip {
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  border-top:1px solid var(--rule);
+  border-bottom:1px solid var(--rule);
+  margin-top:44px;
+}
+@media (max-width:900px){ .tv2 .strip { grid-template-columns:1fr; } }
+.tv2 .strip-cell {
+  padding:22px 18px;
+  border-right:1px dashed var(--rule);
+  position:relative;
+  transition:background .3s var(--ease);
+}
+.tv2 .strip-cell:last-child { border-right:0; }
+.tv2 .strip-cell:hover { background:rgba(27,58,102,.05); }
+@media (max-width:900px){ .tv2 .strip-cell { border-right:0; border-bottom:1px dashed var(--rule); } .tv2 .strip-cell:last-child { border-bottom:0; } }
+.tv2 .strip-cell .n {
+  font-family:'IBM Plex Mono',monospace;
+  font-size:10px; letter-spacing:.22em;
+  color:var(--stamp); font-weight:600;
+  display:block; margin-bottom:10px;
+}
+.tv2 .strip-cell .t {
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-weight:700; font-size:13px;
+  color:var(--ink); letter-spacing:-.01em;
+  display:block; line-height:1.25;
+}
+.tv2 .strip-cell .s {
+  font-family:'IBM Plex Mono',monospace;
+  font-size:9px; letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--ink-soft); display:block; margin-top:8px;
+}
+
+/* ============================================================
+   LEDGER — the five steps as a lined index-card ledger
+   ============================================================ */
+.tv2 .ledger-section {
+  position:relative;
+  padding:120px 5vw;
+  background:var(--paper-2);
+  overflow:hidden;
+  border-bottom:1px solid var(--rule);
+}
+@media (max-width:900px){ .tv2 .ledger-section { padding:80px 5vw; } }
+.tv2 .ledger-section::before {
+  content:''; position:absolute; inset:0; pointer-events:none;
+  background-image:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 47px,
+      rgba(27,58,102,.08) 47px,
+      rgba(27,58,102,.08) 48px
+    );
+  z-index:0;
+}
+.tv2 .ledger-section::after {
+  content:''; position:absolute; inset:0; pointer-events:none;
+  background-image:radial-gradient(circle, rgba(0,0,0,.03) 1px, transparent 1px);
+  background-size:3px 3px;
+  mix-blend-mode:multiply;
+  z-index:0;
+}
+
+.tv2 .section-header {
+  display:grid;
+  grid-template-columns:1fr 1.3fr;
+  gap:60px;
+  align-items:end;
+  margin-bottom:64px;
+  position:relative;
+  z-index:1;
+}
+@media (max-width:900px){ .tv2 .section-header { grid-template-columns:1fr; gap:24px; margin-bottom:44px; } }
+.tv2 .section-header h2 {
+  font-family:'Newsreader',Georgia,serif;
+  font-weight:500;
+  font-size:clamp(2rem,3.8vw,3.2rem);
+  letter-spacing:-.035em;
+  line-height:1.05;
+  margin-top:22px;
+  color:var(--ink);
+}
+.tv2 .section-header h2 em { font-style:italic; color:var(--stamp); font-weight:500; }
+.tv2 .section-header .lede {
+  font-family:'Newsreader',Georgia,serif;
+  font-weight:400;
+  font-size:1.05rem;
+  line-height:1.7;
+  color:var(--ink-soft);
+  max-width:520px;
+}
+
+.tv2 .steps { position:relative; z-index:1; display:flex; flex-direction:column; }
+.tv2 .step {
+  display:grid;
+  grid-template-columns:110px 1fr 1.6fr;
+  gap:40px;
+  padding:36px 0;
+  border-bottom:1px solid var(--rule);
+  align-items:baseline;
+  position:relative;
+  transition:padding-left .4s var(--ease-out), background .35s;
+}
+.tv2 .step:first-child { border-top:1px solid var(--rule); }
+.tv2 .step::before {
+  content:''; position:absolute; left:0; top:20px; bottom:20px;
+  width:3px; background:var(--stamp);
+  transform:scaleY(0); transform-origin:top;
+  transition:transform .45s var(--ease-out);
+}
+.tv2 .step:hover { padding-left:24px; background:rgba(179,58,43,.035); }
+.tv2 .step:hover::before { transform:scaleY(1); }
+.tv2 .step-num {
+  font-family:'Newsreader',Georgia,serif;
+  font-style:italic;
+  font-weight:500;
+  font-size:clamp(2.8rem,4vw,3.8rem);
+  letter-spacing:-.06em;
+  line-height:.85;
+  color:var(--ink);
+  opacity:.22;
+  transition:opacity .35s, color .35s;
+}
+.tv2 .step:hover .step-num { opacity:1; color:var(--stamp); }
+.tv2 .step-title {
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-weight:700;
+  font-size:19px;
+  letter-spacing:-.02em;
+  line-height:1.2;
+  color:var(--ink);
+  padding-top:10px;
+}
+.tv2 .step-title small {
+  display:block;
+  font-family:'IBM Plex Mono',monospace;
+  font-weight:500;
+  font-size:9.5px;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--ink-soft);
+  margin-top:6px;
+}
+.tv2 .step-desc {
+  font-family:'Newsreader',Georgia,serif;
+  font-weight:400;
+  font-size:15px;
+  line-height:1.7;
+  color:var(--ink-soft);
+  padding-top:10px;
+}
+.tv2 .step-desc em { font-style:italic; color:var(--typewriter); }
+@media (max-width:900px){
+  .tv2 .step { grid-template-columns:70px 1fr; gap:20px; }
+  .tv2 .step-desc { grid-column:1 / -1; padding-top:0; padding-left:90px; }
+}
+@media (max-width:520px){ .tv2 .step-desc { padding-left:0; } }
+
+/* ============================================================
+   STAT BAND — like a filed "index card" strip of statistics
+   ============================================================ */
+.tv2 .cards-section {
+  position:relative;
+  padding:110px 5vw;
+  background:var(--paper-3);
+  overflow:hidden;
+  border-bottom:1px solid var(--rule);
+}
+@media (max-width:900px){ .tv2 .cards-section { padding:80px 5vw; } }
+.tv2 .cards-section::before {
+  content:''; position:absolute; inset:0; pointer-events:none; z-index:0;
+  background-image:
+    radial-gradient(circle, rgba(0,0,0,.035) 1px, transparent 1px);
+  background-size:3px 3px;
+}
+
+.tv2 .card-band {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:32px;
+  position:relative;
+  z-index:1;
+  margin-top:20px;
+}
+@media (max-width:900px){ .tv2 .card-band { grid-template-columns:1fr; gap:24px; } }
+.tv2 .index-card {
+  padding:34px 28px 30px;
+  background:rgba(255,255,255,.42);
+  border:1px solid var(--rule-dark);
+  position:relative;
+  box-shadow:
+    0 1px 0 rgba(0,0,0,.03),
+    inset 0 0 0 1px rgba(255,255,255,.35);
+  transition:transform .45s var(--ease-out), background .35s, box-shadow .4s;
+}
+.tv2 .index-card::before {
+  content:''; position:absolute; top:0; left:28px; right:28px;
+  height:2px; background:var(--stamp);
+}
+.tv2 .index-card:hover {
+  transform:translateY(-4px);
+  background:rgba(255,255,255,.65);
+  box-shadow:0 10px 30px rgba(11,15,30,.08), inset 0 0 0 1px rgba(255,255,255,.5);
+}
+.tv2 .index-card .tag {
+  font-family:'IBM Plex Mono',monospace;
+  font-size:9.5px; letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--stamp);
+  display:block; margin-bottom:14px;
+}
+.tv2 .index-card .big {
+  font-family:'Newsreader',Georgia,serif;
+  font-weight:500;
+  font-size:clamp(2.6rem,4.2vw,3.6rem);
+  letter-spacing:-.04em;
+  line-height:.9;
+  color:var(--ink);
+  display:flex; align-items:baseline; gap:8px;
+}
+.tv2 .index-card .big em { font-style:italic; color:var(--stamp); font-size:.55em; font-weight:500; }
+.tv2 .index-card .lbl {
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-weight:700;
+  font-size:14px;
+  letter-spacing:-.01em;
+  color:var(--ink);
+  display:block;
+  margin:16px 0 8px;
+}
+.tv2 .index-card .txt {
+  font-family:'Newsreader',Georgia,serif;
+  font-weight:400;
+  font-size:14px;
+  line-height:1.65;
+  color:var(--ink-soft);
+}
+
+/* ============================================================
+   DOSSIER SPREAD — the day-by-day flow as a two-column binder spread
+   Left: column of "field notes" (vertical margin index)
+   Right: long-form narrative
+   ============================================================ */
+.tv2 .binder-section {
+  position:relative;
+  padding:120px 5vw;
+  background:var(--paper);
+  overflow:hidden;
+  border-bottom:1px solid var(--rule);
+}
+@media (max-width:900px){ .tv2 .binder-section { padding:80px 5vw; } }
+.tv2 .binder-section::before {
+  content:''; position:absolute; inset:0; pointer-events:none; z-index:0;
+  background-image:
+    radial-gradient(circle, rgba(0,0,0,.028) 1px, transparent 1px);
+  background-size:3px 3px;
+}
+
+.tv2 .binder {
+  display:grid;
+  grid-template-columns:minmax(200px,280px) 1fr;
+  gap:clamp(40px,6vw,90px);
+  position:relative;
+  z-index:1;
+}
+@media (max-width:800px){ .tv2 .binder { grid-template-columns:1fr; gap:40px; } }
+
+.tv2 .binder-rail {
+  position:relative;
+  border-right:1px solid var(--rule);
+  padding-right:34px;
+}
+@media (max-width:800px){ .tv2 .binder-rail { border-right:0; border-bottom:1px solid var(--rule); padding:0 0 24px; } }
+.tv2 .binder-rail .rail-title {
+  font-family:'IBM Plex Mono',monospace;
+  font-size:10px; letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--stamp);
+  margin-bottom:22px;
+  display:block;
+}
+.tv2 .rail-list { display:flex; flex-direction:column; gap:22px; }
+.tv2 .rail-item {
+  display:grid; grid-template-columns:32px 1fr; gap:14px;
+  align-items:baseline;
+  padding-bottom:20px;
+  border-bottom:1px dashed var(--rule-dark);
+}
+.tv2 .rail-item:last-child { border-bottom:0; padding-bottom:0; }
+.tv2 .rail-num {
+  font-family:'IBM Plex Mono',monospace;
+  font-size:10px; letter-spacing:.16em;
+  color:var(--typewriter); font-weight:600;
+}
+.tv2 .rail-text {
+  font-family:'Newsreader',Georgia,serif;
+  font-weight:500;
+  font-size:14px;
+  line-height:1.45;
+  color:var(--ink);
+}
+
+.tv2 .binder-body { display:flex; flex-direction:column; gap:44px; }
+.tv2 .binder-chapter { position:relative; padding-left:40px; }
+.tv2 .binder-chapter::before {
+  content:''; position:absolute; left:0; top:8px;
+  width:20px; height:20px;
+  border:1px solid var(--stamp);
+  border-radius:50%;
+  background:var(--paper);
+  box-shadow:inset 0 0 0 4px var(--paper), inset 0 0 0 5px var(--stamp);
+}
+.tv2 .binder-chapter::after {
+  content:''; position:absolute; left:9px; top:28px; bottom:-44px;
+  width:1px; background:var(--rule-dark);
+}
+.tv2 .binder-chapter:last-child::after { display:none; }
+.tv2 .binder-chapter h3 {
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-weight:800;
+  font-size:clamp(1.15rem,1.7vw,1.5rem);
+  letter-spacing:-.025em;
+  line-height:1.2;
+  color:var(--ink);
+  margin:0 0 12px;
+}
+.tv2 .binder-chapter h3 em { font-family:'Newsreader',Georgia,serif; font-style:italic; font-weight:500; color:var(--stamp); }
+.tv2 .binder-chapter p {
+  font-family:'Newsreader',Georgia,serif;
+  font-weight:400;
+  font-size:15.5px;
+  line-height:1.75;
+  color:var(--ink-soft);
+  max-width:680px;
+}
+.tv2 .binder-chapter p em { font-style:italic; color:var(--typewriter); font-weight:500; }
+
+/* ============================================================
+   DELAY PROTOCOL — ruled notebook with margin flags
+   ============================================================ */
+.tv2 .protocol-section {
+  position:relative;
+  padding:120px 5vw;
+  background:var(--paper-2);
+  overflow:hidden;
+  border-bottom:1px solid var(--rule);
+}
+@media (max-width:900px){ .tv2 .protocol-section { padding:80px 5vw; } }
+.tv2 .protocol-section::before {
+  content:''; position:absolute; inset:0; pointer-events:none; z-index:0;
+  background-image:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 31px,
+      rgba(27,58,102,.07) 31px,
+      rgba(27,58,102,.07) 32px
+    );
+}
+.tv2 .protocol-list {
+  display:flex; flex-direction:column;
+  position:relative; z-index:1;
+  margin-top:20px;
+}
+.tv2 .protocol {
+  display:grid;
+  grid-template-columns:64px 1fr auto;
+  gap:28px;
+  padding:30px 0;
+  border-bottom:1px solid var(--rule);
+  align-items:start;
+  position:relative;
+  transition:padding .4s var(--ease-out);
+}
+.tv2 .protocol:first-child { border-top:1px solid var(--rule); }
+.tv2 .protocol::before {
+  content:''; position:absolute; left:0; top:24px; bottom:24px;
+  width:3px; background:var(--typewriter);
+  transform:scaleY(0); transform-origin:top;
+  transition:transform .45s var(--ease-out);
+}
+.tv2 .protocol:hover { padding-left:22px; }
+.tv2 .protocol:hover::before { transform:scaleY(1); }
+.tv2 .protocol-badge {
+  width:52px; height:52px;
+  display:grid; place-items:center;
+  border:1px solid var(--rule-dark);
+  background:var(--paper);
+  font-family:'Newsreader',Georgia,serif;
+  font-style:italic; font-weight:600;
+  font-size:20px; color:var(--stamp);
+  border-radius:50%;
+  transition:transform .5s var(--ease-out), border-color .35s;
+}
+.tv2 .protocol:hover .protocol-badge { transform:rotate(-10deg); border-color:var(--stamp); }
+.tv2 .protocol-content h3 {
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-weight:700;
+  font-size:17.5px;
+  letter-spacing:-.02em;
+  line-height:1.25;
+  color:var(--ink);
+  margin:0 0 8px;
+}
+.tv2 .protocol-content p {
+  font-family:'Newsreader',Georgia,serif;
+  font-weight:400;
+  font-size:14.5px;
+  line-height:1.7;
+  color:var(--ink-soft);
+  max-width:640px;
+}
+.tv2 .protocol-flag {
+  align-self:start;
+  padding:5px 12px;
+  border:1px solid var(--rule-dark);
+  font-family:'IBM Plex Mono',monospace;
+  font-size:9px; letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--ink-soft);
+  background:rgba(255,255,255,.35);
+  white-space:nowrap;
+}
+@media (max-width:700px){
+  .tv2 .protocol { grid-template-columns:52px 1fr; gap:18px; }
+  .tv2 .protocol-flag { grid-column:2; justify-self:start; margin-top:12px; }
+}
+
+/* ============================================================
+   TOOLKIT — a "contact sheet" of methods, arranged as a numbered
+   grid with red filing numbers and ruled headers
+   ============================================================ */
+.tv2 .toolkit-section {
+  position:relative;
+  padding:120px 5vw;
+  background:var(--paper-3);
+  overflow:hidden;
+  border-bottom:1px solid var(--rule);
+}
+@media (max-width:900px){ .tv2 .toolkit-section { padding:80px 5vw; } }
+.tv2 .toolkit-section::before {
+  content:''; position:absolute; inset:0; pointer-events:none; z-index:0;
+  background-image:
+    radial-gradient(circle, rgba(0,0,0,.035) 1px, transparent 1px);
+  background-size:3px 3px;
+}
+.tv2 .toolkit-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:0 80px;
+  position:relative; z-index:1;
+  margin-top:16px;
+}
+@media (max-width:800px){ .tv2 .toolkit-grid { grid-template-columns:1fr; gap:0; } }
+.tv2 .tool {
+  display:grid;
+  grid-template-columns:52px 1fr;
+  gap:24px;
+  padding:28px 0;
+  border-bottom:1px solid var(--rule);
+  align-items:start;
+  position:relative;
+  transition:padding-left .4s var(--ease-out);
+}
+.tv2 .tool::after {
+  content:''; position:absolute; left:0; bottom:-1px; width:0; height:1px;
+  background:var(--stamp); transition:width .55s var(--ease-out);
+}
+.tv2 .tool:hover { padding-left:14px; }
+.tv2 .tool:hover::after { width:100%; }
+.tv2 .tool-idx {
+  font-family:'IBM Plex Mono',monospace;
+  font-size:11px; letter-spacing:.2em;
+  color:var(--stamp); font-weight:600;
+  padding-top:3px;
+}
+.tv2 .tool-title {
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-weight:700;
+  font-size:16.5px;
+  letter-spacing:-.02em;
+  line-height:1.25;
+  color:var(--ink);
+  margin:0 0 6px;
+  transition:color .3s;
+}
+.tv2 .tool:hover .tool-title { color:var(--stamp); }
+.tv2 .tool-desc {
+  font-family:'Newsreader',Georgia,serif;
+  font-weight:400;
+  font-size:14px;
+  line-height:1.6;
+  color:var(--ink-soft);
+}
+
+/* ============================================================
+   STARTUP WAY — a "letter" format: single-column narrow prose
+   with a signature block. Completely different from bands.
+   ============================================================ */
+.tv2 .letter-section {
+  position:relative;
+  padding:130px 5vw;
+  background:var(--paper);
+  overflow:hidden;
+  border-bottom:1px solid var(--rule);
+}
+@media (max-width:900px){ .tv2 .letter-section { padding:80px 5vw; } }
+.tv2 .letter-section::before {
+  content:''; position:absolute; inset:0; pointer-events:none; z-index:0;
+  background-image:
+    radial-gradient(circle, rgba(0,0,0,.028) 1px, transparent 1px);
+  background-size:3px 3px;
+}
+.tv2 .letter {
+  max-width:720px;
+  margin:0 auto;
+  position:relative; z-index:1;
+  padding:0 24px;
+}
+.tv2 .letter-kicker {
+  text-align:center;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:10px; letter-spacing:.28em;
+  text-transform:uppercase;
+  color:var(--stamp);
+  margin-bottom:22px;
+}
+.tv2 .letter-title {
+  font-family:'Newsreader',Georgia,serif;
+  font-weight:500;
+  font-size:clamp(1.9rem,3.4vw,2.8rem);
+  letter-spacing:-.035em;
+  line-height:1.15;
+  text-align:center;
+  color:var(--ink);
+  margin:0 0 34px;
+}
+.tv2 .letter-title em { font-style:italic; color:var(--stamp); }
+.tv2 .letter-body p {
+  font-family:'Newsreader',Georgia,serif;
+  font-weight:400;
+  font-size:17px;
+  line-height:1.78;
+  color:var(--ink-soft);
+  margin-bottom:22px;
+}
+.tv2 .letter-body p em { font-style:italic; color:var(--typewriter); font-weight:500; }
+.tv2 .letter-body p strong { font-weight:600; color:var(--ink); }
+.tv2 .letter-drop::first-letter {
+  font-family:'Newsreader',Georgia,serif;
+  font-weight:600;
+  font-style:italic;
+  float:left;
+  font-size:3.2rem;
+  line-height:.85;
+  padding:6px 10px 0 0;
+  color:var(--stamp);
+}
+.tv2 .letter-sign {
+  margin-top:44px;
+  padding-top:26px;
+  border-top:1px solid var(--rule);
+  display:flex; align-items:center; gap:16px;
+  flex-wrap:wrap;
+}
+.tv2 .letter-sign .sig {
+  font-family:'Newsreader',Georgia,serif;
+  font-style:italic;
+  font-weight:500;
+  font-size:22px;
+  color:var(--ink);
+  letter-spacing:-.01em;
+}
+.tv2 .letter-sign .rule { flex:1; height:1px; background:var(--rule-dark); min-width:40px; }
+.tv2 .letter-sign .role {
+  font-family:'IBM Plex Mono',monospace;
+  font-size:10px; letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--ink-soft);
+}
+
+/* ============================================================
+   INTAKE CHECKLIST — a "form" layout, ruled fields
+   ============================================================ */
+.tv2 .intake-section {
+  position:relative;
+  padding:120px 5vw;
+  background:var(--paper-2);
+  overflow:hidden;
+  border-bottom:1px solid var(--rule);
+}
+@media (max-width:900px){ .tv2 .intake-section { padding:80px 5vw; } }
+.tv2 .intake-section::before {
+  content:''; position:absolute; inset:0; pointer-events:none; z-index:0;
+  background-image:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 39px,
+      rgba(27,58,102,.07) 39px,
+      rgba(27,58,102,.07) 40px
+    );
+}
+
+.tv2 .intake {
+  position:relative; z-index:1;
+  display:grid;
+  grid-template-columns:1fr 1.4fr;
+  gap:80px;
+  align-items:start;
+}
+@media (max-width:900px){ .tv2 .intake { grid-template-columns:1fr; gap:40px; } }
+
+.tv2 .intake-intro h2 {
+  font-family:'Newsreader',Georgia,serif;
+  font-weight:500;
+  font-size:clamp(1.8rem,3vw,2.6rem);
+  letter-spacing:-.035em;
+  line-height:1.12;
+  color:var(--ink);
+  margin-top:20px;
+}
+.tv2 .intake-intro h2 em { font-style:italic; color:var(--stamp); }
+.tv2 .intake-intro p {
+  font-family:'Newsreader',Georgia,serif;
+  font-weight:400;
+  font-size:15.5px;
+  line-height:1.75;
+  color:var(--ink-soft);
+  margin-top:22px;
+  max-width:400px;
+}
+
+.tv2 .intake-form { display:flex; flex-direction:column; }
+.tv2 .intake-field {
+  display:grid;
+  grid-template-columns:44px 1fr auto;
+  gap:24px;
+  padding:22px 0;
+  border-bottom:1px solid var(--rule);
+  align-items:baseline;
+  transition:padding-left .4s var(--ease-out);
+  position:relative;
+}
+.tv2 .intake-field:first-child { border-top:1px solid var(--rule); }
+.tv2 .intake-field::before {
+  content:''; position:absolute; left:0; top:0; bottom:0;
+  width:3px; background:var(--stamp); transform:scaleY(0); transform-origin:top;
+  transition:transform .4s var(--ease-out);
+}
+.tv2 .intake-field:hover { padding-left:20px; }
+.tv2 .intake-field:hover::before { transform:scaleY(1); }
+.tv2 .intake-check {
+  width:22px; height:22px;
+  border:1px solid var(--ink-soft);
+  display:grid; place-items:center;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:11px;
+  color:var(--stamp);
+  background:var(--paper);
+}
+.tv2 .intake-label {
+  font-family:'Newsreader',Georgia,serif;
+  font-weight:500;
+  font-size:16.5px;
+  letter-spacing:-.015em;
+  color:var(--ink);
+  margin-bottom:4px;
+  display:block;
+}
+.tv2 .intake-help {
+  font-family:'Newsreader',Georgia,serif;
+  font-weight:400;
+  font-size:13.5px;
+  line-height:1.6;
+  color:var(--ink-soft);
+}
+.tv2 .intake-tag {
+  font-family:'IBM Plex Mono',monospace;
+  font-size:9px; letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--ink-soft);
+  white-space:nowrap;
+}
+.tv2 .intake-tag.req { color:var(--stamp); }
+@media (max-width:640px){
+  .tv2 .intake-field { grid-template-columns:36px 1fr; gap:16px; }
+  .tv2 .intake-tag { grid-column:2; justify-self:start; margin-top:6px; }
+}
+
+/* ============================================================
+   INSIGHTS — column-ruled journal layout
+   ============================================================ */
+.tv2 .journal-section {
+  position:relative;
+  padding:120px 5vw;
+  background:var(--paper);
+  overflow:hidden;
+  border-bottom:1px solid var(--rule);
+}
+@media (max-width:900px){ .tv2 .journal-section { padding:80px 5vw; } }
+.tv2 .journal-section::before {
+  content:''; position:absolute; inset:0; pointer-events:none; z-index:0;
+  background-image:
+    radial-gradient(circle, rgba(0,0,0,.028) 1px, transparent 1px);
+  background-size:3px 3px;
+}
+
+.tv2 .journal-list {
+  position:relative; z-index:1;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:0 80px;
+  margin-top:20px;
+}
+@media (max-width:800px){ .tv2 .journal-list { grid-template-columns:1fr; gap:0; } }
+.tv2 .journal-item {
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:24px;
+  padding:26px 0;
+  border-bottom:1px solid var(--rule);
+  text-decoration:none;
+  color:inherit;
+  position:relative;
+  transition:padding-left .4s var(--ease-out);
+}
+.tv2 .journal-item::before {
+  content:''; position:absolute; left:0; top:0; bottom:0;
+  width:2px; background:var(--stamp); transform:scaleY(0); transform-origin:top;
+  transition:transform .4s var(--ease-out);
+}
+.tv2 .journal-item:hover { padding-left:20px; }
+.tv2 .journal-item:hover::before { transform:scaleY(1); }
+.tv2 .journal-title {
+  font-family:'Newsreader',Georgia,serif;
+  font-weight:500;
+  font-size:18px;
+  letter-spacing:-.02em;
+  line-height:1.3;
+  color:var(--ink);
+  display:block;
+  margin-bottom:6px;
+  transition:color .3s;
+}
+.tv2 .journal-item:hover .journal-title { color:var(--stamp); }
+.tv2 .journal-desc {
+  font-family:'Newsreader',Georgia,serif;
+  font-weight:400;
+  font-size:13.5px;
+  line-height:1.6;
+  color:var(--ink-soft);
+  display:block;
+}
+.tv2 .journal-tag {
+  font-family:'IBM Plex Mono',monospace;
+  font-size:9px; letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--stamp);
+  white-space:nowrap;
+  padding-top:4px;
+}
+
+/* ============================================================
+   CTA — a "memo" block: centered narrow column, no banner
+   ============================================================ */
+.tv2 .memo-section {
+  position:relative;
+  padding:130px 5vw;
+  background:var(--paper-3);
+  overflow:hidden;
+  border-bottom:1px solid var(--rule);
+}
+@media (max-width:900px){ .tv2 .memo-section { padding:80px 5vw; } }
+.tv2 .memo-section::before {
+  content:''; position:absolute; inset:0; pointer-events:none; z-index:0;
+  background-image:
+    radial-gradient(circle, rgba(0,0,0,.035) 1px, transparent 1px);
+  background-size:3px 3px;
+}
+.tv2 .memo {
+  position:relative; z-index:1;
+  max-width:720px; margin:0 auto;
+  padding:60px 56px;
+  background:var(--paper);
+  border:1px solid var(--rule-dark);
+  box-shadow:0 1px 0 rgba(0,0,0,.03), inset 0 0 0 1px rgba(255,255,255,.4);
+}
+.tv2 .memo::before {
+  content:''; position:absolute; top:0; left:56px; right:56px;
+  height:2px; background:var(--stamp);
+}
+@media (max-width:640px){ .tv2 .memo { padding:44px 26px; } .tv2 .memo::before { left:26px; right:26px; } }
+.tv2 .memo-head {
+  display:flex; justify-content:space-between; align-items:baseline;
+  padding-bottom:20px; margin-bottom:28px;
+  border-bottom:1px solid var(--rule);
+  font-family:'IBM Plex Mono',monospace;
+  font-size:10px; letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--ink-soft);
+  flex-wrap:wrap; gap:12px;
+}
+.tv2 .memo-head .stamp {
+  color:var(--stamp); font-weight:600;
+}
+.tv2 .memo h2 {
+  font-family:'Newsreader',Georgia,serif;
+  font-weight:500;
+  font-size:clamp(1.9rem,3.2vw,2.8rem);
+  letter-spacing:-.035em;
+  line-height:1.1;
+  color:var(--ink);
+  margin:0 0 20px;
+}
+.tv2 .memo h2 em { font-style:italic; color:var(--stamp); }
+.tv2 .memo p {
+  font-family:'Newsreader',Georgia,serif;
+  font-weight:400;
+  font-size:16px;
+  line-height:1.75;
+  color:var(--ink-soft);
+  margin-bottom:28px;
+}
+.tv2 .memo-actions { display:flex; flex-wrap:wrap; gap:14px; }
+
+@media (prefers-reduced-motion:reduce){
+  .tv2 *, .tv2 *::before, .tv2 *::after { animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; }
+  .tv2 [data-reveal] { opacity:1 !important; transform:none !important; }
+}
+</style>
 </head>
 <body class="bg-paper text-ink antialiased">
 
-<!-- INCLUDE_HEADER -->
+<div id="cookieConsent" class="cookie-banner">
+  <p class="cookie-text">We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies. <a href="/legal/privacy-policy">Learn more</a></p>
+  <button onclick="acceptCookies()" class="cookie-btn">Accept</button>
+</div>
+
+<header class="fixed top-0 left-0 right-0 z-50 nav-glass">
+  <div class="section-container">
+    <div class="flex items-center justify-between h-[76px]">
+      <a href="/" class="flex items-center gap-2 shrink-0">
+        <img src="https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/ChatGPT%20Image%20Jul%2018%2C%202026%2C%2009_59_12%20PM.png" alt="Truevence" class="nav-logo-img" width="160" height="48" onerror="this.classList.add('is-broken')">
+        <span class="nav-logo-fallback">TRUEVENCE</span>
+      </a>
+      <nav class="hidden lg:flex items-center gap-9 font-display text-[14px] font-semibold tracking-wide text-navy">
+        <a href="/" class="hover:text-violet transition-colors">Home</a>
+        <a href="/services" class="hover:text-violet transition-colors">Services</a>
+        <a href="/products" class="hover:text-violet transition-colors">Products</a>
+        <a href="/process" class="hover:text-violet transition-colors">Process</a>
+        <a href="/about" class="hover:text-violet transition-colors">Why Us</a>
+        <a href="/industries" class="hover:text-violet transition-colors">Industries</a>
+        <a href="/faq" class="hover:text-violet transition-colors">FAQ</a>
+        <a href="/contact" class="hover:text-violet transition-colors">Contact</a>
+        <a href="/blog" class="hover:text-violet transition-colors">Blog</a>
+      </nav>
+      <div class="hidden lg:flex items-center gap-3">
+        <a href="/contact" class="btn-primary font-display text-[13.5px] font-bold px-5 py-2.5 rounded-full">Request a Verification</a>
+      </div>
+      <button id="menuBtn" class="lg:hidden text-navy" aria-label="Open menu" aria-expanded="false">
+        <svg id="iconMenu" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobileMenu" class="lg:hidden hidden border-t border-ink/10 bg-paper">
+    <div class="px-6 py-6 flex flex-col gap-5 font-display font-semibold text-navy">
+      <a href="/" class="mobile-link">Home</a>
+      <a href="/services" class="mobile-link">Services</a>
+      <a href="/products" class="mobile-link">Products</a>
+      <a href="/process" class="mobile-link">Process</a>
+      <a href="/about" class="mobile-link">Why Us</a>
+      <a href="/industries" class="mobile-link">Industries</a>
+      <a href="/faq" class="mobile-link">FAQ</a>
+      <a href="/contact" class="mobile-link">Contact</a>
+      <a href="/blog" class="mobile-link">Blog</a>
+      <a href="/contact" class="btn-primary text-center font-display text-sm font-bold px-5 py-3 rounded-full mt-2">Request a Verification</a>
+    </div>
+  </div>
+</header>
 
 <main class="tv2">
 
 <!-- ============================================================
-     HERO — Split editorial
+     DOSSIER COVER
      ============================================================ -->
-<section class="hero" id="hero" data-theme="1">
-  <div class="hero-grid-bg" aria-hidden="true"></div>
-  <div class="hero-inner">
-    <div class="hero-copy">
-      <div class="hero-text-slide active" data-text="1">
-        <div class="hero-badge"><span class="dot"></span><span>Transparent · Consent-First · Audit-Ready</span></div>
-        <div class="hero-kicker">Process intelligence / Overview</div>
-        <h1 class="hero-headline">From consent<br>to <em>certainty.</em></h1>
-        <p class="hero-sub">Every check runs on documented consent, hits primary sources, and passes through a second reviewer before sign-off. No shortcuts, no guesswork — just a defensible report you can act on.</p>
-        <div class="hero-actions">
-          <a href="/contact.html" class="btn-primary">Start a Verification →</a>
-          <a href="#day-by-day" class="btn-ghost">See the Flow</a>
-        </div>
-      </div>
+<section class="dossier">
+  <div class="dossier-inner">
+    <div class="dossier-top">
+      <span class="idx">File № TVR–PRC–01</span>
+      <span class="mid">Verification Procedure · Internal Reference</span>
+      <span class="r">Consent-first · Audit-ready · Pan-India</span>
     </div>
 
-    <div class="terminal" role="img" aria-label="Verification process terminal preview">
-      <div class="terminal-chrome">
-        <div class="terminal-dots"><span></span><span></span><span></span></div>
-        <div class="terminal-path">truevence / process / flow</div>
-        <div class="terminal-live"><span class="dot"></span>Live</div>
-      </div>
-      <div class="terminal-body">
-        <div class="story-dots" role="tablist" aria-label="Process stages">
-          <button class="story-dot active" data-slide="0" aria-label="Stage 1"></button>
-          <button class="story-dot" data-slide="1" aria-label="Stage 2"></button>
-          <button class="story-dot" data-slide="2" aria-label="Stage 3"></button>
-          <button class="story-dot" data-slide="3" aria-label="Stage 4"></button>
-          <button class="story-dot" data-slide="4" aria-label="Stage 5"></button>
-        </div>
-        <div class="terminal-meta">
-          <span>Session · <strong>TVR-2026-PROC-01</strong></span>
-          <span id="termStage">Stage 01/05</span>
-        </div>
-
-        <div class="term-slide active" data-stage="1">
-          <div class="term-log">
-            <div class="row"><span class="ts">00:01</span><span>Consent form received</span><span class="ok">✓</span></div>
-            <div class="row"><span class="ts">00:02</span><span>Consent verified &amp; logged</span><span class="ok">✓</span></div>
-            <div class="row"><span class="ts">00:03</span><span>Candidate packet created</span><span class="ok">✓</span></div>
-            <div class="row"><span class="ts">00:04</span><span class="muted">Awaiting documents…</span></div>
-            <div class="row"><span class="ts">00:06</span><span class="muted">Reviewing submitted files…</span></div>
-            <div class="row"><span class="ts">00:08</span><span>Ready for verification pipeline</span><span class="warn">…</span></div>
-          </div>
-        </div>
-
-        <div class="term-slide" data-stage="2">
-          <div class="term-candidate">
-            <div class="term-avatar">RS</div>
-            <div class="term-candidate-info">
-              <div class="name">Rohit Sharma</div>
-              <div class="role">Senior Engineer · Bengaluru</div>
-              <div class="id">ID · TVR-2026-PROC-01</div>
-            </div>
-            <span class="term-status-badge">Collecting</span>
-          </div>
-          <div class="term-checks">
-            <div class="term-check"><span class="term-check-icon pass">✓</span><span class="term-check-label">Consent Document</span><span class="term-check-value pass">On file</span></div>
-            <div class="term-check"><span class="term-check-icon pass">✓</span><span class="term-check-label">Identity Documents</span><span class="term-check-value pass">Received</span></div>
-            <div class="term-check"><span class="term-check-icon pass">✓</span><span class="term-check-label">Education Certificates</span><span class="term-check-value pass">Received</span></div>
-            <div class="term-check"><span class="term-check-icon warn">!</span><span class="term-check-label">Employment Letters</span><span class="term-check-value warn">Awaiting</span></div>
-            <div class="term-check"><span class="term-check-icon info">•</span><span class="term-check-label">Reference Contacts</span><span class="term-check-value info">Confirming</span></div>
-            <div class="term-check"><span class="term-check-icon info">•</span><span class="term-check-label">Address Proof</span><span class="term-check-value info">Pending</span></div>
-          </div>
-        </div>
-
-        <div class="term-slide" data-stage="3">
-          <div class="term-network">
-            <div class="term-network-header">Multi-source verification · 4 active</div>
-            <div class="term-network-grid">
-              <div class="term-node"><div class="term-node-head"><span class="term-node-title">Identity</span><span class="term-node-status">Matched</span></div><div class="term-node-meta">UIDAI · PAN</div><div class="term-node-bar"><span></span></div></div>
-              <div class="term-node"><div class="term-node-head"><span class="term-node-title">Employer</span><span class="term-node-status">Confirmed</span></div><div class="term-node-meta">2 sources</div><div class="term-node-bar"><span></span></div></div>
-              <div class="term-node"><div class="term-node-head"><span class="term-node-title">Education</span><span class="term-node-status">Authentic</span></div><div class="term-node-meta">University record</div><div class="term-node-bar"><span></span></div></div>
-              <div class="term-node"><div class="term-node-head"><span class="term-node-title">Address</span><span class="term-node-status warn">Field Visit</span></div><div class="term-node-meta">Agent assigned</div><div class="term-node-bar"><span></span></div></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="term-slide" data-stage="4">
-          <div class="term-report-top">
-            <div>
-              <div class="term-report-title">Quality Review</div>
-              <div class="term-report-sub">Blind second-reviewer audit</div>
-            </div>
-            <span class="term-verified-stamp"><span class="check">✓</span> Passed</span>
-          </div>
-          <div class="term-report-summary">
-            <div class="term-stat-mini"><div class="k">First Reviewer</div><div class="v green">Signed</div></div>
-            <div class="term-stat-mini"><div class="k">Second Reviewer</div><div class="v green">Signed</div></div>
-            <div class="term-stat-mini"><div class="k">Anomalies Logged</div><div class="v amber">1</div></div>
-            <div class="term-stat-mini"><div class="k">Source Citations</div><div class="v">11</div></div>
-          </div>
-          <div class="term-report-foot">
-            <span>Audit log sealed · 26 Aug 2026</span>
-            <span>DPDP aligned</span>
-          </div>
-        </div>
-
-        <div class="term-slide" data-stage="5">
-          <div class="term-final">
-            <div class="term-final-ring"><span class="check">✓</span></div>
-            <div class="term-final-title">Report <span>delivered.</span></div>
-            <div class="term-final-sub">Ready for your HR decision</div>
-            <div class="term-final-tags">
-              <span>Source-checked</span>
-              <span>Consent-based</span>
-              <span>Audit-ready</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     FIVE STEPS — Editorial numbered ledger
-     ============================================================ -->
-<section class="section section--cream" id="process">
-  <div class="grid-bg" aria-hidden="true"></div>
-  <div class="tv2-container">
-    <div class="section-head" data-reveal>
+    <div class="dossier-body">
       <div>
-        <p class="label">How It Works</p>
-        <h2>Five steps. <span class="serif">Zero</span> guesswork.</h2>
+        <span class="dossier-id"><span class="dot"></span><span>Open · In Verification</span></span>
+        <h1 class="dossier-title">
+          <span class="line">From consent</span>
+          <span class="line">to <em>certainty.</em></span>
+        </h1>
       </div>
-      <p class="lead">Documented consent first. Primary-source verification. Second reviewer before sign-off. Every step is designed to be defensible.</p>
+      <div class="dossier-meta">
+        <p>Every check runs on documented consent, hits primary sources, and passes through a second reviewer before sign-off. <em>No shortcuts. No guesswork.</em> Just a defensible report you can act on.</p>
+        <div class="dossier-actions">
+          <a href="/contact.html" class="btn-navy">Start a Verification →</a>
+          <a href="#steps" class="btn-lined">Read the Flow</a>
+        </div>
+      </div>
     </div>
 
-    <div class="process-ledger">
-      <div class="ledger-row" data-reveal data-delay="1">
-        <div class="row-num">01</div>
-        <div class="row-title">Request &amp; Consent</div>
-        <div class="row-desc">Role and candidate details come in. Documented consent is collected before anything starts — no exceptions. Every check traces back to a signed approval.</div>
+    <div class="strip">
+      <a href="#steps" class="strip-cell"><span class="n">01</span><span class="t">Request &amp; Consent</span><span class="s">Day 0</span></a>
+      <a href="#steps" class="strip-cell"><span class="n">02</span><span class="t">Data Collection</span><span class="s">Day 0–1</span></a>
+      <a href="#steps" class="strip-cell"><span class="n">03</span><span class="t">Multi-Source Verify</span><span class="s">Day 1–4</span></a>
+      <a href="#steps" class="strip-cell"><span class="n">04</span><span class="t">Quality Review</span><span class="s">Day 4–5</span></a>
+      <a href="#steps" class="strip-cell"><span class="n">05</span><span class="t">Report Delivery</span><span class="s">Day 5</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     LEDGER — 5 steps as ruled ledger
+     ============================================================ -->
+<section class="ledger-section" id="steps">
+  <div class="tv2-container">
+    <div class="section-header" data-reveal>
+      <div>
+        <p class="meta">Section I · Procedure</p>
+        <h2>Five steps. <em>Zero</em> guesswork.</h2>
       </div>
-      <div class="ledger-row" data-reveal data-delay="2">
-        <div class="row-num">02</div>
-        <div class="row-title">Data Collection</div>
-        <div class="row-desc">Documents gathered, institutions and past employers identified, references prepared. Missing items flagged within 24 hours — not silently waited on.</div>
+      <p class="lede">Documented consent first. Primary-source verification. Second reviewer before sign-off. Every step is designed to be defensible.</p>
+    </div>
+
+    <div class="steps">
+      <div class="step" data-reveal data-delay="1">
+        <div class="step-num">01</div>
+        <div class="step-title">Request &amp; Consent<small>Day 0</small></div>
+        <div class="step-desc">Role and candidate details come in. Documented consent is collected <em>before anything starts</em> — no exceptions. Every check traces back to a signed approval.</div>
       </div>
-      <div class="ledger-row" data-reveal data-delay="3">
-        <div class="row-num">03</div>
-        <div class="row-title">Multi-Source Verification</div>
-        <div class="row-desc">Every claim cross-checked against primary sources — court records, universities, employers, UIDAI. Parallel outreach, not sequential waiting.</div>
+      <div class="step" data-reveal data-delay="2">
+        <div class="step-num">02</div>
+        <div class="step-title">Data Collection<small>Day 0–1</small></div>
+        <div class="step-desc">Documents gathered, institutions and past employers identified, references prepared. Missing items <em>flagged within 24 hours</em> — not silently waited on.</div>
       </div>
-      <div class="ledger-row" data-reveal data-delay="4">
-        <div class="row-num">04</div>
-        <div class="row-title">Quality Review</div>
-        <div class="row-desc">A second reviewer sees raw findings — not the first reviewer's conclusion — before the report is drafted. Bias removed by design.</div>
+      <div class="step" data-reveal data-delay="3">
+        <div class="step-num">03</div>
+        <div class="step-title">Multi-Source Verification<small>Day 1–4</small></div>
+        <div class="step-desc">Every claim cross-checked against primary sources — court records, universities, employers, UIDAI. <em>Parallel outreach, not sequential waiting.</em></div>
       </div>
-      <div class="ledger-row" data-reveal data-delay="5">
-        <div class="row-num">05</div>
-        <div class="row-title">Report Delivery</div>
-        <div class="row-desc">A clear, structured report delivered to your dashboard — with source citations attached. Ready to act on, ready for audit.</div>
+      <div class="step" data-reveal data-delay="4">
+        <div class="step-num">04</div>
+        <div class="step-title">Quality Review<small>Day 4–5</small></div>
+        <div class="step-desc">A second reviewer sees raw findings — <em>not the first reviewer's conclusion</em> — before the report is drafted. Bias removed by design.</div>
+      </div>
+      <div class="step" data-reveal data-delay="5">
+        <div class="step-num">05</div>
+        <div class="step-title">Report Delivery<small>Day 5</small></div>
+        <div class="step-desc">A clear, structured report delivered to your dashboard — with source citations attached. <em>Ready to act on, ready for audit.</em></div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ============================================================
-     STAT BAND — By the numbers
+     INDEX CARDS — By the numbers
      ============================================================ -->
-<section class="section section--sand">
-  <div class="grid-bg" aria-hidden="true"></div>
+<section class="cards-section">
   <div class="tv2-container">
-    <div class="section-head" data-reveal>
+    <div class="section-header" data-reveal>
       <div>
-        <p class="label">By The Numbers</p>
-        <h2>What the process <span class="serif">actually</span> delivers.</h2>
+        <p class="meta">Section II · Benchmarks</p>
+        <h2>What the process <em>actually</em> delivers.</h2>
       </div>
-      <p class="lead">Not marketing metrics — internal benchmarks from the last 12 months of casework across our field and digital networks.</p>
+      <p class="lede">Not marketing metrics — internal benchmarks from the last 12 months of casework across our field and digital networks.</p>
     </div>
 
-    <div class="stat-band">
-      <div class="band-item" data-reveal data-delay="1">
-        <div class="band-num">2–5<span>days</span></div>
-        <div class="band-body">
-          <div class="band-title">Median turnaround</div>
-          <p class="band-desc">From consent to signed report on a standard 8-module package.</p>
-        </div>
+    <div class="card-band">
+      <div class="index-card" data-reveal data-delay="1">
+        <span class="tag">Median</span>
+        <div class="big">2–5 <em>days</em></div>
+        <span class="lbl">Turnaround</span>
+        <p class="txt">From consent to signed report on a standard 8-module package.</p>
       </div>
-      <div class="band-item" data-reveal data-delay="2">
-        <div class="band-num">2<span>reviewers</span></div>
-        <div class="band-body">
-          <div class="band-title">Every case</div>
-          <p class="band-desc">Blind second-reviewer audit on every finding before sign-off.</p>
-        </div>
+      <div class="index-card" data-reveal data-delay="2">
+        <span class="tag">Every Case</span>
+        <div class="big">2 <em>reviewers</em></div>
+        <span class="lbl">Blind second audit</span>
+        <p class="txt">On every finding before sign-off. No exceptions, no shortcuts.</p>
       </div>
-      <div class="band-item" data-reveal data-delay="3">
-        <div class="band-num">48<span>hours</span></div>
-        <div class="band-body">
-          <div class="band-title">Proactive updates</div>
-          <p class="band-desc">Status ping every 48 hours — even when nothing has changed.</p>
+      <div class="index-card" data-reveal data-delay="3">
+        <span class="tag">Proactive</span>
+        <div class="big">48 <em>hours</em></div>
+        <span class="lbl">Status pings</span>
+        <p class="txt">Every 48 hours while a check is in progress — even when nothing has changed.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     BINDER — Day-by-day flow as a two-column dossier spread
+     ============================================================ -->
+<section class="binder-section" id="day-by-day">
+  <div class="tv2-container">
+    <div class="section-header" data-reveal>
+      <div>
+        <p class="meta">Section III · The Flow</p>
+        <h2>What happens after you hit <em>submit.</em></h2>
+      </div>
+      <p class="lede">The five steps above are the skeleton. Here's the living, breathing process that unfolds each day.</p>
+    </div>
+
+    <div class="binder">
+      <aside class="binder-rail" data-reveal="left">
+        <span class="rail-title">Field Notes</span>
+        <div class="rail-list">
+          <div class="rail-item"><span class="rail-num">01</span><span class="rail-text">Documents scanned before any call</span></div>
+          <div class="rail-item"><span class="rail-num">02</span><span class="rail-text">Outreach runs in parallel, not sequence</span></div>
+          <div class="rail-item"><span class="rail-num">03</span><span class="rail-text">Discrepancies investigated, not just flagged</span></div>
+          <div class="rail-item"><span class="rail-num">04</span><span class="rail-text">Blind second review before sign-off</span></div>
+          <div class="rail-item"><span class="rail-num">05</span><span class="rail-text">Every finding source-cited</span></div>
+        </div>
+      </aside>
+
+      <div class="binder-body">
+        <div class="binder-chapter" data-reveal data-delay="1">
+          <h3>Document forensics <em>first</em></h3>
+          <p>Before any call, submitted documents go through digital analysis. Pixel-level tampering, font mismatches, and template anomalies are flagged within hours. <em>This alone stops 3 out of 10 fraudulent submissions.</em></p>
+        </div>
+        <div class="binder-chapter" data-reveal data-delay="2">
+          <h3>Parallel <em>outreach</em></h3>
+          <p>Our team contacts universities, employers, and references simultaneously — not one after another. If a university doesn't respond in 48 hours, we escalate to an alternate contact or a physical visit.</p>
+        </div>
+        <div class="binder-chapter" data-reveal data-delay="3">
+          <h3>Discrepancy <em>deep-dive</em></h3>
+          <p>When a claim doesn't match source data, we don't just flag it. We investigate: <em>clerical error, misunderstanding, or intentional?</em> The context matters — and it changes the recommendation.</p>
+        </div>
+        <div class="binder-chapter" data-reveal data-delay="4">
+          <h3>Blind <em>second review</em></h3>
+          <p>A second reviewer sees only raw findings — not the first reviewer's conclusion. This eliminates confirmation bias before the final report is drafted.</p>
+        </div>
+        <div class="binder-chapter" data-reveal data-delay="5">
+          <h3>Report <em>sign-off</em></h3>
+          <p>Every finding source-cited, every anomaly documented, every check traceable back to its origin. The signed report is audit-ready the moment it lands.</p>
         </div>
       </div>
     </div>
@@ -289,72 +1317,169 @@
 </section>
 
 <!-- ============================================================
-     DAY-BY-DAY FLOW — Dark editorial
+     PROTOCOL — delay handling as ruled notebook
      ============================================================ -->
-<section class="section section--plum" id="day-by-day">
-  <div class="grid-bg grid-bg--dark" aria-hidden="true"></div>
+<section class="protocol-section">
   <div class="tv2-container">
-    <div class="section-head" data-reveal>
+    <div class="section-header" data-reveal>
       <div>
-        <p class="label label-dark">The Day-by-Day Flow</p>
-        <h2>What happens after you hit <span class="serif">submit.</span></h2>
+        <p class="meta">Section IV · Delay Protocol</p>
+        <h2>No <em>silent</em> waiting. Ever.</h2>
       </div>
-      <p class="lead">The five steps above are the skeleton. Here's the living, breathing process that unfolds each day.</p>
+      <p class="lede">Some checks take longer because a university is slow or a past employer is unresponsive. Here's how we handle those moments — with transparency, not excuses.</p>
     </div>
 
-    <div class="split-panel" data-reveal>
-      <div class="panel-left">
-        <div class="panel-kicker">Behind the scenes</div>
-        <h1 class="panel-title">THE<br>FLOW</h1>
-        <p style="font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.6; margin-top: 24px; max-width: 320px;">
-          From the moment consent lands, four things run in parallel: document forensics, outreach, discrepancy analysis, and blind review. Each has a dedicated owner.
-        </p>
-        <ul style="list-style: none; padding: 0; margin-top: 20px; font-size: 13px; color: rgba(255,255,255,0.6); display: flex; flex-direction: column; gap: 8px;">
-          <li style="display: flex; align-items: center; gap: 8px;"><span style="color: #A78BFA;">→</span> Documents scanned before any call</li>
-          <li style="display: flex; align-items: center; gap: 8px;"><span style="color: #A78BFA;">→</span> Outreach runs in parallel, not sequence</li>
-          <li style="display: flex; align-items: center; gap: 8px;"><span style="color: #A78BFA;">→</span> Discrepancies investigated, not just flagged</li>
-          <li style="display: flex; align-items: center; gap: 8px;"><span style="color: #A78BFA;">→</span> Blind second review before sign-off</li>
-        </ul>
-        <div class="panel-footer">Median 2–5 days · 8-module package</div>
+    <div class="protocol-list">
+      <div class="protocol" data-reveal data-delay="1">
+        <div class="protocol-badge">01</div>
+        <div class="protocol-content">
+          <h3>Proactive Status Updates</h3>
+          <p>You never need to ask. We send updates every 48 hours while a check is in progress, even if there's no new development.</p>
+        </div>
+        <span class="protocol-flag">48-hr cadence</span>
+      </div>
+      <div class="protocol" data-reveal data-delay="2">
+        <div class="protocol-badge">02</div>
+        <div class="protocol-content">
+          <h3>Clear Reason for Delay</h3>
+          <p>We tell you exactly why — "university closed for holidays," "past employer's HR is on leave" — so you can plan around it. No vague "in progress" placeholders.</p>
+        </div>
+        <span class="protocol-flag">Explicit reason</span>
+      </div>
+      <div class="protocol" data-reveal data-delay="3">
+        <div class="protocol-badge">03</div>
+        <div class="protocol-content">
+          <h3>Partial Report Option</h3>
+          <p>If one check is stuck but others are complete, we can release a partial report. You decide whether to wait for the full picture or proceed with what's ready.</p>
+        </div>
+        <span class="protocol-flag">On request</span>
+      </div>
+      <div class="protocol" data-reveal data-delay="4">
+        <div class="protocol-badge">04</div>
+        <div class="protocol-content">
+          <h3>Fast-Track When It Matters</h3>
+          <p>If there's a joining date closing in, tell us upfront. We reprioritise critical checks and reorder the sequence to protect your timeline.</p>
+        </div>
+        <span class="protocol-flag">Priority queue</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     TOOLKIT — contact sheet of methods
+     ============================================================ -->
+<section class="toolkit-section">
+  <div class="tv2-container">
+    <div class="section-header" data-reveal>
+      <div>
+        <p class="meta">Section V · Toolkit</p>
+        <h2>The <em>methods</em> we use to get to the truth.</h2>
+      </div>
+      <p class="lede">We combine digital tools, human persistence, and field presence. No single channel is trusted alone — every claim is triangulated.</p>
+    </div>
+
+    <div class="toolkit-grid">
+      <div class="tool" data-reveal data-delay="1"><span class="tool-idx">M–01</span><div><h3 class="tool-title">API Integrations</h3><p class="tool-desc">Direct source hits — UIDAI, PAN, UAN, court databases.</p></div></div>
+      <div class="tool" data-reveal data-delay="2"><span class="tool-idx">M–02</span><div><h3 class="tool-title">Direct Calling</h3><p class="tool-desc">Human conversation with HRs, universities, references.</p></div></div>
+      <div class="tool" data-reveal data-delay="3"><span class="tool-idx">M–03</span><div><h3 class="tool-title">Physical Field Visits</h3><p class="tool-desc">On-ground agents at addresses, universities, employers.</p></div></div>
+      <div class="tool" data-reveal data-delay="4"><span class="tool-idx">M–04</span><div><h3 class="tool-title">Official Email Trails</h3><p class="tool-desc">Documented correspondence — audit-citable records.</p></div></div>
+      <div class="tool" data-reveal data-delay="5"><span class="tool-idx">M–05</span><div><h3 class="tool-title">Document Forensics</h3><p class="tool-desc">Pixel-level tampering and template anomaly detection.</p></div></div>
+      <div class="tool" data-reveal data-delay="6"><span class="tool-idx">M–06</span><div><h3 class="tool-title">Global Database Search</h3><p class="tool-desc">Sanction, PEP, watchlist, adverse media.</p></div></div>
+      <div class="tool" data-reveal data-delay="7"><span class="tool-idx">M–07</span><div><h3 class="tool-title">Structured Questionnaires</h3><p class="tool-desc">Standardised reference-call scripts.</p></div></div>
+      <div class="tool" data-reveal data-delay="8"><span class="tool-idx">M–08</span><div><h3 class="tool-title">Dual Review System</h3><p class="tool-desc">Blind second-reviewer on every finding.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     LETTER — the Startup Way as a signed letter
+     ============================================================ -->
+<section class="letter-section">
+  <div class="letter" data-reveal>
+    <p class="letter-kicker">Section VI · A Note from the Team</p>
+    <h2 class="letter-title">We verify like we're <em>hiring</em> for ourselves.</h2>
+
+    <div class="letter-body">
+      <p class="letter-drop">As a startup ourselves, we approach every verification with the same care we would if the candidate were joining our own team. This mindset shapes our entire process — from how we assign cases to how we communicate with you.</p>
+
+      <p><strong>No assembly line.</strong> One verifier owns a case end-to-end, understanding the full context of the candidate. No handoffs, no context loss, no <em>"that's not my job."</em></p>
+
+      <p><strong>Flexible process.</strong> Need a specific check done first? We reprioritise and can deliver partial results. Your hiring timeline drives our sequence — not the other way around.</p>
+
+      <p><strong>Direct founder access.</strong> If something feels off, you're talking to the people who designed the process. No account manager telephone games, no ticket queues.</p>
+
+      <p><strong>Continuous improvement.</strong> After every case, we ask: what could have been faster? Clearer? Our process evolves because we treat every client's feedback as product input.</p>
+    </div>
+
+    <div class="letter-sign">
+      <span class="sig">— The Truevence Team</span>
+      <span class="rule"></span>
+      <span class="role">Founder-led · Est. 2026</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     INTAKE — what we need, as a ruled intake form
+     ============================================================ -->
+<section class="intake-section">
+  <div class="tv2-container">
+    <div class="intake">
+      <div class="intake-intro" data-reveal="left">
+        <p class="meta">Section VII · Intake</p>
+        <h2>A smooth process starts with <em>clear</em> inputs.</h2>
+        <p>The faster we receive accurate information, the faster we can deliver verified results. This is everything we need from you to begin.</p>
       </div>
 
-      <div class="panel-right">
-        <div class="ledger">
-          <div class="ledger-item" data-reveal data-delay="1">
-            <div class="ledger-num">01</div>
-            <div class="ledger-body">
-              <h3>Document Forensics First</h3>
-              <p>Before any call, submitted documents go through digital analysis. Pixel-level tampering, font mismatches, and template anomalies are flagged within hours. This alone stops 3 out of 10 fraudulent submissions.</p>
-            </div>
+      <div class="intake-form" data-reveal="right">
+        <div class="intake-field">
+          <span class="intake-check">✓</span>
+          <div>
+            <span class="intake-label">Candidate Consent Form</span>
+            <span class="intake-help">We provide a simple template. Once signed, we begin immediately.</span>
           </div>
-          <div class="ledger-item" data-reveal data-delay="2">
-            <div class="ledger-num">02</div>
-            <div class="ledger-body">
-              <h3>Parallel Outreach</h3>
-              <p>Our team contacts universities, employers, and references simultaneously — not one after another. If a university doesn't respond in 48 hours, we escalate to an alternate contact or a physical visit.</p>
-            </div>
+          <span class="intake-tag req">Required</span>
+        </div>
+        <div class="intake-field">
+          <span class="intake-check">✓</span>
+          <div>
+            <span class="intake-label">Basic Candidate Details</span>
+            <span class="intake-help">Full name, date of birth, and the checks you want. That's the minimum.</span>
           </div>
-          <div class="ledger-item" data-reveal data-delay="3">
-            <div class="ledger-num">03</div>
-            <div class="ledger-body">
-              <h3>Discrepancy Deep-Dive</h3>
-              <p>When a claim doesn't match source data, we don't just flag it. We investigate: clerical error, misunderstanding, or intentional? The context matters — and it changes the recommendation.</p>
-            </div>
+          <span class="intake-tag req">Required</span>
+        </div>
+        <div class="intake-field">
+          <span class="intake-check">✓</span>
+          <div>
+            <span class="intake-label">Scanned Documents</span>
+            <span class="intake-help">Clear scans of certificates, offer letters, and identity proof. No blurry photos.</span>
           </div>
-          <div class="ledger-item" data-reveal data-delay="4">
-            <div class="ledger-num">04</div>
-            <div class="ledger-body">
-              <h3>Blind Second Review</h3>
-              <p>A second reviewer sees only raw findings — not the first reviewer's conclusion. This eliminates confirmation bias before the final report is drafted.</p>
-            </div>
+          <span class="intake-tag req">Required</span>
+        </div>
+        <div class="intake-field">
+          <span class="intake-check">✓</span>
+          <div>
+            <span class="intake-label">Reference Contacts</span>
+            <span class="intake-help">Names, designations, and phone numbers. We handle the rest.</span>
           </div>
-          <div class="ledger-item" data-reveal data-delay="5">
-            <div class="ledger-num">05</div>
-            <div class="ledger-body">
-              <h3>Report Sign-Off</h3>
-              <p>Every finding source-cited, every anomaly documented, every check traceable back to its origin. The signed report is audit-ready the moment it lands.</p>
-            </div>
+          <span class="intake-tag">If applicable</span>
+        </div>
+        <div class="intake-field">
+          <span class="intake-check">✓</span>
+          <div>
+            <span class="intake-label">Urgency Flag</span>
+            <span class="intake-help">If there's a joining date pressure, tell us. We fast-track critical checks.</span>
           </div>
+          <span class="intake-tag">Optional</span>
+        </div>
+        <div class="intake-field">
+          <span class="intake-check">✓</span>
+          <div>
+            <span class="intake-label">Your Hiring Context</span>
+            <span class="intake-help">The more we know about the role, the better we tailor our scrutiny.</span>
+          </div>
+          <span class="intake-tag">Recommended</span>
         </div>
       </div>
     </div>
@@ -362,309 +1487,198 @@
 </section>
 
 <!-- ============================================================
-     HOW WE HANDLE DELAYS — Editorial with side-panel
+     JOURNAL — process insights as ruled column list
      ============================================================ -->
-<section class="section section--bone">
-  <div class="grid-bg" aria-hidden="true"></div>
+<section class="journal-section">
   <div class="tv2-container">
-    <div class="section-head" data-reveal>
+    <div class="section-header" data-reveal>
       <div>
-        <p class="label">Honest Timelines</p>
-        <h2>No <span class="serif">silent</span> waiting. Ever.</h2>
+        <p class="meta">Section VIII · Further Reading</p>
+        <h2>Reading for HR teams who <em>operate.</em></h2>
       </div>
-      <p class="lead">Some checks take longer because a university is slow or a past employer is unresponsive. Here's how we handle those moments — with transparency, not excuses.</p>
+      <p class="lede">Deeper dives on turnaround times, delay handling, and process design from the Truevence team.</p>
     </div>
 
-    <div class="principle-bands">
-      <div class="principle-band" data-reveal data-delay="1" style="border-top-color: rgba(10,10,10,.14);">
-        <div class="band-icon" style="background: linear-gradient(135deg, rgba(124,58,237,.15), rgba(124,58,237,.02)); border-color: rgba(124,58,237,.22); color: var(--violet);">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
-        </div>
-        <div class="band-content">
-          <h3 style="color: var(--ink);">Proactive Status Updates</h3>
-          <p style="color: rgba(0,0,0,.55);">You never need to ask. We send updates every 48 hours while a check is in progress, even if there's no new development.</p>
-        </div>
-        <div class="band-index" style="color: rgba(0,0,0,.28);">01</div>
-      </div>
-      <div class="principle-band" data-reveal data-delay="2" style="border-top-color: rgba(10,10,10,.14);">
-        <div class="band-icon" style="background: linear-gradient(135deg, rgba(124,58,237,.15), rgba(124,58,237,.02)); border-color: rgba(124,58,237,.22); color: var(--violet);">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 12l2 2 4-4"/><path d="M21 12c0 5-4 9-9 9s-9-4-9-9 4-9 9-9 9 4 9 9z"/></svg>
-        </div>
-        <div class="band-content">
-          <h3 style="color: var(--ink);">Clear Reason for Delay</h3>
-          <p style="color: rgba(0,0,0,.55);">We tell you exactly why — "university closed for holidays," "past employer's HR is on leave" — so you can plan around it. No vague "in progress" placeholders.</p>
-        </div>
-        <div class="band-index" style="color: rgba(0,0,0,.28);">02</div>
-      </div>
-      <div class="principle-band" data-reveal data-delay="3" style="border-top-color: rgba(10,10,10,.14);">
-        <div class="band-icon" style="background: linear-gradient(135deg, rgba(124,58,237,.15), rgba(124,58,237,.02)); border-color: rgba(124,58,237,.22); color: var(--violet);">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
-        </div>
-        <div class="band-content">
-          <h3 style="color: var(--ink);">Partial Report Option</h3>
-          <p style="color: rgba(0,0,0,.55);">If one check is stuck but others are complete, we can release a partial report. You decide whether to wait for the full picture or proceed with what's ready.</p>
-        </div>
-        <div class="band-index" style="color: rgba(0,0,0,.28);">03</div>
-      </div>
-      <div class="principle-band" data-reveal data-delay="4" style="border-top-color: rgba(10,10,10,.14); border-bottom-color: rgba(10,10,10,.14);">
-        <div class="band-icon" style="background: linear-gradient(135deg, rgba(124,58,237,.15), rgba(124,58,237,.02)); border-color: rgba(124,58,237,.22); color: var(--violet);">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-        </div>
-        <div class="band-content">
-          <h3 style="color: var(--ink);">Fast-Track When It Matters</h3>
-          <p style="color: rgba(0,0,0,.55);">If there's a joining date closing in, tell us upfront. We reprioritise critical checks and reorder the sequence to protect your timeline.</p>
-        </div>
-        <div class="band-index" style="color: rgba(0,0,0,.28);">04</div>
-      </div>
+    <div class="journal-list" data-reveal>
+      <a href="/blog/bgv-tat-turnaround-time.html" class="journal-item">
+        <div><span class="journal-title">How Long Does BGV Take?</span><span class="journal-desc">Realistic turnaround times for each verification type — and what slows them down.</span></div>
+        <span class="journal-tag">Operations</span>
+      </a>
+      <a href="/blog/reduce-bgv-turnaround-time-guide.html" class="journal-item">
+        <div><span class="journal-title">Reduce BGV Turnaround Time</span><span class="journal-desc">Operational tactics that cut days off your screening cycle without sacrificing accuracy.</span></div>
+        <span class="journal-tag">Guide</span>
+      </a>
+      <a href="/blog/employment-verification-process-documents-timeline.html" class="journal-item">
+        <div><span class="journal-title">Employment Verification Process</span><span class="journal-desc">Documents needed, timeline expectations, and edge cases in employment history checks.</span></div>
+        <span class="journal-tag">Deep Dive</span>
+      </a>
+      <a href="/blog/digital-vs-physical-background-verification.html" class="journal-item">
+        <div><span class="journal-title">Digital vs Physical BGV</span><span class="journal-desc">When digital verification is enough — and when a physical field visit is still required.</span></div>
+        <span class="journal-tag">Explainer</span>
+      </a>
+      <a href="/blog/handling-adverse-bgv-report.html" class="journal-item">
+        <div><span class="journal-title">Handling Adverse BGV Reports</span><span class="journal-desc">What to do when a check comes back flagged — procedure, communication, and compliance.</span></div>
+        <span class="journal-tag">Risk</span>
+      </a>
+      <a href="/blog/truevence-quality-control-process.html" class="journal-item">
+        <div><span class="journal-title">Our Quality Control Process</span><span class="journal-desc">A behind-the-scenes look at how the second-reviewer system actually works.</span></div>
+        <span class="journal-tag">Internal</span>
+      </a>
     </div>
   </div>
 </section>
 
 <!-- ============================================================
-     TOOLKIT — Dark editorial, module index style
+     MEMO — CTA as a filed memo
      ============================================================ -->
-<section class="section section--forest">
-  <div class="grid-bg grid-bg--dark" aria-hidden="true"></div>
-  <div class="tv2-container">
-    <div class="section-head" data-reveal>
-      <div>
-        <p class="label label-dark">Our Toolkit</p>
-        <h2>The <span class="serif">methods</span> we use to get to the truth.</h2>
-      </div>
-      <p class="lead">We combine digital tools, human persistence, and field presence. No single channel is trusted alone — every claim is triangulated.</p>
+<section class="memo-section">
+  <div class="memo" data-reveal>
+    <div class="memo-head">
+      <span class="stamp">Internal Memo · Ready</span>
+      <span>Ref · TVR–CTA–01</span>
     </div>
-
-    <div class="modules-editorial">
-      <div class="modules-intro" data-reveal="left">
-        <p class="label label-dark">Multi-channel</p>
-        <h3>Eight<br>methods.<br>One <em style="color: var(--violetlt);">answer.</em></h3>
-        <p style="color: rgba(255,255,255,.55);">Digital access to primary sources, plus a pan-India field network for anything that can't be verified remotely.</p>
-        <div class="modules-intro-meta" style="color: rgba(255,255,255,.4); border-top-color: rgba(255,255,255,.12);"><strong style="color: var(--violetlt);">8 methods</strong> · Combined by role risk · Audit-cited</div>
-      </div>
-
-      <div class="module-index" data-reveal="right" style="border-top-color: rgba(255,255,255,.12);">
-        <div class="module-row" style="border-bottom-color: rgba(255,255,255,.12); color: #fff;">
-          <div class="row-idx" style="color: rgba(255,255,255,.28);">01</div>
-          <div class="row-text" style="color: #fff;">API Integrations<small style="color: rgba(255,255,255,.5);">Direct source hits — UIDAI, PAN, UAN, court databases</small></div>
-          <div class="row-arrow" style="color: rgba(255,255,255,.28);">→</div>
-        </div>
-        <div class="module-row" style="border-bottom-color: rgba(255,255,255,.12); color: #fff;">
-          <div class="row-idx" style="color: rgba(255,255,255,.28);">02</div>
-          <div class="row-text" style="color: #fff;">Direct Calling<small style="color: rgba(255,255,255,.5);">Human conversation with HRs, universities, references</small></div>
-          <div class="row-arrow" style="color: rgba(255,255,255,.28);">→</div>
-        </div>
-        <div class="module-row" style="border-bottom-color: rgba(255,255,255,.12); color: #fff;">
-          <div class="row-idx" style="color: rgba(255,255,255,.28);">03</div>
-          <div class="row-text" style="color: #fff;">Physical Field Visits<small style="color: rgba(255,255,255,.5);">On-ground agents at addresses, universities, employers</small></div>
-          <div class="row-arrow" style="color: rgba(255,255,255,.28);">→</div>
-        </div>
-        <div class="module-row" style="border-bottom-color: rgba(255,255,255,.12); color: #fff;">
-          <div class="row-idx" style="color: rgba(255,255,255,.28);">04</div>
-          <div class="row-text" style="color: #fff;">Official Email Trails<small style="color: rgba(255,255,255,.5);">Documented correspondence — audit-citable records</small></div>
-          <div class="row-arrow" style="color: rgba(255,255,255,.28);">→</div>
-        </div>
-        <div class="module-row" style="border-bottom-color: rgba(255,255,255,.12); color: #fff;">
-          <div class="row-idx" style="color: rgba(255,255,255,.28);">05</div>
-          <div class="row-text" style="color: #fff;">Document Forensics<small style="color: rgba(255,255,255,.5);">Pixel-level tampering and template anomaly detection</small></div>
-          <div class="row-arrow" style="color: rgba(255,255,255,.28);">→</div>
-        </div>
-        <div class="module-row" style="border-bottom-color: rgba(255,255,255,.12); color: #fff;">
-          <div class="row-idx" style="color: rgba(255,255,255,.28);">06</div>
-          <div class="row-text" style="color: #fff;">Global Database Search<small style="color: rgba(255,255,255,.5);">Sanction, PEP, watchlist, adverse media</small></div>
-          <div class="row-arrow" style="color: rgba(255,255,255,.28);">→</div>
-        </div>
-        <div class="module-row" style="border-bottom-color: rgba(255,255,255,.12); color: #fff;">
-          <div class="row-idx" style="color: rgba(255,255,255,.28);">07</div>
-          <div class="row-text" style="color: #fff;">Structured Questionnaires<small style="color: rgba(255,255,255,.5);">Standardised reference-call scripts</small></div>
-          <div class="row-arrow" style="color: rgba(255,255,255,.28);">→</div>
-        </div>
-        <div class="module-row" style="border-bottom-color: rgba(255,255,255,.12); color: #fff;">
-          <div class="row-idx" style="color: rgba(255,255,255,.28);">08</div>
-          <div class="row-text" style="color: #fff;">Dual Review System<small style="color: rgba(255,255,255,.5);">Blind second-reviewer on every finding</small></div>
-          <div class="row-arrow" style="color: rgba(255,255,255,.28);">→</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     THE STARTUP WAY — Editorial bands
-     ============================================================ -->
-<section class="section section--blush">
-  <div class="grid-bg" aria-hidden="true"></div>
-  <div class="tv2-container">
-    <div class="section-head" data-reveal>
-      <div>
-        <p class="label">The Startup Way</p>
-        <h2>We verify like we're <span class="serif">hiring</span> for ourselves.</h2>
-      </div>
-      <p class="lead">As a startup ourselves, we approach every verification with the same care we would if the candidate were joining our own team. This mindset shapes our entire process.</p>
-    </div>
-
-    <div class="principle-bands">
-      <div class="principle-band" data-reveal data-delay="1" style="border-top-color: rgba(10,10,10,.14);">
-        <div class="band-icon" style="background: linear-gradient(135deg, rgba(124,58,237,.15), rgba(124,58,237,.02)); border-color: rgba(124,58,237,.22); color: var(--violet);">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
-        </div>
-        <div class="band-content">
-          <h3 style="color: var(--ink);">No Assembly Line</h3>
-          <p style="color: rgba(0,0,0,.55);">One verifier owns a case end-to-end, understanding the full context of the candidate. No handoffs, no context loss, no "that's not my job."</p>
-        </div>
-        <div class="band-index" style="color: rgba(0,0,0,.28);">01</div>
-      </div>
-      <div class="principle-band" data-reveal data-delay="2" style="border-top-color: rgba(10,10,10,.14);">
-        <div class="band-icon" style="background: linear-gradient(135deg, rgba(124,58,237,.15), rgba(124,58,237,.02)); border-color: rgba(124,58,237,.22); color: var(--violet);">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-        </div>
-        <div class="band-content">
-          <h3 style="color: var(--ink);">Flexible Process</h3>
-          <p style="color: rgba(0,0,0,.55);">Need a specific check done first? We reprioritise and can deliver partial results. Your hiring timeline drives our sequence — not the other way around.</p>
-        </div>
-        <div class="band-index" style="color: rgba(0,0,0,.28);">02</div>
-      </div>
-      <div class="principle-band" data-reveal data-delay="3" style="border-top-color: rgba(10,10,10,.14);">
-        <div class="band-icon" style="background: linear-gradient(135deg, rgba(124,58,237,.15), rgba(124,58,237,.02)); border-color: rgba(124,58,237,.22); color: var(--violet);">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/></svg>
-        </div>
-        <div class="band-content">
-          <h3 style="color: var(--ink);">Direct Founder Access</h3>
-          <p style="color: rgba(0,0,0,.55);">If something feels off, you're talking to the people who designed the process. No account manager telephone games, no ticket queues.</p>
-        </div>
-        <div class="band-index" style="color: rgba(0,0,0,.28);">03</div>
-      </div>
-      <div class="principle-band" data-reveal data-delay="4" style="border-top-color: rgba(10,10,10,.14); border-bottom-color: rgba(10,10,10,.14);">
-        <div class="band-icon" style="background: linear-gradient(135deg, rgba(124,58,237,.15), rgba(124,58,237,.02)); border-color: rgba(124,58,237,.22); color: var(--violet);">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 3v18h18M7 15l4-5 3 3 5-7"/></svg>
-        </div>
-        <div class="band-content">
-          <h3 style="color: var(--ink);">Continuous Improvement</h3>
-          <p style="color: rgba(0,0,0,.55);">After every case, we ask: what could have been faster? Clearer? Our process evolves because we treat every client's feedback as product input.</p>
-        </div>
-        <div class="band-index" style="color: rgba(0,0,0,.28);">04</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     WHAT WE NEED — Editorial bordered checklist
-     ============================================================ -->
-<section class="section section--cream">
-  <div class="grid-bg" aria-hidden="true"></div>
-  <div class="tv2-container">
-    <div class="section-head" data-reveal>
-      <div>
-        <p class="label">What We Need</p>
-        <h2>A smooth process starts with <span class="serif">clear</span> inputs.</h2>
-      </div>
-      <p class="lead">The faster we receive accurate information, the faster we can deliver verified results. This is everything we need from you to begin.</p>
-    </div>
-
-    <div class="industry-bordered">
-      <div class="bordered-item" data-reveal data-delay="1">
-        <div class="bordered-num">01</div>
-        <div>
-          <div class="bordered-title">Candidate Consent Form</div>
-          <div class="bordered-desc">We provide a simple template. Once signed, we begin immediately.</div>
-        </div>
-        <span class="bordered-arrow">→</span>
-      </div>
-      <div class="bordered-item" data-reveal data-delay="2">
-        <div class="bordered-num">02</div>
-        <div>
-          <div class="bordered-title">Basic Candidate Details</div>
-          <div class="bordered-desc">Full name, date of birth, and the checks you want. That's the minimum.</div>
-        </div>
-        <span class="bordered-arrow">→</span>
-      </div>
-      <div class="bordered-item" data-reveal data-delay="3">
-        <div class="bordered-num">03</div>
-        <div>
-          <div class="bordered-title">Scanned Documents</div>
-          <div class="bordered-desc">Clear scans of certificates, offer letters, and identity proof. No blurry photos.</div>
-        </div>
-        <span class="bordered-arrow">→</span>
-      </div>
-      <div class="bordered-item" data-reveal data-delay="4">
-        <div class="bordered-num">04</div>
-        <div>
-          <div class="bordered-title">Reference Contacts</div>
-          <div class="bordered-desc">Names, designations, and phone numbers. We handle the rest.</div>
-        </div>
-        <span class="bordered-arrow">→</span>
-      </div>
-      <div class="bordered-item" data-reveal data-delay="5">
-        <div class="bordered-num">05</div>
-        <div>
-          <div class="bordered-title">Urgency Flag</div>
-          <div class="bordered-desc">If there's a joining date pressure, tell us. We fast-track critical checks.</div>
-        </div>
-        <span class="bordered-arrow">→</span>
-      </div>
-      <div class="bordered-item" data-reveal data-delay="6">
-        <div class="bordered-num">06</div>
-        <div>
-          <div class="bordered-title">Your Hiring Context</div>
-          <div class="bordered-desc">The more we know about the role, the better we tailor our scrutiny.</div>
-        </div>
-        <span class="bordered-arrow">→</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     INSIGHTS — blog scroll matching homepage
-     ============================================================ -->
-<section class="section section--white">
-  <div class="grid-bg" aria-hidden="true"></div>
-  <div class="tv2-container">
-    <div class="section-head" data-reveal>
-      <div>
-        <p class="label">Process Insights</p>
-        <h2>Reading for HR teams who <span class="serif">operate.</span></h2>
-      </div>
-      <p class="lead">Deeper dives on turnaround times, delay handling, and process design from the Truevence team.</p>
-    </div>
-    <div class="blog-scroll">
-      <a href="/blog/bgv-tat-turnaround-time.html" class="blog-card"><span class="blog-tag">Operations</span><span class="blog-title">How Long Does BGV Take?</span><span class="blog-desc">Realistic turnaround times for each verification type — and what slows them down.</span><span class="blog-more">Read Article →</span></a>
-      <a href="/blog/reduce-bgv-turnaround-time-guide.html" class="blog-card"><span class="blog-tag">Guide</span><span class="blog-title">Reduce BGV Turnaround Time</span><span class="blog-desc">Operational tactics that cut days off your screening cycle without sacrificing accuracy.</span><span class="blog-more">Read Article →</span></a>
-      <a href="/blog/employment-verification-process-documents-timeline.html" class="blog-card"><span class="blog-tag">Deep Dive</span><span class="blog-title">Employment Verification Process</span><span class="blog-desc">Documents needed, timeline expectations, and edge cases in employment history checks.</span><span class="blog-more">Read Article →</span></a>
-      <a href="/blog/digital-vs-physical-background-verification.html" class="blog-card"><span class="blog-tag">Explainer</span><span class="blog-title">Digital vs Physical BGV</span><span class="blog-desc">When digital verification is enough — and when a physical field visit is still required.</span><span class="blog-more">Read Article →</span></a>
-      <a href="/blog/handling-adverse-bgv-report.html" class="blog-card"><span class="blog-tag">Risk</span><span class="blog-title">Handling Adverse BGV Reports</span><span class="blog-desc">What to do when a check comes back flagged — procedure, communication, and compliance.</span><span class="blog-more">Read Article →</span></a>
-      <a href="/blog/truevence-quality-control-process.html" class="blog-card"><span class="blog-tag">Internal</span><span class="blog-title">Our Quality Control Process</span><span class="blog-desc">A behind-the-scenes look at how the second-reviewer system actually works.</span><span class="blog-more">Read Article →</span></a>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     CTA BANNER
-     ============================================================ -->
-<section class="cta-banner">
-  <div class="cta-inner">
-    <div data-reveal="left">
-      <h2>Ready to see the<br>process in <em>action?</em></h2>
-    </div>
-    <div data-reveal="right">
-      <p>Send us a candidate, and we'll take it from consent to completed report. You'll experience every step we've described.</p>
-      <div class="cta-actions">
-        <a href="/contact.html" class="btn-light">Start Your First Verification →</a>
-        <a href="/services.html" class="btn-outline-light">View Services</a>
-      </div>
+    <h2>Ready to see the process <em>in action?</em></h2>
+    <p>Send us a candidate, and we'll take it from consent to completed report. You'll experience every step we've described — and we'll tell you the truth about each one as it happens.</p>
+    <div class="memo-actions">
+      <a href="/contact.html" class="btn-navy">Start Your First Verification →</a>
+      <a href="/services.html" class="btn-lined">View Services</a>
     </div>
   </div>
 </section>
 
 </main>
 
-<!-- INCLUDE_FOOTER -->
-<!-- INCLUDE_WHATSAPP -->
+<footer class="bg-ink text-white pt-16 pb-8">
+  <div class="section-container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="flex items-center gap-2 mb-4">
+          <span class="font-display font-extrabold text-xl tracking-tight">TRUEVENCE</span>
+        </div>
+        <p class="text-white/55 text-sm leading-relaxed">Background verification services built for HR teams who can't afford surprises.</p>
+        <div class="flex items-center gap-3 mt-6">
+          <a href="https://www.linkedin.com/company/truevence/" aria-label="LinkedIn" class="w-9 h-9 rounded-full bg-white/8 hover:bg-violet flex items-center justify-center transition-colors">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="text-white"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.24 8.25h4.5V23H.24V8.25zM8.5 8.25h4.3v2.02h.06c.6-1.13 2.06-2.32 4.24-2.32 4.53 0 5.37 2.98 5.37 6.85V23h-4.5v-6.6c0-1.58-.03-3.6-2.2-3.6-2.2 0-2.54 1.72-2.54 3.5V23H8.5V8.25z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/truevence.in" aria-label="Instagram" class="w-9 h-9 rounded-full bg-white/8 hover:bg-violet flex items-center justify-center transition-colors">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="text-white"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 class="font-mono-ui text-[11px] tracking-widest text-white/40 mb-6">NAVIGATE</h4>
+        <ul class="space-y-3 text-sm text-white/70">
+          <li><a href="/" class="hover:text-violetlt transition-colors">Home</a></li>
+          <li><a href="/services" class="hover:text-violetlt transition-colors">Services</a></li>
+          <li><a href="/process" class="hover:text-violetlt transition-colors">Process</a></li>
+          <li><a href="/about" class="hover:text-violetlt transition-colors">Why Us</a></li>
+          <li><a href="/industries" class="hover:text-violetlt transition-colors">Industries</a></li>
+          <li><a href="/faq" class="hover:text-violetlt transition-colors">FAQ</a></li>
+          <li><a href="/contact" class="hover:text-violetlt transition-colors">Contact</a></li>
+          <li><a href="/blog" class="hover:text-violetlt transition-colors">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="font-mono-ui text-[11px] tracking-widest text-white/40 mb-6">LEGAL</h4>
+        <ul class="space-y-3 text-sm text-white/70">
+          <li><a href="/legal/terms-of-service" class="hover:text-violetlt transition-colors">Terms of Service</a></li>
+          <li><a href="/legal/privacy-policy" class="hover:text-violetlt transition-colors">Privacy Policy</a></li>
+          <li><a href="/legal/cookie-policy" class="hover:text-violetlt transition-colors">Cookie Policy</a></li>
+          <li><a href="/legal/data-retention-policy" class="hover:text-violetlt transition-colors">Data Retention</a></li>
+          <li><a href="/legal/candidate-consent-policy" class="hover:text-violetlt transition-colors">Candidate Consent</a></li>
+          <li><a href="/legal/refund-policy" class="hover:text-violetlt transition-colors">Refund Policy</a></li>
+          <li><a href="/legal/security" class="hover:text-violetlt transition-colors">Security</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="font-mono-ui text-[11px] tracking-widest text-white/40 mb-6">CONTACT</h4>
+        <ul class="space-y-3 text-sm text-white/70">
+          <li><a href="mailto:Contact@truevence.in" class="hover:text-violetlt transition-colors">contact@truevence.in</a></li>
+          <li><a href="tel:+919205757344" class="hover:text-violetlt transition-colors">+91 920 5757 7344</a></li>
+          <li><a href="https://www.truevence.in" target="_blank" rel="noopener" class="hover:text-violetlt transition-colors">www.truevence.in</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 border-t border-white/10 mt-10">
+      <p class="text-white/40 text-xs">&copy; <span id="year"></span> Truevence. All rights reserved.</p>
+      <p class="font-mono-ui text-[11px] text-white/30">Simply Certain</p>
+    </div>
+  </div>
+</footer>
 
-<!-- External Scripts -->
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<a href="https://wa.me/919205757344?text=Hello%20Team%20Truevence%0A%0AWe%20are%20looking%20for%20Background%20Verification%20services%20for%20our%20organization.%20Please%20connect%20with%20us%20to%20discuss%20requirements."
+   target="_blank" rel="noopener"
+   style="position:fixed; bottom:24px; right:24px; z-index:999; background:linear-gradient(135deg,#0B1230,#7C3AED); color:#fff; width:56px; height:56px; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 8px 20px rgba(124,58,237,0.35);"
+   aria-label="Chat on WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="white">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
 <script src="/assets/js/scripts.js" defer></script>
 <script src="/assets/js/cursor.js" defer></script>
+
+<script>
+(function () {
+  'use strict';
+
+  var y = document.getElementById('year');
+  if (y) y.textContent = new Date().getFullYear();
+
+  var btn = document.getElementById('menuBtn');
+  var menu = document.getElementById('mobileMenu');
+  var icon = document.getElementById('iconMenu');
+  if (btn && menu && icon) {
+    var open = false;
+    btn.addEventListener('click', function () {
+      open = !open;
+      menu.classList.toggle('hidden', !open);
+      btn.setAttribute('aria-expanded', String(open));
+      icon.innerHTML = open ? '<path d="M6 6l12 12M18 6L6 18"/>' : '<path d="M4 7h16M4 12h16M4 17h16"/>';
+    });
+    document.querySelectorAll('.mobile-link').forEach(function (a) {
+      a.addEventListener('click', function () {
+        open = false;
+        menu.classList.add('hidden');
+        btn.setAttribute('aria-expanded', 'false');
+        icon.innerHTML = '<path d="M4 7h16M4 12h16M4 17h16"/>';
+      });
+    });
+  }
+
+  window.acceptCookies = function () {
+    var b = document.getElementById('cookieConsent');
+    if (b) b.style.display = 'none';
+    try { localStorage.setItem('cookieConsent', 'true'); } catch (e) {}
+  };
+  try {
+    if (localStorage.getItem('cookieConsent') === 'true') {
+      var b = document.getElementById('cookieConsent');
+      if (b) b.remove();
+    }
+  } catch (e) {}
+
+  var tv2 = document.querySelector('.tv2');
+  if (!tv2) return;
+
+  var revealEls = tv2.querySelectorAll('[data-reveal]');
+  if (revealEls.length) {
+    if (!('IntersectionObserver' in window)) {
+      revealEls.forEach(function (el) { el.classList.add('in-view'); });
+    } else {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+      revealEls.forEach(function (el) { io.observe(el); });
+    }
+  }
+})();
+</script>
 
 </body>
 </html>
