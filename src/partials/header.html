@@ -7,10 +7,6 @@
   <button onclick="acceptCookies()" class="cookie-btn">Accept</button>
 </div>
 
-<!-- Custom cursor -->
-<div class="cursor-ring" aria-hidden="true"></div>
-<div class="cursor-core" aria-hidden="true"></div>
-
 <!-- Edge Tag - Right Side (Sample Report only) -->
 <div class="edge-tags-right fixed right-0 top-1/2 -translate-y-1/2 z-40 hidden xl:flex flex-col gap-3">
   <a href="https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/Sample_Report-Rohit_Sharma-TVR-2026-0826-001.pdf"
@@ -28,7 +24,12 @@
   <div class="section-container">
     <div class="flex items-center justify-between h-[76px]">
       <a href="/index.html" class="flex items-center gap-2 shrink-0">
-        <img src="https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/logo.webp" alt="Truevence background verification company logo" class="h-11 md:h-12 w-auto" width="120" height="48">
+        <img src="https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/logo.webp"
+             alt="Truevence"
+             class="h-11 md:h-12 w-auto nav-logo-img"
+             width="120" height="48"
+             onerror="this.classList.add('is-broken')">
+        <span class="nav-logo-fallback">TRUEVENCE</span>
       </a>
 
       <nav class="hidden lg:flex items-center gap-9 font-display text-[14px] font-semibold tracking-wide text-navy">
