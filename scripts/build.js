@@ -1,6 +1,6 @@
 // TRUEVENCE — BUILD SCRIPT (scripts/build.js)
 // Sources:  src/pages/**/*.html
-// Uses:     src/partials/*.html
+// Uses:     src/partials/*.html   (header, footer, whatsapp)
 // Copies:   src/assets/  ->  public/assets/
 // Output:   public/**  (src/pages/ prefix stripped)
 
@@ -40,7 +40,6 @@ function loadFile(dir, name) {
 }
 
 const partials = {
-  head:     loadFile(partialsDir, 'head.html'),
   header:   loadFile(partialsDir, 'header.html'),
   footer:   loadFile(partialsDir, 'footer.html'),
   whatsapp: loadFile(partialsDir, 'whatsapp.html'),
@@ -58,38 +57,14 @@ function collectHtml(dir, list) {
   return list;
 }
 
-// ---------- 5. Extract head values from a page ----------
-function extractHeadValues(content) {
-  const grab = (re) => {
-    const m = content.match(re);
-    return m ? m[1].trim() : '';
-  };
-  return {
-    TITLE:     grab(/<title>([\s\S]*?)<\/title>/i),
-    DESC:      grab(/<meta\s+name="description"\s+content="([^"]*)"/i),
-    CANONICAL: grab(/<link\s+rel="canonical"\s+href="([^"]*)"/i),
-    OG_TITLE:  grab(/<meta\s+property="og:title"\s+content="([^"]*)"/i),
-    OG_DESC:   grab(/<meta\s+property="og:description"\s+content="([^"]*)"/i),
-    OG_URL:    grab(/<meta\s+property="og:url"\s+content="([^"]*)"/i),
-    OG_TYPE:   grab(/<meta\s+property="og:type"\s+content="([^"]*)"/i) || 'website',
-    OG_IMAGE:  grab(/<meta\s+property="og:image"\s+content="([^"]*)"/i),
-  };
-}
-
-function fillVars(str, vars) {
-  return str.replace(/\{\{([A-Z_]+)\}\}/g, (_, key) =>
-    vars[key] !== undefined ? vars[key] : ''
-  );
-}
-
-// ---------- 6. Replacement map (partials only) ----------
+// ---------- 5. Replacement map (partials only) ----------
 const replacements = {
   '<!-- INCLUDE_HEADER -->':   partials.header,
   '<!-- INCLUDE_FOOTER -->':   partials.footer,
   '<!-- INCLUDE_WHATSAPP -->': partials.whatsapp,
 };
 
-// ---------- 7. Build every page ----------
+// ---------- 6. Build every page ----------
 const htmlFiles = collectHtml(pagesDir);
 
 if (htmlFiles.length === 0) {
@@ -105,32 +80,7 @@ for (const filePath of htmlFiles) {
   let content = fs.readFileSync(filePath, 'utf8');
   let replaced = 0;
 
-  // 7a. Replace INCLUDE_HEAD with filled head.html
-  if (content.indexOf('<!-- INCLUDE_HEAD -->') !== -1) {
-    const vars = extractHeadValues(content);
-    const headHtml = fillVars(partials.head, vars);
-
-    while (content.indexOf('<!-- INCLUDE_HEAD -->') !== -1) {
-      content = content.replace('<!-- INCLUDE_HEAD -->', headHtml);
-      replaced++;
-    }
-
-    const seen = { title: 0, desc: 0, canonical: 0 };
-    content = content.replace(/<title>[\s\S]*?<\/title>/gi, (m) => {
-      seen.title++;
-      return seen.title === 1 ? m : '';
-    });
-    content = content.replace(/<meta\s+name="description"[^>]*>/gi, (m) => {
-      seen.desc++;
-      return seen.desc === 1 ? m : '';
-    });
-    content = content.replace(/<link\s+rel="canonical"[^>]*>/gi, (m) => {
-      seen.canonical++;
-      return seen.canonical === 1 ? m : '';
-    });
-  }
-
-  // 7b. Replace partial markers
+  // Replace partial markers
   for (const key in replacements) {
     const val = replacements[key];
     while (content.indexOf(key) !== -1) {
@@ -141,7 +91,7 @@ for (const filePath of htmlFiles) {
 
   totalReplacements += replaced;
 
-  // 7c. Warn on leftovers
+  // Warn on leftovers
   const remaining = content.match(/<!--\s*INCLUDE_[A-Z_]+\s*-->/g);
   if (remaining) {
     filesWithIssues.push({
@@ -150,7 +100,7 @@ for (const filePath of htmlFiles) {
     });
   }
 
-  // 7d. Write output — strip src/pages/ prefix
+  // Write output — strip src/pages/ prefix
   const rel = path.relative(pagesDir, filePath);
   const out = path.join(publicDir, rel);
   fs.mkdirSync(path.dirname(out), { recursive: true });
@@ -158,7 +108,7 @@ for (const filePath of htmlFiles) {
   console.log('  ' + rel + '  (' + replaced + ' replacements)');
 }
 
-// ---------- 8. Copy robots.txt + sitemap.xml ----------
+// ---------- 7. Copy robots.txt + sitemap.xml ----------
 ['robots.txt', 'sitemap.xml'].forEach(function (f) {
   const src = path.join(rootDir, f);
   if (fs.existsSync(src)) {
@@ -169,10 +119,10 @@ for (const filePath of htmlFiles) {
   }
 });
 
-// ---------- 9. Copy favicons ----------
+// ---------- 8. Copy favicons ----------
 // Copies into both:
 //   public/favicon-*.png         (root)
-//   public/assets/favicon-*.png  (matches head.html references)
+//   public/assets/favicon-*.png  (matches any head references)
 const faviconNames = ['favicon.ico', 'favicon-32.png', 'favicon-192.png'];
 const faviconDirs = [rootDir, path.join(assetsDir, 'images')];
 
