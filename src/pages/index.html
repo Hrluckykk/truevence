@@ -353,13 +353,13 @@
 }
 
 .tv2 .section {
-  position:relative; padding:120px 5vw;
-  min-height:100vh;
+  position:relative; padding:80px 5vw;
+  /* Removed min-height: 100vh to prevent excessive whitespace */
   display:flex; flex-direction:column; justify-content:center;
   overflow:hidden;
 }
 @media (max-width:900px){
-  .tv2 .section { min-height:auto; padding:80px 5vw; display:block; }
+  .tv2 .section { padding:60px 5vw; }
 }
 .tv2 .section--cream { background:var(--cream); }
 .tv2 .section--slate { background:var(--slate-bg); }
@@ -371,7 +371,7 @@
 .tv2 .section--white { background:#fff; }
 .tv2 .grid-bg { position:absolute; inset:0; pointer-events:none; z-index:0; background-image:radial-gradient(circle, rgba(10,10,10,.07) 1px, transparent 1px); background-size:30px 30px; mask-image:radial-gradient(ellipse 80% 70% at center, black 40%, transparent 90%); -webkit-mask-image:radial-gradient(ellipse 80% 70% at center, black 40%, transparent 90%); }
 .tv2 .grid-bg--dark { background-image:radial-gradient(circle, rgba(255,255,255,.05) 1px, transparent 1px); }
-.tv2 .section-head { display:grid; grid-template-columns:1fr 1.4fr; gap:60px; align-items:end; margin-bottom:72px; }
+.tv2 .section-head { display:grid; grid-template-columns:1fr 1.4fr; gap:60px; align-items:end; margin-bottom:48px; }
 @media (max-width:900px){ .tv2 .section-head { grid-template-columns:1fr; gap:24px; } }
 .tv2 .section-head h2 { font-family:'Plus Jakarta Sans',sans-serif; font-size:clamp(2rem,3.8vw,3.4rem); font-weight:800; letter-spacing:-.045em; line-height:1.02; margin-top:18px; }
 .tv2 .section-head .lead { font-size:15.5px; line-height:1.7; color:rgba(0,0,0,.55); max-width:500px; }
@@ -521,8 +521,8 @@
 .tv2 .faq-item.open .faq-a { max-height:500px; }
 .tv2 .faq-a p { padding:0 0 26px; font-size:15px; line-height:1.7; color:rgba(0,0,0,.6); max-width:720px; }
 
-.tv2 .cta-banner { background: radial-gradient(circle at 85% 20%, rgba(124,58,237,.35), transparent 45%), radial-gradient(circle at 15% 90%, rgba(76,29,149,.3), transparent 45%), linear-gradient(135deg,#050814 0%,#12061F 50%,#0B1230 100%); color:#fff; padding:130px 5vw; position:relative; overflow:hidden; min-height:100vh; display:flex; align-items:center; justify-content:center; }
-@media (max-width:900px){ .tv2 .cta-banner { min-height:auto; padding:80px 5vw; } }
+.tv2 .cta-banner { background: radial-gradient(circle at 85% 20%, rgba(124,58,237,.35), transparent 45%), radial-gradient(circle at 15% 90%, rgba(76,29,149,.3), transparent 45%), linear-gradient(135deg,#050814 0%,#12061F 50%,#0B1230 100%); color:#fff; padding:100px 5vw; position:relative; overflow:hidden; display:flex; align-items:center; justify-content:center; }
+@media (max-width:900px){ .tv2 .cta-banner { padding:80px 5vw; } }
 .tv2 .cta-banner::before { content:''; position:absolute; inset:0; background-image: linear-gradient(rgba(167,139,250,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(167,139,250,.06) 1px, transparent 1px); background-size:60px 60px; mask-image:radial-gradient(ellipse 70% 60% at center, black 20%, transparent 75%); -webkit-mask-image:radial-gradient(ellipse 70% 60% at center, black 20%, transparent 75%); pointer-events:none; }
 .tv2 .cta-inner { max-width:1440px; margin:0 auto; position:relative; z-index:1; display:grid; grid-template-columns:1.4fr 1fr; gap:60px; align-items:center; width:100%; }
 @media (max-width:900px){ .tv2 .cta-inner { grid-template-columns:1fr; gap:36px; } }
@@ -850,6 +850,17 @@
       <div class="panel-left">
         <div class="panel-kicker">The Solution</div>
         <h1 class="panel-title">TRUE<br>VENCE</h1>
+        <!-- Added content below to fill the hollow space -->
+        <p style="font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.6; margin-top: 24px; max-width: 320px;">
+          We combine a pan-India physical verification network with direct digital access to primary sources — delivering a single, audit-ready report that tells you the truth behind the resume.
+        </p>
+        <ul style="list-style: none; padding: 0; margin-top: 20px; font-size: 13px; color: rgba(255,255,255,0.6); display: flex; flex-direction: column; gap: 8px;">
+          <li style="display: flex; align-items: center; gap: 8px;"><span style="color: #A78BFA;">✓</span> Identity &amp; Address</li>
+          <li style="display: flex; align-items: center; gap: 8px;"><span style="color: #A78BFA;">✓</span> Employment &amp; Education</li>
+          <li style="display: flex; align-items: center; gap: 8px;"><span style="color: #A78BFA;">✓</span> Criminal &amp; Court Records</li>
+          <li style="display: flex; align-items: center; gap: 8px;"><span style="color: #A78BFA;">✓</span> Professional References</li>
+        </ul>
+        <!-- End added content -->
         <div class="panel-footer">Background verification platform · Pan-India · Est. 2026</div>
       </div>
       <div class="panel-right">
@@ -962,9 +973,14 @@
           <span>Expert Insights</span>
         </div>
       </div>
-      <form class="news-form" id="newsForm" data-reveal="right">
+      <!-- 
+        IMPORTANT: This form does NOT store data anywhere. 
+        You must add a backend service (e.g., Formspree, Netlify, or your own API) 
+        to actually receive emails. Add the action attribute pointing to your service endpoint.
+      -->
+      <form class="news-form" id="newsForm" data-reveal="right" action="#" method="POST">
         <label for="newsEmail">Work Email</label>
-        <input id="newsEmail" type="email" required placeholder="you@company.com">
+        <input id="newsEmail" name="email" type="email" required placeholder="you@company.com">
         <button type="submit">Subscribe →</button>
         <p class="news-note" id="newsNote">No spam. Unsubscribe any time.</p>
       </form>
@@ -1045,7 +1061,12 @@
           </a>
         </div>
       </div>
-      <form class="contact-form" id="contactForm" novalidate data-reveal="right">
+      <!-- 
+        IMPORTANT: This form does NOT store data anywhere. 
+        You must add a backend service (e.g., Formspree, Netlify, or your own API) 
+        to actually receive emails. Add the action attribute pointing to your service endpoint.
+      -->
+      <form class="contact-form" id="contactForm" novalidate data-reveal="right" action="#" method="POST">
         <div class="form-row">
           <div><label for="fname">Full Name</label><input required id="fname" name="name" type="text" placeholder="Your name"></div>
           <div><label for="company">Company</label><input id="company" name="company" type="text" placeholder="Company name"></div>
@@ -1119,6 +1140,7 @@
       </div>
     </div>
 
+    <!-- Fixed double lines: merged the border-top and padding into a single container -->
     <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-3 border-t border-white/10 mt-12">
       <p class="text-white/40 text-xs">&copy; <span id="year"></span> Truevence. All rights reserved.</p>
       <p class="font-mono-ui text-[11px] text-white/30">Simply Certain</p>
@@ -1229,6 +1251,13 @@
     }
   }
 
+  // --- FORM HANDLING ---
+  // WARNING: This script does NOT store data anywhere. 
+  // It only shows a success message. 
+  // To actually receive emails, you must connect these forms to a backend service
+  // (e.g., Formspree, Netlify Forms, or your own API) by setting the 'action' attribute
+  // on the form element and ensuring the backend sends emails to no-reply@truevence.in
+
   var newsForm = tv2.querySelector('#newsForm');
   var newsNote = tv2.querySelector('#newsNote');
   if (newsForm && newsNote) {
@@ -1236,6 +1265,8 @@
       e.preventDefault();
       var email = tv2.querySelector('#newsEmail').value.trim();
       if (!email) return;
+      
+      // Simulate submission (Replace this with actual fetch to your backend)
       newsNote.textContent = "Thank you — you're on the list.";
       newsNote.classList.add('ok');
       newsForm.reset();
