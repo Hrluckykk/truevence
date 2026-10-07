@@ -7,7 +7,6 @@
 <meta name="description" content="Expert articles on background verification, hiring compliance, and HR best practices. Stay informed with Truevence.">
 <meta name="keywords" content="background verification blog, BGV articles, employee screening insights, HR compliance blog, Truevence blog">
 
-<!-- Open Graph / Social -->
 <meta property="og:title" content="Truevence Blog – Background Verification Insights">
 <meta property="og:description" content="Expert guides on background checks, hiring compliance, and HR best practices.">
 <meta property="og:url" content="https://www.truevence.in/blog.html">
@@ -17,318 +16,1421 @@
 <meta name="twitter:title" content="Truevence Blog">
 <meta name="twitter:description" content="Stay updated with the latest in background verification.">
 <meta name="twitter:image" content="https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/ChatGPT%20Image%20Jul%2018%2C%202026%2C%2009_59_12%20PM.png">
-
-<!-- Canonical -->
 <link rel="canonical" href="https://www.truevence.in/blog.html">
 
-<!-- BreadcrumbList Schema -->
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.truevence.in/" },
-    { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.truevence.in/blog" }
-  ]
-}
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.truevence.in/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.truevence.in/blog"}]}
 </script>
 
-<!-- Favicon -->
-<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
-<link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192.png">
-<link rel="apple-touch-icon" href="/assets/favicon-192.png">
-
-<!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 
-<!-- Tailwind CSS -->
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
   tailwind.config = {
     theme: {
       extend: {
         colors: {
-          ink:      '#0B1230',
-          navy:     '#131B45',
-          navylite: '#1E2A5E',
-          violet:   '#7C3AED',
-          violetlt: '#A78BFA',
-          lavender: '#C9BEFB',
-          paper:    '#F7F7FB',
-          paperdim: '#EFEEF9',
-          slate:    '#545A78',
+          ink: '#0B1230', navy: '#131B45', navylite: '#1E2A5E',
+          violet: '#7C3AED', violetlt: '#A78BFA', lavender: '#C9BEFB',
+          paper: '#F7F7FB', paperdim: '#EFEEF9', slate: '#545A78',
+          green: '#3bd39b', amber: '#febc2e', red: '#ff5f57'
         },
         fontFamily: {
           display: ['"Plus Jakarta Sans"', 'sans-serif'],
-          body: ['"Inter"', 'sans-serif'],
-          mono: ['"IBM Plex Mono"', 'monospace'],
-        },
+          body: ['Inter', 'sans-serif'],
+          'mono-ui': ['"IBM Plex Mono"', 'monospace'],
+          'serif-display': ['"Instrument Serif"', 'Georgia', 'serif'],
+          'serif-body': ['"Fraunces"', 'Georgia', 'serif']
+        }
       }
     }
   }
 </script>
 
-<!-- AOS -->
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/styles.css?v=5">
 
-<!-- Custom CSS (external) -->
-<link rel="stylesheet" href="/assets/css/styles.css">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+
+<style>
+/* ============================================================
+   SHARED CHROME
+   ============================================================ */
+.section-container { max-width:1440px; margin:0 auto; padding:0 1.25rem; }
+@media (min-width:640px){ .section-container { padding:0 2rem; } }
+@media (min-width:1024px){ .section-container { padding:0 5rem; } }
+@media (min-width:1280px){ .section-container { padding:0 7rem; } }
+
+.nav-glass { background: rgba(255,255,255,.82); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-bottom: 1px solid rgba(11,18,48,.06); }
+.nav-glass a { text-decoration: none; }
+.nav-logo-img { height: 44px; width: auto; display: block; }
+@media (min-width:768px){ .nav-logo-img { height: 48px; } }
+.nav-logo-fallback { display: none; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 20px; letter-spacing: -0.02em; color: #0B1230; }
+.nav-logo-img.is-broken { display: none; }
+.nav-logo-img.is-broken + .nav-logo-fallback { display: inline-block; }
+.btn-primary { display:inline-flex; align-items:center; gap:8px; background:#0B1230; color:#fff; border:1px solid #0B1230; transition:all .3s ease; }
+.btn-primary:hover { background:#7C3AED; border-color:#7C3AED; color:#fff; }
+
+.cookie-banner { position:fixed; bottom:0; left:0; right:0; background:#0B1230; color:#fff; padding:16px 1.25rem; display:flex; align-items:center; justify-content:space-between; gap:16px; z-index:9999; font-family:'Inter',sans-serif; box-shadow:0 -4px 20px rgba(0,0,0,.3); }
+@media (min-width:640px){ .cookie-banner { padding:16px 2rem; } }
+@media (min-width:1024px){ .cookie-banner { padding:16px 5rem; } }
+.cookie-text { margin:0; font-size:14px; flex:1; color:#fff; }
+.cookie-text a { color:#A78BFA; text-decoration:underline; }
+.cookie-btn { background:#7C3AED; color:#fff; border:none; padding:10px 22px; border-radius:999px; font-weight:700; cursor:pointer; font-size:14px; flex-shrink:0; }
+
+.footer-grid { display:grid; grid-template-columns:1fr; gap:40px; padding-bottom:0; }
+@media (min-width:640px){ .footer-grid { grid-template-columns:repeat(2,1fr); } .footer-brand { grid-column:1 / -1; } }
+@media (min-width:1024px){ .footer-grid { grid-template-columns:1.2fr .7fr .9fr .9fr 1.6fr; gap:48px; } .footer-brand { grid-column:auto; } }
+.footer-brand p { max-width:320px; }
+
+[data-aos] { opacity:1 !important; transform:none !important; transition:none !important; }
+
+/* ============================================================
+   TV2 — "Reading Room" design system
+   Concept: a printed literary journal. Paper stock, printer's
+   marks, wide margins, marginalia, folio numbers. No dark
+   banners — the whole page lives on warm newsprint.
+   ============================================================ */
+.tv2 {
+  --ink:#0A0A0A;
+  --ink-soft:#2E2E2E;
+  --press:#D6321F;         /* the accent — used for marks, rules, tags */
+  --steel:#4E5A6B;         /* metadata blue-grey */
+  --newsprint:#FAF8F4;
+  --newsprint-2:#F2EFE8;
+  --newsprint-3:#E8E3D8;
+  --rule:#0A0A0A;
+  --rule-soft:rgba(10,10,10,.14);
+  --rule-hair:rgba(10,10,10,.08);
+  --ease:cubic-bezier(.2,.8,.2,1);
+  --ease-out:cubic-bezier(.16,1,.3,1);
+  font-family:'Inter',system-ui,-apple-system,sans-serif;
+  color:var(--ink);
+  line-height:1.6;
+  background:var(--newsprint);
+}
+.tv2 *, .tv2 *::before, .tv2 *::after { box-sizing:border-box; }
+.tv2 img { max-width:100%; display:block; }
+.tv2 a { color:inherit; text-decoration:none; }
+.tv2 button { font:inherit; cursor:pointer; background:none; border:0; color:inherit; }
+
+.tv2 .tv2-container { max-width:1440px; margin:0 auto; padding:0 5vw; position:relative; z-index:1; }
+
+.tv2 .serif-display { font-family:'Instrument Serif',Georgia,serif; font-weight:400; letter-spacing:-.015em; }
+.tv2 .serif-display em { font-style:italic; }
+.tv2 .serif-body { font-family:'Fraunces',Georgia,serif; font-weight:400; letter-spacing:-.01em; }
+.tv2 .serif-body em { font-style:italic; }
+
+.tv2 .rail {
+  font-family:'IBM Plex Mono',monospace;
+  font-size:10px; letter-spacing:.24em;
+  text-transform:uppercase;
+  color:var(--steel);
+  display:inline-flex; align-items:center; gap:12px;
+  font-weight:500;
+}
+.tv2 .rail::before { content:''; width:24px; height:1px; background:var(--press); }
+
+.tv2 [data-reveal] { opacity:0; transform:translateY(24px); transition:opacity .9s var(--ease-out), transform .9s var(--ease-out); }
+.tv2 [data-reveal].in-view { opacity:1; transform:none; }
+.tv2 [data-reveal="left"]  { transform:translateX(-32px); }
+.tv2 [data-reveal="right"] { transform:translateX(32px); }
+.tv2 [data-reveal].in-view[data-reveal="left"],
+.tv2 [data-reveal].in-view[data-reveal="right"] { transform:none; }
+.tv2 [data-delay="1"] { transition-delay:.08s; }
+.tv2 [data-delay="2"] { transition-delay:.16s; }
+.tv2 [data-delay="3"] { transition-delay:.24s; }
+.tv2 [data-delay="4"] { transition-delay:.32s; }
+.tv2 [data-delay="5"] { transition-delay:.4s; }
+.tv2 [data-delay="6"] { transition-delay:.48s; }
+.tv2 [data-delay="7"] { transition-delay:.56s; }
+.tv2 [data-delay="8"] { transition-delay:.64s; }
+
+/* ============================================================
+   COVER — literary journal cover
+   Top of page: masthead bar, huge Instrument Serif title,
+   breadcrumb above the rules, folio number top-right
+   ============================================================ */
+.tv2 .cover {
+  position:relative;
+  padding:150px 5vw 80px;
+  background:var(--newsprint);
+  overflow:hidden;
+  border-bottom:1px solid var(--rule);
+}
+@media (max-width:900px){ .tv2 .cover { padding:120px 5vw 60px; } }
+
+.tv2 .cover-inner { max-width:1440px; margin:0 auto; }
+
+/* Breadcrumb strip — mono, small, with red accent */
+.tv2 .crumb {
+  display:flex; align-items:center; gap:10px;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:10px; letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--steel);
+  margin-bottom:36px;
+}
+.tv2 .crumb .sep { color:var(--press); }
+.tv2 .crumb .here { color:var(--press); font-weight:600; }
+
+.tv2 .cover-top {
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  gap:24px; align-items:baseline;
+  padding-bottom:14px;
+  border-bottom:1px solid var(--rule);
+  font-family:'IBM Plex Mono',monospace;
+  font-size:10px; letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--steel);
+  margin-bottom:60px;
+}
+.tv2 .cover-top .l { color:var(--press); font-weight:600; }
+.tv2 .cover-top .c { text-align:center; color:var(--ink); font-weight:600; letter-spacing:.32em; }
+.tv2 .cover-top .r { text-align:right; }
+@media (max-width:800px){ .tv2 .cover-top { grid-template-columns:1fr; gap:6px; } .tv2 .cover-top .c, .tv2 .cover-top .r { text-align:left; } }
+
+.tv2 .cover-grid {
+  display:grid;
+  grid-template-columns:minmax(0,2fr) minmax(240px,1fr);
+  gap:clamp(40px,6vw,90px);
+  align-items:end;
+}
+@media (max-width:950px){ .tv2 .cover-grid { grid-template-columns:1fr; gap:48px; } }
+
+.tv2 .cover-kicker {
+  font-family:'Instrument Serif',Georgia,serif;
+  font-style:italic;
+  font-size:clamp(1.05rem,1.6vw,1.35rem);
+  color:var(--press);
+  display:block;
+  margin-bottom:14px;
+}
+.tv2 .cover-headline {
+  font-family:'Instrument Serif',Georgia,serif;
+  font-weight:400;
+  font-size:clamp(3rem,7.4vw,6.4rem);
+  letter-spacing:-.04em;
+  line-height:.96;
+  color:var(--ink);
+  margin:0 0 28px;
+}
+.tv2 .cover-headline em { font-style:italic; color:var(--press); }
+.tv2 .cover-headline .line { display:block; }
+
+.tv2 .cover-sub {
+  font-family:'Fraunces',Georgia,serif;
+  font-weight:400;
+  font-size:clamp(1rem,1.2vw,1.15rem);
+  line-height:1.75;
+  color:var(--ink-soft);
+  max-width:620px;
+}
+.tv2 .cover-sub em { font-style:italic; color:var(--press); }
+
+.tv2 .cover-cta { margin-top:36px; display:flex; flex-wrap:wrap; gap:12px; }
+
+.tv2 .btn-ink {
+  display:inline-flex; align-items:center; gap:8px;
+  padding:15px 28px;
+  background:var(--ink); color:var(--newsprint);
+  border:1px solid var(--ink);
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-weight:700; font-size:13.5px;
+  transition:all .3s var(--ease);
+}
+.tv2 .btn-ink:hover { background:var(--press); border-color:var(--press); }
+.tv2 .btn-rule {
+  display:inline-flex; align-items:center; gap:8px;
+  padding:15px 28px;
+  background:transparent; color:var(--ink);
+  border:1px solid var(--ink);
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-weight:700; font-size:13.5px;
+  transition:all .3s var(--ease);
+}
+.tv2 .btn-rule:hover { background:var(--ink); color:var(--newsprint); }
+
+/* Cover aside — editorial stats block */
+.tv2 .cover-aside {
+  border-left:1px solid var(--rule);
+  padding-left:32px;
+}
+@media (max-width:950px){ .tv2 .cover-aside { border-left:0; border-top:1px solid var(--rule); padding:24px 0 0; } }
+.tv2 .cover-aside .row {
+  padding:14px 0;
+  border-bottom:1px solid var(--rule-hair);
+  display:grid; grid-template-columns:1fr auto; gap:14px; align-items:baseline;
+}
+.tv2 .cover-aside .row:last-child { border-bottom:0; }
+.tv2 .cover-aside .k {
+  font-family:'IBM Plex Mono',monospace;
+  font-size:10px; letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--steel);
+}
+.tv2 .cover-aside .v {
+  font-family:'Instrument Serif',Georgia,serif;
+  font-style:italic;
+  font-size:22px;
+  color:var(--ink);
+  letter-spacing:-.01em;
+  text-align:right;
+}
+
+/* ============================================================
+   FEATURED — the "cover story" of this edition
+   Full-bleed editorial. Wide headline, three columns of context,
+   large red marker. No gradient card.
+   ============================================================ */
+.tv2 .featured {
+  position:relative;
+  padding:110px 5vw;
+  background:var(--newsprint-2);
+  border-bottom:1px solid var(--rule);
+}
+@media (max-width:900px){ .tv2 .featured { padding:80px 5vw; } }
+
+.tv2 .featured-inner { max-width:1440px; margin:0 auto; }
+
+.tv2 .featured-mark {
+  display:flex; align-items:baseline; gap:14px;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:10px; letter-spacing:.28em;
+  text-transform:uppercase;
+  color:var(--press);
+  margin-bottom:32px;
+}
+.tv2 .featured-mark .dot {
+  width:8px; height:8px; background:var(--press);
+  display:inline-block;
+  animation:pulseInk 2s ease-in-out infinite;
+}
+@keyframes pulseInk { 0%,100% { opacity:1; transform:scale(1); } 50% { opacity:.5; transform:scale(.75); } }
+
+.tv2 .featured-grid {
+  display:grid;
+  grid-template-columns:minmax(0,2.2fr) minmax(240px,1fr);
+  gap:clamp(40px,6vw,90px);
+  align-items:start;
+}
+@media (max-width:950px){ .tv2 .featured-grid { grid-template-columns:1fr; gap:48px; } }
+
+.tv2 .featured-kicker {
+  font-family:'IBM Plex Mono',monospace;
+  font-size:11px; letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--press);
+  display:block;
+  margin-bottom:20px;
+}
+.tv2 .featured-title {
+  font-family:'Instrument Serif',Georgia,serif;
+  font-weight:400;
+  font-size:clamp(2.4rem,5.2vw,4.4rem);
+  letter-spacing:-.04em;
+  line-height:1.02;
+  color:var(--ink);
+  margin:0 0 28px;
+}
+.tv2 .featured-title em { font-style:italic; color:var(--press); }
+.tv2 .featured-dek {
+  font-family:'Fraunces',Georgia,serif;
+  font-weight:400;
+  font-size:clamp(1.05rem,1.35vw,1.28rem);
+  line-height:1.7;
+  color:var(--ink-soft);
+  max-width:720px;
+  margin-bottom:34px;
+}
+.tv2 .featured-dek em { font-style:italic; color:var(--press); }
+
+.tv2 .featured-cta {
+  display:inline-flex; align-items:center; gap:10px;
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-weight:700; font-size:14px;
+  color:var(--ink);
+  border-bottom:2px solid var(--press);
+  padding-bottom:6px;
+  transition:gap .35s var(--ease-out), color .3s;
+}
+.tv2 .featured-cta:hover { gap:16px; color:var(--press); }
+
+/* Featured aside — a "what's inside" index like a magazine TOC */
+.tv2 .featured-aside {
+  border-left:1px solid var(--rule);
+  padding-left:32px;
+}
+@media (max-width:950px){ .tv2 .featured-aside { border-left:0; border-top:1px solid var(--rule); padding:24px 0 0; } }
+.tv2 .featured-aside .label {
+  font-family:'IBM Plex Mono',monospace;
+  font-size:10px; letter-spacing:.24em;
+  text-transform:uppercase;
+  color:var(--steel);
+  display:block;
+  margin-bottom:18px;
+}
+.tv2 .featured-aside .list { display:flex; flex-direction:column; }
+.tv2 .featured-aside .list-item {
+  display:grid;
+  grid-template-columns:28px 1fr;
+  gap:12px;
+  padding:12px 0;
+  border-bottom:1px solid var(--rule-hair);
+  align-items:baseline;
+}
+.tv2 .featured-aside .list-item:last-child { border-bottom:0; }
+.tv2 .featured-aside .n {
+  font-family:'IBM Plex Mono',monospace;
+  font-size:10px; letter-spacing:.18em;
+  color:var(--press);
+}
+.tv2 .featured-aside .t {
+  font-family:'Fraunces',Georgia,serif;
+  font-size:14px;
+  line-height:1.5;
+  color:var(--ink);
+}
+.tv2 .featured-aside .foot {
+  margin-top:20px;
+  padding-top:16px;
+  border-top:1px solid var(--rule-soft);
+  font-family:'IBM Plex Mono',monospace;
+  font-size:9.5px;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--steel);
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+}
+
+/* ============================================================
+   ARCHIVE — numbered blog entries as editorial list
+   Each entry: folio number, tag, title, excerpt, read time.
+   Two-column layout on desktop. No cards.
+   ============================================================ */
+.tv2 .archive {
+  position:relative;
+  padding:110px 5vw;
+  background:var(--newsprint);
+  border-bottom:1px solid var(--rule);
+}
+@media (max-width:900px){ .tv2 .archive { padding:80px 5vw; } }
+
+.tv2 .archive-header {
+  display:grid;
+  grid-template-columns:minmax(220px,1fr) minmax(0,2.4fr);
+  gap:clamp(40px,6vw,90px);
+  margin-bottom:56px;
+}
+@media (max-width:950px){ .tv2 .archive-header { grid-template-columns:1fr; gap:20px; margin-bottom:40px; } }
+.tv2 .archive-header h2 {
+  font-family:'Instrument Serif',Georgia,serif;
+  font-weight:400;
+  font-size:clamp(2rem,3.8vw,3.4rem);
+  letter-spacing:-.035em;
+  line-height:1.06;
+  margin:22px 0 24px;
+}
+.tv2 .archive-header h2 em { font-style:italic; color:var(--press); }
+.tv2 .archive-header .lede {
+  font-family:'Fraunces',Georgia,serif;
+  font-weight:400;
+  font-size:1.05rem;
+  line-height:1.75;
+  color:var(--ink-soft);
+  max-width:640px;
+}
+
+.tv2 .entries {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:0 80px;
+  border-top:2px solid var(--ink);
+}
+@media (max-width:900px){ .tv2 .entries { grid-template-columns:1fr; gap:0; } }
+
+.tv2 .entry {
+  display:grid;
+  grid-template-columns:56px 1fr auto;
+  gap:24px;
+  padding:32px 0;
+  border-bottom:1px solid var(--rule-hair);
+  align-items:baseline;
+  position:relative;
+  text-decoration:none;
+  color:inherit;
+  transition:padding-left .45s var(--ease-out);
+}
+.tv2 .entry::before {
+  content:''; position:absolute; left:0; top:0; bottom:0;
+  width:2px; background:var(--press);
+  transform:scaleY(0); transform-origin:top;
+  transition:transform .45s var(--ease-out);
+}
+.tv2 .entry:hover { padding-left:22px; }
+.tv2 .entry:hover::before { transform:scaleY(1); }
+
+.tv2 .entry-folio {
+  font-family:'IBM Plex Mono',monospace;
+  font-size:11px; letter-spacing:.2em;
+  color:var(--press);
+  font-weight:600;
+  padding-top:6px;
+}
+.tv2 .entry-body { }
+.tv2 .entry-tag {
+  font-family:'IBM Plex Mono',monospace;
+  font-size:9.5px; letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--steel);
+  display:block;
+  margin-bottom:10px;
+}
+.tv2 .entry-title {
+  font-family:'Instrument Serif',Georgia,serif;
+  font-weight:400;
+  font-size:clamp(1.3rem,1.9vw,1.6rem);
+  letter-spacing:-.02em;
+  line-height:1.15;
+  color:var(--ink);
+  display:block;
+  margin-bottom:10px;
+  transition:color .3s;
+}
+.tv2 .entry:hover .entry-title { color:var(--press); }
+.tv2 .entry-dek {
+  font-family:'Fraunces',Georgia,serif;
+  font-weight:400;
+  font-size:14px;
+  line-height:1.6;
+  color:var(--ink-soft);
+  display:block;
+  max-width:460px;
+}
+.tv2 .entry-meta {
+  font-family:'IBM Plex Mono',monospace;
+  font-size:9.5px;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--steel);
+  padding-top:6px;
+  white-space:nowrap;
+  align-self:start;
+}
+
+/* ============================================================
+   FULL ARCHIVE — every remaining article, streamed
+   A "reading list" appendix. Compact, mono-numbered, rules only.
+   ============================================================ */
+.tv2 .full-archive {
+  position:relative;
+  padding:110px 5vw;
+  background:var(--newsprint-2);
+  border-bottom:1px solid var(--rule);
+}
+@media (max-width:900px){ .tv2 .full-archive { padding:80px 5vw; } }
+
+.tv2 .full-archive-header {
+  display:grid;
+  grid-template-columns:minmax(220px,1fr) minmax(0,2.4fr);
+  gap:clamp(40px,6vw,90px);
+  margin-bottom:56px;
+}
+@media (max-width:950px){ .tv2 .full-archive-header { grid-template-columns:1fr; gap:20px; margin-bottom:40px; } }
+.tv2 .full-archive-header h2 {
+  font-family:'Instrument Serif',Georgia,serif;
+  font-weight:400;
+  font-size:clamp(2rem,3.8vw,3.4rem);
+  letter-spacing:-.035em;
+  line-height:1.06;
+  margin:22px 0 24px;
+}
+.tv2 .full-archive-header h2 em { font-style:italic; color:var(--press); }
+.tv2 .full-archive-header .lede {
+  font-family:'Fraunces',Georgia,serif;
+  font-weight:400;
+  font-size:1.05rem;
+  line-height:1.75;
+  color:var(--ink-soft);
+  max-width:640px;
+}
+
+.tv2 .stack {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:0 80px;
+  border-top:2px solid var(--ink);
+}
+@media (max-width:900px){ .tv2 .stack { grid-template-columns:1fr; gap:0; } }
+
+.tv2 .stack-item {
+  display:grid;
+  grid-template-columns:52px 1fr auto;
+  gap:20px;
+  padding:16px 0;
+  border-bottom:1px solid var(--rule-hair);
+  align-items:baseline;
+  text-decoration:none;
+  color:inherit;
+  position:relative;
+  transition:padding-left .35s var(--ease-out);
+}
+.tv2 .stack-item::before {
+  content:''; position:absolute; left:0; top:0; bottom:0;
+  width:2px; background:var(--press);
+  transform:scaleY(0); transform-origin:top;
+  transition:transform .35s var(--ease-out);
+}
+.tv2 .stack-item:hover { padding-left:16px; }
+.tv2 .stack-item:hover::before { transform:scaleY(1); }
+
+.tv2 .stack-num {
+  font-family:'IBM Plex Mono',monospace;
+  font-size:10px;
+  letter-spacing:.18em;
+  color:var(--press);
+  font-weight:500;
+}
+.tv2 .stack-title {
+  font-family:'Fraunces',Georgia,serif;
+  font-weight:400;
+  font-size:15px;
+  line-height:1.4;
+  color:var(--ink);
+  letter-spacing:-.005em;
+  transition:color .25s;
+}
+.tv2 .stack-item:hover .stack-title { color:var(--press); }
+.tv2 .stack-views {
+  font-family:'IBM Plex Mono',monospace;
+  font-size:9px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--steel);
+  white-space:nowrap;
+  padding-top:2px;
+}
+
+/* ============================================================
+   NEWSLETTER — as a printer's colophon subscription form
+   ============================================================ */
+.tv2 .dispatch {
+  position:relative;
+  padding:120px 5vw;
+  background:var(--newsprint-3);
+  border-bottom:1px solid var(--rule);
+}
+@media (max-width:900px){ .tv2 .dispatch { padding:80px 5vw; } }
+
+.tv2 .dispatch-grid {
+  max-width:1440px; margin:0 auto;
+  display:grid;
+  grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);
+  gap:clamp(40px,6vw,90px);
+  align-items:start;
+}
+@media (max-width:950px){ .tv2 .dispatch-grid { grid-template-columns:1fr; gap:36px; } }
+
+.tv2 .dispatch h2 {
+  font-family:'Instrument Serif',Georgia,serif;
+  font-weight:400;
+  font-size:clamp(2rem,3.4vw,3rem);
+  letter-spacing:-.035em;
+  line-height:1.08;
+  color:var(--ink);
+  margin:22px 0 24px;
+}
+.tv2 .dispatch h2 em { font-style:italic; color:var(--press); }
+.tv2 .dispatch p {
+  font-family:'Fraunces',Georgia,serif;
+  font-weight:400;
+  font-size:1.05rem;
+  line-height:1.75;
+  color:var(--ink-soft);
+  max-width:560px;
+}
+.tv2 .dispatch-meta {
+  margin-top:32px;
+  padding-top:20px;
+  border-top:1px solid var(--rule-soft);
+  font-family:'IBM Plex Mono',monospace;
+  font-size:10px;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--steel);
+  display:flex;
+  flex-wrap:wrap;
+  gap:26px;
+}
+.tv2 .dispatch-meta span { display:inline-flex; align-items:center; gap:8px; }
+.tv2 .dispatch-meta span::before {
+  content:''; width:5px; height:5px; background:var(--press);
+  display:inline-block;
+}
+
+.tv2 .dispatch-form {
+  display:flex; flex-direction:column; gap:14px;
+  padding:36px 32px 32px;
+  background:var(--newsprint);
+  border:1px solid var(--rule-soft);
+  position:relative;
+}
+.tv2 .dispatch-form::before {
+  content:''; position:absolute; top:0; left:32px; right:32px;
+  height:2px; background:var(--press);
+}
+.tv2 .dispatch-form label {
+  font-family:'IBM Plex Mono',monospace;
+  font-size:10px; letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--steel);
+  display:block;
+  margin-bottom:8px;
+}
+.tv2 .dispatch-form input {
+  width:100%;
+  padding:14px 0;
+  background:transparent;
+  border:0;
+  border-bottom:1px solid var(--rule-soft);
+  color:var(--ink);
+  font-family:'Fraunces',Georgia,serif;
+  font-size:16px;
+  outline:none;
+  transition:border-color .3s, padding-left .3s;
+}
+.tv2 .dispatch-form input::placeholder {
+  color:rgba(10,10,10,.35);
+  font-style:italic;
+}
+.tv2 .dispatch-form input:focus {
+  border-bottom-color:var(--press);
+  padding-left:4px;
+}
+.tv2 .dispatch-form button {
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  padding:15px 26px;
+  margin-top:12px;
+  background:var(--ink);
+  color:var(--newsprint);
+  border:1px solid var(--ink);
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-weight:700; font-size:13.5px;
+  cursor:pointer;
+  transition:all .3s var(--ease);
+}
+.tv2 .dispatch-form button:hover {
+  background:var(--press);
+  border-color:var(--press);
+}
+.tv2 .dispatch-note {
+  font-family:'IBM Plex Mono',monospace;
+  font-size:9.5px;
+  letter-spacing:.16em;
+  color:var(--steel);
+  text-align:center;
+  margin-top:6px;
+}
+.tv2 .dispatch-note.ok { color:var(--press); }
+
+/* ============================================================
+   CLOSING — colophon mark
+   ============================================================ */
+.tv2 .colophon {
+  position:relative;
+  padding:80px 5vw 100px;
+  background:var(--newsprint);
+  text-align:center;
+}
+.tv2 .colophon-mark {
+  width:60px; height:2px; background:var(--press);
+  margin:0 auto 40px;
+}
+.tv2 .colophon-text {
+  font-family:'Instrument Serif',Georgia,serif;
+  font-style:italic;
+  font-weight:400;
+  font-size:clamp(1.3rem,2vw,1.7rem);
+  letter-spacing:-.015em;
+  color:var(--ink);
+  max-width:720px;
+  margin:0 auto 34px;
+  line-height:1.35;
+}
+.tv2 .colophon-text em { color:var(--press); font-style:italic; }
+.tv2 .colophon-meta {
+  font-family:'IBM Plex Mono',monospace;
+  font-size:10px;
+  letter-spacing:.3em;
+  text-transform:uppercase;
+  color:var(--steel);
+}
+
+@media (prefers-reduced-motion:reduce){
+  .tv2 *, .tv2 *::before, .tv2 *::after { animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; }
+  .tv2 [data-reveal] { opacity:1 !important; transform:none !important; }
+}
+</style>
 </head>
 <body class="bg-paper text-ink antialiased">
 
-<!-- INCLUDE_HEADER -->
+<div id="cookieConsent" class="cookie-banner">
+  <p class="cookie-text">We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies. <a href="/legal/privacy-policy">Learn more</a></p>
+  <button onclick="acceptCookies()" class="cookie-btn">Accept</button>
+</div>
 
-<!-- ============ MAIN CONTENT ============ -->
-<main class="pt-[130px] pb-24 md:pt-[180px] md:pb-32">
-  <div class="max-w-7xl mx-auto px-5 md:px-8">
-    <!-- Breadcrumb -->
-    <nav class="flex items-center gap-2 text-sm text-slate mb-8" aria-label="Breadcrumb">
-      <a href="index.html" class="hover:text-violet transition-colors">Home</a>
-      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
-      <span class="text-slate-lt">Blog</span>
+<header class="fixed top-0 left-0 right-0 z-50 nav-glass">
+  <div class="section-container">
+    <div class="flex items-center justify-between h-[76px]">
+      <a href="/" class="flex items-center gap-2 shrink-0">
+        <img src="https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/ChatGPT%20Image%20Jul%2018%2C%202026%2C%2009_59_12%20PM.png" alt="Truevence" class="nav-logo-img" width="160" height="48" onerror="this.classList.add('is-broken')">
+        <span class="nav-logo-fallback">TRUEVENCE</span>
+      </a>
+      <nav class="hidden lg:flex items-center gap-9 font-display text-[14px] font-semibold tracking-wide text-navy">
+        <a href="/" class="hover:text-violet transition-colors">Home</a>
+        <a href="/services" class="hover:text-violet transition-colors">Services</a>
+        <a href="/products" class="hover:text-violet transition-colors">Products</a>
+        <a href="/process" class="hover:text-violet transition-colors">Process</a>
+        <a href="/about" class="hover:text-violet transition-colors">Why Us</a>
+        <a href="/industries" class="hover:text-violet transition-colors">Industries</a>
+        <a href="/faq" class="hover:text-violet transition-colors">FAQ</a>
+        <a href="/contact" class="hover:text-violet transition-colors">Contact</a>
+        <a href="/blog" class="hover:text-violet transition-colors">Blog</a>
+      </nav>
+      <div class="hidden lg:flex items-center gap-3">
+        <a href="/contact" class="btn-primary font-display text-[13.5px] font-bold px-5 py-2.5 rounded-full">Request a Verification</a>
+      </div>
+      <button id="menuBtn" class="lg:hidden text-navy" aria-label="Open menu" aria-expanded="false">
+        <svg id="iconMenu" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobileMenu" class="lg:hidden hidden border-t border-ink/10 bg-paper">
+    <div class="px-6 py-6 flex flex-col gap-5 font-display font-semibold text-navy">
+      <a href="/" class="mobile-link">Home</a>
+      <a href="/services" class="mobile-link">Services</a>
+      <a href="/products" class="mobile-link">Products</a>
+      <a href="/process" class="mobile-link">Process</a>
+      <a href="/about" class="mobile-link">Why Us</a>
+      <a href="/industries" class="mobile-link">Industries</a>
+      <a href="/faq" class="mobile-link">FAQ</a>
+      <a href="/contact" class="mobile-link">Contact</a>
+      <a href="/blog" class="mobile-link">Blog</a>
+      <a href="/contact" class="btn-primary text-center font-display text-sm font-bold px-5 py-3 rounded-full mt-2">Request a Verification</a>
+    </div>
+  </div>
+</header>
+
+<main class="tv2">
+
+<!-- ============================================================
+     COVER — journal cover
+     ============================================================ -->
+<section class="cover">
+  <div class="cover-inner">
+    <nav class="crumb" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span class="sep">/</span>
+      <span class="here">Blog</span>
     </nav>
 
-    <!-- Page Header -->
-    <div class="max-w-2xl mb-16" data-aos="fade-up">
-      <span class="font-mono-ui text-[12px] tracking-[0.18em] text-violet font-semibold">TRUEVENCE INSIGHTS</span>
-      <h1 class="font-display font-extrabold text-3xl sm:text-4xl mt-3 leading-tight">
-        Background Verification Guides & Resources
-      </h1>
-      <p class="mt-4 text-lg text-slate leading-relaxed">
-        Expert articles to help you make informed hiring decisions, stay compliant, and build a trustworthy workforce.
-      </p>
+    <div class="cover-top">
+      <span class="l">Truevence · Insights</span>
+      <span class="c">The BGV Journal · Ed. 2026</span>
+      <span class="r">38 Articles · Monthly Dispatch</span>
     </div>
 
-    <!-- Featured Post (larger card) -->
-    <a href="blog/how-to-choose-best-bgv-company-delhi-ncr.html" class="group block mb-16" data-aos="fade-up">
-      <div class="bg-white border border-ink/8 rounded-2xl overflow-hidden hover:border-violet/30 transition-colors">
-        <div class="grid md:grid-cols-2">
-          <div class="bg-gradient-to-br from-navy to-violet p-8 md:p-10 flex flex-col justify-center">
-            <span class="font-mono-ui text-[11px] tracking-wider text-violetlt bg-white/10 px-3 py-1 rounded-full inline-block w-fit mb-4">FEATURED</span>
-            <h2 class="font-display font-extrabold text-2xl md:text-3xl text-white leading-tight mb-3 group-hover:text-violetlt transition-colors">
-              How to Choose the Best Background Verification Company in Delhi NCR
-            </h2>
-            <p class="text-white/70 text-sm mb-4">A complete guide to evaluate BGV companies, compare key factors, and make the right decision.</p>
-            <div class="flex items-center gap-4 text-xs text-white/50">
-              <span>📅 July 2026</span>
-              <span>⏱ 10 min read</span>
-            </div>
-          </div>
-          <div class="p-8 md:p-10 flex flex-col justify-center">
-            <div class="space-y-4">
-              <div class="flex items-center gap-2 text-sm text-slate"><span class="text-violet">✓</span> Key factors to evaluate</div>
-              <div class="flex items-center gap-2 text-sm text-slate"><span class="text-violet">✓</span> Questions to ask a BGV company</div>
-              <div class="flex items-center gap-2 text-sm text-slate"><span class="text-violet">✓</span> Red flags to watch out for</div>
-              <div class="flex items-center gap-2 text-sm text-slate"><span class="text-violet">✓</span> Traditional vs Truevence approach</div>
-            </div>
-            <span class="inline-flex items-center gap-1 font-display font-bold text-violet text-sm mt-6 group-hover:gap-2 transition-all">
-              Read Article <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-            </span>
-          </div>
+    <div class="cover-grid">
+      <div>
+        <span class="cover-kicker">A reading room for HR teams</span>
+        <h1 class="cover-headline">
+          <span class="line">Background</span>
+          <span class="line">Verification</span>
+          <span class="line"><em>Guides</em> &amp; Resources</span>
+        </h1>
+        <p class="cover-sub">Expert articles to help you make informed hiring decisions, stay compliant, and build a trustworthy workforce. <em>Every piece is written by the team that runs the verifications.</em></p>
+        <div class="cover-cta">
+          <a href="#featured" class="btn-ink">Read the Cover Story →</a>
+          <a href="#archive" class="btn-rule">Browse the Archive</a>
         </div>
       </div>
-    </a>
 
-    <!-- All Blog Posts Grid -->
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" data-aos="fade-up" data-aos-delay="100">
-          <!-- 1. What is BGV -->
-      <a href="blog/what-is-background-verification.html" class="bg-white border border-ink/8 rounded-2xl p-7 hover:border-violet/30 transition-colors group">
-        <span class="font-mono-ui text-[11px] text-violet tracking-wider">BGV 101</span>
-        <h3 class="font-display font-bold text-[15px] mt-2 mb-2 group-hover:text-violet transition-colors">What is Background Verification? Complete Beginner's Guide</h3>
-        <p class="text-sm text-slate leading-relaxed mb-4">Learn BGV full form, meaning, complete process, types of checks, timelines, and why it matters for safer hiring.</p>
-        <span class="font-mono-ui text-[11px] text-slate group-hover:text-violet transition-colors">Read more →</span>
-      </a>
+      <aside class="cover-aside" data-reveal="right">
+        <div class="row"><span class="k">Articles</span><span class="v">38 published</span></div>
+        <div class="row"><span class="k">Categories</span><span class="v">12 topics</span></div>
+        <div class="row"><span class="k">Dispatch</span><span class="v">Monthly</span></div>
+        <div class="row"><span class="k">Written by</span><span class="v">The verifiers</span></div>
+        <div class="row"><span class="k">Editor</span><span class="v">Founder-led</span></div>
+      </aside>
+    </div>
+  </div>
+</section>
 
-      <!-- 2. BGV Cost -->
-      <a href="blog/bgv-cost-in-india-2026.html" class="bg-white border border-ink/8 rounded-2xl p-7 hover:border-violet/30 transition-colors group">
-        <span class="font-mono-ui text-[11px] text-violet tracking-wider">PRICING GUIDE</span>
-        <h3 class="font-display font-bold text-[15px] mt-2 mb-2 group-hover:text-violet transition-colors">Background Verification Cost in India (2026 Guide)</h3>
-        <p class="text-sm text-slate leading-relaxed mb-4">Understand pricing, factors that influence cost, and how to budget for BGV.</p>
-        <span class="font-mono-ui text-[11px] text-slate group-hover:text-violet transition-colors">Read more →</span>
-      </a>
-
-      <!-- 3. BGV TAT -->
-      <a href="blog/bgv-tat-turnaround-time.html" class="bg-white border border-ink/8 rounded-2xl p-7 hover:border-violet/30 transition-colors group">
-        <span class="font-mono-ui text-[11px] text-violet tracking-wider">TURNAROUND GUIDE</span>
-        <h3 class="font-display font-bold text-[15px] mt-2 mb-2 group-hover:text-violet transition-colors">How Long Does Background Verification Take? TAT Guide</h3>
-        <p class="text-sm text-slate leading-relaxed mb-4">Breakdown of timelines for identity, employment, police, and court checks.</p>
-        <span class="font-mono-ui text-[11px] text-slate group-hover:text-violet transition-colors">Read more →</span>
-      </a>
-
-      <!-- 4. Police Verification -->
-      <a href="blog/police-verification-guide.html" class="bg-white border border-ink/8 rounded-2xl p-7 hover:border-violet/30 transition-colors group">
-        <span class="font-mono-ui text-[11px] text-violet tracking-wider">HOW‑TO</span>
-        <h3 class="font-display font-bold text-[15px] mt-2 mb-2 group-hover:text-violet transition-colors">Police Verification Guide for Background Checks</h3>
-        <p class="text-sm text-slate leading-relaxed mb-4">Step‑by‑step process, documents, and timelines.</p>
-        <span class="font-mono-ui text-[11px] text-slate group-hover:text-violet transition-colors">Read more →</span>
-      </a>
-
-      <!-- 5. Court Checks -->
-      <a href="blog/court-verification-bgv-guide.html" class="bg-white border border-ink/8 rounded-2xl p-7 hover:border-violet/30 transition-colors group">
-        <span class="font-mono-ui text-[11px] text-violet tracking-wider">LEGAL</span>
-        <h3 class="font-display font-bold text-[15px] mt-2 mb-2 group-hover:text-violet transition-colors">Court Record Checks for BGV – Step-by-Step</h3>
-        <p class="text-sm text-slate leading-relaxed mb-4">How to search civil & criminal court records effectively.</p>
-        <span class="font-mono-ui text-[11px] text-slate group-hover:text-violet transition-colors">Read more →</span>
-      </a>
-
-      <!-- 6. Digital vs Physical -->
-      <a href="blog/digital-vs-physical-background-verification.html" class="bg-white border border-ink/8 rounded-2xl p-7 hover:border-violet/30 transition-colors group">
-        <span class="font-mono-ui text-[11px] text-violet tracking-wider">METHODS</span>
-        <h3 class="font-display font-bold text-[15px] mt-2 mb-2 group-hover:text-violet transition-colors">Digital vs Physical Background Verification – Which is Better?</h3>
-        <p class="text-sm text-slate leading-relaxed mb-4">Compare speed, accuracy, cost, and when to use each.</p>
-        <span class="font-mono-ui text-[11px] text-slate group-hover:text-violet transition-colors">Read more →</span>
-      </a>
-
-      <!-- 7. BGV for Small Businesses -->
-      <a href="blog/bgv-for-small-businesses.html" class="bg-white border border-ink/8 rounded-2xl p-7 hover:border-violet/30 transition-colors group">
-        <span class="font-mono-ui text-[11px] text-violet tracking-wider">SME GUIDE</span>
-        <h3 class="font-display font-bold text-[15px] mt-2 mb-2 group-hover:text-violet transition-colors">BGV for Small Businesses – How to Screen Without HR</h3>
-        <p class="text-sm text-slate leading-relaxed mb-4">Affordable, no‑fuss background checks for small teams.</p>
-        <span class="font-mono-ui text-[11px] text-slate group-hover:text-violet transition-colors">Read more →</span>
-      </a>
-
-      <!-- 8. Handling Adverse Reports -->
-      <a href="blog/handling-adverse-bgv-report.html" class="bg-white border border-ink/8 rounded-2xl p-7 hover:border-violet/30 transition-colors group">
-        <span class="font-mono-ui text-[11px] text-violet tracking-wider">HR GUIDE</span>
-        <h3 class="font-display font-bold text-[15px] mt-2 mb-2 group-hover:text-violet transition-colors">Handling a Red/Adverse BGV Report – Step‑by‑Step HR Guide</h3>
-        <p class="text-sm text-slate leading-relaxed mb-4">What to do when a background check comes back negative.</p>
-        <span class="font-mono-ui text-[11px] text-slate group-hover:text-violet transition-colors">Read more →</span>
-      </a>
-
-      <!-- 9. BGV ROI -->
-      <a href="blog/bgv-roi-quality-of-hire.html" class="bg-white border border-ink/8 rounded-2xl p-7 hover:border-violet/30 transition-colors group">
-        <span class="font-mono-ui text-[11px] text-violet tracking-wider">BUSINESS CASE</span>
-        <h3 class="font-display font-bold text-[15px] mt-2 mb-2 group-hover:text-violet transition-colors">How BGV Improves Quality of Hire – ROI & Statistics</h3>
-        <p class="text-sm text-slate leading-relaxed mb-4">Hard numbers that prove background checks pay for themselves.</p>
-        <span class="font-mono-ui text-[11px] text-slate group-hover:text-violet transition-colors">Read more →</span>
-      </a>
-
-      <!-- 10. BGV for IT Professionals -->
-      <a href="blog/bgv-for-it-professionals.html" class="bg-white border border-ink/8 rounded-2xl p-7 hover:border-violet/30 transition-colors group">
-        <span class="font-mono-ui text-[11px] text-violet tracking-wider">TECH HIRING</span>
-        <h3 class="font-display font-bold text-[15px] mt-2 mb-2 group-hover:text-violet transition-colors">BGV for IT Professionals – Fake Resumes & Degree Mills</h3>
-        <p class="text-sm text-slate leading-relaxed mb-4">Specialised checks for software engineers and tech leads.</p>
-        <span class="font-mono-ui text-[11px] text-slate group-hover:text-violet transition-colors">Read more →</span>
-      </a>
-
-      <!-- 11. BGV for Healthcare -->
-      <a href="blog/bgv-for-healthcare-workers.html" class="bg-white border border-ink/8 rounded-2xl p-7 hover:border-violet/30 transition-colors group">
-        <span class="font-mono-ui text-[11px] text-violet tracking-wider">HEALTHCARE</span>
-        <h3 class="font-display font-bold text-[15px] mt-2 mb-2 group-hover:text-violet transition-colors">BGV for Healthcare Workers – Hospitals, Clinics, Nurses</h3>
-        <p class="text-sm text-slate leading-relaxed mb-4">Credential verification for medical professionals.</p>
-        <span class="font-mono-ui text-[11px] text-slate group-hover:text-violet transition-colors">Read more →</span>
-      </a>
-
-      <!-- 12. Spot Fake Resumes -->
-      <a href="blog/spot-fake-resume-guide.html" class="bg-white border border-ink/8 rounded-2xl p-7 hover:border-violet/30 transition-colors group">
-        <span class="font-mono-ui text-[11px] text-violet tracking-wider">HR TOOLKIT</span>
-        <h3 class="font-display font-bold text-[15px] mt-2 mb-2 group-hover:text-violet transition-colors">How to Spot a Fake Resume in 10 Minutes</h3>
-        <p class="text-sm text-slate leading-relaxed mb-4">Catch resume fraud before the interview with this checklist.</p>
-        <span class="font-mono-ui text-[11px] text-slate group-hover:text-violet transition-colors">Read more →</span>
-      </a>
+<!-- ============================================================
+     FEATURED — cover story
+     ============================================================ -->
+<section class="featured" id="featured">
+  <div class="featured-inner">
+    <div class="featured-mark" data-reveal>
+      <span class="dot"></span>
+      <span>Cover Story · Edition №01</span>
     </div>
 
-    <!-- Newsletter / CTA -->
-    <div class="mt-20 bg-violet/5 border border-violet/20 rounded-2xl p-8 md:p-10 text-center" data-aos="fade-up">
-      <h2 class="font-display font-extrabold text-2xl mb-2">Never miss an update</h2>
-      <p class="text-slate mb-6">Join HR professionals who receive our latest articles and hiring tips.</p>
-      <form id="newsletterForm" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-        <input required id="nlEmail" type="email" placeholder="Your work email" class="flex-1 border border-ink/12 rounded-xl px-4 py-3 text-sm outline-none focus:border-violet transition-colors bg-white">
-        <button type="submit" class="btn-primary font-display text-[14px] font-bold px-6 py-3 rounded-full whitespace-nowrap">
-          Subscribe
-        </button>
-      </form>
-      <p id="nlNote" class="hidden text-xs text-slate mt-3" aria-live="polite"></p>
+    <div class="featured-grid" data-reveal>
+      <div>
+        <span class="featured-kicker">Featured Guide · July 2026 · 10 min read</span>
+        <h2 class="featured-title">How to Choose the Best Background Verification Company in <em>Delhi NCR.</em></h2>
+        <p class="featured-dek">A complete guide to evaluating BGV companies, comparing key factors, and making the right decision — <em>written by a team that runs the checks, not one that resells them.</em></p>
+        <a href="/blog/how-to-choose-best-bgv-company-delhi-ncr.html" class="featured-cta">
+          Read the Cover Story
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+
+      <aside class="featured-aside">
+        <span class="label">Inside this guide</span>
+        <div class="list">
+          <div class="list-item"><span class="n">01</span><span class="t">Key factors to evaluate</span></div>
+          <div class="list-item"><span class="n">02</span><span class="t">Questions to ask a BGV company</span></div>
+          <div class="list-item"><span class="n">03</span><span class="t">Red flags to watch out for</span></div>
+          <div class="list-item"><span class="n">04</span><span class="t">Traditional vs Truevence approach</span></div>
+        </div>
+        <div class="foot">
+          <span>§ 01</span>
+          <span>10 min · Jul 2026</span>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     ARCHIVE — the twelve featured articles, numbered
+     ============================================================ -->
+<section class="archive" id="archive">
+  <div class="tv2-container">
+    <div class="archive-header" data-reveal>
+      <div><span class="rail">The Archive · Selected</span></div>
+      <div>
+        <h2>Twelve guides to <em>start</em> with.</h2>
+        <p class="lede">The most-read entries from the last 12 months. Each one answers a question HR teams actually ask — with sources, numbers, and a point of view.</p>
+      </div>
     </div>
 
-    <!-- ============ VERTICAL SCROLLING BLOG LIST (ALL 38 ARTICLES) ============ -->
-    <div class="mt-20">
-      <h2 class="font-display font-extrabold text-2xl mb-8 text-center">All Articles</h2>
-      <div class="overflow-hidden" style="height: 360px;">
-        <div class="blog-scroll-vertical flex flex-col items-center gap-4 py-2">
-          <!-- 1 -->
-          <a href="blog/what-is-background-verification.html" class="flex flex-col items-center py-2 px-4 group hover:bg-violet/5 rounded-lg transition-colors w-full max-w-xl mx-auto">
-            <span class="text-slate group-hover:text-violet transition-colors font-display font-bold text-base text-center">What is Background Verification? Complete Beginner's Guide</span>
-            <span class="font-mono-ui text-[10px] tracking-widest text-slate/60 mt-1">Interacted 12,450 times</span>
+    <div class="entries">
+      <a href="/blog/what-is-background-verification.html" class="entry" data-reveal data-delay="1">
+        <span class="entry-folio">№ 01</span>
+        <span class="entry-body">
+          <span class="entry-tag">BGV 101</span>
+          <span class="entry-title">What is Background Verification? Complete Beginner's Guide</span>
+          <span class="entry-dek">BGV full form, meaning, complete process, types of checks, timelines, and why it matters for safer hiring.</span>
+        </span>
+        <span class="entry-meta">Read →</span>
+      </a>
+      <a href="/blog/bgv-cost-in-india-2026.html" class="entry" data-reveal data-delay="2">
+        <span class="entry-folio">№ 02</span>
+        <span class="entry-body">
+          <span class="entry-tag">Pricing Guide</span>
+          <span class="entry-title">Background Verification Cost in India (2026 Guide)</span>
+          <span class="entry-dek">Understand pricing, factors that influence cost, and how to budget for BGV.</span>
+        </span>
+        <span class="entry-meta">Read →</span>
+      </a>
+      <a href="/blog/bgv-tat-turnaround-time.html" class="entry" data-reveal data-delay="3">
+        <span class="entry-folio">№ 03</span>
+        <span class="entry-body">
+          <span class="entry-tag">Turnaround</span>
+          <span class="entry-title">How Long Does Background Verification Take? TAT Guide</span>
+          <span class="entry-dek">Breakdown of timelines for identity, employment, police, and court checks.</span>
+        </span>
+        <span class="entry-meta">Read →</span>
+      </a>
+      <a href="/blog/police-verification-guide.html" class="entry" data-reveal data-delay="4">
+        <span class="entry-folio">№ 04</span>
+        <span class="entry-body">
+          <span class="entry-tag">How-To</span>
+          <span class="entry-title">Police Verification Guide for Background Checks</span>
+          <span class="entry-dek">Step-by-step process, documents, and timelines.</span>
+        </span>
+        <span class="entry-meta">Read →</span>
+      </a>
+      <a href="/blog/court-verification-bgv-guide.html" class="entry" data-reveal data-delay="5">
+        <span class="entry-folio">№ 05</span>
+        <span class="entry-body">
+          <span class="entry-tag">Legal</span>
+          <span class="entry-title">Court Record Checks for BGV – Step-by-Step</span>
+          <span class="entry-dek">How to search civil &amp; criminal court records effectively.</span>
+        </span>
+        <span class="entry-meta">Read →</span>
+      </a>
+      <a href="/blog/digital-vs-physical-background-verification.html" class="entry" data-reveal data-delay="6">
+        <span class="entry-folio">№ 06</span>
+        <span class="entry-body">
+          <span class="entry-tag">Methods</span>
+          <span class="entry-title">Digital vs Physical Background Verification – Which is Better?</span>
+          <span class="entry-dek">Compare speed, accuracy, cost, and when to use each.</span>
+        </span>
+        <span class="entry-meta">Read →</span>
+      </a>
+      <a href="/blog/bgv-for-small-businesses.html" class="entry" data-reveal data-delay="1">
+        <span class="entry-folio">№ 07</span>
+        <span class="entry-body">
+          <span class="entry-tag">SME Guide</span>
+          <span class="entry-title">BGV for Small Businesses – How to Screen Without HR</span>
+          <span class="entry-dek">Affordable, no-fuss background checks for small teams.</span>
+        </span>
+        <span class="entry-meta">Read →</span>
+      </a>
+      <a href="/blog/handling-adverse-bgv-report.html" class="entry" data-reveal data-delay="2">
+        <span class="entry-folio">№ 08</span>
+        <span class="entry-body">
+          <span class="entry-tag">HR Guide</span>
+          <span class="entry-title">Handling a Red/Adverse BGV Report – Step-by-Step HR Guide</span>
+          <span class="entry-dek">What to do when a background check comes back negative.</span>
+        </span>
+        <span class="entry-meta">Read →</span>
+      </a>
+      <a href="/blog/bgv-roi-quality-of-hire.html" class="entry" data-reveal data-delay="3">
+        <span class="entry-folio">№ 09</span>
+        <span class="entry-body">
+          <span class="entry-tag">Business Case</span>
+          <span class="entry-title">How BGV Improves Quality of Hire – ROI &amp; Statistics</span>
+          <span class="entry-dek">Hard numbers that prove background checks pay for themselves.</span>
+        </span>
+        <span class="entry-meta">Read →</span>
+      </a>
+      <a href="/blog/bgv-for-it-professionals.html" class="entry" data-reveal data-delay="4">
+        <span class="entry-folio">№ 10</span>
+        <span class="entry-body">
+          <span class="entry-tag">Tech Hiring</span>
+          <span class="entry-title">BGV for IT Professionals – Fake Resumes &amp; Degree Mills</span>
+          <span class="entry-dek">Specialised checks for software engineers and tech leads.</span>
+        </span>
+        <span class="entry-meta">Read →</span>
+      </a>
+      <a href="/blog/bgv-for-healthcare-workers.html" class="entry" data-reveal data-delay="5">
+        <span class="entry-folio">№ 11</span>
+        <span class="entry-body">
+          <span class="entry-tag">Healthcare</span>
+          <span class="entry-title">BGV for Healthcare Workers – Hospitals, Clinics, Nurses</span>
+          <span class="entry-dek">Credential verification for medical professionals.</span>
+        </span>
+        <span class="entry-meta">Read →</span>
+      </a>
+      <a href="/blog/spot-fake-resume-guide.html" class="entry" data-reveal data-delay="6">
+        <span class="entry-folio">№ 12</span>
+        <span class="entry-body">
+          <span class="entry-tag">HR Toolkit</span>
+          <span class="entry-title">How to Spot a Fake Resume in 10 Minutes</span>
+          <span class="entry-dek">Catch resume fraud before the interview with this checklist.</span>
+        </span>
+        <span class="entry-meta">Read →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FULL ARCHIVE — every remaining article
+     ============================================================ -->
+<section class="full-archive">
+  <div class="tv2-container">
+    <div class="full-archive-header" data-reveal>
+      <div><span class="rail">The Complete Index</span></div>
+      <div>
+        <h2>Every article, <em>streamed.</em></h2>
+        <p class="lede">The full reading list, sorted by engagement. Folio numbers are permanent — cite them in emails to your team if you like.</p>
+      </div>
+    </div>
+
+    <div class="stack" data-reveal>
+      <a href="/blog/what-is-background-verification.html" class="stack-item">
+        <span class="stack-num">№ 01</span>
+        <span class="stack-title">What is Background Verification? Complete Beginner's Guide</span>
+        <span class="stack-views">12,450 reads</span>
+      </a>
+      <a href="/blog/bgv-cost-in-india-2026.html" class="stack-item">
+        <span class="stack-num">№ 02</span>
+        <span class="stack-title">Background Verification Cost in India (2026 Guide)</span>
+        <span class="stack-views">9,870 reads</span>
+      </a>
+      <a href="/blog/bgv-tat-turnaround-time.html" class="stack-item">
+        <span class="stack-num">№ 03</span>
+        <span class="stack-title">How Long Does Background Verification Take? TAT Guide</span>
+        <span class="stack-views">8,210 reads</span>
+      </a>
+      <a href="/blog/police-verification-guide.html" class="stack-item">
+        <span class="stack-num">№ 04</span>
+        <span class="stack-title">Police Verification Guide for Background Checks</span>
+        <span class="stack-views">11,340 reads</span>
+      </a>
+      <a href="/blog/court-verification-bgv-guide.html" class="stack-item">
+        <span class="stack-num">№ 05</span>
+        <span class="stack-title">Court Record Checks for BGV – Step-by-Step</span>
+        <span class="stack-views">7,550 reads</span>
+      </a>
+      <a href="/blog/top-bgv-companies-india.html" class="stack-item">
+        <span class="stack-num">№ 06</span>
+        <span class="stack-title">Top 10 Background Verification Companies in India</span>
+        <span class="stack-views">6,890 reads</span>
+      </a>
+      <a href="/blog/digital-vs-physical-background-verification.html" class="stack-item">
+        <span class="stack-num">№ 07</span>
+        <span class="stack-title">Digital vs Physical Background Verification</span>
+        <span class="stack-views">5,430 reads</span>
+      </a>
+      <a href="/blog/bgv-documents-checklist-hr.html" class="stack-item">
+        <span class="stack-num">№ 08</span>
+        <span class="stack-title">BGV Documents Checklist for HR</span>
+        <span class="stack-views">4,120 reads</span>
+      </a>
+      <a href="/blog/switch-bgv-vendor-guide.html" class="stack-item">
+        <span class="stack-num">№ 09</span>
+        <span class="stack-title">How to Switch Your Background Verification Vendor</span>
+        <span class="stack-views">3,980 reads</span>
+      </a>
+      <a href="/blog/bgv-codes-status-guide.html" class="stack-item">
+        <span class="stack-num">№ 10</span>
+        <span class="stack-title">Understanding BGV Codes &amp; Status Meanings</span>
+        <span class="stack-views">2,760 reads</span>
+      </a>
+      <a href="/blog/background-verification-company-bangalore.html" class="stack-item">
+        <span class="stack-num">№ 11</span>
+        <span class="stack-title">Background Verification Company in Bangalore</span>
+        <span class="stack-views">5,550 reads</span>
+      </a>
+      <a href="/blog/background-verification-company-delhi-ncr.html" class="stack-item">
+        <span class="stack-num">№ 12</span>
+        <span class="stack-title">Background Verification Company in Delhi NCR</span>
+        <span class="stack-views">6,300 reads</span>
+      </a>
+      <a href="/blog/background-verification-company-gurgaon.html" class="stack-item">
+        <span class="stack-num">№ 13</span>
+        <span class="stack-title">Background Verification Company in Gurgaon</span>
+        <span class="stack-views">3,210 reads</span>
+      </a>
+      <a href="/blog/background-verification-company-noida.html" class="stack-item">
+        <span class="stack-num">№ 14</span>
+        <span class="stack-title">Background Verification Company in Noida</span>
+        <span class="stack-views">2,940 reads</span>
+      </a>
+      <a href="/blog/bgv-company-services-delhi.html" class="stack-item">
+        <span class="stack-num">№ 15</span>
+        <span class="stack-title">BGV Services in Delhi</span>
+        <span class="stack-views">4,560 reads</span>
+      </a>
+      <a href="/blog/bgv-company-services-gurgaon.html" class="stack-item">
+        <span class="stack-num">№ 16</span>
+        <span class="stack-title">BGV Services in Gurgaon</span>
+        <span class="stack-views">2,110 reads</span>
+      </a>
+      <a href="/blog/criminal-verification-services.html" class="stack-item">
+        <span class="stack-num">№ 17</span>
+        <span class="stack-title">Criminal Verification Services for Employers</span>
+        <span class="stack-views">4,890 reads</span>
+      </a>
+      <a href="/blog/employee-background-check-process.html" class="stack-item">
+        <span class="stack-num">№ 18</span>
+        <span class="stack-title">Employee Background Check Process Explained</span>
+        <span class="stack-views">3,450 reads</span>
+      </a>
+      <a href="/blog/education-verification-guide.html" class="stack-item">
+        <span class="stack-num">№ 19</span>
+        <span class="stack-title">Education Verification – A Complete Guide</span>
+        <span class="stack-views">4,220 reads</span>
+      </a>
+      <a href="/blog/employment-verification-guide.html" class="stack-item">
+        <span class="stack-num">№ 20</span>
+        <span class="stack-title">Employment Verification – What HR Needs to Know</span>
+        <span class="stack-views">5,110 reads</span>
+      </a>
+      <a href="/blog/address-verification-explained.html" class="stack-item">
+        <span class="stack-num">№ 21</span>
+        <span class="stack-title">Address Verification Explained</span>
+        <span class="stack-views">2,380 reads</span>
+      </a>
+      <a href="/blog/aadhaar-verification-employers.html" class="stack-item">
+        <span class="stack-num">№ 22</span>
+        <span class="stack-title">Aadhaar Verification for Employers</span>
+        <span class="stack-views">3,720 reads</span>
+      </a>
+      <a href="/blog/pan-verification-guide.html" class="stack-item">
+        <span class="stack-num">№ 23</span>
+        <span class="stack-title">PAN Verification – The Complete Guide</span>
+        <span class="stack-views">2,650 reads</span>
+      </a>
+      <a href="/blog/uan-epfo-verification-guide.html" class="stack-item">
+        <span class="stack-num">№ 24</span>
+        <span class="stack-title">UAN / EPFO Verification for Employment History</span>
+        <span class="stack-views">1,940 reads</span>
+      </a>
+      <a href="/blog/global-database-screening.html" class="stack-item">
+        <span class="stack-num">№ 25</span>
+        <span class="stack-title">Global Database Screening Explained</span>
+        <span class="stack-views">1,720 reads</span>
+      </a>
+      <a href="/blog/aml-sanctions-screening-guide.html" class="stack-item">
+        <span class="stack-num">№ 26</span>
+        <span class="stack-title">AML &amp; Sanctions Screening – A Practical Guide</span>
+        <span class="stack-views">2,110 reads</span>
+      </a>
+      <a href="/blog/credit-cibil-check-employers.html" class="stack-item">
+        <span class="stack-num">№ 27</span>
+        <span class="stack-title">Credit / CIBIL Check for Fiduciary Roles</span>
+        <span class="stack-views">1,560 reads</span>
+      </a>
+      <a href="/blog/mca-director-check.html" class="stack-item">
+        <span class="stack-num">№ 28</span>
+        <span class="stack-title">MCA Director Check – When &amp; Why</span>
+        <span class="stack-views">1,320 reads</span>
+      </a>
+      <a href="/blog/social-media-screening-hiring.html" class="stack-item">
+        <span class="stack-num">№ 29</span>
+        <span class="stack-title">Social Media Screening in Hiring</span>
+        <span class="stack-views">2,480 reads</span>
+      </a>
+      <a href="/blog/moonlighting-checks-guide.html" class="stack-item">
+        <span class="stack-num">№ 30</span>
+        <span class="stack-title">Moonlighting Checks for Tech Roles</span>
+        <span class="stack-views">3,850 reads</span>
+      </a>
+      <a href="/blog/dpdp-act-bgv-compliance.html" class="stack-item">
+        <span class="stack-num">№ 31</span>
+        <span class="stack-title">DPDP Act &amp; BGV – Compliance Guide</span>
+        <span class="stack-views">4,720 reads</span>
+      </a>
+      <a href="/blog/candidate-consent-bgv.html" class="stack-item">
+        <span class="stack-num">№ 32</span>
+        <span class="stack-title">Candidate Consent in BGV – What's Required</span>
+        <span class="stack-views">2,890 reads</span>
+      </a>
+      <a href="/blog/bgv-data-retention-rules.html" class="stack-item">
+        <span class="stack-num">№ 33</span>
+        <span class="stack-title">BGV Data Retention Rules for Employers</span>
+        <span class="stack-views">1,650 reads</span>
+      </a>
+      <a href="/blog/bgv-bfsi-sector-guide.html" class="stack-item">
+        <span class="stack-num">№ 34</span>
+        <span class="stack-title">BGV for BFSI – A Complete Sector Guide</span>
+        <span class="stack-views">3,140 reads</span>
+      </a>
+      <a href="/blog/bgv-manufacturing-scale.html" class="stack-item">
+        <span class="stack-num">№ 35</span>
+        <span class="stack-title">BGV at Scale for Manufacturing</span>
+        <span class="stack-views">2,220 reads</span>
+      </a>
+      <a href="/blog/bgv-logistics-drivers.html" class="stack-item">
+        <span class="stack-num">№ 36</span>
+        <span class="stack-title">BGV for Logistics &amp; Driver Hiring</span>
+        <span class="stack-views">1,890 reads</span>
+      </a>
+      <a href="/blog/bgv-education-sector.html" class="stack-item">
+        <span class="stack-num">№ 37</span>
+        <span class="stack-title">BGV for Education &amp; Safeguarding</span>
+        <span class="stack-views">2,610 reads</span>
+      </a>
+      <a href="/blog/bgv-retail-ecommerce.html" class="stack-item">
+        <span class="stack-num">№ 38</span>
+        <span class="stack-title">BGV for Retail &amp; E-commerce at Volume</span>
+        <span class="stack-views">3,320 reads</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     DISPATCH — newsletter
+     ============================================================ -->
+<section class="dispatch">
+  <div class="dispatch-grid">
+    <div data-reveal="left">
+      <span class="rail">The Dispatch</span>
+      <h2>New guides, <em>once a month.</em></h2>
+      <p>Join HR professionals who receive our latest articles and hiring tips. No marketing fluff — just what we learned from the cases we ran that month.</p>
+      <div class="dispatch-meta">
+        <span>One email / month</span>
+        <span>No spam</span>
+        <span>Unsubscribe any time</span>
+      </div>
+    </div>
+
+    <form id="newsletterForm" class="dispatch-form" data-reveal="right">
+      <div>
+        <label for="nlEmail">Work Email</label>
+        <input required id="nlEmail" type="email" placeholder="you@company.com" autocomplete="email">
+      </div>
+      <button type="submit">Subscribe to the Dispatch →</button>
+      <p id="nlNote" class="dispatch-note">No spam. Unsubscribe any time.</p>
+    </form>
+  </div>
+</section>
+
+<!-- ============================================================
+     COLOPHON — closing mark
+     ============================================================ -->
+<section class="colophon">
+  <div class="colophon-mark" data-reveal></div>
+  <p class="colophon-text" data-reveal>Every piece in this journal is written by the people who run the checks. <em>No ghostwriters. No SEO farms. No recycled press releases.</em></p>
+  <p class="colophon-meta" data-reveal>Truevence · The BGV Journal · Ed. 2026</p>
+</section>
+
+</main>
+
+<footer class="bg-ink text-white pt-16 pb-8">
+  <div class="section-container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="flex items-center gap-2 mb-4">
+          <span class="font-display font-extrabold text-xl tracking-tight">TRUEVENCE</span>
+        </div>
+        <p class="text-white/55 text-sm leading-relaxed">Background verification services built for HR teams who can't afford surprises.</p>
+        <div class="flex items-center gap-3 mt-6">
+          <a href="https://www.linkedin.com/company/truevence/" aria-label="LinkedIn" class="w-9 h-9 rounded-full bg-white/8 hover:bg-violet flex items-center justify-center transition-colors">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="text-white"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.24 8.25h4.5V23H.24V8.25zM8.5 8.25h4.3v2.02h.06c.6-1.13 2.06-2.32 4.24-2.32 4.53 0 5.37 2.98 5.37 6.85V23h-4.5v-6.6c0-1.58-.03-3.6-2.2-3.6-2.2 0-2.54 1.72-2.54 3.5V23H8.5V8.25z"/></svg>
           </a>
-          <!-- 2 -->
-          <a href="blog/bgv-cost-in-india-2026.html" class="flex flex-col items-center py-2 px-4 group hover:bg-violet/5 rounded-lg transition-colors w-full max-w-xl mx-auto">
-            <span class="text-slate group-hover:text-violet transition-colors font-display font-bold text-base text-center">Background Verification Cost in India (2026 Guide)</span>
-            <span class="font-mono-ui text-[10px] tracking-widest text-slate/60 mt-1">Interacted 9,870 times</span>
+          <a href="https://www.instagram.com/truevence.in" aria-label="Instagram" class="w-9 h-9 rounded-full bg-white/8 hover:bg-violet flex items-center justify-center transition-colors">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="text-white"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>
           </a>
-          <!-- 3 -->
-          <a href="blog/bgv-tat-turnaround-time.html" class="flex flex-col items-center py-2 px-4 group hover:bg-violet/5 rounded-lg transition-colors w-full max-w-xl mx-auto">
-            <span class="text-slate group-hover:text-violet transition-colors font-display font-bold text-base text-center">How Long Does Background Verification Take? TAT Guide</span>
-            <span class="font-mono-ui text-[10px] tracking-widest text-slate/60 mt-1">Interacted 8,210 times</span>
-          </a>
-          <!-- 4 -->
-          <a href="blog/police-verification-guide.html" class="flex flex-col items-center py-2 px-4 group hover:bg-violet/5 rounded-lg transition-colors w-full max-w-xl mx-auto">
-            <span class="text-slate group-hover:text-violet transition-colors font-display font-bold text-base text-center">Police Verification Guide for Background Checks</span>
-            <span class="font-mono-ui text-[10px] tracking-widest text-slate/60 mt-1">Interacted 11,340 times</span>
-          </a>
-          <!-- 5 -->
-          <a href="blog/court-verification-bgv-guide.html" class="flex flex-col items-center py-2 px-4 group hover:bg-violet/5 rounded-lg transition-colors w-full max-w-xl mx-auto">
-            <span class="text-slate group-hover:text-violet transition-colors font-display font-bold text-base text-center">Court Record Checks for BGV – Step-by-Step</span>
-            <span class="font-mono-ui text-[10px] tracking-widest text-slate/60 mt-1">Interacted 7,550 times</span>
-          </a>
-          <!-- 6 -->
-          <a href="blog/top-bgv-companies-india.html" class="flex flex-col items-center py-2 px-4 group hover:bg-violet/5 rounded-lg transition-colors w-full max-w-xl mx-auto">
-            <span class="text-slate group-hover:text-violet transition-colors font-display font-bold text-base text-center">Top 10 Background Verification Companies in India</span>
-            <span class="font-mono-ui text-[10px] tracking-widest text-slate/60 mt-1">Interacted 6,890 times</span>
-          </a>
-          <!-- 7 -->
-          <a href="blog/digital-vs-physical-background-verification.html" class="flex flex-col items-center py-2 px-4 group hover:bg-violet/5 rounded-lg transition-colors w-full max-w-xl mx-auto">
-            <span class="text-slate group-hover:text-violet transition-colors font-display font-bold text-base text-center">Digital vs Physical Background Verification</span>
-            <span class="font-mono-ui text-[10px] tracking-widest text-slate/60 mt-1">Interacted 5,430 times</span>
-          </a>
-          <!-- 8 -->
-          <a href="blog/bgv-documents-checklist-hr.html" class="flex flex-col items-center py-2 px-4 group hover:bg-violet/5 rounded-lg transition-colors w-full max-w-xl mx-auto">
-            <span class="text-slate group-hover:text-violet transition-colors font-display font-bold text-base text-center">BGV Documents Checklist for HR</span>
-            <span class="font-mono-ui text-[10px] tracking-widest text-slate/60 mt-1">Interacted 4,120 times</span>
-          </a>
-          <!-- 9 -->
-          <a href="blog/switch-bgv-vendor-guide.html" class="flex flex-col items-center py-2 px-4 group hover:bg-violet/5 rounded-lg transition-colors w-full max-w-xl mx-auto">
-            <span class="text-slate group-hover:text-violet transition-colors font-display font-bold text-base text-center">How to Switch Your Background Verification Vendor</span>
-            <span class="font-mono-ui text-[10px] tracking-widest text-slate/60 mt-1">Interacted 3,980 times</span>
-          </a>
-          <!-- 10 -->
-          <a href="blog/bgv-codes-status-guide.html" class="flex flex-col items-center py-2 px-4 group hover:bg-violet/5 rounded-lg transition-colors w-full max-w-xl mx-auto">
-            <span class="text-slate group-hover:text-violet transition-colors font-display font-bold text-base text-center">Understanding BGV Codes & Status Meanings</span>
-            <span class="font-mono-ui text-[10px] tracking-widest text-slate/60 mt-1">Interacted 2,760 times</span>
-          </a>
-          <!-- 11 -->
-          <a href="blog/background-verification-company-bangalore.html" class="flex flex-col items-center py-2 px-4 group hover:bg-violet/5 rounded-lg transition-colors w-full max-w-xl mx-auto">
-            <span class="text-slate group-hover:text-violet transition-colors font-display font-bold text-base text-center">Background Verification Company in Bangalore</span>
-            <span class="font-mono-ui text-[10px] tracking-widest text-slate/60 mt-1">Interacted 5,550 times</span>
-          </a>
-          <!-- 12 -->
-          <a href="blog/background-verification-company-delhi-ncr.html" class="flex flex-col items-center py-2 px-4 group hover:bg-violet/5 rounded-lg transition-colors w-full max-w-xl mx-auto">
-            <span class="text-slate group-hover:text-violet transition-colors font-display font-bold text-base text-center">Background Verification Company in Delhi NCR</span>
-            <span class="font-mono-ui text-[10px] tracking-widest text-slate/60 mt-1">Interacted 6,300 times</span>
-          </a>
-          <!-- 13 -->
-          <a href="blog/background-verification-company-gurgaon.html" class="flex flex-col items-center py-2 px-4 group hover:bg-violet/5 rounded-lg transition-colors w-full max-w-xl mx-auto">
-            <span class="text-slate group-hover:text-violet transition-colors font-display font-bold text-base text-center">Background Verification Company in Gurgaon</span>
-            <span class="font-mono-ui text-[10px] tracking-widest text-slate/60 mt-1">Interacted 3,210 times</span>
-          </a>
-          <!-- 14 -->
-          <a href="blog/background-verification-company-noida.html" class="flex flex-col items-center py-2 px-4 group hover:bg-violet/5 rounded-lg transition-colors w-full max-w-xl mx-auto">
-            <span class="text-slate group-hover:text-violet transition-colors font-display font-bold text-base text-center">Background Verification Company in Noida</span>
-            <span class="font-mono-ui text-[10px] tracking-widest text-slate/60 mt-1">Interacted 2,940 times</span>
-          </a>
-          <!-- 15 -->
-          <a href="blog/bgv-company-services-delhi.html" class="flex flex-col items-center py-2 px-4 group hover:bg-violet/5 rounded-lg transition-colors w-full max-w-xl mx-auto">
-            <span class="text-slate group-hover:text-violet transition-colors font-display font-bold text-base text-center">BGV Services in Delhi</span>
-            <span class="font-mono-ui text-[10px] tracking-widest text-slate/60 mt-1">Interacted 4,560 times</span>
-          </a>
-          <!-- 16 -->
-          <a href="blog/bgv-company-services-gurgaon.html" class="flex flex-col items-center py-2 px-4 group hover:bg-violet/5 rounded-lg transition-colors w-full max-w-xl mx-auto">
-            <span class="text-slate group-hover:text-violet transition-colors font-display font-bold text-base text-center">BGV Services in Gurgaon</span>
-            <span class="font-mono-ui text-[10px] tracking-widest text-slate/60 mt-1">Interacted 2,110 times</span>
-          </a>
-          <!-- 17 -->
-          <a href="blog/criminal-verification-services.html" class="flex flex-col items-center py-2 px-4 group hover:bg-violet/5 rounded-lg transition-colors w-full max-w-xl mx-auto">
-            <span class="text-slate group-hover:text-violet transition-colors font-display font-bold text-base text-center">Criminal Verification Services for Employers</span>
-            <span class="
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 class="font-mono-ui text-[11px] tracking-widest text-white/40 mb-6">NAVIGATE</h4>
+        <ul class="space-y-3 text-sm text-white/70">
+          <li><a href="/" class="hover:text-violetlt transition-colors">Home</a></li>
+          <li><a href="/services" class="hover:text-violetlt transition-colors">Services</a></li>
+          <li><a href="/process" class="hover:text-violetlt transition-colors">Process</a></li>
+          <li><a href="/about" class="hover:text-violetlt transition-colors">Why Us</a></li>
+          <li><a href="/industries" class="hover:text-violetlt transition-colors">Industries</a></li>
+          <li><a href="/faq" class="hover:text-violetlt transition-colors">FAQ</a></li>
+          <li><a href="/contact" class="hover:text-violetlt transition-colors">Contact</a></li>
+          <li><a href="/blog" class="hover:text-violetlt transition-colors">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="font-mono-ui text-[11px] tracking-widest text-white/40 mb-6">LEGAL</h4>
+        <ul class="space-y-3 text-sm text-white/70">
+          <li><a href="/legal/terms-of-service" class="hover:text-violetlt transition-colors">Terms of Service</a></li>
+          <li><a href="/legal/privacy-policy" class="hover:text-violetlt transition-colors">Privacy Policy</a></li>
+          <li><a href="/legal/cookie-policy" class="hover:text-violetlt transition-colors">Cookie Policy</a></li>
+          <li><a href="/legal/data-retention-policy" class="hover:text-violetlt transition-colors">Data Retention</a></li>
+          <li><a href="/legal/candidate-consent-policy" class="hover:text-violetlt transition-colors">Candidate Consent</a></li>
+          <li><a href="/legal/refund-policy" class="hover:text-violetlt transition-colors">Refund Policy</a></li>
+          <li><a href="/legal/security" class="hover:text-violetlt transition-colors">Security</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="font-mono-ui text-[11px] tracking-widest text-white/40 mb-6">CONTACT</h4>
+        <ul class="space-y-3 text-sm text-white/70">
+          <li><a href="mailto:Contact@truevence.in" class="hover:text-violetlt transition-colors">contact@truevence.in</a></li>
+          <li><a href="tel:+919205757344" class="hover:text-violetlt transition-colors">+91 920 5757 7344</a></li>
+          <li><a href="https://www.truevence.in" target="_blank" rel="noopener" class="hover:text-violetlt transition-colors">www.truevence.in</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 border-t border-white/10 mt-10">
+      <p class="text-white/40 text-xs">&copy; <span id="year"></span> Truevence. All rights reserved.</p>
+      <p class="font-mono-ui text-[11px] text-white/30">Simply Certain</p>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/919205757344?text=Hello%20Team%20Truevence%0A%0AWe%20are%20looking%20for%20Background%20Verification%20services%20for%20our%20organization.%20Please%20connect%20with%20us%20to%20discuss%20requirements."
+   target="_blank" rel="noopener"
+   style="position:fixed; bottom:24px; right:24px; z-index:999; background:linear-gradient(135deg,#0B1230,#7C3AED); color:#fff; width:56px; height:56px; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 8px 20px rgba(124,58,237,0.35);"
+   aria-label="Chat on WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="white">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<script src="/assets/js/scripts.js" defer></script>
+<script src="/assets/js/cursor.js" defer></script>
+
+<script>
+(function () {
+  'use strict';
+
+  var y = document.getElementById('year');
+  if (y) y.textContent = new Date().getFullYear();
+
+  var btn = document.getElementById('menuBtn');
+  var menu = document.getElementById('mobileMenu');
+  var icon = document.getElementById('iconMenu');
+  if (btn && menu && icon) {
+    var open = false;
+    btn.addEventListener('click', function () {
+      open = !open;
+      menu.classList.toggle('hidden', !open);
+      btn.setAttribute('aria-expanded', String(open));
+      icon.innerHTML = open ? '<path d="M6 6l12 12M18 6L6 18"/>' : '<path d="M4 7h16M4 12h16M4 17h16"/>';
+    });
+    document.querySelectorAll('.mobile-link').forEach(function (a) {
+      a.addEventListener('click', function () {
+        open = false;
+        menu.classList.add('hidden');
+        btn.setAttribute('aria-expanded', 'false');
+        icon.innerHTML = '<path d="M4 7h16M4 12h16M4 17h16"/>';
+      });
+    });
+  }
+
+  window.acceptCookies = function () {
+    var b = document.getElementById('cookieConsent');
+    if (b) b.style.display = 'none';
+    try { localStorage.setItem('cookieConsent', 'true'); } catch (e) {}
+  };
+  try {
+    if (localStorage.getItem('cookieConsent') === 'true') {
+      var b = document.getElementById('cookieConsent');
+      if (b) b.remove();
+    }
+  } catch (e) {}
+
+  var tv2 = document.querySelector('.tv2');
+  if (!tv2) return;
+
+  var revealEls = tv2.querySelectorAll('[data-reveal]');
+  if (revealEls.length) {
+    if (!('IntersectionObserver' in window)) {
+      revealEls.forEach(function (el) { el.classList.add('in-view'); });
+    } else {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+      revealEls.forEach(function (el) { io.observe(el); });
+    }
+  }
+
+  // Newsletter form
+  var form = document.getElementById('newsletterForm');
+  var note = document.getElementById('nlNote');
+  if (form && note) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var email = document.getElementById('nlEmail').value.trim();
+      if (!email) return;
+      note.textContent = "Thank you — you're on the list.";
+      note.classList.add('ok');
+      form.reset();
+      setTimeout(function () {
+        note.textContent = 'No spam. Unsubscribe any time.';
+        note.classList.remove('ok');
+      }, 6000);
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
