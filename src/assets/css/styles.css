@@ -85,13 +85,12 @@
   transition: none !important;
 }
 
-/* Footer grid */
+/* Footer grid — single divider only (bottom bar has border-t) */
 .footer-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 40px;
-  padding-bottom: 48px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 0;
 }
 .footer-brand p { max-width: 320px; }
 @media (min-width: 640px) {
