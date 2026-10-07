@@ -90,7 +90,7 @@
 [data-aos] { opacity:1 !important; transform:none !important; transition:none !important; }
 
 /* ============================================================
-   TV2 — homepage design system
+   TV2 — blog article design system
    ============================================================ */
 .tv2 {
   --ink:#050814; --navy:#0B1230; --violet:#7C3AED; --violetlt:#A78BFA; --lavender:#C9BEFB;
@@ -112,7 +112,6 @@
 .tv2 .serif { font-family:'Fraunces',Georgia,serif; font-weight:700; letter-spacing:-.02em; font-style:normal; }
 .tv2 .label { font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.26em; text-transform:uppercase; color:var(--violet); display:inline-flex; align-items:center; gap:10px; }
 .tv2 .label::before { content:''; width:20px; height:1px; background:currentColor; }
-.tv2 .label-dark { color:var(--violetlt); }
 
 .tv2 [data-reveal] { opacity:0; transform:translateY(28px); transition:opacity .9s var(--ease-out), transform .9s var(--ease-out); }
 .tv2 [data-reveal].in-view { opacity:1; transform:none; }
@@ -128,7 +127,7 @@
 .tv2 [data-delay="6"] { transition-delay:.48s; }
 
 /* ============================================================
-   ARTICLE MASTHEAD — magazine-style title page
+   ARTICLE MASTHEAD
    ============================================================ */
 .tv2 .masthead {
   position:relative;
@@ -230,7 +229,7 @@
 }
 
 /* ============================================================
-   ARTICLE BODY — editorial spreads
+   ARTICLE BODY — cream editorial
    ============================================================ */
 .tv2 .article {
   position:relative;
@@ -273,44 +272,6 @@
 .tv2 .prose p strong { color:var(--ink); font-weight:600; }
 .tv2 .prose p em { color:var(--violet); font-style:italic; }
 
-.tv2 .prose ul {
-  list-style:none;
-  padding:0;
-  margin:0 0 28px;
-  display:flex;
-  flex-direction:column;
-  gap:14px;
-  max-width:760px;
-}
-.tv2 .prose ul li {
-  display:grid;
-  grid-template-columns:22px 1fr;
-  gap:14px;
-  align-items:start;
-  font-size:15px;
-  line-height:1.7;
-  color:rgba(0,0,0,.65);
-  padding-bottom:12px;
-  border-bottom:1px solid var(--border-mid);
-}
-.tv2 .prose ul li:last-child { border-bottom:0; }
-.tv2 .prose ul li::before {
-  content:'✓';
-  font-family:'IBM Plex Mono',monospace;
-  color:var(--violet);
-  font-weight:600;
-  font-size:13px;
-  padding-top:3px;
-}
-.tv2 .prose ul li strong { color:var(--ink); font-weight:600; }
-
-.tv2 .prose ul.bullets li::before {
-  content:'·';
-  font-size:20px;
-  line-height:1;
-  padding-top:0;
-}
-
 .tv2 .section-tag {
   font-family:'IBM Plex Mono',monospace;
   font-size:10px;
@@ -324,122 +285,52 @@
 }
 .tv2 .section-tag::before { content:''; width:20px; height:1px; background:currentColor; }
 
-.tv2 .article-section + .article-section { margin-top:72px; }
-
-/* Numbered steps */
-.tv2 .steps { display:flex; flex-direction:column; margin-top:12px; }
-.tv2 .step {
+/* ============================================================
+   LEDGER — ruled key/value rows for the opener
+   ============================================================ */
+.tv2 .ledger { display:flex; flex-direction:column; margin-top:8px; border-top:1px solid var(--border-mid); }
+.tv2 .ledger-row {
   display:grid;
-  grid-template-columns:80px 1fr;
+  grid-template-columns:minmax(140px,1fr) 2fr;
   gap:32px;
-  padding:28px 0;
+  padding:22px 0;
   border-bottom:1px solid var(--border-mid);
-  align-items:start;
+  align-items:baseline;
   position:relative;
   transition:padding-left .4s var(--ease-out);
 }
-.tv2 .step:first-child { border-top:1px solid var(--border-mid); }
-.tv2 .step::before {
-  content:''; position:absolute; left:0; top:14px; bottom:14px;
-  width:3px; background:linear-gradient(180deg,var(--violet),var(--violetlt));
+.tv2 .ledger-row::before {
+  content:''; position:absolute; left:0; top:0; bottom:0;
+  width:2px; background:var(--violet);
   transform:scaleY(0); transform-origin:top;
-  transition:transform .45s var(--ease-out);
+  transition:transform .4s var(--ease-out);
 }
-.tv2 .step:hover { padding-left:24px; }
-.tv2 .step:hover::before { transform:scaleY(1); }
-.tv2 .step-num {
-  font-family:'Plus Jakarta Sans',sans-serif;
-  font-weight:800;
-  font-size:clamp(2.2rem,3.6vw,3rem);
-  letter-spacing:-.06em;
-  line-height:.9;
-  color:rgba(10,10,10,.2);
-  transition:color .4s;
-}
-.tv2 .step:hover .step-num { color:var(--violet); }
-.tv2 .step-content h3 {
-  font-family:'Plus Jakarta Sans',sans-serif;
-  font-weight:700;
-  font-size:17px;
-  letter-spacing:-.02em;
-  line-height:1.3;
-  color:var(--ink);
-  margin:0 0 8px;
-}
-.tv2 .step-content p {
-  font-size:14.5px;
-  line-height:1.7;
-  color:rgba(0,0,0,.6);
-  margin:0;
-}
-
-/* Pricing band — dark editorial pull */
-.tv2 .price-panel {
-  background:linear-gradient(160deg,#0d1225 0%,#0a0e1c 100%);
-  border:1px solid rgba(167,139,250,.2);
-  border-radius:2px;
-  padding:52px 44px;
-  color:#fff;
-  margin:72px 0;
-  position:relative;
-  overflow:hidden;
-}
-@media (max-width:640px){ .tv2 .price-panel { padding:36px 24px; } }
-.tv2 .price-panel::before {
-  content:''; position:absolute; top:0; left:44px; width:56px; height:3px;
-  background:linear-gradient(90deg,var(--violet),var(--violetlt));
-}
-@media (max-width:640px){ .tv2 .price-panel::before { left:24px; } }
-
-.tv2 .price-grid {
-  display:grid;
-  grid-template-columns:1fr auto;
-  gap:32px;
-  align-items:end;
-}
-@media (max-width:640px){ .tv2 .price-grid { grid-template-columns:1fr; gap:20px; } }
-
-.tv2 .price-kicker {
-  font-family:'IBM Plex Mono',monospace;
-  font-size:10px; letter-spacing:.24em;
-  text-transform:uppercase;
-  color:var(--violetlt);
-  display:block;
-  margin-bottom:14px;
-}
-.tv2 .price-title {
-  font-family:'Plus Jakarta Sans',sans-serif;
-  font-weight:800;
-  font-size:clamp(1.5rem,2.6vw,2rem);
-  letter-spacing:-.03em;
-  line-height:1.15;
-  color:#fff;
-  margin:0;
-}
-.tv2 .price-amount {
-  text-align:right;
-}
-.tv2 .price-amount .figure {
-  font-family:'Plus Jakarta Sans',sans-serif;
-  font-weight:800;
-  font-size:clamp(3.4rem,6.4vw,5rem);
-  letter-spacing:-.065em;
-  line-height:.9;
-  color:#fff;
-  display:block;
-}
-.tv2 .price-amount .figure span { color:var(--violetlt); font-size:.5em; vertical-align:top; margin-right:4px; }
-.tv2 .price-amount .unit {
+.tv2 .ledger-row:hover { padding-left:20px; }
+.tv2 .ledger-row:hover::before { transform:scaleY(1); }
+.tv2 .ledger-k {
   font-family:'IBM Plex Mono',monospace;
   font-size:10px;
   letter-spacing:.22em;
   text-transform:uppercase;
-  color:rgba(255,255,255,.5);
-  display:block;
-  margin-top:8px;
+  color:var(--violet);
+  font-weight:600;
+}
+.tv2 .ledger-v {
+  font-family:'Fraunces',Georgia,serif;
+  font-size:15.5px;
+  line-height:1.65;
+  color:rgba(0,0,0,.68);
+  letter-spacing:-.005em;
+}
+.tv2 .ledger-v em { color:var(--violet); font-style:italic; }
+.tv2 .ledger-v strong { color:var(--ink); font-weight:600; }
+@media (max-width:640px){
+  .tv2 .ledger-row { grid-template-columns:1fr; gap:8px; }
 }
 
-/* Verdict callout — a violet-ruled pull quote */
+/* ============================================================
+   VERDICT — pull-quote callout
+   ============================================================ */
 .tv2 .verdict {
   margin:44px 0;
   padding:28px 0 28px 32px;
@@ -458,7 +349,170 @@
 .tv2 .verdict p em { color:var(--violet); font-style:normal; }
 
 /* ============================================================
-   SIDEBAR — sticky table of contents + related
+   CHAPTER — numbered editorial rows for main sections
+   ============================================================ */
+.tv2 .chapter {
+  display:grid;
+  grid-template-columns:96px 1fr;
+  gap:clamp(28px,4vw,56px);
+  padding:44px 0;
+  border-top:1px solid var(--border-mid);
+  align-items:start;
+  position:relative;
+  transition:padding-left .4s var(--ease-out);
+}
+.tv2 .chapter:last-of-type { border-bottom:1px solid var(--border-mid); }
+.tv2 .chapter::before {
+  content:''; position:absolute; left:0; top:0; bottom:0;
+  width:3px; background:linear-gradient(180deg,var(--violet),var(--violetlt));
+  transform:scaleY(0); transform-origin:top;
+  transition:transform .5s var(--ease-out);
+}
+.tv2 .chapter:hover { padding-left:26px; }
+.tv2 .chapter:hover::before { transform:scaleY(1); }
+
+.tv2 .chapter-num {
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-weight:800;
+  font-size:clamp(2.6rem,3.6vw,3.4rem);
+  letter-spacing:-.06em;
+  line-height:.9;
+  color:rgba(10,10,10,.22);
+  transition:color .4s;
+}
+.tv2 .chapter:hover .chapter-num { color:var(--violet); }
+
+.tv2 .chapter-content h2 {
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-weight:800;
+  font-size:clamp(1.4rem,2.2vw,1.9rem);
+  letter-spacing:-.03em;
+  line-height:1.18;
+  margin:0 0 16px;
+  color:var(--ink);
+}
+.tv2 .chapter-content h2 em { font-family:'Fraunces',serif; font-weight:700; color:var(--violet); font-style:normal; }
+.tv2 .chapter-content p {
+  font-size:15px;
+  line-height:1.75;
+  color:rgba(0,0,0,.65);
+  margin:0;
+  max-width:680px;
+}
+.tv2 .chapter-content p em { color:var(--violet); font-style:italic; }
+.tv2 .chapter-content p strong { color:var(--ink); font-weight:600; }
+
+.tv2 .chapter-list {
+  list-style:none;
+  padding:0;
+  margin:16px 0 0;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  max-width:680px;
+}
+.tv2 .chapter-list li {
+  display:grid;
+  grid-template-columns:22px 1fr;
+  gap:14px;
+  align-items:start;
+  font-size:14.5px;
+  line-height:1.7;
+  color:rgba(0,0,0,.65);
+  padding-bottom:12px;
+  border-bottom:1px solid var(--border-mid);
+}
+.tv2 .chapter-list li:last-child { border-bottom:0; padding-bottom:0; }
+.tv2 .chapter-list li::before {
+  content:'✓';
+  font-family:'IBM Plex Mono',monospace;
+  color:var(--violet);
+  font-weight:600;
+  font-size:13px;
+  padding-top:3px;
+}
+.tv2 .chapter-list li strong { color:var(--ink); font-weight:600; }
+
+.tv2 .chapter-meta {
+  display:flex;
+  flex-wrap:wrap;
+  gap:18px;
+  margin-top:18px;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:9.5px;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:rgba(0,0,0,.45);
+}
+.tv2 .chapter-meta span { display:inline-flex; align-items:center; gap:8px; }
+.tv2 .chapter-meta span::before {
+  content:''; width:5px; height:5px; border-radius:50%;
+  background:var(--violet); display:inline-block;
+}
+@media (max-width:700px){
+  .tv2 .chapter { grid-template-columns:64px 1fr; gap:18px; padding:32px 0; }
+  .tv2 .chapter-num { font-size:2rem; }
+}
+
+/* ============================================================
+   HIGHLIGHT — dark editorial band for the value case
+   ============================================================ */
+.tv2 .highlight {
+  position:relative;
+  padding:56px 52px;
+  margin:0 0 72px;
+  background:
+    radial-gradient(circle at 85% 20%, rgba(124,58,237,.32), transparent 45%),
+    radial-gradient(circle at 15% 90%, rgba(76,29,149,.24), transparent 45%),
+    linear-gradient(135deg,#0B0719 0%,#12061F 50%,#0B1230 100%);
+  color:#fff;
+  overflow:hidden;
+}
+@media (max-width:640px){ .tv2 .highlight { padding:36px 26px; } }
+.tv2 .highlight::before {
+  content:''; position:absolute; inset:0;
+  background-image:
+    linear-gradient(rgba(167,139,250,.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(167,139,250,.05) 1px, transparent 1px);
+  background-size:48px 48px;
+  mask-image:radial-gradient(ellipse 80% 70% at center, black 30%, transparent 85%);
+  -webkit-mask-image:radial-gradient(ellipse 80% 70% at center, black 30%, transparent 85%);
+  pointer-events:none;
+}
+.tv2 .highlight-inner { position:relative; z-index:1; }
+.tv2 .highlight-kicker {
+  font-family:'IBM Plex Mono',monospace;
+  font-size:10px;
+  letter-spacing:.24em;
+  text-transform:uppercase;
+  color:var(--violetlt);
+  display:block;
+  margin-bottom:18px;
+}
+.tv2 .highlight-title {
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-weight:800;
+  font-size:clamp(1.4rem,2.4vw,1.9rem);
+  letter-spacing:-.03em;
+  line-height:1.15;
+  color:#fff;
+  margin:0 0 20px;
+  max-width:640px;
+}
+.tv2 .highlight-title em { font-family:'Fraunces',serif; font-weight:700; color:var(--violetlt); font-style:normal; }
+.tv2 .highlight p {
+  font-size:14.5px;
+  line-height:1.75;
+  color:rgba(255,255,255,.72);
+  margin:0 0 16px;
+  max-width:680px;
+}
+.tv2 .highlight p:last-child { margin-bottom:0; }
+.tv2 .highlight p strong { color:#fff; font-weight:600; }
+.tv2 .highlight p em { color:var(--violetlt); font-style:italic; }
+
+/* ============================================================
+   SIDEBAR
    ============================================================ */
 .tv2 .article-aside {
   position:sticky;
@@ -467,8 +521,6 @@
   flex-direction:column;
   gap:44px;
 }
-
-.tv2 .aside-block { }
 .tv2 .aside-title {
   font-family:'IBM Plex Mono',monospace;
   font-size:10px;
@@ -517,10 +569,16 @@
   line-height:1.4;
 }
 
+.tv2 .aside-dark {
+  background:linear-gradient(160deg,#0B1230 0%,#070912 100%);
+  padding:32px 28px;
+  border:1px solid rgba(167,139,250,.18);
+}
+.tv2 .aside-dark .aside-title { color:var(--violetlt); }
 .tv2 .related { display:flex; flex-direction:column; border-top:1px solid var(--border-dark); }
 .tv2 .related-item {
   display:grid;
-  grid-template-columns:32px 1fr;
+  grid-template-columns:28px 1fr;
   gap:14px;
   padding:16px 0;
   border-bottom:1px solid var(--border-dark);
@@ -530,6 +588,7 @@
   transition:padding-left .35s var(--ease-out);
 }
 .tv2 .related-item:hover { padding-left:16px; }
+.tv2 .related-item:last-child { border-bottom:0; padding-bottom:0; }
 .tv2 .related-num {
   font-family:'IBM Plex Mono',monospace;
   font-size:10px; letter-spacing:.2em;
@@ -544,9 +603,10 @@
   line-height:1.4;
   color:#fff;
   transition:color .3s;
+  display:block;
 }
 .tv2 .related-item:hover .related-text { color:var(--violetlt); }
-.tv2 .related-item .related-sub {
+.tv2 .related-sub {
   display:block;
   font-family:'IBM Plex Mono',monospace;
   font-weight:500;
@@ -557,15 +617,8 @@
   margin-top:5px;
 }
 
-.tv2 .aside-dark {
-  background:linear-gradient(160deg,#0B1230 0%,#070912 100%);
-  padding:32px 28px;
-  border:1px solid rgba(167,139,250,.18);
-}
-.tv2 .aside-dark .aside-title { color:var(--violetlt); }
-
 /* ============================================================
-   CTA — full-bleed dark banner
+   CTA BANNER
    ============================================================ */
 .tv2 .cta-banner {
   background:
@@ -740,12 +793,27 @@
 
       <article class="article-body prose" data-reveal>
 
-        <!-- Section 1 -->
-        <div class="article-section" id="why-aadhaar">
+        <!-- § 01 — Why it matters (with ruled ledger) -->
+        <div id="why-aadhaar" style="margin-bottom:72px;">
           <span class="section-tag">§ 01 — Why it matters</span>
           <h2>Why Aadhaar verification is <em>non-negotiable.</em></h2>
           <p>Aadhaar is India's most widely accepted identity document, linked to biometrics and demographic data. Verifying it eliminates impersonation risks, ensures the person you're hiring or dealing with is who they claim to be, and helps you stay compliant with KYC norms.</p>
-          <p>Yet many organisations still rely on manual photocopies — which can be easily forged. Truevence's Aadhaar verification process is <strong>API-driven and directly taps into the UIDAI database</strong> (with proper consent). This means no fake Aadhaar cards slip through, and you get instant confirmation.</p>
+          <p>Yet many organisations still rely on manual photocopies — which can be easily forged. Truevence's process is API-driven and directly taps into the UIDAI database (with proper consent).</p>
+
+          <div class="ledger">
+            <div class="ledger-row">
+              <span class="ledger-k">The risk</span>
+              <span class="ledger-v">Photocopies and scanned cards can be forged in minutes. <em>Impersonation is real.</em></span>
+            </div>
+            <div class="ledger-row">
+              <span class="ledger-k">Our method</span>
+              <span class="ledger-v"><strong>API-driven, UIDAI-source verification</strong> with proper candidate consent.</span>
+            </div>
+            <div class="ledger-row">
+              <span class="ledger-k">The result</span>
+              <span class="ledger-v">No fake Aadhaar slips through. <em>Instant confirmation, full audit trail.</em></span>
+            </div>
+          </div>
         </div>
 
         <!-- Verdict pull-quote -->
@@ -753,94 +821,174 @@
           <p>If the person is who they say they are, the check takes five minutes. <em>If they aren't, you find out before they walk in the door.</em></p>
         </div>
 
-        <!-- Section 2 — Why Truevence -->
-        <div class="article-section" id="cheapest">
+        <!-- § 02 — Cheapest in Delhi (numbered chapters) -->
+        <div id="cheapest" style="margin-bottom:72px;">
           <span class="section-tag">§ 02 — The case for Truevence</span>
           <h2>Why Truevence is the <em>cheapest and best</em> in Delhi.</h2>
 
-          <ul>
-            <li><strong>Cheapest price guarantee</strong> — We charge ₹90 per Aadhaar verification, the lowest rate across Delhi NCR. No hidden fees, no minimum order volume.</li>
-            <li><strong>Instant turnaround</strong> — Most verifications are completed in under 5 minutes. Even during peak hours, you won't wait more than a couple of hours.</li>
-            <li><strong>UIDAI-compliant process</strong> — We follow every data privacy and consent rule. Candidate consent is recorded before the check, and we maintain a full audit trail.</li>
-            <li><strong>Bulk order capability</strong> — Need to verify 500 Aadhaar cards in a day? We can handle it without any dip in accuracy or speed. Our platform accepts batch uploads.</li>
-            <li><strong>Local Delhi presence</strong> — Our office in Delhi NCR means you can walk in, speak to our team, and see the verification process live. No faceless aggregators, just real people delivering real results.</li>
-          </ul>
-        </div>
-
-        <!-- Price panel -->
-        <div class="price-panel">
-          <div class="price-grid">
-            <div>
-              <span class="price-kicker">Aadhaar verification</span>
-              <h3 class="price-title">The lowest price in Delhi NCR — and the fastest turnaround.</h3>
+          <div class="chapter" style="border-top:1px solid var(--border-mid);">
+            <div class="chapter-num">1.</div>
+            <div class="chapter-content">
+              <h2>Cheapest price <em>guarantee.</em></h2>
+              <p>We charge <strong>₹90 per Aadhaar verification</strong> — the lowest rate across Delhi NCR. No hidden fees, no minimum order volume, no onboarding charges.</p>
+              <div class="chapter-meta">
+                <span>₹90 flat</span>
+                <span>No minimums</span>
+                <span>No hidden fees</span>
+              </div>
             </div>
-            <div class="price-amount">
-              <span class="figure"><span>₹</span>90</span>
-              <span class="unit">per check</span>
+          </div>
+
+          <div class="chapter">
+            <div class="chapter-num">2.</div>
+            <div class="chapter-content">
+              <h2>Instant <em>turnaround.</em></h2>
+              <p>Most verifications are completed <strong>in under 5 minutes</strong>. Even during peak hours, you won't wait more than a couple of hours.</p>
+              <div class="chapter-meta">
+                <span>Under 5 minutes</span>
+                <span>Real-time API</span>
+                <span>Peak-hour protected</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="chapter">
+            <div class="chapter-num">3.</div>
+            <div class="chapter-content">
+              <h2>UIDAI-compliant <em>process.</em></h2>
+              <p>We follow every data privacy and consent rule. <strong>Candidate consent is recorded before the check</strong>, and we maintain a full audit trail on every verification.</p>
+              <div class="chapter-meta">
+                <span>Documented consent</span>
+                <span>Full audit trail</span>
+                <span>DPDP aligned</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="chapter">
+            <div class="chapter-num">4.</div>
+            <div class="chapter-content">
+              <h2>Bulk order <em>capability.</em></h2>
+              <p>Need to verify <strong>500 Aadhaar cards in a day</strong>? We can handle it without any dip in accuracy or speed. Our platform accepts batch uploads and processes candidates in parallel.</p>
+              <div class="chapter-meta">
+                <span>Batch upload</span>
+                <span>Parallel processing</span>
+                <span>No accuracy loss</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="chapter">
+            <div class="chapter-num">5.</div>
+            <div class="chapter-content">
+              <h2>Local Delhi <em>presence.</em></h2>
+              <p>Our office in Delhi NCR means you can walk in, speak to our team, and see the verification process live. <strong>No faceless aggregators</strong> — just real people delivering real results.</p>
+              <div class="chapter-meta">
+                <span>Delhi NCR office</span>
+                <span>Direct access</span>
+                <span>Founder-led</span>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- Section 3 — Industries -->
-        <div class="article-section" id="industries">
+        <!-- § 03 — Who it's for (ruled ledger) -->
+        <div id="industries" style="margin-bottom:72px;">
           <span class="section-tag">§ 03 — Who it's for</span>
           <h2>Who needs Aadhaar verification <em>most.</em></h2>
           <p>While every industry benefits from confirming identity, some roles and sectors rely on Aadhaar checks daily:</p>
 
-          <ul class="bullets">
-            <li>Gig platforms and delivery aggregators onboarding drivers or delivery partners</li>
-            <li>BFSI companies for KYC compliance during account opening or insurance issuance</li>
-            <li>Staffing agencies hiring blue-collar and contract workers at scale</li>
-            <li>Healthcare providers verifying patient identity for tele-consultation</li>
-            <li>Educational institutions confirming student identity before issuing degrees</li>
-          </ul>
+          <div class="ledger">
+            <div class="ledger-row">
+              <span class="ledger-k">Gig platforms</span>
+              <span class="ledger-v">Onboarding drivers or delivery partners at scale.</span>
+            </div>
+            <div class="ledger-row">
+              <span class="ledger-k">BFSI</span>
+              <span class="ledger-v">KYC compliance during account opening or insurance issuance.</span>
+            </div>
+            <div class="ledger-row">
+              <span class="ledger-k">Staffing agencies</span>
+              <span class="ledger-v">Hiring blue-collar and contract workers at volume.</span>
+            </div>
+            <div class="ledger-row">
+              <span class="ledger-k">Healthcare</span>
+              <span class="ledger-v">Verifying patient identity for tele-consultation.</span>
+            </div>
+            <div class="ledger-row">
+              <span class="ledger-k">Education</span>
+              <span class="ledger-v">Confirming student identity before issuing degrees.</span>
+            </div>
+          </div>
 
-          <p>If you fall into any of these categories, Truevence's Aadhaar verification service will save you money, time, and legal headaches.</p>
+          <p style="margin-top:24px;">If you fall into any of these categories, Truevence's Aadhaar verification service will save you money, time, and legal headaches.</p>
         </div>
 
-        <!-- Section 4 — Process -->
-        <div class="article-section" id="process">
+        <!-- § 04 — Process (numbered chapters) -->
+        <div id="process" style="margin-bottom:72px;">
           <span class="section-tag">§ 04 — How it works</span>
           <h2>Our verification process, <em>step by step.</em></h2>
 
-          <div class="steps">
-            <div class="step">
-              <div class="step-num">01</div>
-              <div class="step-content">
-                <h3>Share candidate details</h3>
-                <p>Send us the Aadhaar number and consent form. You can upload a CSV or use our secure portal.</p>
+          <div class="chapter" style="border-top:1px solid var(--border-mid);">
+            <div class="chapter-num">1.</div>
+            <div class="chapter-content">
+              <h2>Share candidate <em>details.</em></h2>
+              <p>Send us the Aadhaar number and consent form. You can upload a <strong>CSV or use our secure portal</strong> — whichever fits your workflow.</p>
+              <div class="chapter-meta">
+                <span>CSV upload</span>
+                <span>Secure portal</span>
+                <span>Same-day start</span>
               </div>
             </div>
-            <div class="step">
-              <div class="step-num">02</div>
-              <div class="step-content">
-                <h3>Real-time verification</h3>
-                <p>Our system hits the UIDAI database (via an authorised service provider) and returns the verified demographic data.</p>
+          </div>
+
+          <div class="chapter">
+            <div class="chapter-num">2.</div>
+            <div class="chapter-content">
+              <h2>Real-time <em>verification.</em></h2>
+              <p>Our system hits the UIDAI database (via an authorised service provider) and returns the verified demographic data — <strong>within minutes</strong>, not hours.</p>
+              <div class="chapter-meta">
+                <span>UIDAI source</span>
+                <span>Real-time API</span>
+                <span>Under 5 min</span>
               </div>
             </div>
-            <div class="step">
-              <div class="step-num">03</div>
-              <div class="step-content">
-                <h3>Digital report generation</h3>
-                <p>You receive a clear, auditable report showing whether the Aadhaar is valid and the details match.</p>
+          </div>
+
+          <div class="chapter">
+            <div class="chapter-num">3.</div>
+            <div class="chapter-content">
+              <h2>Digital report <em>generation.</em></h2>
+              <p>You receive a <strong>clear, auditable report</strong> showing whether the Aadhaar is valid and the details match. Every finding is source-cited and audit-ready.</p>
+              <div class="chapter-meta">
+                <span>Auditable report</span>
+                <span>Source-cited</span>
+                <span>Digital delivery</span>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Section 5 — Quality -->
-        <div class="article-section" id="quality">
+        <!-- § 05 — Quality vs Price (dark highlight band) -->
+        <div id="quality">
           <span class="section-tag">§ 05 — The value question</span>
-          <h2>Why a low price doesn't mean <em>low quality.</em></h2>
-          <p>At Truevence, we've built proprietary integrations that eliminate manual back-and-forth and reduce per-check costs. We pass those savings directly to you. While others charge ₹150–₹200 for the same service, we confidently offer the cheapest Aadhaar verification in Delhi — <strong>without cutting corners on compliance or speed.</strong></p>
-          <p>Every report is authentic, admissible, and backed by a digital trail.</p>
+
+          <div class="highlight">
+            <div class="highlight-inner">
+              <span class="highlight-kicker">Why a low price doesn't mean low quality</span>
+              <h2 class="highlight-title">We built proprietary integrations that eliminate manual work — and pass the savings to you.</h2>
+              <p>At Truevence, we've built proprietary integrations that eliminate manual back-and-forth and reduce per-check costs. <strong>We pass those savings directly to you.</strong></p>
+              <p>While others charge <strong>₹150–₹200</strong> for the same service, we confidently offer the cheapest Aadhaar verification in Delhi — <em>without cutting corners on compliance or speed.</em></p>
+              <p>Every report is authentic, admissible, and backed by a digital trail.</p>
+            </div>
+          </div>
         </div>
 
       </article>
 
       <aside class="article-aside" data-reveal="right">
 
-        <div class="aside-block">
+        <div>
           <span class="aside-title">Table of Contents</span>
           <nav class="toc">
             <a href="#why-aadhaar" class="toc-item"><span class="toc-num">01</span><span class="toc-text">Why Aadhaar verification matters</span></a>
