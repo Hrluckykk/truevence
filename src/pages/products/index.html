@@ -79,6 +79,32 @@
 
 <!-- Custom CSS (external) -->
 <link rel="stylesheet" href="/assets/css/styles.css?v=5">
+
+<!-- Inline fixes — editorial blog-scroll without white cards -->
+<style>
+  /* Override blog-card to remove white background — editorial transparent treatment */
+  .tv2 .blog-card {
+    background: transparent !important;
+    border: 0 !important;
+    border-top: 1px solid rgba(10,10,10,.14) !important;
+    border-radius: 0 !important;
+    padding: 28px 4px !important;
+  }
+  .tv2 .blog-card:hover {
+    box-shadow: none !important;
+    transform: none !important;
+    padding-left: 20px !important;
+    background: rgba(124,58,237,.03) !important;
+  }
+  .tv2 .section--plum .blog-card,
+  .tv2 .section--forest .blog-card {
+    border-top-color: rgba(255,255,255,.14) !important;
+  }
+  .tv2 .section--plum .blog-card:hover,
+  .tv2 .section--forest .blog-card:hover {
+    background: rgba(167,139,250,.04) !important;
+  }
+</style>
 </head>
 <body class="bg-paper text-ink antialiased">
 
@@ -510,9 +536,9 @@
 </section>
 
 <!-- ============================================================
-     PRODUCT INSIGHTS — blog scroll
+     PRODUCT INSIGHTS — editorial blog scroll (no white cards)
      ============================================================ -->
-<section class="section section--white">
+<section class="section section--cream">
   <div class="grid-bg" aria-hidden="true"></div>
   <div class="tv2-container">
     <div class="section-head" data-reveal>
