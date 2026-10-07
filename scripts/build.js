@@ -1,18 +1,17 @@
 // TRUEVENCE — BUILD SCRIPT (scripts/build.js)
 // Sources:  src/pages/**/*.html
-// Uses:     src/partials/*.html, src/components/*.html
+// Uses:     src/partials/*.html
 // Copies:   src/assets/  ->  public/assets/
 // Output:   public/**  (src/pages/ prefix stripped)
 
 const fs = require('fs');
 const path = require('path');
 
-const rootDir       = path.join(__dirname, '..');
-const pagesDir      = path.join(rootDir, 'src', 'pages');
-const partialsDir   = path.join(rootDir, 'src', 'partials');
-const componentsDir = path.join(rootDir, 'src', 'components');
-const assetsDir     = path.join(rootDir, 'src', 'assets');
-const publicDir     = path.join(rootDir, 'public');
+const rootDir     = path.join(__dirname, '..');
+const pagesDir    = path.join(rootDir, 'src', 'pages');
+const partialsDir = path.join(rootDir, 'src', 'partials');
+const assetsDir   = path.join(rootDir, 'src', 'assets');
+const publicDir   = path.join(rootDir, 'public');
 
 // Ensure CSS output dir exists before Tailwind CLI runs
 fs.mkdirSync(path.join(publicDir, 'assets', 'css'), { recursive: true });
@@ -32,7 +31,7 @@ if (fs.existsSync(assetsDir)) {
   console.warn('src/assets not found - skipping');
 }
 
-// ---------- 3. Load partials & components ----------
+// ---------- 3. Load partials ----------
 function loadFile(dir, name) {
   const p = path.join(dir, name);
   if (fs.existsSync(p)) return fs.readFileSync(p, 'utf8');
@@ -45,20 +44,6 @@ const partials = {
   header:   loadFile(partialsDir, 'header.html'),
   footer:   loadFile(partialsDir, 'footer.html'),
   whatsapp: loadFile(partialsDir, 'whatsapp.html'),
-};
-
-const components = {
-  hero:           loadFile(componentsDir, 'hero.html'),
-  marquee:        loadFile(componentsDir, 'marquee.html'),
-  what_we_verify: loadFile(componentsDir, 'what-we-verify.html'),
-  process:        loadFile(componentsDir, 'process.html'),
-  why_us:         loadFile(componentsDir, 'why-us.html'),
-  industries:     loadFile(componentsDir, 'industries.html'),
-  blog_scroll:    loadFile(componentsDir, 'blog-scroll.html'),
-  newsletter:     loadFile(componentsDir, 'newsletter.html'),
-  faq:            loadFile(componentsDir, 'faq.html'),
-  cta_banner:     loadFile(componentsDir, 'cta-banner.html'),
-  contact:        loadFile(componentsDir, 'contact.html'),
 };
 
 // ---------- 4. Walk src/pages recursively ----------
@@ -97,22 +82,11 @@ function fillVars(str, vars) {
   );
 }
 
-// ---------- 6. Replacement map ----------
+// ---------- 6. Replacement map (partials only) ----------
 const replacements = {
-  '<!-- INCLUDE_HEADER -->':         partials.header,
-  '<!-- INCLUDE_FOOTER -->':         partials.footer,
-  '<!-- INCLUDE_WHATSAPP -->':       partials.whatsapp,
-  '<!-- INCLUDE_HERO -->':           components.hero,
-  '<!-- INCLUDE_MARQUEE -->':        components.marquee,
-  '<!-- INCLUDE_WHAT_WE_VERIFY -->': components.what_we_verify,
-  '<!-- INCLUDE_PROCESS -->':        components.process,
-  '<!-- INCLUDE_WHY_US -->':         components.why_us,
-  '<!-- INCLUDE_INDUSTRIES -->':     components.industries,
-  '<!-- INCLUDE_BLOG_SCROLL -->':    components.blog_scroll,
-  '<!-- INCLUDE_NEWSLETTER -->':     components.newsletter,
-  '<!-- INCLUDE_FAQ -->':            components.faq,
-  '<!-- INCLUDE_CTA_BANNER -->':     components.cta_banner,
-  '<!-- INCLUDE_CONTACT -->':        components.contact,
+  '<!-- INCLUDE_HEADER -->':   partials.header,
+  '<!-- INCLUDE_FOOTER -->':   partials.footer,
+  '<!-- INCLUDE_WHATSAPP -->': partials.whatsapp,
 };
 
 // ---------- 7. Build every page ----------
@@ -156,7 +130,7 @@ for (const filePath of htmlFiles) {
     });
   }
 
-  // 7b. Replace all other INCLUDE markers
+  // 7b. Replace partial markers
   for (const key in replacements) {
     const val = replacements[key];
     while (content.indexOf(key) !== -1) {
