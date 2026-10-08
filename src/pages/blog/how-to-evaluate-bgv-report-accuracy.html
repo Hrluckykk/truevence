@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Evaluate BGV Report Accuracy: A Practical Guide | Truevence</title>
+<meta name="description" content="Learn how to measure, audit, and improve BGV report accuracy. A practical guide for HR teams to detect errors, verify sources, and hold background verification vendors accountable.">
+<meta name="keywords" content="BGV report accuracy, background verification accuracy, how to check BGV report, BGV error rate, BGV accuracy audit, background check accuracy India, verify BGV report">
+
+<meta property="og:title" content="How to Evaluate BGV Report Accuracy: A Practical Guide">
+<meta property="og:description" content="The exact process HR teams use to measure BGV report accuracy, spot errors early, and hold vendors accountable without guesswork.">
+<meta property="og:url" content="https://www.truevence.in/blog/how-to-evaluate-bgv-report-accuracy">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/ChatGPT%20Image%20Jul%2018%2C%202026%2C%2009_59_12%20PM.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How to Evaluate BGV Report Accuracy: A Practical Guide">
+<meta name="twitter:description" content="Measure, audit, and improve the accuracy of your background verification reports.">
+<meta name="twitter:image" content="https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/ChatGPT%20Image%20Jul%2018%2C%202026%2C%2009%20_59_12%20PM.png">
+<link rel="canonical" href="https://www.truevence.in/blog/how-to-evaluate-bgv-report-accuracy">
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.truevence.in/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.truevence.in/blog"},{"@type":"ListItem","position":3,"name":"How to Evaluate BGV Report Accuracy","item":"https://www.truevence.in/blog/how-to-evaluate-bgv-report-accuracy"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"How to Evaluate BGV Report Accuracy: A Practical Guide","author":{"@type":"Organization","name":"Truevence Editorial Team"},"datePublished":"2026-07-25","dateModified":"2026-07-25","publisher":{"@type":"Organization","name":"Truevence","logo":{"@type":"ImageObject","url":"https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/ChatGPT%20Image%20Jul%2018%2C%202026%2C%2009_59_12%20PM.png"}}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What accuracy rate should a BGV report have?","acceptedAnswer":{"@type":"Answer","text":"Digital checks such as Aadhaar, PAN, and EPFO should achieve accuracy above 98 percent. Physical checks such as address and reference verification should achieve above 95 percent. Anything below these thresholds indicates either source access issues or process gaps at the vendor."}},
+{"@type":"Question","name":"How do you calculate BGV report accuracy?","acceptedAnswer":{"@type":"Answer","text":"Accuracy is calculated by taking the number of checks where the report matches the authoritative source, divided by the total number of checks completed in the period. The key is defining what counts as a match. A report that reproduces the wrong data from a stale database is not accurate, even if it matches that database."}},
+{"@type":"Question","name":"Can you spot check BGV reports for accuracy?","acceptedAnswer":{"@type":"Answer","text":"Yes. Random sampling of 5 to 10 percent of reports each month, re-verified against the original source, gives a reliable statistical estimate of your vendor's accuracy rate without re-running every check."}},
+{"@type":"Question","name":"What are the most common causes of BGV report errors?","acceptedAnswer":{"@type":"Answer","text":"The most common causes are stale data in third-party databases, name matching failures for common Indian names, incorrect date of birth entry, source not being directly contacted, and transcription errors when reports are manually assembled."}}
+]}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,800&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          ink: '#0B1230', navy: '#131B45', navylite: '#1E2A5E',
+          violet: '#7C3AED', violetlt: '#A78BFA', lavender: '#C9BEFB',
+          paper: '#F7F7FB', paperdim: '#EFEEF9', slate: '#545A78',
+          green: '#3bd39b', amber: '#febc2e', red: '#ff5f57'
+        },
+        fontFamily: {
+          display: ['"Plus Jakarta Sans"', 'sans-serif'],
+          body: ['Inter', 'sans-serif'],
+          'mono-ui': ['"IBM Plex Mono"', 'monospace']
+        }
+      }
+    }
+  }
+</script>
+
+<link rel="stylesheet" href="/assets/css/styles.css?v=6">
+
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+
+<style>
+/* ============================================================
+   PAGE-LEVEL SHIMS
+   ============================================================ */
+
+.section-container { max-width:1440px; margin:0 auto; padding:0 1.25rem; }
+@media (min-width:640px){ .section-container { padding:0 2rem; } }
+@media (min-width:1024px){ .section-container { padding:0 5rem; } }
+@media (min-width:1280px){ .section-container { padding:0 7rem; } }
+
+.nav-glass { background: rgba(255,255,255,.82); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-bottom: 1px solid rgba(11,18,48,.06); }
+.nav-glass a { text-decoration: none; }
+.nav-logo-img { height: 44px; width: auto; display: block; }
+@media (min-width:768px){ .nav-logo-img { height: 48px; } }
+.nav-logo-fallback { display: none; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 20px; letter-spacing: -0.02em; color: #0B1230; }
+.nav-logo-img.is-broken { display: none; }
+.nav-logo-img.is-broken + .nav-logo-fallback { display: inline-block; }
+.btn-primary { display:inline-flex; align-items:center; gap:8px; background:#0B1230; color:#fff; border:1px solid #0B1230; transition:all .3s ease; }
+.btn-primary:hover { background:#7C3AED; border-color:#7C3AED; color:#fff; }
+
+.cookie-banner { position:fixed; bottom:0; left:0; right:0; background:#0B1230; color:#fff; padding:16px 1.25rem; display:flex; align-items:center; justify-content:space-between; gap:16px; z-index:9999; font-family:'Inter',sans-serif; box-shadow:0 -4px 20px rgba(0,0,0,.3); }
+@media (min-width:640px){ .cookie-banner { padding:16px 2rem; } }
+@media (min-width:1024px){ .cookie-banner { padding:16px 5rem; } }
+.cookie-text { margin:0; font-size:14px; flex:1; color:#fff; }
+.cookie-text a { color:#A78BFA; text-decoration:underline; }
+.cookie-btn { background:#7C3AED; color:#fff; border:none; padding:10px 22px; border-radius:999px; font-weight:700; cursor:pointer; font-size:14px; flex-shrink:0; }
+
+.footer-grid { display:grid; grid-template-columns:1fr; gap:40px; padding-bottom:0; }
+@media (min-width:640px){ .footer-grid { grid-template-columns:repeat(2,1fr); } .footer-brand { grid-column:1 / -1; } }
+@media (min-width:1024px){ .footer-grid { grid-template-columns:1.2fr .7fr .9fr .9fr 1.6fr; gap:48px; } .footer-brand { grid-column:auto; } }
+.footer-brand p { max-width:320px; }
+
+[data-aos] { opacity:1 !important; transform:none !important; transition:none !important; }
+
+/* Local defensive shims for TV2 components used on this page */
+.tv2 .chapter-list {
+  list-style:none; padding:0; margin:16px 0 0;
+  display:flex; flex-direction:column; gap:14px;
+  max-width:760px; width:100%; min-width:0;
+}
+.tv2 .chapter-list li {
+  display:flex; align-items:flex-start; gap:14px;
+  font-size:14.5px; line-height:1.7; color:rgba(0,0,0,.65);
+  padding-bottom:12px; border-bottom:1px solid rgba(10,10,10,.14);
+  width:100%; min-width:0;
+  white-space:normal; word-break:normal; overflow-wrap:normal; hyphens:none;
+}
+.tv2 .chapter-list li:last-child { border-bottom:0; padding-bottom:0; }
+.tv2 .chapter-list li::before {
+  content:'✓'; font-family:'IBM Plex Mono',monospace;
+  color:#7C3AED; font-weight:600; font-size:13px;
+  line-height:1.7; flex-shrink:0; display:inline-block;
+}
+.tv2 .chapter-list li strong { color:#050814; font-weight:600; display:inline; }
+.tv2 .chapter-list li span { display:inline; }
+
+.tv2 .article-layout {
+  display:grid;
+  grid-template-columns:minmax(0, 2.2fr) minmax(240px, 1fr);
+  gap:clamp(40px,6vw,90px);
+  align-items:start;
+}
+@media (max-width:950px){ .tv2 .article-layout { grid-template-columns:1fr; gap:44px; } }
+.tv2 .article-body { max-width:820px; min-width:0; }
+</style>
+</head>
+<body class="bg-paper text-ink antialiased">
+
+<div id="cookieConsent" class="cookie-banner">
+  <p class="cookie-text">We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies. <a href="/legal/privacy-policy">Learn more</a></p>
+  <button onclick="acceptCookies()" class="cookie-btn">Accept</button>
+</div>
+
+<header class="fixed top-0 left-0 right-0 z-50 nav-glass">
+  <div class="section-container">
+    <div class="flex items-center justify-between h-[76px]">
+      <a href="/" class="flex items-center gap-2 shrink-0">
+        <img src="https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/ChatGPT%20Image%20Jul%2018%2C%202026%2C%2009_59_12%20PM.png" alt="Truevence BGV company" class="nav-logo-img" width="160" height="48" onerror="this.classList.add('is-broken')">
+        <span class="nav-logo-fallback">TRUEVENCE</span>
+      </a>
+      <nav class="hidden lg:flex items-center gap-9 font-display text-[14px] font-semibold tracking-wide text-navy">
+        <a href="/" class="hover:text-violet transition-colors">Home</a>
+        <a href="/services" class="hover:text-violet transition-colors">Services</a>
+        <a href="/products" class="hover:text-violet transition-colors">Products</a>
+        <a href="/process" class="hover:text-violet transition-colors">Process</a>
+        <a href="/about" class="hover:text-violet transition-colors">Why Us</a>
+        <a href="/industries" class="hover:text-violet transition-colors">Industries</a>
+        <a href="/faq" class="hover:text-violet transition-colors">FAQ</a>
+        <a href="/contact" class="hover:text-violet transition-colors">Contact</a>
+        <a href="/blog" class="hover:text-violet transition-colors">Blog</a>
+      </nav>
+      <div class="hidden lg:flex items-center gap-3">
+        <a href="/contact" class="btn-primary font-display text-[13.5px] font-bold px-5 py-2.5 rounded-full">Request a Verification</a>
+      </div>
+      <button id="menuBtn" class="lg:hidden text-navy" aria-label="Open menu" aria-expanded="false">
+        <svg id="iconMenu" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobileMenu" class="lg:hidden hidden border-t border-ink/10 bg-paper">
+    <div class="px-6 py-6 flex flex-col gap-5 font-display font-semibold text-navy">
+      <a href="/" class="mobile-link">Home</a>
+      <a href="/services" class="mobile-link">Services</a>
+      <a href="/products" class="mobile-link">Products</a>
+      <a href="/process" class="mobile-link">Process</a>
+      <a href="/about" class="mobile-link">Why Us</a>
+      <a href="/industries" class="mobile-link">Industries</a>
+      <a href="/faq" class="mobile-link">FAQ</a>
+      <a href="/contact" class="mobile-link">Contact</a>
+      <a href="/blog" class="mobile-link">Blog</a>
+      <a href="/contact" class="btn-primary text-center font-display text-sm font-bold px-5 py-3 rounded-full mt-2">Request a Verification</a>
+    </div>
+  </div>
+</header>
+
+<main class="tv2">
+
+<!-- ============================================================
+     ARTICLE MASTHEAD
+     ============================================================ -->
+<section class="masthead">
+  <div class="masthead-grid-bg" aria-hidden="true"></div>
+  <div class="masthead-inner">
+    <nav class="crumb" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span class="sep">/</span>
+      <a href="/blog">Blog</a>
+      <span class="sep">/</span>
+      <span class="here">How to Evaluate BGV Report Accuracy</span>
+    </nav>
+
+    <span class="masthead-tag"><span class="dot"></span>BGV Reporting · Accuracy</span>
+
+    <h1 class="masthead-headline">
+      How to evaluate BGV report accuracy: <em>a practical guide.</em>
+    </h1>
+
+    <p class="masthead-dek">
+      Every background verification vendor claims high accuracy. <strong>Very few can show you how they measure it or what their actual error rate is.</strong> This guide walks through how to measure BGV report accuracy, how to spot-check reports for errors, and how to hold your vendor accountable when the numbers fall short.
+    </p>
+
+    <div class="masthead-meta">
+      <span>July 2026</span>
+      <span>9 min read</span>
+      <span>Truevence Editorial Team</span>
+      <span>Filed under BGV Reporting</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     ARTICLE BODY
+     ============================================================ -->
+<section class="article">
+  <div class="grid-bg" aria-hidden="true"></div>
+  <div class="tv2-container">
+    <div class="article-layout">
+
+      <article class="article-body prose" data-reveal>
+
+        <!-- § 01 — What accuracy means -->
+        <div id="what" style="margin-bottom:72px;">
+          <span class="section-tag">§ 01 — What accuracy means</span>
+          <h2>What "accuracy" actually means in a <em>BGV report.</em></h2>
+          <p>Accuracy is not the same as completeness. A report that says "Education not verified" is complete if that is what happened. It is only accurate if the underlying check was performed correctly and the source was genuinely unreachable. Every finding in a BGV report has two properties: whether the check ran to completion, and whether the result matches what the authoritative source actually said.</p>
+          <p>Most vendors conflate the two. They report high "completion rates" and call it accuracy. For a proper accuracy measure, you need to define what counts as an accurate result and how you will verify it.</p>
+
+          <div class="ledger" style="margin-top:28px;">
+            <div class="ledger-row">
+              <span class="ledger-k">Definition</span>
+              <span class="ledger-v">A report is accurate when the finding <strong>matches what the authoritative source actually said.</strong></span>
+            </div>
+            <div class="ledger-row">
+              <span class="ledger-k">Not the same as</span>
+              <span class="ledger-v">Not the same as "completion rate" or "match against a third-party database."</span>
+            </div>
+            <div class="ledger-row">
+              <span class="ledger-k">Digital target</span>
+              <span class="ledger-v"><em>Above 98 percent</em> for Aadhaar, PAN, and EPFO checks.</span>
+            </div>
+            <div class="ledger-row">
+              <span class="ledger-k">Physical target</span>
+              <span class="ledger-v">Above 95 percent for address and reference checks.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Verdict pull-quote -->
+        <div class="verdict">
+          <p>A BGV report is only as good as its source. <em>A wrong source, faithfully transcribed, is still a wrong report.</em></p>
+        </div>
+
+        <!-- § 02 — How to measure -->
+        <div id="measure" style="margin-bottom:72px;">
+          <span class="section-tag">§ 02 — How to measure</span>
+          <h2>How to measure BGV report <em>accuracy.</em></h2>
+          <p>You do not need to re-verify every report to estimate accuracy reliably. A statistical sample of 5 to 10 percent of monthly reports, re-verified against the original source, gives you a defensible number for the entire population.</p>
+
+          <div class="highlight" style="margin-top:32px;">
+            <div class="highlight-inner">
+              <span class="highlight-kicker">Sampling · Re-verification · Scoring</span>
+              <h2 class="highlight-title" style="color:#fff;">A 5 to 10 percent monthly sample gives you a <em style="color:#A78BFA; font-style:normal;">statistically reliable accuracy number.</em></h2>
+
+              <p><strong>Sample size.</strong> For a monthly volume of 500 to 2,000 checks, sample 5 percent. For volumes above 2,000, 10 percent is unnecessary and 2 to 3 percent is enough. Pull the sample randomly from the full month, not just the last week. </p>
+
+              <p><strong>Re-verification source.</strong> Re-run each sampled check against the authoritative source: UIDAI for Aadhaar, NSDL or Protean for PAN, EPFO for employment, the university directly for education. Do not use a third-party database, because that just repeats the original error. </p>
+
+              <p><strong>Scoring rule.</strong> A check scores as accurate if the finding matches the authoritative source. It scores as inaccurate if the report says verified but the source says not found, or vice versa. Any partial match, where some fields match and some do not, scores as inaccurate for tracking purposes even if it is a minor discrepancy. </p>
+
+              <p><strong>Sample audit cadence.</strong> Do this once a month for the first three months of any new vendor relationship, then move to quarterly once the vendor has demonstrated consistent accuracy. </p>
+
+              <p><strong>Reporting to the vendor.</strong> Share your accuracy findings with the vendor every quarter. This is the only way to create pressure for improvement, and it is the only way to justify SLA remedies if accuracy falls below the committed level.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- § 03 — Common error types -->
+        <div id="errors" style="margin-bottom:72px;">
+          <span class="section-tag">§ 03 — Common errors</span>
+          <h2>Common BGV report errors and <em>how to spot them.</em></h2>
+          <p>BGV errors are rarely random. They cluster around a small number of failure modes, and once you know what to look for, they are easy to spot in a sample.</p>
+
+          <div class="matrix" style="margin-top:28px;">
+
+            <div class="matrix-row is-head">
+              <span>Error type</span>
+              <span>How it appears in the report</span>
+              <span>Root cause</span>
+            </div>
+
+            <div class="matrix-row">
+              <span class="matrix-code">Stale data</span>
+              <span class="matrix-cell">Report confirms employment that ended 18 months ago</span>
+              <span class="matrix-cell">Vendor using a database not refreshed recently</span>
+            </div>
+
+            <div class="matrix-row">
+              <span class="matrix-code">Name mismatch</span>
+              <span class="matrix-cell">Report says not found, but the candidate has a common Indian name</span>
+              <span class="matrix-cell">Fuzzy matching failing on common names</span>
+            </div>
+
+            <div class="matrix-row">
+              <span class="matrix-code">DOB mismatch</span>
+              <span class="matrix-cell">Report confirms with a slightly different date of birth</span>
+              <span class="matrix-cell">Transcription error from manual entry</span>
+            </div>
+
+            <div class="matrix-row">
+              <span class="matrix-code">Source not contacted</span>
+              <span class="matrix-cell">Report says university not reachable, but the university is reachable</span>
+              <span class="matrix-cell">Field agent did not attempt to contact, or gave up after one attempt</span>
+            </div>
+
+            <div class="matrix-row">
+              <span class="matrix-code">Wrong source used</span>
+              <span class="matrix-cell">Report verifies against a third-party aggregator, not the university</span>
+              <span class="matrix-cell">Vendor cutting corners to save time</span>
+            </div>
+
+            <div class="matrix-row">
+              <span class="matrix-code">Transcription error</span>
+              <span class="matrix-cell">Report contains data that exists in the source, but is entered wrongly</span>
+              <span class="matrix-cell">Manual re-typing without verification</span>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- § 04 — Red flags in report design -->
+        <div id="red-flags" style="margin-bottom:72px;">
+          <span class="section-tag">§ 04 — Red flags</span>
+          <h2>Red flags to look for in <em>BGV report design.</em></h2>
+          <p>Some accuracy problems are visible just from the report format, before you even re-verify a single check. If you see three or more of these in a vendor's sample report, ask for their accuracy measurement methodology before proceeding.</p>
+
+          <ul class="chapter-list" style="margin-top:24px;">
+            <li><strong>No source citation.</strong> A report that says "employment verified" without naming the source cannot be audited.</li>
+            <li><strong>No timestamps.</strong> A report without the date and time of verification cannot be checked for freshness.</li>
+            <li><strong>No analyst name or ID.</strong> Reports that do not name the person who completed the check have no accountability.</li>
+            <li><strong>No confidence level.</strong> Some checks return partial matches. The report should say so, not present them as full verifications.</li>
+            <li><strong>Blended summary at the top.</strong> A report that summarises "candidate cleared" without breaking down each check hides which one failed.</li>
+            <li><strong>No distinction between verified and not found.</strong> These are different outcomes with different implications. The report should not conflate them.</li>
+            <li><strong>No remarks field.</strong> Human judgment calls happen. If there is nowhere to record them, the vendor is over-simplifying.</li>
+          </ul>
+        </div>
+
+        <!-- § 05 — Auditing your vendor -->
+        <div id="audit" style="margin-bottom:72px;">
+          <span class="section-tag">§ 05 — Auditing your vendor</span>
+          <h2>Auditing your BGV <em>vendor's accuracy.</em></h2>
+          <p>Once you have a measurement process in place, the next step is to build it into your regular vendor management cadence. Here is what a serious accuracy audit looks like.</p>
+
+          <div class="chapter-list" style="margin-top:24px;">
+            <li><strong>Monthly internal sample audit</strong> of 5 to 10 percent of reports, re-verified against authoritative sources</li>
+            <li><strong>Quarterly accuracy report</strong> from the vendor with their own numbers, side by side with yours</li>
+            <li><strong>Root cause analysis</strong> required from the vendor if your audit and their numbers diverge by more than 2 percentage points</li>
+            <li><strong>Written remediation plan</strong> if the audited accuracy falls below the SLA threshold for two consecutive months</li>
+            <li><strong>Free re-verification</strong> on any check your audit finds to be inaccurate, with a defined turnaround</li>
+            <li><strong>Escalation path</strong> to vendor leadership if accuracy issues persist across quarters</li>
+            <li><strong>Documentation retention</strong> of your audit findings for at least 24 months, for compliance and legal purposes</li>
+          </div>
+        </div>
+
+        <!-- § 06 — Accuracy by check type -->
+        <div id="by-type" style="margin-bottom:72px;">
+          <span class="section-tag">§ 06 — By check type</span>
+          <h2>Accuracy expectations <em>by check type.</em></h2>
+          <p>Different checks have different achievable accuracy levels. Expecting the same number from a digital Aadhaar check and a physical address visit is unrealistic. Here are the benchmarks to hold your vendor to.</p>
+
+          <div class="matrix" style="margin-top:28px;">
+
+            <div class="matrix-row is-head">
+              <span>Check type</span>
+              <span>Target accuracy</span>
+              <span>Notes</span>
+            </div>
+
+            <div class="matrix-row">
+              <span class="matrix-code">Aadhaar</span>
+              <span class="matrix-cell">Above 99 percent</span>
+              <span class="matrix-cell">Deterministic; failures usually mean UIDAI downtime</span>
+            </div>
+
+            <div class="matrix-row">
+              <span class="matrix-code">PAN</span>
+              <span class="matrix-cell">Above 99 percent</span>
+              <span class="matrix-cell">Deterministic; failures usually mean NSDL or Protean downtime</span>
+            </div>
+
+            <div class="matrix-row">
+              <span class="matrix-code">EPFO employment</span>
+              <span class="matrix-cell">Above 98 percent</span>
+              <span class="matrix-cell">Depends on the employer having filed EPFO returns</span>
+            </div>
+
+            <div class="matrix-row">
+              <span class="matrix-code">Education</span>
+              <span class="matrix-cell">Above 95 percent</span>
+              <span class="matrix-cell">Depends on the university's response rate</span>
+            </div>
+
+            <div class="matrix-row">
+              <span class="matrix-code">Criminal record</span>
+              <span class="matrix-cell">Above 97 percent</span>
+              <span class="matrix-cell">District-level court coverage varies</span>
+            </div>
+
+            <div class="matrix-row">
+              <span class="matrix-code">Address (physical)</span>
+              <span class="matrix-cell">Above 95 percent</span>
+              <span class="matrix-cell">Depends on field agent quality and address accuracy</span>
+            </div>
+
+            <div class="matrix-row">
+              <span class="matrix-code">Reference checks</span>
+              <span class="matrix-cell">Above 90 percent</span>
+              <span class="matrix-cell">Referees are unresponsive a significant fraction of the time</span>
+            </div>
+
+          </div>
+
+          <p style="margin-top:24px;">If a vendor cannot meet these targets, the conversation is either about their process or about their honesty. Both are worth having before you scale volume with them.</p>
+        </div>
+
+        <!-- § 07 — What to do when accuracy drops -->
+        <div id="remediate" style="margin-bottom:72px;">
+          <span class="section-tag">§ 07 — Remediation</span>
+          <h2>What to do when accuracy <em>drops.</em></h2>
+          <p>Every vendor will have bad months. The question is what happens next. A properly managed vendor relationship has a defined escalation and remediation path for accuracy issues.</p>
+
+          <div class="chapter-list" style="margin-top:24px;">
+            <li><strong>First occurrence:</strong> raise the issue in the monthly operational review, request root cause analysis within 10 business days</li>
+            <li><strong>Second consecutive month:</strong> escalate to vendor operations leadership, request a written remediation plan with timelines</li>
+            <li><strong>Third consecutive month:</strong> invoke SLA remedies, which should include service credits or free re-verification of affected checks</li>
+            <li><strong>Beyond three months:</strong> escalate to vendor executive leadership with a formal notice of breach</li>
+            <li><strong>Persistent failure:</strong> exercise the termination right defined in the SLA if accuracy does not return above threshold within a defined window</li>
+          </ul>
+        </div>
+
+        <!-- § 08 — Get the audit template -->
+        <div id="download">
+          <span class="section-tag">§ 08 — Get the audit template</span>
+          <div class="quote-wrap">
+            <div class="quote-head">
+              <h2>Get the <em>BGV accuracy audit template.</em></h2>
+              <p>Request the Excel version of this accuracy measurement framework, with sampling logic, re-verification tracking, and monthly accuracy scorecard already built in.</p>
+            </div>
+            <form id="quoteForm" class="quote-form" novalidate>
+              <div class="full"><input required id="qName" type="text" placeholder="Your Full Name *"></div>
+              <div><input required id="qEmail" type="email" placeholder="Work Email *"></div>
+              <div><input id="qPhone" type="tel" placeholder="Phone Number"></div>
+              <div><input id="qCompany" type="text" placeholder="Company Name"></div>
+              <div class="full"><textarea id="qMessage" rows="3" placeholder="How many checks do you run per month?"></textarea></div>
+              <div class="full" style="display:flex; flex-direction:column; align-items:flex-start; gap:14px;">
+                <button type="submit" class="quote-btn">
+                  Send Me the BGV Accuracy Audit Template
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                </button>
+                <p id="quoteNote" class="quote-note" style="display:none;" aria-live="polite"></p>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </article>
+
+      <aside class="article-aside" data-reveal="right">
+
+        <div>
+          <span class="aside-title">Table of Contents</span>
+          <nav class="toc">
+            <a href="#what" class="toc-item"><span class="toc-num">01</span><span class="toc-text">What accuracy means</span></a>
+            <a href="#measure" class="toc-item"><span class="toc-num">02</span><span class="toc-text">How to measure accuracy</span></a>
+            <a href="#errors" class="toc-item"><span class="toc-num">03</span><span class="toc-text">Common error types</span></a>
+            <a href="#red-flags" class="toc-item"><span class="toc-num">04</span><span class="toc-text">Red flags in report design</span></a>
+            <a href="#audit" class="toc-item"><span class="toc-num">05</span><span class="toc-text">Auditing your vendor</span></a>
+            <a href="#by-type" class="toc-item"><span class="toc-num">06</span><span class="toc-text">Accuracy by check type</span></a>
+            <a href="#remediate" class="toc-item"><span class="toc-num">07</span><span class="toc-text">When accuracy drops</span></a>
+            <a href="#download" class="toc-item"><span class="toc-num">08</span><span class="toc-text">Get the audit template</span></a>
+          </nav>
+        </div>
+
+        <div class="aside-dark">
+          <span class="aside-title">Related Articles</span>
+          <div class="related">
+            <a href="/blog/bgv-codes-status-guide.html" class="related-item">
+              <span class="related-num">→</span>
+              <span>
+                <span class="related-text">BGV Marking System Explained</span>
+                <span class="related-sub">BGV Reporting</span>
+              </span>
+            </a>
+            <a href="/blog/bgv-vendor-sla-guide.html" class="related-item">
+              <span class="related-num">→</span>
+              <span>
+                <span class="related-text">BGV Vendor SLA Guide</span>
+                <span class="related-sub">Vendor Management</span>
+              </span>
+            </a>
+            <a href="/blog/bgv-vendor-due-diligence-checklist.html" class="related-item">
+              <span class="related-num">→</span>
+              <span>
+                <span class="related-text">BGV Vendor Due Diligence Checklist</span>
+                <span class="related-sub">Vendor Management</span>
+              </span>
+            </a>
+            <a href="/blog/bgv-vendor-evaluation-checklist.html" class="related-item">
+              <span class="related-num">→</span>
+              <span>
+                <span class="related-text">BGV Vendor Evaluation Checklist</span>
+                <span class="related-sub">Vendor Management</span>
+              </span>
+            </a>
+          </div>
+        </div>
+
+      </aside>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CTA BANNER
+     ============================================================ -->
+<section class="cta-banner">
+  <div class="cta-inner">
+    <div data-reveal="left">
+      <h2>Measure accuracy,<br><em>don't guess.</em></h2>
+    </div>
+    <div data-reveal="right">
+      <p>The BGV accuracy audit template with sampling logic, re-verification tracking, and monthly scorecard in Excel.</p>
+      <div class="cta-actions">
+        <a href="/contact" class="btn-light">Request the BGV Accuracy Template →</a>
+        <a href="/services" class="btn-outline-light">See BGV Services</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="bg-ink text-white pt-16 pb-8">
+  <div class="section-container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="flex items-center gap-2 mb-4">
+          <span class="font-display font-extrabold text-xl tracking-tight">TRUEVENCE</span>
+        </div>
+        <p class="text-white/55 text-sm leading-relaxed">Background verification services built for HR teams who can't afford surprises.</p>
+        <div class="flex items-center gap-3 mt-6">
+          <a href="https://www.linkedin.com/company/truevence/" aria-label="LinkedIn" class="w-9 h-9 rounded-full bg-white/8 hover:bg-violet flex items-center justify-center transition-colors">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="text-white"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.24 8.25h4.5V23H.24V8.25zM8.5 8.25h4.3v2.02h.06c.6-1.13 2.06-2.32 4.24-2.32 4.53 0 5.37 2.98 5.37 6.85V23h-4.5v-6.6c0-1.58-.03-3.6-2.2-3.6-2.2 0-2.54 1.72-2.54 3.5V23H8.5V8.25z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/truevence.in" aria-label="Instagram" class="w-9 h-9 rounded-full bg-white/8 hover:bg-violet flex items-center justify-center transition-colors">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="text-white"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 class="font-mono-ui text-[11px] tracking-widest text-white/40 mb-6">NAVIGATE</h4>
+        <ul class="space-y-3 text-sm text-white/70">
+          <li><a href="/" class="hover:text-violetlt transition-colors">Home</a></li>
+          <li><a href="/services" class="hover:text-violetlt transition-colors">BGV Services</a></li>
+          <li><a href="/process" class="hover:text-violetlt transition-colors">Process</a></li>
+          <li><a href="/about" class="hover:text-violetlt transition-colors">Why Us</a></li>
+          <li><a href="/industries" class="hover:text-violetlt transition-colors">Industries</a></li>
+          <li><a href="/faq" class="hover:text-violetlt transition-colors">FAQ</a></li>
+          <li><a href="/contact" class="hover:text-violetlt transition-colors">Contact</a></li>
+          <li><a href="/blog" class="hover:text-violetlt transition-colors">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="font-mono-ui text-[11px] tracking-widest text-white/40 mb-6">LEGAL</h4>
+        <ul class="space-y-3 text-sm text-white/70">
+          <li><a href="/legal/terms-of-service" class="hover:text-violetlt transition-colors">Terms of Service</a></li>
+          <li><a href="/legal/privacy-policy" class="hover:text-violetlt transition-colors">Privacy Policy</a></li>
+          <li><a href="/legal/cookie-policy" class="hover:text-violetlt transition-colors">Cookie Policy</a></li>
+          <li><a href="/legal/data-retention-policy" class="hover:text-violetlt transition-colors">Data Retention</a></li>
+          <li><a href="/legal/candidate-consent-policy" class="hover:text-violetlt transition-colors">Candidate Consent</a></li>
+          <li><a href="/legal/refund-policy" class="hover:text-violetlt transition-colors">Refund Policy</a></li>
+          <li><a href="/legal/security" class="hover:text-violetlt transition-colors">Security</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="font-mono-ui text-[11px] tracking-widest text-white/40 mb-6">CONTACT</h4>
+        <ul class="space-y-3 text-sm text-white/70">
+          <li><a href="mailto:Contact@truevence.in" class="hover:text-violetlt transition-colors">contact@truevence.in</a></li>
+          <li><a href="tel:+919205757344" class="hover:text-violetlt transition-colors">+91 920 5757 7344</a></li>
+          <li><a href="https://www.truevence.in" target="_blank" rel="noopener" class="hover:text-violetlt transition-colors">www.truevence.in</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 border-t border-white/10 mt-10">
+      <p class="text-white/40 text-xs">&copy; <span id="year"></span> Truevence. All rights reserved.</p>
+      <p class="font-mono-ui text-[11px] text-white/30">Simply Certain</p>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/919205757344?text=Hello%20Team%20Truevence%0A%0AWe%20want%20to%20evaluate%20the%20accuracy%20of%20our%20BGV%20reports%20and%20would%20like%20the%20background%20verification%20accuracy%20audit%20template.%20Please%20share%20it."
+   target="_blank" rel="noopener"
+   style="position:fixed; bottom:24px; right:24px; z-index:999; background:linear-gradient(135deg,#0B1230,#7C3AED); color:#fff; width:56px; height:56px; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 8px 20px rgba(124,58,237,0.35);"
+   aria-label="Chat about BGV accuracy on WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="white">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<script src="/assets/js/scripts.js" defer></script>
+<script src="/assets/js/cursor.js" defer></script>
+
+<script>
+(function () {
+  'use strict';
+
+  var y = document.getElementById('year');
+  if (y) y.textContent = new Date().getFullYear();
+
+  var btn = document.getElementById('menuBtn');
+  var menu = document.getElementById('mobileMenu');
+  var icon = document.getElementById('iconMenu');
+  if (btn && menu && icon) {
+    var open = false;
+    btn.addEventListener('click', function () {
+      open = !open;
+      menu.classList.toggle('hidden', !open);
+      btn.setAttribute('aria-expanded', String(open));
+      icon.innerHTML = open ? '<path d="M6 6l12 12M18 6L6 18"/>' : '<path d="M4 7h16M4 12h16M4 17h16"/>';
+    });
+    document.querySelectorAll('.mobile-link').forEach(function (a) {
+      a.addEventListener('click', function () {
+        open = false;
+        menu.classList.add('hidden');
+        btn.setAttribute('aria-expanded', 'false');
+        icon.innerHTML = '<path d="M4 7h16M4 12h16M4 17h16"/>';
+      });
+    });
+  }
+
+  window.acceptCookies = function () {
+    var b = document.getElementById('cookieConsent');
+    if (b) b.style.display = 'none';
+    try { localStorage.setItem('cookieConsent', 'true'); } catch (e) {}
+  };
+  try {
+    if (localStorage.getItem('cookieConsent') === 'true') {
+      var b = document.getElementById('cookieConsent');
+      if (b) b.remove();
+    }
+  } catch (e) {}
+
+  var quoteForm = document.getElementById('quoteForm');
+  if (quoteForm) {
+    var quoteNote = document.getElementById('quoteNote');
+    quoteForm.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      if (!quoteForm.reportValidity()) return;
+      var submitBtn = quoteForm.querySelector('button[type="submit"]');
+      var orig = submitBtn.innerHTML;
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = 'Submitting...';
+      quoteNote.style.display = 'none';
+      quoteNote.classList.remove('error');
+      quoteNote.textContent = '';
+
+      try {
+        var response = await fetch('https://truevence-backend.mamta-neschecks.workers.dev/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            full_name: document.getElementById('qName').value.trim(),
+            email: document.getElementById('qEmail').value.trim(),
+            phone: document.getElementById('qPhone').value.trim(),
+            company: document.getElementById('qCompany').value.trim(),
+            message: document.getElementById('qMessage').value.trim() || 'Enquiry from How to Evaluate BGV Report Accuracy page'
+          })
+        });
+        var result = await response.json();
+        if (response.ok && result.success) {
+          quoteForm.reset();
+          quoteNote.textContent = "Thank you. The BGV accuracy audit template will be sent to your email shortly.";
+          quoteNote.style.display = 'block';
+        } else {
+          throw new Error(result.error || 'Submission failed');
+        }
+      } catch (err) {
+        quoteNote.textContent = 'Something went wrong. Please email Contact@truevence.in';
+        quoteNote.classList.add('error');
+        quoteNote.style.display = 'block';
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = orig;
+      }
+    });
+  }
+
+  var tv2 = document.querySelector('.tv2');
+  if (!tv2) return;
+
+  var revealEls = tv2.querySelectorAll('[data-reveal]');
+  if (revealEls.length) {
+    if (!('IntersectionObserver' in window)) {
+      revealEls.forEach(function (el) { el.classList.add('in-view'); });
+    } else {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+      revealEls.forEach(function (el) { io.observe(el); });
+    }
+  }
+})();
+</script>
+
+</body>
+</html>
