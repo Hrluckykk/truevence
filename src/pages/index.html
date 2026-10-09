@@ -5,8 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Background Verification Company in Delhi NCR – Fast, Affordable BGV Services | Truevence</title>
-<meta name="description" content="Truevence is the fastest &amp; most affordable background verification company in Delhi, Noida, Faridabad &amp; Gurugram. Identity, employment, education, criminal &amp; address checks for employers across India.">
-<meta name="keywords" content="background verification company, background verification services India, BGV company Delhi, background check services, employee verification India, BGV vendor Noida, criminal record check India">
+<meta name="description" content="Truevence is a fastest &amp; cheapest background verification company in Delhi, Noida, Faridabad &amp; Gurugram. We provide identity, employment, education, criminal &amp; address checks for employers.">
 <link rel="canonical" href="https://www.truevence.in/">
 
 <meta property="og:title" content="Truevence – Fastest &amp; Affordable Background Verification in Delhi NCR">
@@ -45,7 +44,7 @@
 </script>
 
 <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
-<link rel="stylesheet" href="/assets/css/styles.css?v=5">
+<link rel="stylesheet" href="/assets/css/styles.css?v=4">
 
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -64,29 +63,21 @@
 @media (min-width:1024px){ .section-container { padding:0 5rem; } }
 @media (min-width:1280px){ .section-container { padding:0 7rem; } }
 
-/* ── Header: solid white, subtle shadow, logo stands out ── */
 .nav-glass {
-  background: #ffffff;
+  background: rgba(255,255,255,.82);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
   border-bottom: 1px solid rgba(11,18,48,.06);
-  box-shadow: 0 1px 0 rgba(11,18,48,.02), 0 4px 20px rgba(11,18,48,.04);
-  backdrop-filter: saturate(180%) blur(8px);
-  -webkit-backdrop-filter: saturate(180%) blur(8px);
 }
 .nav-glass a { text-decoration: none; }
 
-/* ── Logo: bigger, stands out ── */
-.nav-logo-img {
-  height: 72px;
-  width: auto;
-  display: block;
-  transition: height .25s ease;
-}
-@media (min-width:768px){ .nav-logo-img { height: 84px; } }
+.nav-logo-img { height: 44px; width: auto; display: block; }
+@media (min-width:768px){ .nav-logo-img { height: 48px; } }
 .nav-logo-fallback {
   display: none;
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-weight: 800;
-  font-size: 22px;
+  font-size: 20px;
   letter-spacing: -0.02em;
   color: #0B1230;
 }
@@ -117,6 +108,8 @@
   padding:10px 22px; border-radius:999px;
   font-weight:700; cursor:pointer; font-size:14px; flex-shrink:0;
 }
+
+/* Cursor styles are injected at runtime by /assets/js/cursor.js */
 
 .footer-grid {
   display:grid; grid-template-columns:1fr; gap:40px;
@@ -173,15 +166,14 @@
 .tv2 [data-delay="5"] { transition-delay:.4s; }
 .tv2 [data-delay="6"] { transition-delay:.48s; }
 
-/* Hero pushed down for the taller header */
 .tv2 .hero {
-  position:relative; padding:140px 5vw 80px;
+  position:relative; padding:120px 5vw 80px;
   min-height:100vh;
   display:flex; align-items:center;
   overflow:hidden; isolation:isolate;
   background:#070912; color:#fff;
 }
-@media (max-width:1050px){ .tv2 .hero { min-height:auto; padding:120px 5vw 60px; } }
+@media (max-width:1050px){ .tv2 .hero { min-height:auto; padding:100px 5vw 60px; } }
 .tv2 .hero::before {
   content:''; position:absolute; inset:0; z-index:-3; transition:background 1s ease;
   background:
@@ -351,7 +343,7 @@
 .tv2 .story-dot.active::after { content:''; position:absolute; inset:0; background:var(--violetlt); border-radius:2px; transform-origin:left; animation:dotFill 5s linear forwards; }
 @keyframes dotFill { from { transform:scaleX(0); } to { transform:scaleX(1); } }
 @media (max-width:640px){
-  .tv2 .hero { padding:120px 20px 50px; }
+  .tv2 .hero { padding:100px 20px 50px; }
   .tv2 .terminal-body { padding:20px 18px; min-height:380px; }
   .tv2 .term-slide { top:68px; left:18px; right:18px; bottom:18px; }
   .tv2 .term-candidate { grid-template-columns:46px 1fr; }
@@ -360,13 +352,16 @@
   .tv2 .term-report-summary { grid-template-columns:1fr; }
 }
 
+/* --- SECTION PADDING ADJUSTMENTS --- */
 .tv2 .section {
-  position:relative;
+  position:relative; 
   padding:120px 5vw;
   display:flex; flex-direction:column; justify-content:center;
   overflow:hidden;
 }
-.tv2 .section--faq { min-height: 70vh; }
+.tv2 .section--faq {
+  min-height: 70vh;
+}
 @media (max-width:900px){
   .tv2 .section { padding:80px 5vw; }
   .tv2 .section--faq { min-height: auto; }
@@ -577,8 +572,59 @@
 </head>
 <body class="bg-paper text-ink antialiased">
 
-<!-- ── Shared header ── -->
-<div id="site-header"></div>
+<div id="cookieConsent" class="cookie-banner">
+  <p class="cookie-text">
+    We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.
+    <a href="/legal/privacy-policy">Learn more</a>
+  </p>
+  <button onclick="acceptCookies()" class="cookie-btn">Accept</button>
+</div>
+
+<header class="fixed top-0 left-0 right-0 z-50 nav-glass">
+  <div class="section-container">
+    <div class="flex items-center justify-between h-[76px]">
+      <a href="/" class="flex items-center gap-2 shrink-0">
+        <img src="https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/Name.png"
+             alt="Truevence"
+             class="nav-logo-img"
+             width="210" height="63"
+             onerror="this.classList.add('is-broken')">
+        <span class="nav-logo-fallback">TRUEVENCE</span>
+      </a>
+      <nav class="hidden lg:flex items-center gap-9 font-display text-[14px] font-semibold tracking-wide text-navy">
+        <a href="/" class="hover:text-violet transition-colors">Home</a>
+        <a href="/services" class="hover:text-violet transition-colors">Services</a>
+        <a href="/products" class="hover:text-violet transition-colors">Products</a>
+        <a href="/process" class="hover:text-violet transition-colors">Process</a>
+        <a href="/about" class="hover:text-violet transition-colors">Why Us</a>
+        <a href="/industries" class="hover:text-violet transition-colors">Industries</a>
+        <a href="/faq" class="hover:text-violet transition-colors">FAQ</a>
+        <a href="/contact" class="hover:text-violet transition-colors">Contact</a>
+        <a href="/blog" class="hover:text-violet transition-colors">Blog</a>
+      </nav>
+      <div class="hidden lg:flex items-center gap-3">
+        <a href="/contact" class="btn-primary font-display text-[13.5px] font-bold px-5 py-2.5 rounded-full">Request a Verification</a>
+      </div>
+      <button id="menuBtn" class="lg:hidden text-navy" aria-label="Open menu" aria-expanded="false">
+        <svg id="iconMenu" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobileMenu" class="lg:hidden hidden border-t border-ink/10 bg-paper">
+    <div class="px-6 py-6 flex flex-col gap-5 font-display font-semibold text-navy">
+      <a href="/" class="mobile-link">Home</a>
+      <a href="/services" class="mobile-link">Services</a>
+      <a href="/products" class="mobile-link">Products</a>
+      <a href="/process" class="mobile-link">Process</a>
+      <a href="/about" class="mobile-link">Why Us</a>
+      <a href="/industries" class="mobile-link">Industries</a>
+      <a href="/faq" class="mobile-link">FAQ</a>
+      <a href="/contact" class="mobile-link">Contact</a>
+      <a href="/blog" class="mobile-link">Blog</a>
+      <a href="/contact" class="btn-primary text-center font-display text-sm font-bold px-5 py-3 rounded-full mt-2">Request a Verification</a>
+    </div>
+  </div>
+</header>
 
 <main class="tv2">
 
@@ -1104,75 +1150,6 @@
   </svg>
 </a>
 
-<!-- ── Shared header loader: injects /partials/header.html ── -->
-<script>
-(function () {
-  var mount = document.getElementById('site-header');
-  if (!mount) return;
-  fetch('/partials/header.html', { cache: 'force-cache' })
-    .then(function (r) { if (!r.ok) throw new Error('header fetch failed'); return r.text(); })
-    .then(function (html) {
-      mount.innerHTML = html;
-      // Re-bind header interactions now that it's in the DOM
-      var btn = document.getElementById('menuBtn');
-      var menu = document.getElementById('mobileMenu');
-      var icon = document.getElementById('iconMenu');
-      if (btn && menu && icon) {
-        var open = false;
-        btn.addEventListener('click', function () {
-          open = !open;
-          menu.classList.toggle('hidden', !open);
-          btn.setAttribute('aria-expanded', String(open));
-          icon.innerHTML = open ? '<path d="M6 6l12 12M18 6L6 18"/>' : '<path d="M4 7h16M4 12h16M4 17h16"/>';
-        });
-        document.querySelectorAll('.mobile-link').forEach(function (a) {
-          a.addEventListener('click', function () {
-            open = false;
-            menu.classList.add('hidden');
-            btn.setAttribute('aria-expanded', 'false');
-            icon.innerHTML = '<path d="M4 7h16M4 12h16M4 17h16"/>';
-          });
-        });
-      }
-      // Cookie consent state
-      try {
-        if (localStorage.getItem('cookieConsent') === 'true') {
-          var b = document.getElementById('cookieConsent');
-          if (b) b.remove();
-        }
-      } catch (e) {}
-    })
-    .catch(function () {
-      // Graceful fallback — inject a minimal working nav so nothing breaks
-      mount.innerHTML =
-        '<header class="fixed top-0 left-0 right-0 z-50 nav-glass">' +
-          '<div class="section-container">' +
-            '<div class="flex items-center justify-between h-[88px]">' +
-              '<a href="/index.html" class="flex items-center gap-2 shrink-0 -ml-4 md:-ml-8 lg:-ml-14">' +
-                '<img src="https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/Name.png" alt="Truevence" class="nav-logo-img" width="320" height="96" onerror="this.classList.add(\'is-broken\')">' +
-                '<span class="nav-logo-fallback">TRUEVENCE</span>' +
-              '</a>' +
-              '<nav class="hidden lg:flex items-center gap-8 font-display text-[13.5px] font-semibold tracking-wide text-navy">' +
-                '<a href="/index.html">Home</a>' +
-                '<a href="/services.html">Services</a>' +
-                '<a href="/products/">Products</a>' +
-                '<a href="/process.html">Process</a>' +
-                '<a href="/about.html">Why Us</a>' +
-                '<a href="/industries.html">Industries</a>' +
-                '<a href="/faq.html">FAQ</a>' +
-                '<a href="/contact.html">Contact</a>' +
-                '<a href="/blog.html">Blog</a>' +
-              '</nav>' +
-              '<div class="hidden lg:flex items-center gap-3">' +
-                '<a href="/contact.html" class="btn-primary font-display text-[13.5px] font-bold px-5 py-2.5 rounded-full">Request a Verification</a>' +
-              '</div>' +
-            '</div>' +
-          '</div>' +
-        '</header>';
-    });
-})();
-</script>
-
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
 <script src="/assets/js/scripts.js" defer></script>
 <script src="/assets/js/cursor.js" defer></script>
@@ -1184,11 +1161,38 @@
   var y = document.getElementById('year');
   if (y) y.textContent = new Date().getFullYear();
 
+  var btn = document.getElementById('menuBtn');
+  var menu = document.getElementById('mobileMenu');
+  var icon = document.getElementById('iconMenu');
+  if (btn && menu && icon) {
+    var open = false;
+    btn.addEventListener('click', function () {
+      open = !open;
+      menu.classList.toggle('hidden', !open);
+      btn.setAttribute('aria-expanded', String(open));
+      icon.innerHTML = open ? '<path d="M6 6l12 12M18 6L6 18"/>' : '<path d="M4 7h16M4 12h16M4 17h16"/>';
+    });
+    document.querySelectorAll('.mobile-link').forEach(function (a) {
+      a.addEventListener('click', function () {
+        open = false;
+        menu.classList.add('hidden');
+        btn.setAttribute('aria-expanded', 'false');
+        icon.innerHTML = '<path d="M4 7h16M4 12h16M4 17h16"/>';
+      });
+    });
+  }
+
   window.acceptCookies = function () {
     var b = document.getElementById('cookieConsent');
     if (b) b.style.display = 'none';
     try { localStorage.setItem('cookieConsent', 'true'); } catch (e) {}
   };
+  try {
+    if (localStorage.getItem('cookieConsent') === 'true') {
+      var b = document.getElementById('cookieConsent');
+      if (b) b.remove();
+    }
+  } catch (e) {}
 
   var tv2 = document.querySelector('.tv2');
   if (!tv2) return;
