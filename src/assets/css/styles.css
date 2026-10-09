@@ -1217,5 +1217,129 @@
 .tv2 .related-item:hover { padding-left:16px; }
 .tv2 .related-item:last-child { border-bottom:0; padding-bottom:0; }
 .tv2 .related-num {
-  font-family:'IBM P
-The document content is too long to display in full
+  font-family:'IBM Plex Mono',monospace;
+  font-size:10px; letter-spacing:.2em;
+  color:var(--violetlt);
+  font-weight:600;
+}
+.tv2 .related-text {
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-weight:600;
+  font-size:13.5px;
+  letter-spacing:-.01em;
+  line-height:1.4;
+  color:#fff;
+  transition:color .3s;
+  display:block;
+  min-width:0;
+}
+.tv2 .related-item:hover .related-text { color:var(--violetlt); }
+.tv2 .related-sub {
+  display:block;
+  font-family:'IBM Plex Mono',monospace;
+  font-weight:500;
+  font-size:9px;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.45);
+  margin-top:5px;
+}
+
+/* --- Quote form (dark editorial, used in blog articles) --- */
+.tv2 .quote-wrap {
+  margin-top:24px;
+  padding:52px 48px;
+  background:
+    radial-gradient(circle at 85% 20%, rgba(124,58,237,.28), transparent 45%),
+    radial-gradient(circle at 15% 90%, rgba(76,29,149,.22), transparent 45%),
+    linear-gradient(135deg,#0B0719 0%,#12061F 50%,#0B1230 100%);
+  border:1px solid rgba(167,139,250,.22);
+  position:relative;
+  overflow:hidden;
+  color:#fff;
+}
+@media (max-width:640px){ .tv2 .quote-wrap { padding:36px 24px; } }
+.tv2 .quote-wrap::before {
+  content:''; position:absolute; inset:0;
+  background-image:
+    linear-gradient(rgba(167,139,250,.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(167,139,250,.05) 1px, transparent 1px);
+  background-size:48px 48px;
+  mask-image:radial-gradient(ellipse 80% 70% at center, black 30%, transparent 85%);
+  -webkit-mask-image:radial-gradient(ellipse 80% 70% at center, black 30%, transparent 85%);
+  pointer-events:none;
+}
+.tv2 .quote-head, .tv2 .quote-form { position:relative; z-index:1; min-width:0; }
+.tv2 .quote-head h2 {
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-weight:800;
+  font-size:clamp(1.5rem,2.4vw,2rem);
+  letter-spacing:-.035em;
+  line-height:1.15;
+  margin:0 0 12px;
+  color:#fff;
+}
+.tv2 .quote-head h2 em { font-family:'Fraunces',serif; font-weight:700; color:var(--violetlt); font-style:normal; }
+.tv2 .quote-head p {
+  font-size:15px;
+  line-height:1.7;
+  color:rgba(255,255,255,.62);
+  max-width:600px;
+  margin:0 0 30px;
+}
+.tv2 .quote-form {
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0,1fr));
+  gap:16px;
+  max-width:720px;
+}
+@media (max-width:640px){ .tv2 .quote-form { grid-template-columns:1fr; } }
+.tv2 .quote-form .full { grid-column:1 / -1; }
+.tv2 .quote-form input,
+.tv2 .quote-form textarea {
+  width:100%;
+  border:1px solid rgba(167,139,250,.28);
+  background:rgba(255,255,255,.04);
+  padding:14px 16px;
+  font-family:'Inter',sans-serif;
+  font-size:14px;
+  color:#fff;
+  outline:none;
+  transition:border-color .3s, box-shadow .3s, background .3s;
+  border-radius:2px;
+  min-width:0;
+}
+.tv2 .quote-form input::placeholder,
+.tv2 .quote-form textarea::placeholder { color:rgba(255,255,255,.4); }
+.tv2 .quote-form input:focus,
+.tv2 .quote-form textarea:focus {
+  border-color:var(--violetlt);
+  background:rgba(167,139,250,.08);
+  box-shadow:0 0 0 3px rgba(167,139,250,.15);
+}
+.tv2 .quote-form textarea { resize:none; }
+.tv2 .quote-btn {
+  display:inline-flex; align-items:center; justify-content:center; gap:10px;
+  background:#fff;
+  color:var(--ink);
+  border:1px solid #fff;
+  padding:15px 34px;
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-weight:700;
+  font-size:14.5px;
+  letter-spacing:-.01em;
+  border-radius:2px;
+  transition:all .35s var(--ease);
+  cursor:pointer;
+}
+.tv2 .quote-btn:hover { background:var(--violetlt); border-color:var(--violetlt); color:var(--ink); }
+.tv2 .quote-btn:disabled { opacity:.7; cursor:not-allowed; }
+.tv2 .quote-note {
+  margin:16px 0 0;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:11px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--violetlt);
+}
+.tv2 .quote-note.error { color:var(--red); }
