@@ -63,16 +63,20 @@
 @media (min-width:1024px){ .section-container { padding:0 5rem; } }
 @media (min-width:1280px){ .section-container { padding:0 7rem; } }
 
+/* Nav glass — now white */
 .nav-glass {
-  background: rgba(255,255,255,.82);
+  background: #ffffff;
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   border-bottom: 1px solid rgba(11,18,48,.06);
 }
+.nav-glass.nav-glass-white {
+  background: #ffffff;
+}
 .nav-glass a { text-decoration: none; }
 
-.nav-logo-img { height: 44px; width: auto; display: block; }
-@media (min-width:768px){ .nav-logo-img { height: 48px; } }
+.nav-logo-img { height: 56px; width: auto; display: block; }
+@media (min-width:768px){ .nav-logo-img { height: 66px; } }
 .nav-logo-fallback {
   display: none;
   font-family: 'Plus Jakarta Sans', sans-serif;
@@ -583,11 +587,11 @@
 <header class="fixed top-0 left-0 right-0 z-50 nav-glass">
   <div class="section-container">
     <div class="flex items-center justify-between h-[76px]">
-      <a href="/" class="flex items-center gap-2 shrink-0">
+      <a href="/" class="flex items-center gap-2 shrink-0 -ml-4 md:-ml-8 lg:-ml-12">
         <img src="https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/Name.png"
              alt="Truevence"
              class="nav-logo-img"
-             width="210" height="63"
+             width="280" height="84"
              onerror="this.classList.add('is-broken')">
         <span class="nav-logo-fallback">TRUEVENCE</span>
       </a>
@@ -610,7 +614,7 @@
       </button>
     </div>
   </div>
-  <div id="mobileMenu" class="lg:hidden hidden border-t border-ink/10 bg-paper">
+  <div id="mobileMenu" class="lg:hidden hidden border-t border-ink/10 bg-white">
     <div class="px-6 py-6 flex flex-col gap-5 font-display font-semibold text-navy">
       <a href="/" class="mobile-link">Home</a>
       <a href="/services" class="mobile-link">Services</a>
@@ -856,7 +860,6 @@
       <div class="panel-left">
         <div class="panel-kicker">The Solution</div>
         <h1 class="panel-title">TRUE<br>VENCE</h1>
-        <!-- Added content below to fill the hollow space -->
         <p style="font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.6; margin-top: 24px; max-width: 320px;">
           We combine a pan-India physical verification network with direct digital access to primary sources — delivering a single, audit-ready report that tells you the truth behind the resume.
         </p>
@@ -866,7 +869,6 @@
           <li style="display: flex; align-items: center; gap: 8px;"><span style="color: #A78BFA;">✓</span> Criminal &amp; Court Records</li>
           <li style="display: flex; align-items: center; gap: 8px;"><span style="color: #A78BFA;">✓</span> Professional References</li>
         </ul>
-        <!-- End added content -->
         <div class="panel-footer">Background verification platform · Pan-India · Est. 2026</div>
       </div>
       <div class="panel-right">
@@ -979,11 +981,6 @@
           <span>Expert Insights</span>
         </div>
       </div>
-      <!-- 
-        IMPORTANT: This form does NOT store data anywhere. 
-        You must add a backend service (e.g., Formspree, Netlify, or your own API) 
-        to actually receive emails. Add the action attribute pointing to your service endpoint.
-      -->
       <form class="news-form" id="newsForm" data-reveal="right" action="#" method="POST">
         <label for="newsEmail">Work Email</label>
         <input id="newsEmail" name="email" type="email" required placeholder="you@company.com">
@@ -1067,11 +1064,6 @@
           </a>
         </div>
       </div>
-      <!-- 
-        IMPORTANT: This form does NOT store data anywhere. 
-        You must add a backend service (e.g., Formspree, Netlify, or your own API) 
-        to actually receive emails. Add the action attribute pointing to your service endpoint.
-      -->
       <form class="contact-form" id="contactForm" novalidate data-reveal="right" action="#" method="POST">
         <div class="form-row">
           <div><label for="fname">Full Name</label><input required id="fname" name="name" type="text" placeholder="Your name"></div>
@@ -1146,7 +1138,6 @@
       </div>
     </div>
 
-    <!-- Footer Bottom Bar: Single border line (the only one), tightened spacing -->
     <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 border-t border-white/10 mt-10">
       <p class="text-white/40 text-xs">&copy; <span id="year"></span> Truevence. All rights reserved.</p>
       <p class="font-mono-ui text-[11px] text-white/30">Simply Certain</p>
@@ -1257,13 +1248,6 @@
     }
   }
 
-  // --- FORM HANDLING ---
-  // WARNING: This script does NOT store data anywhere. 
-  // It only shows a success message. 
-  // To actually receive emails, you must connect these forms to a backend service
-  // (e.g., Formspree, Netlify, or your own API) by setting the 'action' attribute
-  // on the form element and ensuring the backend sends emails to no-reply@truevence.in
-
   var newsForm = tv2.querySelector('#newsForm');
   var newsNote = tv2.querySelector('#newsNote');
   if (newsForm && newsNote) {
@@ -1271,8 +1255,6 @@
       e.preventDefault();
       var email = tv2.querySelector('#newsEmail').value.trim();
       if (!email) return;
-      
-      // Simulate submission (Replace this with actual fetch to your backend)
       newsNote.textContent = "Thank you — you're on the list.";
       newsNote.classList.add('ok');
       newsForm.reset();
@@ -1291,14 +1273,11 @@
       var name = tv2.querySelector('#fname').value.trim();
       var email = tv2.querySelector('#email').value.trim();
       var message = tv2.querySelector('#message').value.trim();
-      
       if (!name || !email || !message) {
         formNote.textContent = 'Please fill in all required fields.';
         formNote.className = 'form-note error';
         return;
       }
-
-      // Simulate submission (Replace this with actual fetch to your backend)
       formNote.textContent = 'Request sent! We will get back to you within one business day.';
       formNote.className = 'form-note success';
       contactForm.reset();
