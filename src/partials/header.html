@@ -1,3 +1,8 @@
+<!-- ============================================================
+     SHARED HEADER — single source of truth
+     Used by: every page via /partials/header.html fetch
+     ============================================================ -->
+
 <!-- Cookie Consent Banner -->
 <div id="cookieConsent" class="cookie-banner">
   <p class="cookie-text">
@@ -20,19 +25,21 @@
 </div>
 
 <!-- ============ NAVBAR ============ -->
-<header class="fixed top-0 left-0 right-0 z-50 nav-glass nav-glass-white">
+<header class="fixed top-0 left-0 right-0 z-50 nav-glass">
   <div class="section-container">
-    <div class="flex items-center justify-between h-[76px]">
-      <a href="/index.html" class="flex items-center gap-2 shrink-0 -ml-4 md:-ml-8 lg:-ml-12">
-        <img src="https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/ChatGPT%20Image%20Jul%2018%2C%202026%2C%2009_59_12%20PM.png"
-             alt="Truevence"
+    <div class="flex items-center justify-between h-[88px]">
+
+      <!-- Logo — bigger, shifted left -->
+      <a href="/index.html" class="flex items-center gap-2 shrink-0 -ml-4 md:-ml-8 lg:-ml-14">
+        <img src="https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/Name.png"
+             alt="Truevence — Background Verification Company in India"
              class="nav-logo-img"
-             width="280" height="84"
+             width="320" height="96"
              onerror="this.classList.add('is-broken')">
         <span class="nav-logo-fallback">TRUEVENCE</span>
       </a>
 
-      <nav class="hidden lg:flex items-center gap-9 font-display text-[14px] font-semibold tracking-wide text-navy">
+      <nav class="hidden lg:flex items-center gap-8 font-display text-[13.5px] font-semibold tracking-wide text-navy">
         <a href="/index.html" class="hover:text-violet transition-colors">Home</a>
         <a href="/services.html" class="hover:text-violet transition-colors">Services</a>
         <a href="/products/" class="hover:text-violet transition-colors">Products</a>
