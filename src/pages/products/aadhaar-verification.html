@@ -82,7 +82,7 @@ button{font:inherit; color:inherit; background:none; border:0; cursor:none; padd
 ::selection{background:var(--violet); color:var(--ink);}
 ::-webkit-scrollbar{width:0; height:0;}
 
-/* AMBIENT — no grid, just soft aurora */
+/* AMBIENT */
 #bg-canvas{position:fixed; inset:0; z-index:0; pointer-events:none;}
 .ambient{
   position:fixed; inset:0; z-index:1;
@@ -98,7 +98,6 @@ button{font:inherit; color:inherit; background:none; border:0; cursor:none; padd
   0%{transform:scale(1) translate(0,0);}
   100%{transform:scale(1.06) translate(-1.5%,1%);}
 }
-
 .scanlines{
   position:fixed; inset:0; z-index:2;
   pointer-events:none;
@@ -329,7 +328,7 @@ body.hot .cursor-dot{background:var(--cyan); box-shadow:0 0 12px var(--cyan), 0 
 main{position:relative; z-index:10;}
 section{
   position:relative;
-  padding:clamp(90px, 13vh, 170px) clamp(20px, 5vw, 80px);
+  padding:clamp(80px, 11vh, 140px) clamp(20px, 5vw, 80px);
   overflow:hidden;
 }
 .wrap{max-width:1400px; width:100%; margin:0 auto; position:relative;}
@@ -347,14 +346,14 @@ section{
 .sec-tag .bar{width:28px; height:1px; background:currentColor; opacity:.4;}
 
 /* ============================================================
-   HERO — RADIAL VERIFICATION MAP
+   HERO
    ============================================================ */
 .hero{
   padding-top:150px;
-  padding-bottom:80px;
-  min-height:100vh;
+  padding-bottom:clamp(60px, 8vh, 100px);
   display:flex;
-  align-items:center;
+  flex-direction:column;
+  justify-content:center;
   isolation:isolate;
 }
 .hero::before{
@@ -373,10 +372,9 @@ section{
   align-items:center;
 }
 @media (min-width:1050px){
-  .hero .wrap{grid-template-columns:1fr 1.1fr;}
+  .hero .wrap{grid-template-columns:1fr 1.05fr; gap:clamp(40px, 5vw, 80px);}
 }
 
-/* Left copy */
 .hero-copy{max-width:560px;}
 
 .crumbs{
@@ -417,9 +415,9 @@ section{
 .hero-title{
   font-family:'Space Grotesk',sans-serif;
   font-weight:500;
-  font-size:clamp(2.4rem, 5.8vw, 5rem);
+  font-size:clamp(2.4rem, 5.6vw, 4.8rem);
   letter-spacing:-.05em;
-  line-height:.98;
+  line-height:1;
   color:#fff;
   margin-bottom:28px;
 }
@@ -439,7 +437,7 @@ section{
   50%{background-position:100% 50%;}
 }
 .hero-sub{
-  font-size:clamp(15px, 1.3vw, 17.5px);
+  font-size:clamp(15px, 1.3vw, 17px);
   line-height:1.75;
   color:rgba(255,255,255,.62);
   max-width:52ch;
@@ -492,12 +490,12 @@ section{
 .cta-ghost:hover{color:var(--mint); border-color:var(--mint); gap:14px;}
 .cta-ghost::after{content:'↗'; font-size:13px;}
 
-/* Radial verification map (right side) */
+/* Radial verification map */
 .radial-map{
   position:relative;
   width:100%;
   aspect-ratio:1 / 1;
-  max-width:600px;
+  max-width:560px;
   margin:0 auto;
   display:grid;
   place-items:center;
@@ -565,7 +563,7 @@ section{
 .seal-inner .num{
   font-family:'Space Grotesk',sans-serif;
   font-weight:500;
-  font-size:clamp(1.6rem, 2.6vw, 2.4rem);
+  font-size:clamp(1.5rem, 2.4vw, 2.2rem);
   letter-spacing:-.04em;
   line-height:1;
   color:#fff;
@@ -592,7 +590,7 @@ section{
   transition:transform .5s var(--ease-out);
 }
 .node .node-orb{
-  width:64px; height:64px;
+  width:60px; height:60px;
   border-radius:50%;
   background:
     radial-gradient(circle at 50% 30%, rgba(139,109,255,.28), rgba(12,12,20,.9) 75%);
@@ -604,7 +602,7 @@ section{
   transition:all .6s var(--ease-out);
   position:relative;
 }
-.node .node-orb svg{width:24px; height:24px;}
+.node .node-orb svg{width:22px; height:22px;}
 .node .node-orb::after{
   content:'';
   position:absolute;
@@ -614,10 +612,10 @@ section{
   transition:border-color .6s var(--ease-out);
 }
 .node .node-label{
-  margin-top:12px;
+  margin-top:10px;
   font-family:'Space Grotesk',sans-serif;
   font-weight:500;
-  font-size:12.5px;
+  font-size:12px;
   letter-spacing:-.01em;
   color:rgba(255,255,255,.72);
   transition:color .4s;
@@ -625,7 +623,7 @@ section{
   line-height:1.25;
 }
 .node .node-time{
-  margin-top:5px;
+  margin-top:4px;
   font-family:'JetBrains Mono',monospace;
   font-size:9px;
   letter-spacing:.18em;
@@ -634,31 +632,31 @@ section{
   transition:color .4s;
 }
 
-.node.n1{transform:translate(-50%,-50%) translate(0, -180px);}
-.node.n2{transform:translate(-50%,-50%) translate(170px, -55px);}
-.node.n3{transform:translate(-50%,-50%) translate(105px, 145px);}
-.node.n4{transform:translate(-50%,-50%) translate(-105px, 145px);}
-.node.n5{transform:translate(-50%,-50%) translate(-170px, -55px);}
+.node.n1{transform:translate(-50%,-50%) translate(0, -170px);}
+.node.n2{transform:translate(-50%,-50%) translate(160px, -52px);}
+.node.n3{transform:translate(-50%,-50%) translate(100px, 138px);}
+.node.n4{transform:translate(-50%,-50%) translate(-100px, 138px);}
+.node.n5{transform:translate(-50%,-50%) translate(-160px, -52px);}
 
 @media (max-width:1050px){
-  .radial-map{max-width:520px;}
-  .node.n1{transform:translate(-50%,-50%) translate(0,-160px);}
-  .node.n2{transform:translate(-50%,-50%) translate(150px,-50px);}
-  .node.n3{transform:translate(-50%,-50%) translate(92px,130px);}
-  .node.n4{transform:translate(-50%,-50%) translate(-92px,130px);}
-  .node.n5{transform:translate(-50%,-50%) translate(-150px,-50px);}
+  .radial-map{max-width:480px;}
+  .node.n1{transform:translate(-50%,-50%) translate(0,-148px);}
+  .node.n2{transform:translate(-50%,-50%) translate(140px,-46px);}
+  .node.n3{transform:translate(-50%,-50%) translate(86px,122px);}
+  .node.n4{transform:translate(-50%,-50%) translate(-86px,122px);}
+  .node.n5{transform:translate(-50%,-50%) translate(-140px,-46px);}
 }
 @media (max-width:520px){
-  .radial-map{max-width:380px;}
-  .node{width:90px;}
-  .node .node-orb{width:48px; height:48px;}
-  .node .node-orb svg{width:18px; height:18px;}
-  .node .node-label{font-size:10.5px; max-width:80px;}
-  .node.n1{transform:translate(-50%,-50%) translate(0,-120px);}
-  .node.n2{transform:translate(-50%,-50%) translate(115px,-38px);}
-  .node.n3{transform:translate(-50%,-50%) translate(70px,98px);}
-  .node.n4{transform:translate(-50%,-50%) translate(-70px,98px);}
-  .node.n5{transform:translate(-50%,-50%) translate(-115px,-38px);}
+  .radial-map{max-width:340px;}
+  .node{width:86px;}
+  .node .node-orb{width:44px; height:44px;}
+  .node .node-orb svg{width:16px; height:16px;}
+  .node .node-label{font-size:10px; max-width:78px;}
+  .node.n1{transform:translate(-50%,-50%) translate(0,-108px);}
+  .node.n2{transform:translate(-50%,-50%) translate(104px,-34px);}
+  .node.n3{transform:translate(-50%,-50%) translate(64px,88px);}
+  .node.n4{transform:translate(-50%,-50%) translate(-64px,88px);}
+  .node.n5{transform:translate(-50%,-50%) translate(-104px,-34px);}
 }
 
 .node.active .node-orb{
@@ -697,11 +695,13 @@ section{
 }
 
 .hero-rail{
-  margin-top:60px;
+  margin-top:clamp(60px, 8vh, 100px);
   display:grid;
   grid-template-columns:repeat(5, 1fr);
   border-top:1px solid var(--line);
   border-bottom:1px solid var(--line);
+  position:relative;
+  z-index:3;
 }
 @media (max-width:900px){
   .hero-rail{grid-template-columns:repeat(2, 1fr);}
@@ -710,7 +710,7 @@ section{
   .hero-rail{grid-template-columns:1fr;}
 }
 .hero-rail .cell{
-  padding:20px 22px;
+  padding:22px 24px;
   border-right:1px solid var(--line);
   display:flex;
   flex-direction:column;
@@ -755,9 +755,9 @@ section{
 .sec-head h2{
   font-family:'Space Grotesk',sans-serif;
   font-weight:500;
-  font-size:clamp(1.9rem, 3.6vw, 3rem);
+  font-size:clamp(1.8rem, 3.4vw, 2.8rem);
   letter-spacing:-.04em;
-  line-height:1.06;
+  line-height:1.08;
   color:var(--ink);
   margin-top:22px;
   max-width:24ch;
@@ -769,7 +769,7 @@ section{
   color:var(--violet);
 }
 .sec-head .lede{
-  font-size:15.5px;
+  font-size:15px;
   line-height:1.7;
   color:var(--ink-2);
   max-width:64ch;
@@ -777,7 +777,8 @@ section{
 }
 
 /* ============================================================
-   WHY VERIFY — single radial infographic (no cards, no grid)
+   WHY VERIFY — rebuilt as split layout:
+   fixed-size wheel on the left, aligned numbered stack on the right.
    ============================================================ */
 .why{
   background:var(--bg-2);
@@ -785,26 +786,45 @@ section{
   border-bottom:1px solid var(--line);
 }
 
-.why-figure{
-  position:relative;
-  width:100%;
-  max-width:1200px;
-  margin:0 auto;
-  aspect-ratio:1.55 / 1;
-  min-height:560px;
+.why-layout{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:clamp(48px, 6vw, 80px);
+  align-items:center;
+}
+@media (min-width:960px){
+  .why-layout{
+    grid-template-columns:minmax(0, 420px) minmax(0, 1fr);
+    gap:clamp(48px, 6vw, 96px);
+    align-items:start;
+  }
 }
 
-/* The great wheel — center hub with 6 reasons orbiting */
+/* Left: fixed-size wheel, self contained */
 .why-wheel{
-  position:absolute;
-  inset:0;
+  position:relative;
+  width:100%;
+  max-width:420px;
+  aspect-ratio:1 / 1;
+  margin:0 auto;
   display:grid;
   place-items:center;
 }
 
+.why-ring{
+  position:absolute;
+  top:50%; left:50%;
+  transform:translate(-50%,-50%);
+  border-radius:50%;
+  border:1px solid rgba(139,109,255,.14);
+  pointer-events:none;
+}
+.why-ring.a{width:52%; height:52%; border-style:dashed; opacity:.55; animation:ringSpin 90s linear infinite;}
+.why-ring.b{width:86%; height:86%; opacity:.32; animation:ringSpin 120s linear infinite reverse;}
+
 .why-hub{
   position:relative;
-  width:clamp(160px, 22%, 230px);
+  width:44%;
   aspect-ratio:1;
   border-radius:50%;
   display:grid;
@@ -825,159 +845,192 @@ section{
   border-radius:50%;
   border:1px solid rgba(167,139,250,.35);
 }
-.why-hub::before{inset:-18px; animation:sealPulse 4s ease-out infinite;}
-.why-hub::after{inset:-36px; animation:sealPulse 4s ease-out infinite 1.1s;}
+.why-hub::before{inset:-14px; animation:sealPulse 4s ease-out infinite;}
+.why-hub::after{inset:-28px; animation:sealPulse 4s ease-out infinite 1.1s;}
 .why-hub .hub-k{
   font-family:'JetBrains Mono',monospace;
   font-size:9px;
   letter-spacing:.26em;
   text-transform:uppercase;
   color:var(--mint);
-  margin-bottom:8px;
+  margin-bottom:6px;
 }
 .why-hub .hub-v{
   font-family:'Space Grotesk',sans-serif;
   font-weight:500;
-  font-size:clamp(1.3rem, 2.2vw, 1.9rem);
+  font-size:clamp(1.1rem, 1.8vw, 1.5rem);
   letter-spacing:-.035em;
   line-height:1;
   color:#fff;
 }
 .why-hub .hub-s{
   font-family:'JetBrains Mono',monospace;
-  font-size:8.5px;
+  font-size:8px;
   letter-spacing:.24em;
   text-transform:uppercase;
   color:rgba(255,255,255,.5);
-  margin-top:8px;
+  margin-top:6px;
 }
 
-/* Rings behind wheel */
-.why-ring{
+/* Six satellites placed on a clean 6-point hexagon around the hub */
+.why-sat{
   position:absolute;
   top:50%; left:50%;
-  transform:translate(-50%,-50%);
+  width:52px; height:52px;
+  margin:-26px 0 0 -26px;
   border-radius:50%;
-  border:1px solid rgba(139,109,255,.14);
-  pointer-events:none;
+  display:grid;
+  place-items:center;
+  background:rgba(12,12,20,.95);
+  border:1px solid rgba(139,109,255,.35);
+  color:var(--violetlt, #A78BFA);
+  z-index:4;
+  transition:all .5s var(--ease-out);
 }
-.why-ring.a{width:44%; height:44%; border-style:dashed; opacity:.6; animation:ringSpin 90s linear infinite;}
-.why-ring.b{width:74%; height:74%; opacity:.35; animation:ringSpin 120s linear infinite reverse;}
-
-/* The 6 reasons — positioned around the wheel as labeled spokes */
-.why-spoke{
+.why-sat svg{width:20px; height:20px;}
+.why-sat .sat-num{
   position:absolute;
-  top:50%; left:50%;
-  width:min(210px, 22%);
-  transform:translate(-50%,-50%);
+  top:-6px; right:-6px;
+  width:18px; height:18px;
+  border-radius:50%;
+  background:var(--bg-2);
+  border:1px solid rgba(139,109,255,.5);
+  display:grid; place-items:center;
+  font-family:'JetBrains Mono',monospace;
+  font-size:8.5px;
+  font-weight:700;
+  color:var(--violetlt, #A78BFA);
+  letter-spacing:0;
+}
+.why-sat.on{
+  border-color:var(--mint);
+  color:var(--mint);
+  box-shadow:0 0 22px rgba(16,232,156,.45);
+  transform:scale(1.08);
+}
+.why-sat.on .sat-num{
+  border-color:var(--mint);
+  color:var(--mint);
+}
+
+/* Hexagon positions — 6 points, all inside the wheel */
+.why-sat.s1{transform:translate(0, -152px);}
+.why-sat.s2{transform:translate(132px, -76px);}
+.why-sat.s3{transform:translate(132px, 76px);}
+.why-sat.s4{transform:translate(0, 152px);}
+.why-sat.s5{transform:translate(-132px, 76px);}
+.why-sat.s6{transform:translate(-132px, -76px);}
+
+.why-sat.on.s1{transform:translate(0, -152px) scale(1.08);}
+.why-sat.on.s2{transform:translate(132px, -76px) scale(1.08);}
+.why-sat.on.s3{transform:translate(132px, 76px) scale(1.08);}
+.why-sat.on.s4{transform:translate(0, 152px) scale(1.08);}
+.why-sat.on.s5{transform:translate(-132px, 76px) scale(1.08);}
+.why-sat.on.s6{transform:translate(-132px, -76px) scale(1.08);}
+
+@media (max-width:1050px){
+  .why-wheel{max-width:340px;}
+  .why-sat{width:46px; height:46px; margin:-23px 0 0 -23px;}
+  .why-sat svg{width:18px; height:18px;}
+  .why-sat.s1{transform:translate(0, -124px);}
+  .why-sat.s2{transform:translate(107px, -62px);}
+  .why-sat.s3{transform:translate(107px, 62px);}
+  .why-sat.s4{transform:translate(0, 124px);}
+  .why-sat.s5{transform:translate(-107px, 62px);}
+  .why-sat.s6{transform:translate(-107px, -62px);}
+}
+
+/* Right: numbered reasons on a spine — text only, no boxes */
+.why-list{
+  position:relative;
+  padding-left:56px;
   display:flex;
   flex-direction:column;
-  gap:8px;
-  z-index:4;
-  transition:transform .6s var(--ease-out);
+  gap:34px;
 }
-.why-spoke .spoke-k{
+.why-list::before{
+  content:'';
+  position:absolute;
+  left:19px; top:14px; bottom:14px;
+  width:1px;
+  background:linear-gradient(180deg, rgba(16,232,156,.55), rgba(139,109,255,.35), rgba(139,109,255,.08));
+}
+
+.why-reason{
+  position:relative;
+  display:block;
+  transition:transform .5s var(--ease-out);
+}
+.why-reason:hover{transform:translateX(3px);}
+
+.why-reason .r-dot{
+  position:absolute;
+  left:-56px; top:2px;
+  width:40px; height:40px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:rgba(12,12,20,.98);
+  border:1px solid rgba(139,109,255,.42);
+  color:var(--violetlt, #A78BFA);
   font-family:'JetBrains Mono',monospace;
-  font-size:9px;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:0;
+  transition:all .5s var(--ease-out);
+}
+.why-reason:hover .r-dot,
+.why-reason.on .r-dot{
+  border-color:var(--mint);
+  color:var(--mint);
+  box-shadow:0 0 22px rgba(16,232,156,.4);
+}
+
+.why-reason .r-kicker{
+  font-family:'JetBrains Mono',monospace;
+  font-size:9.5px;
   letter-spacing:.22em;
   text-transform:uppercase;
   color:var(--violetlt, #A78BFA);
+  display:block;
+  margin-bottom:6px;
 }
-.why-spoke .spoke-h{
+.why-reason h3{
   font-family:'Space Grotesk',sans-serif;
   font-weight:500;
-  font-size:15px;
+  font-size:17px;
   letter-spacing:-.02em;
-  line-height:1.2;
+  line-height:1.25;
   color:#fff;
+  margin-bottom:8px;
 }
-.why-spoke .spoke-p{
-  font-size:12.5px;
-  line-height:1.6;
+.why-reason p{
+  font-size:13.5px;
+  line-height:1.7;
   color:var(--ink-3);
-  max-width:24ch;
-}
-.why-spoke .spoke-ico{
-  width:34px; height:34px;
-  display:grid; place-items:center;
-  border:1px solid rgba(139,109,255,.4);
-  border-radius:50%;
-  color:var(--mint);
-  background:rgba(12,12,20,.7);
-  transition:all .5s var(--ease-out);
+  max-width:56ch;
 }
 
-/* Spoke positions — 6 around center, offset outward so text doesn't cover hub */
-.why-spoke.s1{transform:translate(-50%,-50%) translate(0, -240px); text-align:center; align-items:center;}
-.why-spoke.s2{transform:translate(-50%,-50%) translate(280px, -120px); text-align:left; align-items:flex-start;}
-.why-spoke.s3{transform:translate(-50%,-50%) translate(280px, 130px); text-align:left; align-items:flex-start;}
-.why-spoke.s4{transform:translate(-50%,-50%) translate(0, 250px); text-align:center; align-items:center;}
-.why-spoke.s5{transform:translate(-50%,-50%) translate(-280px, 130px); text-align:right; align-items:flex-end;}
-.why-spoke.s6{transform:translate(-50%,-50%) translate(-280px, -120px); text-align:right; align-items:flex-end;}
-.why-spoke.s5 .spoke-p, .why-spoke.s6 .spoke-p{text-align:right;}
-
-.why-spoke:hover .spoke-ico{
-  border-color:var(--mint);
-  box-shadow:0 0 20px rgba(16,232,156,.35);
-  transform:translateY(-2px);
+@media (max-width:960px){
+  .why-wheel{max-width:300px;}
+  .why-sat{width:42px; height:42px; margin:-21px 0 0 -21px;}
+  .why-sat svg{width:16px; height:16px;}
+  .why-sat .sat-num{width:16px; height:16px; font-size:8px;}
+  .why-sat.s1{transform:translate(0, -110px);}
+  .why-sat.s2{transform:translate(95px, -55px);}
+  .why-sat.s3{transform:translate(95px, 55px);}
+  .why-sat.s4{transform:translate(0, 110px);}
+  .why-sat.s5{transform:translate(-95px, 55px);}
+  .why-sat.s6{transform:translate(-95px, -55px);}
 }
-
-/* connector hairlines from hub to each spoke */
-.why-connectors{
-  position:absolute; inset:0;
-  width:100%; height:100%;
-  pointer-events:none;
-  z-index:2;
-}
-.why-connectors line{
-  stroke:rgba(139,109,255,.22);
-  stroke-width:1;
-  stroke-dasharray:3 5;
-}
-.why-connectors line.active{
-  stroke:var(--mint);
-  animation:arcDash 2.4s linear infinite;
-}
-
-@media (max-width:1050px){
-  .why-figure{aspect-ratio:1.3 / 1; min-height:640px;}
-  .why-spoke{width:min(190px, 26%);}
-  .why-spoke.s1{transform:translate(-50%,-50%) translate(0, -220px);}
-  .why-spoke.s2{transform:translate(-50%,-50%) translate(240px, -110px);}
-  .why-spoke.s3{transform:translate(-50%,-50%) translate(240px, 120px);}
-  .why-spoke.s4{transform:translate(-50%,-50%) translate(0, 230px);}
-  .why-spoke.s5{transform:translate(-50%,-50%) translate(-240px, 120px);}
-  .why-spoke.s6{transform:translate(-50%,-50%) translate(-240px, -110px);}
-}
-@media (max-width:820px){
-  .why-figure{aspect-ratio:auto; min-height:0; display:block;}
-  .why-wheel{position:relative; inset:auto; display:block;}
-  .why-hub{
-    position:relative;
-    margin:0 auto 40px;
-  }
-  .why-ring, .why-connectors{display:none;}
-  .why-spoke{
-    position:relative;
-    top:auto; left:auto;
-    width:100%;
-    max-width:520px;
-    margin:0 auto 28px;
-    transform:none !important;
-    text-align:left !important;
-    align-items:flex-start !important;
-    padding-left:52px;
-    border-left:1px solid var(--line);
-  }
-  .why-spoke .spoke-ico{
-    position:absolute;
-    left:-17px; top:0;
-  }
-  .why-spoke .spoke-p{max-width:none; text-align:left;}
+@media (max-width:560px){
+  .why-list{padding-left:44px; gap:28px;}
+  .why-list::before{left:15px;}
+  .why-reason .r-dot{left:-44px; width:32px; height:32px; font-size:10px;}
 }
 
 /* ============================================================
-   HOW IT WORKS — one continuous flow diagram, annotated inline
+   HOW IT WORKS — one continuous flow diagram
    ============================================================ */
 .how{ background:var(--bg); }
 
@@ -1048,7 +1101,7 @@ section{
 }
 
 /* ============================================================
-   SPLIT — Manual vs API as one shared infographic canvas
+   SPLIT — Manual vs API
    ============================================================ */
 .split{
   background:var(--bg-2);
@@ -1073,7 +1126,6 @@ section{
 }
 @media (min-width:900px){ .split-seam{display:block;} }
 
-/* Each method is a vertical infographic: glyph header, then a spine of nodes */
 .method{
   position:relative;
   display:flex;
@@ -1120,7 +1172,6 @@ section{
   color:var(--mint);
 }
 
-/* Spine of nodes instead of a list */
 .spine{
   position:relative;
   padding-left:34px;
@@ -1181,14 +1232,14 @@ section{
 }
 
 /* ============================================================
-   AUDIENCE — single SVG sector map (fallback grid removed)
+   AUDIENCE
    ============================================================ */
 .audience{
   background:var(--bg);
 }
 .audience-map{
   position:relative;
-  max-width:1200px;
+  max-width:1080px;
   margin:0 auto;
 }
 .audience-svg{
@@ -1261,7 +1312,7 @@ section{
 }
 
 /* ============================================================
-   COMPLIANCE — horizontal band infographic, no cards
+   COMPLIANCE
    ============================================================ */
 .compliance{
   background:var(--bg-2);
@@ -1325,7 +1376,7 @@ section{
 }
 
 /* ============================================================
-   RETENTION — lifecycle ring + borderless timeline
+   RETENTION
    ============================================================ */
 .retention{
   background:var(--bg);
@@ -1341,7 +1392,7 @@ section{
 }
 .lifecycle-svg{
   width:100%;
-  max-width:520px;
+  max-width:500px;
   margin:0 auto;
   display:block;
 }
@@ -1404,7 +1455,6 @@ section{
   text-anchor:middle;
 }
 
-/* Borderless timeline — no list borders, just a spine */
 .lifecycle-timeline{
   position:relative;
   padding-left:38px;
@@ -1492,9 +1542,9 @@ section{
 .closing h2{
   font-family:'Space Grotesk',sans-serif;
   font-weight:500;
-  font-size:clamp(1.9rem, 5vw, 4rem);
+  font-size:clamp(1.9rem, 4.6vw, 3.6rem);
   letter-spacing:-.05em;
-  line-height:1.04;
+  line-height:1.05;
   color:var(--ink);
   max-width:20ch;
 }
@@ -1618,8 +1668,8 @@ footer::before{
 }
 @media (max-width:640px){
   body{font-size:14.5px;}
-  section{padding:80px 20px;}
-  .hero{padding-top:120px; padding-bottom:60px; min-height:auto;}
+  section{padding:70px 20px;}
+  .hero{padding-top:120px; padding-bottom:60px;}
 }
 </style>
 </head>
@@ -1688,7 +1738,7 @@ footer::before{
 
 <main>
 
-  <!-- ============ HERO — RADIAL VERIFICATION MAP ============ -->
+  <!-- ============ HERO ============ -->
   <section class="hero" id="hero" data-stage="IDN-001">
     <div class="wrap">
 
@@ -1822,7 +1872,7 @@ footer::before{
     </div>
   </section>
 
-  <!-- ============ WHY VERIFY — single radial infographic ============ -->
+  <!-- ============ WHY VERIFY — rebuilt ============ -->
   <section class="why" id="why" data-stage="Why Verify">
     <div class="wrap">
       <div class="sec-head reveal">
@@ -1833,18 +1883,10 @@ footer::before{
         </div>
       </div>
 
-      <div class="why-figure reveal" id="whyFigure">
-        <div class="why-wheel">
+      <div class="why-layout reveal">
 
-          <svg class="why-connectors" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-            <line data-line="1" x1="50" y1="50" x2="50" y2="10"/>
-            <line data-line="2" x1="50" y1="50" x2="88" y2="28"/>
-            <line data-line="3" x1="50" y1="50" x2="88" y2="76"/>
-            <line data-line="4" x1="50" y1="50" x2="50" y2="90"/>
-            <line data-line="5" x1="50" y1="50" x2="12" y2="76"/>
-            <line data-line="6" x1="50" y1="50" x2="12" y2="28"/>
-          </svg>
-
+        <!-- LEFT: clean hex wheel, self-contained -->
+        <div class="why-wheel" id="whyWheel" aria-hidden="true">
           <div class="why-ring a"></div>
           <div class="why-ring b"></div>
 
@@ -1856,66 +1898,77 @@ footer::before{
             </div>
           </div>
 
-          <div class="why-spoke s1" data-spoke="1">
-            <div class="spoke-ico">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/></svg>
-            </div>
-            <span class="spoke-k">01 · Fraud</span>
-            <h3 class="spoke-h">Prevents identity fraud</h3>
-            <p class="spoke-p">Synthetic identities, borrowed documents and impersonation attempts get caught before onboarding.</p>
+          <div class="why-sat s1" data-sat="1">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/></svg>
+            <span class="sat-num">1</span>
           </div>
-
-          <div class="why-spoke s2" data-spoke="2">
-            <div class="spoke-ico">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 12l2 2 4-4"/><path d="M21 12c0 5-4 9-9 9s-9-4-9-9 4-9 9-9 9 4 9 9z"/></svg>
-            </div>
-            <span class="spoke-k">02 · KYC</span>
-            <h3 class="spoke-h">Regulatory compliance</h3>
-            <p class="spoke-p">Meets statutory KYC for BFSI, telecom and healthcare, with audit ready records.</p>
+          <div class="why-sat s2" data-sat="2">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 12l2 2 4-4"/><path d="M21 12c0 5-4 9-9 9s-9-4-9-9 4-9 9-9 9 4 9 9z"/></svg>
+            <span class="sat-num">2</span>
           </div>
-
-          <div class="why-spoke s3" data-spoke="3">
-            <div class="spoke-ico">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.4"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M15 20c0-2.2 1.6-4 4-4"/></svg>
-            </div>
-            <span class="spoke-k">03 · Trust</span>
-            <h3 class="spoke-h">Trustworthy profiles</h3>
-            <p class="spoke-p">A verified employee database from day one. Every downstream check inherits the confidence.</p>
+          <div class="why-sat s3" data-sat="3">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.4"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M15 20c0-2.2 1.6-4 4-4"/></svg>
+            <span class="sat-num">3</span>
           </div>
-
-          <div class="why-spoke s4" data-spoke="4">
-            <div class="spoke-ico">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-            </div>
-            <span class="spoke-k">04 · Speed</span>
-            <h3 class="spoke-h">Same day turnaround</h3>
-            <p class="spoke-p">One to two hours on average, from consent to signed report. Built for three day offer windows.</p>
+          <div class="why-sat s4" data-sat="4">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            <span class="sat-num">4</span>
           </div>
-
-          <div class="why-spoke s5" data-spoke="5">
-            <div class="spoke-ico">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M8 15h8"/></svg>
-            </div>
-            <span class="spoke-k">05 · Signal</span>
-            <h3 class="spoke-h">Confidence band</h3>
-            <p class="spoke-p">Match or no match with a confidence band, so edge cases get reviewed, not auto-rejected.</p>
+          <div class="why-sat s5" data-sat="5">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M8 15h8"/></svg>
+            <span class="sat-num">5</span>
           </div>
-
-          <div class="why-spoke s6" data-spoke="6">
-            <div class="spoke-ico">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="3"/></svg>
-            </div>
-            <span class="spoke-k">06 · Scale</span>
-            <h3 class="spoke-h">Bulk capable</h3>
-            <p class="spoke-p">One candidate or one thousand. Same rigour, coordinated reporting, no minimum volume.</p>
+          <div class="why-sat s6" data-sat="6">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="3"/></svg>
+            <span class="sat-num">6</span>
           </div>
-
         </div>
+
+        <!-- RIGHT: numbered reasons on a spine -->
+        <div class="why-list" id="whyList">
+          <div class="why-reason" data-reason="1">
+            <div class="r-dot">01</div>
+            <span class="r-kicker">Fraud prevention</span>
+            <h3>Prevents identity fraud</h3>
+            <p>Synthetic identities, borrowed documents and impersonation attempts get caught before the candidate reaches onboarding.</p>
+          </div>
+          <div class="why-reason" data-reason="2">
+            <div class="r-dot">02</div>
+            <span class="r-kicker">Regulatory KYC</span>
+            <h3>Regulatory compliance</h3>
+            <p>Meets statutory KYC requirements for BFSI, telecom, healthcare and any regulated sector hire, with audit ready records.</p>
+          </div>
+          <div class="why-reason" data-reason="3">
+            <div class="r-dot">03</div>
+            <span class="r-kicker">Verified trust</span>
+            <h3>Trustworthy profiles</h3>
+            <p>Build a verified employee database from day one. Every downstream check inherits the confidence of a confirmed identity.</p>
+          </div>
+          <div class="why-reason" data-reason="4">
+            <div class="r-dot">04</div>
+            <span class="r-kicker">Fast turnaround</span>
+            <h3>Same day results</h3>
+            <p>One to two hours on average, from consent to signed report. Critical when the offer to joining window is three days.</p>
+          </div>
+          <div class="why-reason" data-reason="5">
+            <div class="r-dot">05</div>
+            <span class="r-kicker">Signal quality</span>
+            <h3>Confidence band, not yes-no</h3>
+            <p>Every Aadhaar check returns a match or no-match with a confidence band so edge cases get reviewed, not auto-rejected.</p>
+          </div>
+          <div class="why-reason" data-reason="6">
+            <div class="r-dot">06</div>
+            <span class="r-kicker">Bulk ready</span>
+            <h3>Bulk capable</h3>
+            <p>Submit one candidate or one thousand. Same per-candidate rigour, coordinated reporting and no minimum volume commitment.</p>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- ============ HOW IT WORKS — one continuous annotated flow ============ -->
+  <!-- ============ HOW IT WORKS ============ -->
   <section class="how" id="how" data-stage="How It Works">
     <div class="wrap">
       <div class="sec-head reveal">
@@ -1935,11 +1988,9 @@ footer::before{
             </radialGradient>
           </defs>
 
-          <!-- main rail -->
           <path class="track" d="M 120 70 L 880 70"/>
           <path class="track-active" d="M 120 70 L 880 70"/>
 
-          <!-- step 01 -->
           <circle cx="120" cy="70" r="16" fill="url(#stepGlow)" opacity=".6"/>
           <circle class="step-circle" cx="120" cy="70" r="16"/>
           <text class="step-num" x="120" y="74">01</text>
@@ -1952,7 +2003,6 @@ footer::before{
             <tspan x="120" dy="16">the pipeline.</tspan>
           </text>
 
-          <!-- step 02 -->
           <circle cx="500" cy="70" r="16" fill="url(#stepGlow)" opacity=".6"/>
           <circle class="step-circle" cx="500" cy="70" r="16"/>
           <text class="step-num" x="500" y="74">02</text>
@@ -1965,7 +2015,6 @@ footer::before{
             <tspan x="500" dy="16">source, not a reseller.</tspan>
           </text>
 
-          <!-- step 03 -->
           <circle cx="880" cy="70" r="16" fill="url(#stepGlow)" opacity=".6"/>
           <circle class="step-circle" cx="880" cy="70" r="16"/>
           <text class="step-num" x="880" y="74">03</text>
@@ -1982,7 +2031,7 @@ footer::before{
     </div>
   </section>
 
-  <!-- ============ SPLIT — Manual vs API, shared infographic canvas ============ -->
+  <!-- ============ SPLIT ============ -->
   <section class="split" id="split" data-stage="Manual vs API">
     <div class="wrap">
       <div class="sec-head reveal">
@@ -1995,7 +2044,6 @@ footer::before{
 
       <div class="split-figure reveal">
 
-        <!-- Route A -->
         <div class="method">
           <div class="method-head">
             <div class="m-ico">
@@ -2032,7 +2080,6 @@ footer::before{
 
         <div class="split-seam" aria-hidden="true"></div>
 
-        <!-- Route B -->
         <div class="method">
           <div class="method-head">
             <div class="m-ico">
@@ -2072,7 +2119,7 @@ footer::before{
     </div>
   </section>
 
-  <!-- ============ AUDIENCE — single sector map ============ -->
+  <!-- ============ AUDIENCE ============ -->
   <section class="audience" id="audience" data-stage="Who Needs It">
     <div class="wrap">
       <div class="sec-head reveal">
@@ -2084,7 +2131,7 @@ footer::before{
       </div>
 
       <div class="audience-map reveal">
-        <svg class="audience-svg" viewBox="0 0 1000 500" preserveAspectRatio="xMidYMid meet">
+        <svg class="audience-svg" viewBox="0 0 1000 620" preserveAspectRatio="xMidYMid meet">
           <defs>
             <radialGradient id="hubGlow" cx="50%" cy="50%" r="50%">
               <stop offset="0%" stop-color="rgba(139,109,255,.4)"/>
@@ -2092,55 +2139,55 @@ footer::before{
             </radialGradient>
           </defs>
 
-          <circle cx="500" cy="250" r="70" fill="url(#hubGlow)"/>
+          <circle cx="500" cy="310" r="90" fill="url(#hubGlow)"/>
 
-          <path class="spoke active" d="M 500 250 L 180 110"/>
-          <path class="spoke" d="M 500 250 L 820 110"/>
-          <path class="spoke" d="M 500 250 L 500 80"/>
-          <path class="spoke" d="M 500 250 L 180 390"/>
-          <path class="spoke" d="M 500 250 L 820 390"/>
-          <path class="spoke" d="M 500 250 L 500 420"/>
+          <path class="spoke active" d="M 500 310 L 200 140"/>
+          <path class="spoke" d="M 500 310 L 800 140"/>
+          <path class="spoke" d="M 500 310 L 500 100"/>
+          <path class="spoke" d="M 500 310 L 200 480"/>
+          <path class="spoke" d="M 500 310 L 800 480"/>
+          <path class="spoke" d="M 500 310 L 500 540"/>
 
-          <circle class="hub" cx="500" cy="250" r="60"/>
-          <circle class="hub-inner" cx="500" cy="250" r="70"/>
-          <text class="hub-label" x="500" y="240">AADHAAR</text>
-          <text class="hub-title" x="500" y="262">Verified ID</text>
+          <circle class="hub" cx="500" cy="310" r="70"/>
+          <circle class="hub-inner" cx="500" cy="310" r="82"/>
+          <text class="hub-label" x="500" y="300">AADHAAR</text>
+          <text class="hub-title" x="500" y="322">Verified ID</text>
 
-          <circle class="spoke-node" cx="180" cy="110" r="34"/>
-          <path class="spoke-icon" d="M 168 100 l -6 10 l 6 10 M 192 100 l 6 10 l -6 10 M 180 104 l -4 24"/>
-          <text class="spoke-label" x="180" y="175">IT and software</text>
-          <text class="spoke-sub" x="180" y="192">REMOTE · GLOBAL</text>
+          <circle class="spoke-node" cx="200" cy="140" r="38"/>
+          <path class="spoke-icon" d="M 186 128 l -8 12 l 8 12 M 214 128 l 8 12 l -8 12 M 200 132 l -5 28"/>
+          <text class="spoke-label" x="200" y="205">IT and software</text>
+          <text class="spoke-sub" x="200" y="222">REMOTE · GLOBAL</text>
 
-          <circle class="spoke-node" cx="820" cy="110" r="34"/>
-          <path class="spoke-icon" d="M 806 118 l 14 -12 l 14 12 M 810 114 v 12 h 20 v -12"/>
-          <text class="spoke-label" x="820" y="175">BFSI and fintech</text>
-          <text class="spoke-sub" x="820" y="192">KYC · AML</text>
+          <circle class="spoke-node" cx="800" cy="140" r="38"/>
+          <path class="spoke-icon" d="M 784 150 l 16 -14 l 16 14 M 788 146 v 14 h 24 v -14"/>
+          <text class="spoke-label" x="800" y="205">BFSI and fintech</text>
+          <text class="spoke-sub" x="800" y="222">KYC · AML</text>
 
-          <circle class="spoke-node" cx="500" cy="80" r="34"/>
-          <path class="spoke-icon" d="M 500 66 v 28 M 486 80 h 28"/>
-          <text class="spoke-label" x="500" y="45">Healthcare</text>
-          <text class="spoke-sub" x="500" y="28">CREDENTIALED</text>
+          <circle class="spoke-node" cx="500" cy="100" r="38"/>
+          <path class="spoke-icon" d="M 500 84 v 32 M 484 100 h 32"/>
+          <text class="spoke-label" x="500" y="60">Healthcare</text>
+          <text class="spoke-sub" x="500" y="40">CREDENTIALED</text>
 
-          <circle class="spoke-node" cx="180" cy="390" r="34"/>
-          <path class="spoke-icon" d="M 168 380 h 24 v 20 h -24 z M 168 386 h 24"/>
-          <text class="spoke-label" x="180" y="455">Staffing and gig</text>
-          <text class="spoke-sub" x="180" y="472">HIGH VOLUME</text>
+          <circle class="spoke-node" cx="200" cy="480" r="38"/>
+          <path class="spoke-icon" d="M 184 468 h 32 v 24 h -32 z M 184 476 h 32"/>
+          <text class="spoke-label" x="200" y="545">Staffing and gig</text>
+          <text class="spoke-sub" x="200" y="562">HIGH VOLUME</text>
 
-          <circle class="spoke-node" cx="820" cy="390" r="34"/>
-          <path class="spoke-icon" d="M 806 396 l 10 -8 l 10 8 l -10 8 z M 826 400 l 6 -4"/>
-          <text class="spoke-label" x="820" y="455">Retail and logistics</text>
-          <text class="spoke-sub" x="820" y="472">LAST MILE</text>
+          <circle class="spoke-node" cx="800" cy="480" r="38"/>
+          <path class="spoke-icon" d="M 784 486 l 16 -12 l 16 12 l -16 12 z M 810 494 l 8 -6"/>
+          <text class="spoke-label" x="800" y="545">Retail and logistics</text>
+          <text class="spoke-sub" x="800" y="562">LAST MILE</text>
 
-          <circle class="spoke-node" cx="500" cy="420" r="34"/>
-          <path class="spoke-icon" d="M 488 418 l 12 -6 l 12 6 l -12 6 z M 494 424 v 8 h 12 v -8"/>
-          <text class="spoke-label" x="500" y="485">Education</text>
-          <text class="spoke-sub" x="500" y="498">SAFEGUARDING</text>
+          <circle class="spoke-node" cx="500" cy="540" r="38"/>
+          <path class="spoke-icon" d="M 486 538 l 14 -8 l 14 8 l -14 8 z M 492 546 v 10 h 16 v -10"/>
+          <text class="spoke-label" x="500" y="605">Education</text>
+          <text class="spoke-sub" x="500" y="620">SAFEGUARDING</text>
         </svg>
       </div>
     </div>
   </section>
 
-  <!-- ============ COMPLIANCE — horizontal band, no cards ============ -->
+  <!-- ============ COMPLIANCE ============ -->
   <section class="compliance" id="compliance" data-stage="Compliance">
     <div class="wrap">
       <div class="sec-head reveal">
@@ -2199,7 +2246,7 @@ footer::before{
     </div>
   </section>
 
-  <!-- ============ RETENTION — lifecycle ring + borderless timeline ============ -->
+  <!-- ============ RETENTION ============ -->
   <section class="retention" id="retention" data-stage="Data Retention">
     <div class="wrap">
       <div class="sec-head reveal">
@@ -2419,7 +2466,7 @@ footer::before{
     }
     raf();
 
-    var hot = 'a, button, input, textarea, .why-spoke, .spine-node, .comp-col, .lc-beat';
+    var hot = 'a, button, input, textarea, .why-reason, .spine-node, .comp-col, .lc-beat';
     document.addEventListener('mouseover', function(e){
       if (e.target.closest(hot)) document.body.classList.add('hot');
     });
@@ -2467,7 +2514,7 @@ footer::before{
     onScroll();
   })();
 
-  /* HERO RADIAL MAP — cycle nodes + arcs */
+  /* HERO RADIAL MAP */
   (function(){
     var nodes = document.querySelectorAll('.node');
     var arcs = document.querySelectorAll('.radial-arcs path');
@@ -2487,18 +2534,44 @@ footer::before{
     setInterval(step, 2200);
   })();
 
-  /* WHY WHEEL — cycle connector hairlines to feel alive */
+  /* WHY WHEEL — sync satellite highlight with reason list hover/cycle */
   (function(){
-    var lines = document.querySelectorAll('.why-connectors line');
-    if (!lines.length) return;
-    var i = 0;
-    function step(){
-      lines.forEach(function(l){ l.classList.remove('active'); });
-      lines[i].classList.add('active');
-      i = (i + 1) % lines.length;
+    var sats = document.querySelectorAll('.why-sat');
+    var reasons = document.querySelectorAll('.why-reason');
+    if (!sats.length || !reasons.length) return;
+
+    function setActive(i){
+      sats.forEach(function(s){ s.classList.remove('on'); });
+      reasons.forEach(function(r){ r.classList.remove('on'); });
+      if (sats[i]) sats[i].classList.add('on');
+      if (reasons[i]) reasons[i].classList.add('on');
     }
-    step();
-    setInterval(step, 1800);
+
+    /* hover on a reason highlights the matching satellite */
+    reasons.forEach(function(r, i){
+      r.addEventListener('mouseenter', function(){ setActive(i); });
+      r.addEventListener('mouseleave', function(){
+        sats.forEach(function(s){ s.classList.remove('on'); });
+        reasons.forEach(function(rr){ rr.classList.remove('on'); });
+      });
+    });
+
+    /* idle cycle so the wheel always feels alive */
+    var idx = 0;
+    function cycle(){
+      setActive(idx);
+      idx = (idx + 1) % sats.length;
+    }
+    cycle();
+    var timer = setInterval(cycle, 2400);
+
+    /* pause the auto cycle while hovering any reason */
+    reasons.forEach(function(r){
+      r.addEventListener('mouseenter', function(){ clearInterval(timer); });
+      r.addEventListener('mouseleave', function(){
+        timer = setInterval(cycle, 2400);
+      });
+    });
   })();
 
   /* REVEAL */
@@ -2531,7 +2604,7 @@ footer::before{
     });
   });
 
-  /* BACKGROUND CANVAS — subtle particles */
+  /* BACKGROUND CANVAS */
   (function(){
     var canvas = document.getElementById('bg-canvas');
     if (!canvas) return;
