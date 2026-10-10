@@ -686,6 +686,225 @@ section{
 }
 .stream-item:hover .arrow{color:var(--mint); transform:translateX(8px);}
 
+/* ============================================================
+   DIGITAL ADDRESS VERIFICATION (new)
+   ============================================================ */
+.dav{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:48px;
+  align-items:center;
+}
+@media (min-width:1000px){
+  .dav{grid-template-columns:1.25fr 1fr; gap:72px;}
+}
+
+/* video frame */
+.dav-frame{
+  position:relative;
+  isolation:isolate;
+}
+.dav-frame::before{
+  content:'';
+  position:absolute;
+  inset:-8% -6%;
+  background:radial-gradient(ellipse 60% 60% at 50% 50%, rgba(109,74,255,.28), transparent 70%);
+  filter:blur(30px);
+  z-index:-1;
+  pointer-events:none;
+}
+.dav-shell{
+  position:relative;
+  border:1px solid var(--line-2);
+  background:#000;
+  overflow:hidden;
+  clip-path:polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 18px 100%, 0 calc(100% - 18px));
+  box-shadow:
+    0 0 0 1px rgba(139,109,255,.15),
+    0 30px 80px rgba(0,0,0,.55),
+    inset 0 0 60px rgba(109,74,255,.08);
+}
+.dav-shell::after{
+  content:'';
+  position:absolute; inset:0;
+  background:repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 2px,
+    rgba(255,255,255,.025) 2px,
+    rgba(255,255,255,.025) 3px
+  );
+  pointer-events:none;
+  mix-blend-mode:overlay;
+  z-index:3;
+}
+.dav-video{
+  display:block;
+  width:100%;
+  aspect-ratio:16 / 9;
+  object-fit:cover;
+  background:#000;
+  filter:saturate(1.05) contrast(1.05);
+}
+@media (max-width:640px){
+  .dav-video{aspect-ratio:16 / 9;}
+}
+
+/* corner brackets */
+.dav-corner{
+  position:absolute;
+  width:22px; height:22px;
+  border-color:var(--mint);
+  border-style:solid;
+  border-width:0;
+  z-index:4;
+  pointer-events:none;
+  opacity:.9;
+  filter:drop-shadow(0 0 6px rgba(16,232,156,.6));
+}
+.dav-corner.tl{top:12px; left:12px; border-top-width:1.5px; border-left-width:1.5px;}
+.dav-corner.tr{top:12px; right:12px; border-top-width:1.5px; border-right-width:1.5px;}
+.dav-corner.bl{bottom:12px; left:12px; border-bottom-width:1.5px; border-left-width:1.5px;}
+.dav-corner.br{bottom:12px; right:12px; border-bottom-width:1.5px; border-right-width:1.5px;}
+
+/* live feed strip */
+.dav-live{
+  position:absolute;
+  top:14px; left:50%;
+  transform:translateX(-50%);
+  display:inline-flex; align-items:center; gap:10px;
+  padding:6px 12px;
+  background:rgba(7,7,10,.72);
+  border:1px solid var(--line-2);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  border-radius:100px;
+  font-family:'JetBrains Mono',monospace;
+  font-size:9.5px; letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--ink-2);
+  z-index:4;
+  pointer-events:none;
+  white-space:nowrap;
+}
+.dav-live .rec{
+  width:7px; height:7px; border-radius:50%;
+  background:var(--red);
+  box-shadow:0 0 8px var(--red);
+  animation:pulse 1.4s ease-in-out infinite;
+}
+.dav-live .sep{color:var(--ink-4);}
+.dav-live strong{color:var(--mint); font-weight:600;}
+
+/* controls */
+.dav-controls{
+  position:absolute;
+  left:14px; right:14px; bottom:14px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  z-index:5;
+}
+.dav-tag{
+  font-family:'JetBrains Mono',monospace;
+  font-size:9.5px; letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--ink-2);
+  background:rgba(7,7,10,.7);
+  border:1px solid var(--line-2);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  padding:6px 12px;
+  border-radius:100px;
+  display:inline-flex; align-items:center; gap:8px;
+  pointer-events:none;
+  white-space:nowrap;
+}
+.dav-tag .gps{
+  width:6px; height:6px; border-radius:50%;
+  background:var(--cyan);
+  box-shadow:0 0 8px var(--cyan);
+  animation:pulse 2s ease-in-out infinite;
+}
+.dav-btns{display:flex; gap:8px;}
+.dav-btn{
+  width:42px; height:42px;
+  display:grid; place-items:center;
+  background:rgba(7,7,10,.72);
+  border:1px solid var(--line-2);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  color:var(--ink);
+  clip-path:polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+  transition:color .25s, border-color .25s, background .25s, transform .3s var(--spring), box-shadow .3s;
+  cursor:none;
+}
+.dav-btn:hover{
+  color:var(--mint);
+  border-color:var(--mint);
+  background:rgba(16,232,156,.1);
+  transform:translateY(-2px);
+  box-shadow:0 8px 24px rgba(16,232,156,.28);
+}
+.dav-btn:active{transform:translateY(0) scale(.96);}
+.dav-btn svg{width:16px; height:16px; stroke:currentColor; fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round;}
+.dav-btn .i-on{display:block;}
+.dav-btn .i-off{display:none;}
+.dav-btn[aria-pressed="true"] .i-on{display:none;}
+.dav-btn[aria-pressed="true"] .i-off{display:block;}
+
+/* copy column */
+.dav-copy{display:flex; flex-direction:column; gap:28px;}
+.dav-copy .section-title{margin:0; max-width:16ch;}
+.dav-copy .lede{
+  font-size:15.5px;
+  line-height:1.65;
+  color:var(--ink-2);
+  max-width:46ch;
+}
+.dav-copy .lede strong{color:var(--ink); font-weight:600;}
+.dav-specs{
+  display:flex; flex-direction:column;
+  border-top:1px solid var(--line);
+}
+.dav-spec{
+  display:grid;
+  grid-template-columns:38px 1fr auto;
+  gap:16px;
+  align-items:baseline;
+  padding:16px 0;
+  border-bottom:1px solid var(--line);
+  transition:padding-left .35s var(--ease-out);
+}
+.dav-spec:hover{padding-left:12px;}
+.dav-spec .s-i{
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px; letter-spacing:.16em;
+  color:var(--violet);
+  font-weight:600;
+}
+.dav-spec .s-t{
+  font-size:14.5px;
+  color:var(--ink-2);
+  line-height:1.5;
+}
+.dav-spec .s-t strong{color:var(--ink); font-weight:500;}
+.dav-spec .s-b{
+  font-family:'JetBrains Mono',monospace;
+  font-size:9.5px; letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--ink-4);
+  white-space:nowrap;
+}
+.dav-actions{
+  display:flex; flex-wrap:wrap; gap:14px 20px; align-items:center;
+  margin-top:4px;
+}
+@media (max-width:1000px){
+  .dav-copy .section-title{max-width:22ch;}
+}
+
 /* BIG CONTACT */
 .big-contact{
   position:relative;
@@ -1701,6 +1920,10 @@ footer::before{
   .big-contact{padding:80px 20px;}
   .partners{padding:80px 20px;}
   .partners .card{padding:32px 24px;}
+  .dav-controls{left:10px; right:10px; bottom:10px; gap:8px;}
+  .dav-btn{width:38px; height:38px;}
+  .dav-tag{padding:5px 10px; font-size:9px;}
+  .dav-live{top:10px; padding:5px 10px; font-size:9px;}
 }
 </style>
 </head>
@@ -1760,6 +1983,7 @@ footer::before{
   <div class="track"></div>
   <div class="dot" data-dot="exposure"></div>
   <div class="dot" data-dot="modules"></div>
+  <div class="dot" data-dot="digital-address"></div>
   <div class="dot" data-dot="reach-us"></div>
   <div class="dot" data-dot="protocol"></div>
   <div class="dot" data-dot="credo"></div>
@@ -1924,6 +2148,126 @@ footer::before{
     </div>
   </section>
 
+  <!-- DIGITAL ADDRESS VERIFICATION -->
+  <section id="digital-address" data-stage="DIGITAL ADDRESS">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="section-tag"><span class="idx">03</span><span class="bar"></span>Deep Dive · Module 06</span>
+        <h2 class="section-title">Address proof, <em>recorded</em> at the doorstep.</h2>
+        <span class="section-tag ref">Digital Address Verification</span>
+      </div>
+
+      <div class="dav">
+        <div class="dav-frame reveal">
+          <div class="dav-shell">
+            <video
+              id="davVideo"
+              class="dav-video"
+              src="https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/Digital_Addressverification.mp4"
+              muted
+              loop
+              playsinline
+              autoplay
+              preload="metadata"
+              aria-label="Digital address verification field visit walkthrough"></video>
+
+            <span class="dav-corner tl" aria-hidden="true"></span>
+            <span class="dav-corner tr" aria-hidden="true"></span>
+            <span class="dav-corner bl" aria-hidden="true"></span>
+            <span class="dav-corner br" aria-hidden="true"></span>
+
+            <div class="dav-live" aria-hidden="true">
+              <span class="rec"></span>
+              <span>REC</span>
+              <span class="sep">·</span>
+              <strong id="davTime">00:00 / 00:10</strong>
+              <span class="sep">·</span>
+              <span>FIELD UNIT</span>
+            </div>
+
+            <div class="dav-controls">
+              <span class="dav-tag">
+                <span class="gps"></span>
+                GEO-TAGGED · VERIFIED
+              </span>
+              <div class="dav-btns">
+                <button
+                  id="davPlay"
+                  class="dav-btn"
+                  type="button"
+                  aria-pressed="false"
+                  aria-label="Pause video"
+                  title="Pause / Play">
+                  <svg class="i-on" viewBox="0 0 24 24" aria-hidden="true">
+                    <rect x="6" y="5" width="4" height="14" rx="1"></rect>
+                    <rect x="14" y="5" width="4" height="14" rx="1"></rect>
+                  </svg>
+                  <svg class="i-off" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M7 5.5v13l11-6.5-11-6.5z"></path>
+                  </svg>
+                </button>
+                <button
+                  id="davMute"
+                  class="dav-btn"
+                  type="button"
+                  aria-pressed="false"
+                  aria-label="Unmute video"
+                  title="Mute / Unmute">
+                  <svg class="i-on" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M11 5 6 9H3v6h3l5 4V5z"></path>
+                    <line x1="16" y1="9" x2="21" y2="15"></line>
+                    <line x1="21" y1="9" x2="16" y2="15"></line>
+                  </svg>
+                  <svg class="i-off" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M11 5 6 9H3v6h3l5 4V5z"></path>
+                    <path d="M16 9a4 4 0 0 1 0 6"></path>
+                    <path d="M19 6.5a8 8 0 0 1 0 11"></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dav-copy reveal">
+          <p class="lede">
+            A field agent arrives at the declared residence, captures the door, the building and the street, and the proof is <strong>timestamped and geotagged on the spot.</strong> No paper affidavits, no "self-declared", no ambiguity.
+          </p>
+          <div class="dav-specs">
+            <div class="dav-spec">
+              <span class="s-i">01</span>
+              <span class="s-t"><strong>Live GPS lock</strong> on the declared address coordinates.</span>
+              <span class="s-b">Geo</span>
+            </div>
+            <div class="dav-spec">
+              <span class="s-i">02</span>
+              <span class="s-t"><strong>Timestamped capture</strong> with tamper-evident hash.</span>
+              <span class="s-b">Time</span>
+            </div>
+            <div class="dav-spec">
+              <span class="s-i">03</span>
+              <span class="s-t"><strong>Photo and video evidence</strong> attached to the case file.</span>
+              <span class="s-b">Media</span>
+            </div>
+            <div class="dav-spec">
+              <span class="s-i">04</span>
+              <span class="s-t"><strong>Digital residence confirmation</strong> where the resident permits.</span>
+              <span class="s-b">Digital</span>
+            </div>
+          </div>
+          <div class="dav-actions">
+            <a href="/products/address-verification" class="cta">
+              <span>See Address Verification
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+              </span>
+            </a>
+            <a href="/contact" class="cta-ghost">Request a demo</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- BIG CONTACT -->
   <section class="big-contact" id="reach-us" data-stage="REACH">
     <div class="wrap">
@@ -1954,7 +2298,7 @@ footer::before{
   <section id="protocol" data-stage="PROCESS">
     <div class="wrap">
       <div class="section-head reveal">
-        <span class="section-tag"><span class="idx">03</span><span class="bar"></span>How It Works</span>
+        <span class="section-tag"><span class="idx">04</span><span class="bar"></span>How It Works</span>
         <h2 class="section-title">From request to report, in <em>five</em> clear steps.</h2>
         <span class="section-tag ref">Process</span>
       </div>
@@ -1992,7 +2336,7 @@ footer::before{
   <section id="credo" data-stage="WHY US">
     <div class="wrap">
       <div class="section-head reveal">
-        <span class="section-tag"><span class="idx">04</span><span class="bar"></span>Why Truevence</span>
+        <span class="section-tag"><span class="idx">05</span><span class="bar"></span>Why Truevence</span>
         <h2 class="section-title">Practitioner depth. <em>Platform speed.</em></h2>
         <span class="section-tag ref">Our Principles</span>
       </div>
@@ -2034,7 +2378,7 @@ footer::before{
   <section id="sectors" data-stage="INDUSTRIES">
     <div class="wrap">
       <div class="section-head reveal">
-        <span class="section-tag"><span class="idx">05</span><span class="bar"></span>Industries</span>
+        <span class="section-tag"><span class="idx">06</span><span class="bar"></span>Industries</span>
         <h2 class="section-title">Tailored checks for <em>every</em> sector.</h2>
         <span class="section-tag ref">Who We Serve</span>
       </div>
@@ -2096,7 +2440,7 @@ footer::before{
     <div class="wrap">
       <div class="grid">
         <div class="reveal">
-          <span class="section-tag"><span class="idx">06</span><span class="bar"></span>Partner Program</span>
+          <span class="section-tag"><span class="idx">07</span><span class="bar"></span>Partner Program</span>
           <h2 class="section-title">Your network, <em>our verification engine.</em></h2>
           <p class="lede">You already know which teams are hiring. We already know how to verify them. Bring us the introduction, and we take every check, every report and every deadline off your plate. You stay the trusted advisor. We stay invisible.</p>
           <ul class="benefits">
@@ -2157,7 +2501,7 @@ footer::before{
   <section id="journal" data-stage="BLOG">
     <div class="wrap">
       <div class="section-head reveal">
-        <span class="section-tag"><span class="idx">07</span><span class="bar"></span>Insights</span>
+        <span class="section-tag"><span class="idx">08</span><span class="bar"></span>Insights</span>
         <h2 class="section-title">Reading for teams who <em>screen.</em></h2>
         <span class="section-tag ref">BGV Blog</span>
       </div>
@@ -2194,7 +2538,7 @@ footer::before{
   <section id="faq" data-stage="FAQ">
     <div class="wrap">
       <div class="section-head reveal">
-        <span class="section-tag"><span class="idx">08</span><span class="bar"></span>FAQ</span>
+        <span class="section-tag"><span class="idx">09</span><span class="bar"></span>FAQ</span>
         <h2 class="section-title">Questions we get <em>before signing.</em></h2>
         <span class="section-tag ref">Common Queries</span>
       </div>
@@ -2292,7 +2636,7 @@ footer::before{
   <section id="contact" data-stage="CONTACT">
     <div class="wrap">
       <div class="section-head reveal">
-        <span class="section-tag"><span class="idx">09</span><span class="bar"></span>Get In Touch</span>
+        <span class="section-tag"><span class="idx">10</span><span class="bar"></span>Get In Touch</span>
         <h2 class="section-title">Let's start the <em>verification.</em></h2>
         <span class="section-tag ref">Contact</span>
       </div>
@@ -2464,7 +2808,7 @@ footer::before{
     }
     raf();
 
-    var hot = 'a, button, input, textarea, .stream-item, .j-item, .q, .sector-row, .manifest-line, .orbit-node, .step';
+    var hot = 'a, button, input, textarea, .stream-item, .j-item, .q, .sector-row, .manifest-line, .orbit-node, .step, .dav-btn';
     document.addEventListener('mouseover', function(e){
       if (e.target.closest(hot)) document.body.classList.add('hot');
     });
@@ -2537,6 +2881,70 @@ footer::before{
     if (!b) return;
     b.addEventListener('click', function(){ q.classList.toggle('open'); });
   });
+
+  /* DIGITAL ADDRESS VIDEO CONTROLS */
+  (function(){
+    var v = document.getElementById('davVideo');
+    var play = document.getElementById('davPlay');
+    var mute = document.getElementById('davMute');
+    var time = document.getElementById('davTime');
+    if (!v) return;
+
+    function fmt(s){
+      if (!isFinite(s) || s < 0) s = 0;
+      var m = Math.floor(s / 60);
+      var sec = Math.floor(s % 60);
+      return ('0'+m).slice(-2) + ':' + ('0'+sec).slice(-2);
+    }
+    function syncTime(){
+      if (!time) return;
+      var dur = isFinite(v.duration) && v.duration > 0 ? v.duration : 10;
+      time.textContent = fmt(v.currentTime) + ' / ' + fmt(dur);
+    }
+    function syncPlay(){
+      if (!play) return;
+      var paused = v.paused;
+      play.setAttribute('aria-pressed', paused ? 'true' : 'false');
+      play.setAttribute('aria-label', paused ? 'Play video' : 'Pause video');
+    }
+    function syncMute(){
+      if (!mute) return;
+      var m = v.muted;
+      mute.setAttribute('aria-pressed', m ? 'true' : 'false');
+      mute.setAttribute('aria-label', m ? 'Unmute video' : 'Mute video');
+    }
+
+    if (play){
+      play.addEventListener('click', function(){
+        if (v.paused){ v.play().catch(function(){}); }
+        else { v.pause(); }
+      });
+    }
+    if (mute){
+      mute.addEventListener('click', function(){
+        v.muted = !v.muted;
+        if (!v.muted && v.paused){
+          v.play().catch(function(){});
+        }
+        syncMute();
+      });
+    }
+
+    v.addEventListener('play', syncPlay);
+    v.addEventListener('pause', syncPlay);
+    v.addEventListener('volumechange', syncMute);
+    v.addEventListener('timeupdate', syncTime);
+    v.addEventListener('loadedmetadata', syncTime);
+    v.addEventListener('durationchange', syncTime);
+
+    syncPlay();
+    syncMute();
+    syncTime();
+
+    /* Fallback autoplay if attribute is blocked */
+    var p = v.play();
+    if (p && typeof p.catch === 'function'){ p.catch(function(){}); }
+  })();
 
   /* NEWSLETTER */
   (function(){
