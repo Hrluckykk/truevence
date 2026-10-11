@@ -687,7 +687,7 @@ section{
 .stream-item:hover .arrow{color:var(--mint); transform:translateX(8px);}
 
 /* ============================================================
-   DIGITAL ADDRESS VERIFICATION (new)
+   DIGITAL ADDRESS VERIFICATION
    ============================================================ */
 .dav{
   display:grid;
@@ -699,7 +699,6 @@ section{
   .dav{grid-template-columns:1.25fr 1fr; gap:72px;}
 }
 
-/* video frame */
 .dav-frame{
   position:relative;
   isolation:isolate;
@@ -750,7 +749,6 @@ section{
   .dav-video{aspect-ratio:16 / 9;}
 }
 
-/* corner brackets */
 .dav-corner{
   position:absolute;
   width:22px; height:22px;
@@ -767,7 +765,6 @@ section{
 .dav-corner.bl{bottom:12px; left:12px; border-bottom-width:1.5px; border-left-width:1.5px;}
 .dav-corner.br{bottom:12px; right:12px; border-bottom-width:1.5px; border-right-width:1.5px;}
 
-/* live feed strip */
 .dav-live{
   position:absolute;
   top:14px; left:50%;
@@ -796,7 +793,6 @@ section{
 .dav-live .sep{color:var(--ink-4);}
 .dav-live strong{color:var(--mint); font-weight:600;}
 
-/* controls */
 .dav-controls{
   position:absolute;
   left:14px; right:14px; bottom:14px;
@@ -854,7 +850,6 @@ section{
 .dav-btn[aria-pressed="true"] .i-on{display:none;}
 .dav-btn[aria-pressed="true"] .i-off{display:block;}
 
-/* copy column */
 .dav-copy{display:flex; flex-direction:column; gap:28px;}
 .dav-copy .section-title{margin:0; max-width:16ch;}
 .dav-copy .lede{
@@ -2280,7 +2275,7 @@ footer::before{
         </div>
         <div>
           <span class="lbl">Phone</span>
-          <a href="tel:+915757344">+91 920 5757 344</a>
+          <a href="tel:+919205757344">+91 920 5757 7344</a>
         </div>
       </div>
       <div class="actions reveal">
@@ -2941,7 +2936,6 @@ footer::before{
     syncMute();
     syncTime();
 
-    /* Fallback autoplay if attribute is blocked */
     var p = v.play();
     if (p && typeof p.catch === 'function'){ p.catch(function(){}); }
   })();
