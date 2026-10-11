@@ -34,6 +34,30 @@
 }
 </script>
 
+<!-- VideoObject Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "Truevence Address Verification — Field Visit Walkthrough",
+  "description": "See how a Truevence field agent verifies a candidate's residential address — geo-tagged photos, occupancy check and evidence collection.",
+  "thumbnailUrl": [
+    "https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/ChatGPT%20Image%20Jul%2018%2C%202026%2C%2009_59_12%20PM.png"
+  ],
+  "uploadDate": "2026-07-18",
+  "contentUrl": "https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/address-verification.mp4",
+  "embedUrl": "https://www.truevence.in/products/address-verification.html",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Truevence",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/Name.png"
+    }
+  }
+}
+</script>
+
 <!-- Favicon -->
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192.png">
@@ -167,6 +191,103 @@
     filter: blur(60px);
     opacity: 0.25;
     z-index: 0;
+  }
+
+  /* ===== VIDEO BLOCK ===== */
+  .video-block {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #0B1230;
+    border: 1px solid rgba(124, 58, 237, 0.18);
+    box-shadow: 0 24px 60px -24px rgba(124, 58, 237, 0.35);
+  }
+  .video-block::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 20% 20%, rgba(124, 58, 237, 0.18), transparent 55%),
+      radial-gradient(circle at 80% 90%, rgba(167, 139, 250, 0.14), transparent 55%);
+    pointer-events: none;
+    z-index: 1;
+  }
+  .video-frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #060A1F;
+    z-index: 2;
+  }
+  .video-frame video {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    background: #060A1F;
+  }
+  .video-caption {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 14px 22px;
+    border-top: 1px solid rgba(124, 58, 237, 0.14);
+    background: rgba(6, 10, 31, 0.7);
+    backdrop-filter: blur(8px);
+    position: relative;
+    z-index: 3;
+  }
+  .video-caption .v-kicker {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    color: #A78BFA;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .video-caption .v-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700;
+    font-size: 13.5px;
+    color: #F7F7FB;
+    margin-top: 2px;
+  }
+  .video-caption .v-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 6px 13px;
+    border-radius: 999px;
+    background: rgba(22, 163, 74, 0.12);
+    border: 1px solid rgba(22, 163, 74, 0.4);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    color: #4ADE80;
+    text-transform: uppercase;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .video-caption .v-badge::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #4ADE80;
+    box-shadow: 0 0 8px #4ADE80;
+    animation: pulse-live 1.6s ease-in-out infinite;
+  }
+  @keyframes pulse-live {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.45; transform: scale(0.7); }
+  }
+  @media (max-width: 640px) {
+    .video-caption {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
   }
 </style>
 </head>
@@ -371,6 +492,38 @@
             <li class="flex items-start gap-2"><svg class="w-5 h-5 text-green-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg> No travel, fully remote</li>
             <li class="flex items-start gap-2"><svg class="w-5 h-5 text-red-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg> Limited to candidates with digital documents</li>
           </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ VIDEO BLOCK ============ -->
+    <div class="mb-16" data-aos="fade-up">
+      <h2 class="font-display font-bold text-2xl mb-6 flex items-center gap-3">
+        <svg class="w-8 h-8 text-violet" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+        </svg>
+        See a field visit in motion
+      </h2>
+
+      <div class="video-block">
+        <div class="video-frame">
+          <video
+            controls
+            playsinline
+            preload="metadata"
+            poster="https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/ChatGPT%20Image%20Jul%2018%2C%202026%2C%2009_59_12%20PM.png"
+            aria-label="Truevence address verification field visit walkthrough">
+            <source src="https://pub-23829b735d524cbaa428c0e9534df703.r2.dev/address-verification.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+
+        <div class="video-caption">
+          <div>
+            <div class="v-kicker">Field Walkthrough · 02:14</div>
+            <div class="v-title">How a Truevence agent verifies a residence</div>
+          </div>
+          <span class="v-badge">Consent-led</span>
         </div>
       </div>
     </div>
